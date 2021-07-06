@@ -11,9 +11,13 @@ export const theme = {
         m: "4px",
         l: "5px"
     },
-    border_radius:{
+    border_radius: {
         l: "18px",
         m: "16px",
         s: "12px"
+    },
+    icons: {
+        l: "1.688rem"
     }
+
 }

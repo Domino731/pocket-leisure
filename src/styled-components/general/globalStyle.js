@@ -13,6 +13,9 @@ export const GlobalStyle = createGlobalStyle`
   }
  button{
    font-size: 1.875rem;
+   &:hover{
+     cursor: pointer;
+   }
  }
   h1{
     font-size: 3.5rem

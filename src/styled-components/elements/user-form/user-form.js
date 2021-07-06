@@ -24,10 +24,7 @@ export const Form = styled.form`
     color: ${props => props.theme.color.white};
     font-weight: bold;
   }
-  strong{
-    margin-top: 13px;
-    padding: 3px 25px;
-  }
+ 
 `
 export const FormElement = styled.div`
   display: flex;
@@ -35,15 +32,15 @@ export const FormElement = styled.div`
   justify-content: center;
   margin-bottom: 16px;
 
-  &:nth-child(3) {
+  &:nth-child(3),  &:nth-child(4) {
     margin-left: 30px;
-    margin-bottom: 0;
     i {
       margin-left: -21px;
     }
   }
 
   i {
+    font-size: ${props => props.theme.icons.l};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,5 +65,16 @@ export const FormElement = styled.div`
   input:focus{
     transition: 0.3s;
     border: ${props => props.theme.border.m} solid ${props => props.theme.color.red};
+  }
+  strong{
+    margin-top: 11px;
+    padding: 8px 25px;
+    font-size: 0.875rem;
+    transition: 0.1s;
+    &:hover{
+      transition: 0.2s;
+      cursor: pointer;
+      color: ${props => props.theme.color.gray}
+    }
   }
 `
