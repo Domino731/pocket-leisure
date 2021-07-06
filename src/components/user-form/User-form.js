@@ -4,6 +4,8 @@ import {Register} from "./Register";
 import {Container} from "../../styled-components/general/general-styles";
 import {useState} from "react";
 
+// styles
+import {TriangleBot, TriangleTop} from "../../styled-components/general/general-styles";
 
 export const UserForm = () => {
     // flag which allows switching between forms
@@ -15,6 +17,8 @@ export const UserForm = () => {
     }
 
     return <Container>
+        <TriangleBot/>
         {flag ? <Login switchForm={handleChangeFlag}/> : <Register switchForm={handleChangeFlag}/>}
+        <TriangleTop/>
     </Container>
 }
