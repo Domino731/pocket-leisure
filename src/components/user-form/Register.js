@@ -84,11 +84,11 @@ export const Register = ({switchForm}) => {
         </FormInvalid>
         <FormElement>
             <i className="fas fa-at"/>
-            <input type="email" placeholder="E-mail" onChange={handleChangeData} value={data.email} name="email" maxLength="29"/>
+            <input type="email" placeholder="E-mail" onChange={handleChangeData} value={data.email} name="email"/>
         </FormElement>
 
         <FormElement right>
-            <input type="text" placeholder="Password - 6 character minimum" onChange={handleChangeData} value={data.password}
+            <input type="password" placeholder="Password - 6 character minimum" onChange={handleChangeData} value={data.password}
                    name="password" maxLength="29"/>
             <i className="fas fa-lock-open"/>
         </FormElement>
@@ -102,7 +102,7 @@ export const Register = ({switchForm}) => {
         <FormElement>
             <i className="fas fa-feather"/>
             <input type="text" placeholder="Username" onChange={handleChangeData} value={data.username}
-                   name="username"/>
+                   name="username"  maxLength="24"/>
         </FormElement>
 
 

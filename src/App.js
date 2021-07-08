@@ -1,4 +1,3 @@
-import {UserForm} from "./components/user-form/User-form";
 import {PasswordReset} from "./components/user-form/PasswordReset";
 import {BrowserRouter as Router} from "react-router-dom";
 import {connect} from "react-redux";
@@ -8,7 +7,8 @@ import {auth} from "./firebase/firebase";
 import {Route} from "react-router";
 // components
 import PrivateRoute from "./components/privateRoute/PrivateRoute";
-import {HomePage} from "./components/homePage/HomePage";
+import HomePage from "./components/homePage/HomePage";
+import Movies from "./components/movies/Movies";
 
 function App({setUser}) {
 
@@ -30,6 +30,7 @@ function App({setUser}) {
     return <Router>
         <PrivateRoute exact path="/" component={HomePage}/>
         <Route path="/password-reset" component={PasswordReset}/>
+        <Route path="/movies" component={Movies}/>
     </Router>
 
 }

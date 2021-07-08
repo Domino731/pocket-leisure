@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {formIcon} from "../../general/animations";
+import {an__formRecovery} from "../../general/animations";
 
 export const Form = styled.form`
   width: 100%;
@@ -9,33 +10,34 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
+
   h1 {
     margin-bottom: 1.25rem;
     text-align: center;
   }
-  button{
+
+  button {
     width: 286px;
     height: 50px;
     margin-top: 50px;
     border: none;
     border-radius: ${props => props.theme.border_radius.l};
-    background: ${props => props.theme.color.red};
-    box-shadow: 0 0 14px ${props => props.theme.color.red};
+    background: ${props => props.theme.color.main};
+    box-shadow: 0 0 14px ${props => props.theme.color.main};
     color: ${props => props.theme.color.white};
     font-weight: bold;
   }
- 
+
 `
 export const FormElement = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 16px;
-  margin-left: ${props => props.right ? "30px" : "0"};
-  
+  margin-left: ${props => props.right ? "22px" : "0"};
+
   i {
-    //animation: ${formIcon} 2s infinite;
+      //animation: ${formIcon} 2s infinite;
     font-size: ${props => props.theme.icons.l};
     display: flex;
     justify-content: center;
@@ -43,10 +45,10 @@ export const FormElement = styled.div`
     z-index: 1;
     height: 60px;
     width: 60px;
-    box-shadow: 0 0 14px ${props => props.theme.color.red};
+    box-shadow: 0 0 14px ${props => props.theme.color.main};
     border-radius: 40px;
     margin-left: ${props => props.right ? "-21px" : "0"};
-    background: ${props => props.theme.color.red};
+    background: ${props => props.theme.color.main};
   }
 
   input {
@@ -60,21 +62,14 @@ export const FormElement = styled.div`
     outline: none;
     transition: 0.5s;
     position: relative;
-    &::after{
-      position: absolute;
-      content: "";
-      display: block;
-      width: 40px;
-      height: 40px;
-      background: red;
-      left: 0;
-    }
   }
-  input:focus{
+
+  input:focus {
     transition: 0.3s;
-    border: ${props => props.theme.border.m} solid ${props => props.theme.color.red};
+    border: ${props => props.theme.border.m} solid ${props => props.theme.color.main};
   }
-  strong, a{
+
+  strong, a {
     margin-top: 11px;
     padding: 8px 25px;
     font-size: 0.875rem;
@@ -82,17 +77,20 @@ export const FormElement = styled.div`
     transition: 0.1s;
     color: ${props => props.theme.color.white}
   }
-  a{
+
+  a {
     color: ${props => props.theme.color.white};
     text-decoration: none;
-    &:hover{
+
+    &:hover {
       transition: 0.2s;
       cursor: pointer;
       color: ${props => props.theme.color.gray}
     }
   }
-  strong{
-    &:hover{
+
+  strong {
+    &:hover {
       transition: 0.2s;
       cursor: pointer;
       color: ${props => props.theme.color.gray}
@@ -100,11 +98,33 @@ export const FormElement = styled.div`
   }
 `
 export const FormInvalid = styled.div`
-  strong{
+  strong {
     display: block;
     width: 100%;
     text-align: center;
     margin-bottom: 0.813rem;
     color: ${props => props.theme.color.invalid}
+  }
+`
+export const FormPasswordRecovery = styled.div`
+  background: ${props => props.theme.color.main};
+  width: 95vw;
+  height: 341px;
+  border-radius: ${props => props.theme.border_radius.l};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 14px ${props => props.theme.color.main};
+  transform: scale(0);
+  animation: ${an__formRecovery} 0.7s forwards;
+  strong{
+    margin-top: 14px;
+    text-align: center;
+    font-size: 1.688rem;
+    line-height: 1.938rem;
+  }
+  i{
+    margin-top: 35px;
+    font-size: 10.25rem;
   }
 `

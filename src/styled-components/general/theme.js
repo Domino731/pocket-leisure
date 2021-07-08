@@ -4,7 +4,7 @@ export const theme = {
         white: "#FFFAFA",
         yellow: "#fcbe32",
         gray: "#707070",
-        red: "#e63946",
+        main: "#e63946",
         invalid: "#f9320c"
     },
     border: {

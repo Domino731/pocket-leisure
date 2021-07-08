@@ -6,7 +6,7 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'Roboto', sans-serif;
     background: ${props => props.theme.color.black};
-    color: ${props => props.theme.color.white}
+    color: ${props => props.theme.color.white};
   }
   input{
     height: 34px;
@@ -20,4 +20,5 @@ export const GlobalStyle = createGlobalStyle`
   h1{
     font-size: 3.5rem
   }
+ 
 `;
