@@ -5,12 +5,12 @@ import {MovieCategorySingle} from "./MovieCategorySingle";
 import {
     MovieCategory,
     MovieCategoryList,
-    MovieCategoryTitle,
+    MovieElementTitle,
     MovieCategoryForm
 } from "../../styled-components/elements/movie/movieCategory";
 import {CheckboxRadio} from "../../styled-components/general/general-styles";
 
-export const MostPopularMovies = () => {
+export const MoviesByCategory = () => {
 
     // state with movies on the basis of which individual components are rendered
     const [movies, setMovies] = useState([])
@@ -21,7 +21,7 @@ export const MostPopularMovies = () => {
 
     const [category, setCategory] = useState("Popular")
     // switching between films and form
-    const handleChangeFlag = (e) => {
+    const handleChangeFlag = () => {
         setFlag(!flag)
     }
 
@@ -48,9 +48,9 @@ export const MostPopularMovies = () => {
         return null
     } else {
         return <MovieCategory>
-            <MovieCategoryTitle onClick={handleChangeFlag}>{category}<i
-                className="fas fa-exchange-alt"/></MovieCategoryTitle>
-            <MovieCategoryList>
+            <MovieElementTitle onClick={handleChangeFlag}>{category}<i
+                className="fas fa-filter"/></MovieElementTitle>
+            <MovieCategoryList onTouchStart={(e) => e.preventDefault()}>
                 {flag === false && movies.map((el, num) => <MovieCategorySingle movie={el}
                                                                                 key={`movieByCategory${num}`}/>)}
                 {flag && <MovieCategoryForm>
@@ -64,11 +64,12 @@ export const MostPopularMovies = () => {
                                onChange={(e) => handleChangeCategory(e, "/movie/now_playing")}/>
                         <label><i className="fas fa-play"/>Now playing</label>
                     </CheckboxRadio>
-                    <CheckboxRadio>
-                        <input type="radio" value="Latest" checked={category === "Latest"}
-                               onChange={(e) => handleChangeCategory(e, "/movie/latest")}/>
-                        <label><i className="fas fa-bullhorn"/>Latest</label>
-                    </CheckboxRadio>
+
+                    {/*<CheckboxRadio>*/}
+                    {/*    <input type="radio" value="Latest" checked={category === "Latest"}*/}
+                    {/*           onChange={(e) => handleChangeCategory(e, "/movie/latest")}/>*/}
+                    {/*    <label><i className="fas fa-clock"/>Latest</label>*/}
+                    {/*</CheckboxRadio>*/}
                     <CheckboxRadio>
                         <input type="radio" value="Top rated" checked={category === "Top rated"}
                                onChange={(e) => handleChangeCategory(e, "/movie/top_rated")}/>
@@ -77,7 +78,7 @@ export const MostPopularMovies = () => {
                     <CheckboxRadio>
                         <input type="radio" value="Upcoming" checked={category === "Upcoming"}
                                onChange={(e) => handleChangeCategory(e, "/movie/upcoming")}/>
-                        <label><i className="fas fa-stopwatch-20"/>Upcoming</label>
+                        <label><i className="fas fa-calendar-day"/>Upcoming</label>
                     </CheckboxRadio>
                 </MovieCategoryForm>}
             </MovieCategoryList>

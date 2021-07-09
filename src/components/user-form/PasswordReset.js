@@ -32,18 +32,18 @@ export const PasswordReset = () => {
         e.preventDefault()
         setFlag(true)
         console.log(flag)
-        // auth().sendPasswordResetEmail(email)
-        //     .then(() => {
-        //       console.log("a password reset link has been sent to your email")
-        //     })
-        //     .catch((error) => {
-        //         if(error.code === "auth/invalid-email"){
-        //             setMsg("E-mail is incorrect")
-        //         }
-        //        else if (error.code === "auth/user-not-found"){
-        //            setMsg("No user with this e-mail address")
-        //         }
-        //     });
+        auth().sendPasswordResetEmail(email)
+            .then(() => {
+              console.log("a password reset link has been sent to your email")
+            })
+            .catch((error) => {
+                if(error.code === "auth/invalid-email"){
+                    setMsg("E-mail is incorrect")
+                }
+               else if (error.code === "auth/user-not-found"){
+                   setMsg("No user with this e-mail address")
+                }
+            });
 
     }
 

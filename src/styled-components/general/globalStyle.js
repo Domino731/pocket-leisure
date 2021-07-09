@@ -8,17 +8,25 @@ export const GlobalStyle = createGlobalStyle`
     background: ${props => props.theme.color.black};
     color: ${props => props.theme.color.white};
   }
-  input{
+
+  input {
     height: 34px;
   }
- button{
-   font-size: 1.875rem;
-   &:hover{
-     cursor: pointer;
-   }
- }
-  h1{
+
+  button {
+    font-size: 1.875rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  h1 {
     font-size: 3.5rem
   }
- 
+
+  a {
+    color: ${props => props.theme.color.white};
+    text-decoration: none;
+  }
 `;

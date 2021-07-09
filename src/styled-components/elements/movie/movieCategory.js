@@ -12,7 +12,7 @@ export const Movie = styled.div`
 export const MovieCategory = styled.section`
 
 `
-export const MovieCategoryTitle = styled.h2`
+export const MovieElementTitle = styled.h2`
   display: flex;
   align-items: center;
   font-size: 1rem;
@@ -35,6 +35,7 @@ export const MovieCategoryList = styled.ul`
   display: flex;
   overflow: auto;
   overflow-y: hidden;
+  padding-bottom: 10px;
   &::-webkit-scrollbar{
     height: 8px;
   }
@@ -50,5 +51,5 @@ export const MovieCategoryItem = styled.div`
 `
 export const MovieCategoryForm = styled.form`
     width: 100%;
-  
+  overflow: hidden;
 `

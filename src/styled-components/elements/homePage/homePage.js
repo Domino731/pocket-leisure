@@ -18,6 +18,7 @@ export const NavigationItem = styled.li`
   height: 226px;
   margin: 5px;
   background: ${props => props.theme.color.main};
+  box-shadow: 0 0 8px ${props => props.theme.color.main};
   border-radius: 33px;
   color: ${props => props.theme.color.black};
   font-weight: bold;

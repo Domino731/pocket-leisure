@@ -1,14 +1,17 @@
 import {Container} from "../../styled-components/general/general-styles";
-import {MostPopularMovies} from "./MostPopularMovies";
+import {MoviesByCategory} from "./MoviesByCategory";
+import {MoviesGenres} from "./MoviesGenres";
 // styles
 import {Movie} from "../../styled-components/elements/movie/movieCategory";
+import {TitlePrimary} from "../../styled-components/general/general-styles";
 
 const Movies = () => {
 
     return <Container>
         <Movie>
-            <h1>Movies</h1>
-            <MostPopularMovies/>
+            <TitlePrimary>Movies</TitlePrimary>
+            <MoviesByCategory/>
+            <MoviesGenres/>
         </Movie>
     </Container>
 

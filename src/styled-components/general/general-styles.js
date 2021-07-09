@@ -27,15 +27,34 @@ export const PosterBig = styled.img`
   object-fit: cover;
   border-radius: ${props => props.theme.border_radius.l};
 `
+export const PosterMed = styled.img`
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: ${props => props.theme.border_radius.l};
+  margin-right: 0.625rem;
+  flex-shrink: 0;
+`
 export const ItemTitleSmall = styled.h3`
   font-weight: bold;
   margin: 0.313rem 0 0.625rem;
   letter-spacing: 0.063rem;
   font-size: 0.813rem;
 `
+export const ItemTitleMedium = styled.h3`
+  font-weight: bold;
+  margin: 0.313rem 0 0.625rem;
+  letter-spacing: 0.063rem;
+  font-size: 1rem;
+`
 export const ItemPremiereSmall = styled.span`
   display: block;
   font-size: 0.875rem;
+  color: ${props => props.theme.color.gray};
+`
+export const ItemPremiereMedium = styled.span`
+  display: block;
+  font-size: 1.063rem;
   color: ${props => props.theme.color.gray};
 `
 export const CheckboxRadio = styled.div`
@@ -54,6 +73,7 @@ export const CheckboxRadio = styled.div`
     letter-spacing: 0.063rem;
     width: 100%;
     margin-bottom: 0.5rem;
+    border: none;
 
     i {
       position: absolute;
@@ -70,7 +90,7 @@ export const CheckboxRadio = styled.div`
       z-index: -3;
       left: 0;
       border-radius: 0 50px 50px 0;
-      
+
     }
   }
 
@@ -80,10 +100,53 @@ export const CheckboxRadio = styled.div`
 
   input {
     appearance: none;
-    width: 200px;
+    background: transparent;
+    width: 100%;
     position: absolute;
     left: 0;
     z-index: 3;
+    border: none;
+    
   }
 `
-
+export const TitlePrimary = styled.h1`
+  margin: 0.625rem 0;
+  font-size: 2.063rem;
+  color: ${props => props.theme.color.main};;
+  font-weight: bold;
+  letter-spacing: 0.063rem;
+`
+export const Genre = styled.div`
+  grid-area: ${props => props.area};
+  border-radius: ${props => props.theme.border_radius.l};
+  background: ${props => props.theme.color.main};
+  font-weight: bold;
+  letter-spacing: 0.081rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px ${props => props.theme.color.main};
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+`
+export const GetMoreBtn = styled.button`
+  width: 100%;
+  height: 48px;
+  margin: 30px 0;
+  border: none;
+  color: ${props => props.theme.color.white};
+  border-radius: ${props => props.theme.border_radius.l};
+  background: ${props => props.theme.color.main};
+`
+export const FullWidePoster = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: -3;
+  position: relative;
+  filter: drop-shadow(5px 5px 5px #fff inset);
+ 
+`
