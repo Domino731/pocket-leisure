@@ -50,7 +50,7 @@ export const MoviesByCategory = () => {
         return <MovieCategory>
             <MovieElementTitle onClick={handleChangeFlag}>{category}<i
                 className="fas fa-filter"/></MovieElementTitle>
-            <MovieCategoryList onTouchStart={(e) => e.preventDefault()}>
+            <MovieCategoryList>
                 {flag === false && movies.map((el, num) => <MovieCategorySingle movie={el}
                                                                                 key={`movieByCategory${num}`}/>)}
                 {flag && <MovieCategoryForm>

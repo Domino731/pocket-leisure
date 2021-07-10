@@ -17,7 +17,9 @@ export const MoviesByGenre = (props) => {
     // flag which allows the user to toggle the film sorting form
     const [flag, setFlag] = useState(false)
 
+    // by this string movies will be sorted
     const [sort, setSort] = useState("Top Rated")
+
     // when component mounted get movies
     useEffect(() => {
         getMoviesByParticularGenre(setMovies, props.match.params.genre)
@@ -26,7 +28,7 @@ export const MoviesByGenre = (props) => {
     // when page state will change get more movies
     useEffect(() => {
         getMoreMovies(setMovies, props.match.params.genre, page)
-    }, [page])
+    }, [page, props.match.params.genre])
     if (movies === undefined || movies.length === 0) {
         return null
     }
@@ -36,9 +38,12 @@ export const MoviesByGenre = (props) => {
         setPage(prev => prev + 1)
     }
 
+    // show sorting options
     const handleChangeFlag = () => {
         setFlag(!flag)
     }
+
+    // sort movies
     const handleSortMovies = (e) => {
 
         // set the state so that the user know which option he selected

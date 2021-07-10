@@ -8,8 +8,14 @@ const month = ["January","February","March","April","May","June","July",
 * @param {string}  date necessary to return month name
  */
  export const getReleaseDate = (date) => {
-   let monthNumber = parseInt(date.slice(5,7)) - 1
-   const year = date.slice(0,4)
-    const day = date.slice(8,10)
-    return `${year} ${month[monthNumber]} ${day}`
+     if(date !== undefined){
+         let monthNumber = parseInt(date.slice(5,7)) - 1
+         const year = date.slice(0,4)
+         const day = date.slice(8,10)
+         return `${year} ${month[monthNumber]} ${day}`
+     }
+     else{
+         return "asd"
+     }
+
 }

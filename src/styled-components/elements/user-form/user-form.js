@@ -37,7 +37,6 @@ export const FormElement = styled.div`
   margin-left: ${props => props.right ? "22px" : "0"};
 
   i {
-      //animation: ${formIcon} 2s infinite;
     font-size: ${props => props.theme.icons.l};
     display: flex;
     justify-content: center;

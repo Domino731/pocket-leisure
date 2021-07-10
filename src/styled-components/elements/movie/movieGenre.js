@@ -41,6 +41,7 @@ export const MovieGenreItem = styled.div`
   }
 `
 export const MovieRating = styled.strong`
+  min-width: 88px;
   position: absolute;
   right: 0;
   bottom: 0;

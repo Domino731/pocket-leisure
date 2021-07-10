@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {an__checkboxRadio} from "./animations";
+import {theme} from "./theme";
 
 export const Container = styled.section`
   width: 320px;
@@ -22,10 +23,21 @@ export const TriangleTop = styled.div`
   border-bottom: 100px solid transparent;
 `
 export const PosterBig = styled.img`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: auto;
   object-fit: cover;
   border-radius: ${props => props.theme.border_radius.l};
+`
+export const PosterBigMissing = styled.img`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-radius: ${props => props.theme.border_radius.l};
+  font-size: 4.5rem;
 `
 export const PosterMed = styled.img`
   width: 100px;
@@ -34,6 +46,38 @@ export const PosterMed = styled.img`
   border-radius: ${props => props.theme.border_radius.l};
   margin-right: 0.625rem;
   flex-shrink: 0;
+`
+export const PosterMedMissing = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  width: 100px;
+  flex-shrink: 0;
+  margin-right: 0.625rem;
+  border-radius: ${props => props.theme.border_radius.l};
+  color: ${props => props.theme.color.main};
+  font-size: 4.5rem;
+`
+export const TitleBar = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  i {
+    font-size: ${props => props.theme.icons.l};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 50px;
+    width: 50px;
+    box-shadow: 0 0 14px ${props => props.theme.color.main};
+    border-radius: 40px;
+    margin-left: ${props => props.right ? "-21px" : "0"};
+    background: ${props => props.theme.color.main};
+  }
 `
 export const ItemTitleSmall = styled.h3`
   font-weight: bold;
@@ -106,7 +150,7 @@ export const CheckboxRadio = styled.div`
     left: 0;
     z-index: 3;
     border: none;
-    
+
   }
 `
 export const TitlePrimary = styled.h1`
@@ -124,6 +168,7 @@ export const Genre = styled.div`
   letter-spacing: 0.081rem;
   overflow: hidden;
   box-shadow: 0 0 10px ${props => props.theme.color.main};
+
   a {
     display: flex;
     justify-content: center;
@@ -148,5 +193,5 @@ export const FullWidePoster = styled.img`
   z-index: -3;
   position: relative;
   filter: drop-shadow(5px 5px 5px #fff inset);
- 
+
 `

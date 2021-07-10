@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.color.white};
   }
 
+  * {
+    box-sizing: border-box;
+  }
+
   input {
     height: 34px;
   }

@@ -11,6 +11,7 @@ import HomePage from "./components/homePage/HomePage";
 import Movies from "./components/movies/Movies";
 import {MoviesByGenre} from "./components/movies/MoviesByGenre";
 import {Movie} from "./components/movies/Movie";
+import {MovieSearch} from "./components/movies/MovieSearch";
 
 function App({setUser}) {
 
@@ -34,6 +35,7 @@ function App({setUser}) {
         <PrivateRoute path="/movies" component={Movies}/>
         <PrivateRoute path="/movies-by-genre/:genre/:name" component={MoviesByGenre}/>
         <PrivateRoute path="/movie/:id" component={Movie}/>
+        <Route path="/movie/search" component={MovieSearch}/>
         <Route path="/password-reset" component={PasswordReset}/>
 
 
