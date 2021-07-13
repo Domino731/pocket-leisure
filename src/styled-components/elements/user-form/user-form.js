@@ -19,7 +19,6 @@ export const Form = styled.form`
   button {
     width: 286px;
     height: 50px;
-    margin-top: 50px;
     border: none;
     border-radius: ${props => props.theme.border_radius.l};
     background: ${props => props.theme.color.main};

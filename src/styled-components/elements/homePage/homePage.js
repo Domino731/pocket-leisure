@@ -14,6 +14,7 @@ export const NavigationItem = styled.li`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-grow: 1;
   width: 150px;
   height: 226px;
   margin: 5px;

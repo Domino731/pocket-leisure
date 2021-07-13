@@ -54,17 +54,12 @@ import {useState} from "react";
                    <span>Movies</span>
                </NavigationItem>
 
-               <NavigationItem animation={animation.series} onClick={() => handleRedirect("series")}>
-                   <i className="fas fa-film"/>
-                   <span>Series</span>
-               </NavigationItem>
-
                <NavigationItem animation={animation.games} onClick={() => handleRedirect("games")}>
                    <i className="fas fa-gamepad"/>
                    <span>Games</span>
                </NavigationItem>
 
-               <NavigationItem animation={animation.books} onClick={() => handleRedirect("books")}>
+               <NavigationItem animation={animation.books} onClick={() => handleRedirect("overwatch-search-your-profile")}>
                    <i className="fas fa-book"/>
                    <span>Books</span>
                </NavigationItem>
