@@ -8,7 +8,7 @@ import {
     Container,
     FullWidePoster,
     ItemTitleSmall,
-    PosterMedMissing
+    PosterMedMissing, StatTable
 } from "../../styled-components/general/general-styles";
 import {
     MovieDirector,
@@ -97,7 +97,7 @@ export const Movie = (props) => {
             <MovieDescription>{movie.overview}</MovieDescription>
 
             {/*movie details*/}
-            <MovieTable>
+            <StatTable>
                 <tbody>
                 <tr>
                     <td><i className="fas fa-circle"/>Director</td>
@@ -128,7 +128,7 @@ export const Movie = (props) => {
                     <td>{movie.production_companies.map((el,num) => <span key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
                 </tr>
                 </tbody>
-            </MovieTable>
+            </StatTable>
         </MovieInfo>
 
         {/*movie videos -> trailers*/}

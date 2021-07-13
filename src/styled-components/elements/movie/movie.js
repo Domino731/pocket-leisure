@@ -199,39 +199,3 @@ export const MovieInfo = styled.section`
   display: flex;
   flex-direction: column;
 `
-export const MovieTable = styled.table`
-  border-spacing: 0;
-
-  tr {
-    display: table-row-group;
-    vertical-align: middle;
-    border-color: inherit;
-
-    i {
-      color: ${props => props.theme.color.main};
-      margin-right: 4px;
-    }
-
-    td:first-child {
-      vertical-align: top;
-      white-space: nowrap;
-      padding: 0 20px 13px 0;
-      color: ${props => props.theme.color.gray};
-
-    }
-
-    span {
-      margin-right: 0.375rem;
-
-      &::after {
-        content: ",";
-      }
-
-      &:last-child {
-        &::after {
-          content: "";
-        }
-      }
-    }
-  }
-`

@@ -53,7 +53,7 @@ export const OverwatchSearchProfile = () => {
     // when search was successful, redirect to statistics page based on user data (username, battleTag, region, platform)
     const successful = () => {
         console.log(1)
-        history.push(`/overwatch/profile/${platform}/${region}/${data.username}/${data.battleTag}`)
+        history.push(`/overwatch/stats/${platform}/${region}/${data.username}/${data.battleTag}`)
     }
     // searching for user
     const handleSearchUser = (e) => {
