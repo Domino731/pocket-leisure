@@ -5,6 +5,7 @@ import {theme} from "./theme";
 export const Container = styled.section`
   width: 320px;
   margin: 0 auto;
+  padding-bottom: 54px;
 `
 export const TriangleBot = styled.div`
   z-index: -10;

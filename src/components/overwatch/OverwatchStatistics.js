@@ -14,7 +14,7 @@ import {
     OwWonGamesBar,
     OwStatTitle,
     OwMedalsDiagram,
-    OwButton
+    OwLink
 } from "../../styled-components/elements/overwatch/overwatch";
 import {Link} from "react-router-dom";
 
@@ -181,9 +181,14 @@ export const OverwatchStatistics = (props) => {
             </OwMedalsDiagram>
         </section>
 
-        <OwButton>
-            <Link to={`/overwatch/stats-competitive/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete competitive stats</Link>
-        </OwButton>
+        <OwLink>
+            <Link to={`/overwatch/stats-competitive/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete competitive</Link>
+        </OwLink>
+
+        <OwLink>
+            <Link to={`/overwatch/stats-quick-play/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete quick play</Link>
+        </OwLink>
+
     </Container>
 
 }

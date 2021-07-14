@@ -10,7 +10,7 @@ import {
     OwWonGamesBar
 } from "../../styled-components/elements/overwatch/overwatch";
 
-export const OverwatchStatisticsComplete = (props) => {
+export const OverwatchStatisticsCompetitive = (props) => {
     const [stats, setStats] = useState(undefined)
     useEffect(() => {
         getOverwatchCompetitiveStats(props.match.params.platform,

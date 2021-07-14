@@ -1,5 +1,4 @@
 import {Form, FormElement, FormInvalid} from "../../styled-components/elements/user-form/user-form";
-import {TriangleBot, TriangleTop} from "../../styled-components/general/general-styles";
 import {useEffect, useState} from "react";
 import {OwSearchSettings} from "../../styled-components/elements/overwatch/overwatch";
 import {getRegionImgOw, getPlatformIconOw} from "../../functions/overwatchSearch";
@@ -80,7 +79,6 @@ export const OverwatchSearchProfile = () => {
     }
 
     return <Form>
-        <TriangleTop/>
         <h1>Overwatch statistics</h1>
         <FormElement>
             <i className="fas fa-user"/>
@@ -110,6 +108,5 @@ export const OverwatchSearchProfile = () => {
             <strong>{incorrect.error}</strong>
         </FormInvalid>
         <button onClick={handleSearchUser}>Search</button>
-        <TriangleBot/>
     </Form>
 }

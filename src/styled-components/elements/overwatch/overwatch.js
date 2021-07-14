@@ -99,13 +99,10 @@ export const OwPrivate = styled.div`
   }
 `
 export const OwStatsTable = styled.table`
-  border-spacing: 0;
-
   tr {
     display: flex;
     vertical-align: middle;
     border-color: inherit;
-
     td {
       display: flex;
       align-items: center;
@@ -169,6 +166,7 @@ export const OwWonGamesBar = styled.div`
   border-radius: 50px;
   background: ${props => props.theme.color.white};
   overflow: hidden;
+
   &::after {
     content: "";
     display: block;
@@ -193,7 +191,8 @@ export const OwMedalBar = styled.div`
   background: ${props => props.theme.color.white};
   border-radius: 50px 50px 0 0;
   position: relative;
-  &::after{
+
+  &::after {
     content: "";
     display: block;
     position: absolute;
@@ -204,7 +203,7 @@ export const OwMedalBar = styled.div`
   }
 `
 
-export const OwButton = styled.div`
+export const OwLink = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
