@@ -39,7 +39,7 @@ export const MovieGenreSingle = ({movie}) => {
 
             {/*if a film has no rating, dont show it*/}
             {movie.vote_average !== 0 &&
-            <MovieRating><i className="fas fa-grin-alt"/>{movie.vote_average}</MovieRating>}
+            <MovieRating><i className="fas fa-grin-alt"/>{movie.vote_average.toFixed(1)}</MovieRating>}
 
         </div>
     </MovieGenreItem>

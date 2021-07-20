@@ -16,6 +16,7 @@ import {OverwatchSearchProfile} from "./components/overwatch/OverwatchSearchProf
 import {OverwatchStatistics} from "./components/overwatch/OverwatchStatistics";
 import {OverwatchStatisticsCompetitive} from "./components/overwatch/OverwatchStatisticsCompetitive";
 import {OverwatchStatisticsQuickPlay} from "./components/overwatch/OverwatchStatisticsQuickPlay";
+import {Games} from "./components/games/Games";
 
 function App({setUser}) {
 
@@ -37,13 +38,14 @@ function App({setUser}) {
     return <Router>
         <Route exact path="/" component={HomePage}/>
         <Route path="/movies" component={Movies}/>
-        <eRoute path="/movies-by-genre/:genre/:name" component={MoviesByGenre}/>
+        <Route path="/movies-by-genre/:genre/:name" component={MoviesByGenre}/>
         <Route path="/movie/:id" component={Movie}/>
         <Route path="/movie/search" component={MovieSearch}/>
         <Route path="/overwatch-search-your-profile" component={OverwatchSearchProfile}/>
         <Route path="/overwatch/stats/:platform/:region/:user/:battleTag" component={OverwatchStatistics}/>
         <Route path="/overwatch/stats-competitive/:platform/:region/:user/:battleTag" component={OverwatchStatisticsCompetitive}/>
         <Route path="/overwatch/stats-quick-play/:platform/:region/:user/:battleTag" component={OverwatchStatisticsQuickPlay}/>
+        <Route path="/games" component={Games}/>
         <Route path="/password-reset" component={PasswordReset}/>
 
 

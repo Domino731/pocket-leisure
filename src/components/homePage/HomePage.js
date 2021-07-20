@@ -61,7 +61,7 @@ import {useState} from "react";
 
                <NavigationItem animation={animation.books} onClick={() => handleRedirect("overwatch-search-your-profile")}>
                    <i className="fas fa-book"/>
-                   <span>Books</span>
+                   <span>Overwatch</span>
                </NavigationItem>
 
            </NavigationList>

@@ -103,15 +103,18 @@ export const StatTable = styled.table`
     i {
       color: ${props => props.theme.color.main};
       margin-right: 4px;
-    }
-
+    } 
+    span{
+      display: inline-block;
+      word-wrap: break-word;
+      }
     td:first-child {
       vertical-align: top;
       white-space: nowrap;
       padding: 0 20px 13px 0;
       color: ${props => props.theme.color.gray};
-
     }
+  
 
     span {
       margin-right: 0.375rem;
