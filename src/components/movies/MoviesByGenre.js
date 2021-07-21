@@ -1,7 +1,7 @@
 import {getMoviesByParticularGenre, getMoreMovies} from "../../api/themoviedb/operations";
 import {MovieGenreSingle} from "./MovieGenreSingle";
 import {useEffect, useState} from "react";
-import {sortMovies} from "../../firebase/sortMovies";
+import {sortMovies} from "../../functions/sortMovies";
 // styles
 
 import {Container, TitlePrimary, GetMoreBtn, CheckboxRadio} from "../../styled-components/general/general-styles";
@@ -49,7 +49,7 @@ export const MoviesByGenre = (props) => {
         // set the state so that the user know which option he selected
         setSort(e.target.value)
         sortMovies(e.target.value, setMovies)
-        // when animation ended(5s) hide form
+        // when animation ended(0.5s) hide form
         setTimeout(() => {
             setFlag(false)
         }, 500)

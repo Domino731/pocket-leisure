@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+export const GamesElementTitle = styled.h2`
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.063rem;
+  margin: 1.563rem 0 0.625rem;
+  transition: 0.1s;
+`
 export const GamesList = styled.section`
   width: 100%;
   display: flex;
@@ -28,10 +37,17 @@ export const GameSinglePlatforms = styled.ul`
   gap: 4px;
 `
 export const GameSinglePlatform = styled.li`
-  padding: 0.625rem 1.25rem;
-  background: ${props => props.theme.color.main};
-  border-radius: ${props => props.theme.border_radius.s};
-  box-shadow: 0 0 7px ${props => props.theme.color.main};
+  i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin: 3px;
+    background: ${props => props.theme.color.main};
+    border-radius: 50px;
+    box-shadow: 0 0 4px ${props => props.theme.color.main};
+  }
 `
 export const GameSingleReleased = styled.span`
   display: block;
@@ -60,9 +76,47 @@ export const GameSingleRatingMetacritic = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
   img {
     width: 32px;
     height: auto;
     margin-right: 7px;
   }
 `
+
+export const GamesGenresList = styled.ul`
+  width: 100%;
+  height: 1100px;
+  margin-bottom: 80px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-areas:
+  "action action action  indie indie indie"
+  "adventure adventure adventure rpg rpg rpg "
+  "strategy strategy strategy shooter shooter shooter"
+  "casual casual  puzzle puzzle simulation  simulation"
+  "arcade arcade arcade arcade arcade arcade"
+  "racing racing platformer platformer platformer platformer"
+  "sports sports fighting fighting fighting fighting"
+  "family family family boardgames boardgames boardgames"
+  "massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer"
+  "educational educational educational educational card card";
+  gap: 14px;
+`
+export const GamesSortForm = styled.form`
+  width: 100%;
+  overflow: hidden;
+`
+
+export const GameMissingImg = styled.div`
+  width: 300px;
+  height: 183px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${props => props.theme.color.main};
+  font-size: 143px;
+`
+

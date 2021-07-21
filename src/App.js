@@ -17,6 +17,8 @@ import {OverwatchStatistics} from "./components/overwatch/OverwatchStatistics";
 import {OverwatchStatisticsCompetitive} from "./components/overwatch/OverwatchStatisticsCompetitive";
 import {OverwatchStatisticsQuickPlay} from "./components/overwatch/OverwatchStatisticsQuickPlay";
 import {Games} from "./components/games/Games";
+import {GamesByGenre} from "./components/games/GamesByGenre";
+import {GameSearch} from "./components/games/GameSearch";
 
 function App({setUser}) {
 
@@ -48,7 +50,8 @@ function App({setUser}) {
         <Route path="/games" component={Games}/>
         <Route path="/password-reset" component={PasswordReset}/>
 
-
+        <Route path="/games-by-genre/:id/:name" component={GamesByGenre}/>
+        <Route path="/game/search" component={GameSearch}/>
     </Router>
 
 }

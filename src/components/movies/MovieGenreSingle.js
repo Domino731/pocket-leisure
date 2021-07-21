@@ -12,7 +12,7 @@ import {
 
 
 /**
- @param movie {object} - object with a film which contains its basic data - title, rating, premiere
+ @param movie {object} - object with a film which contains his basic data - title, rating, premiere
  */
 export const MovieGenreSingle = ({movie}) => {
 
