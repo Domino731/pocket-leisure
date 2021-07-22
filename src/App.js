@@ -19,6 +19,7 @@ import {OverwatchStatisticsQuickPlay} from "./components/overwatch/OverwatchStat
 import {Games} from "./components/games/Games";
 import {GamesByGenre} from "./components/games/GamesByGenre";
 import {GameSearch} from "./components/games/GameSearch";
+import {Game} from "./components/games/Game";
 
 function App({setUser}) {
 
@@ -52,6 +53,7 @@ function App({setUser}) {
 
         <Route path="/games-by-genre/:id/:name" component={GamesByGenre}/>
         <Route path="/game/search" component={GameSearch}/>
+        <Route path="/game/:id" component={Game}/>
     </Router>
 
 }

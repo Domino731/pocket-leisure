@@ -93,3 +93,114 @@ export const getSearchedGame = (successCallback, game) => {
         })
         .catch(err => console.log(err))
 }
+
+
+/**
+ fetch specific game - action, rpg, fps ...
+ * @param {function} successCallback - Function that saves incoming data
+ * @param {string} gameId - name of game that you want to get
+ */
+export const getGameDetails = (successCallback, gameId) => {
+    fetch(`${url}/games/${gameId}?key=${apiKey}`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.error === undefined && typeof successCallback === "function") {
+                successCallback(data)
+            }
+            else{
+                successCallback(undefined)
+            }
+        })
+        .catch(err => console.log(err))
+}
+
+/**
+ fetch game trailers - action, rpg, fps ...
+ * @param {function} successCallback - Function that saves incoming data
+ * @param {string} gameId - name of game that you want to get
+ */
+export const getGameTrailers = (successCallback, gameId) => {
+    fetch(`${url}/games/${gameId}/movies?key=${apiKey}`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.error === undefined && typeof successCallback === "function") {
+                successCallback(data.results)
+            }
+            else{
+                successCallback(undefined)
+            }
+        })
+        .catch(err => console.log(err))
+}
+
+/**
+ fetch game screenshots - action, rpg, fps ...
+ * @param {function} successCallback - Function that saves incoming data
+ * @param {string} gameId - name of game that you want to get
+ */
+export const getGameScreenshots = (successCallback, gameId) => {
+    fetch(`${url}/games/${gameId}/screenshots?key=${apiKey}`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.error === undefined && typeof successCallback === "function") {
+                successCallback(data.results)
+            }
+            else{
+                successCallback(undefined)
+            }
+        })
+        .catch(err => console.log(err))
+}
+
+/**
+ fetch game dlc, GOTY, editions end other
+ * @param {function} successCallback - Function that saves incoming data
+ * @param {string} gameId - name of game that you want to get
+ */
+export const getGameAdditions= (successCallback, gameId) => {
+    fetch(`${url}/games/${gameId}/additions?key=${apiKey}`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.error === undefined && typeof successCallback === "function") {
+                successCallback(data.results)
+            } else {
+                successCallback(undefined)
+            }
+        })
+}
+
+
+/**
+ fetch game stores - steam, epicgames, origin .....
+ * @param {function} successCallback - Function that saves incoming data
+ * @param {string} gameId - name of game that you want to get
+ */
+export const getGameStores = (successCallback, gameId) => {
+    fetch(`${url}/games/${gameId}/stores?key=${apiKey}`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.error === undefined && typeof successCallback === "function") {
+                successCallback(data.results)
+            } else {
+                successCallback(undefined)
+            }
+        })
+}
+
+/**
+ fetch list of games that are part of the same series
+ * @param {function} successCallback - Function that saves incoming data
+ * @param {string} gameId - name of game that you want to get
+ */
+export const getGameSeries = (successCallback, gameId) => {
+    fetch(`${url}/games/${gameId}/game-series?key=${apiKey}`)
+        .then(r => r.json())
+        .then(data => {
+            if (data.error === undefined && typeof successCallback === "function") {
+                successCallback(data.results)
+                console.log(data.results);
+            } else {
+                successCallback(undefined)
+            }
+        })
+}

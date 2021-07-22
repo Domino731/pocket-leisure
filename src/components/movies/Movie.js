@@ -52,7 +52,6 @@ export const Movie = (props) => {
     const handleSwitchNextVideo = () => {
         if(videoNumber < videos.length){
             setVideoNumber(prev => prev + 1)
-            console.log(videoNumber)
         }
     }
 

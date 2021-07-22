@@ -80,7 +80,7 @@ export const MovieRating = styled.div`
     border-radius: 0 ${props => props.theme.border_radius.l} ${props => props.theme.border_radius.l} 0;
     position: relative;
     text-align: center;
-
+  overflow: hidden;
     &::before {
       content: "";
       position: absolute;
