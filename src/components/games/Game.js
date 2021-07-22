@@ -185,10 +185,10 @@ export const Game = (props) => {
         <GameSeriesContainer>
             <GameItemTitle>Game series</GameItemTitle>
             <GameSeries>
-                {gameSeries.map((el,num) => <GameSeriesSingle key={`gameSeries_${game.slug_}_${num}`}>
+                {gameSeries.map((el,num) => <Link to={`/game/${el.id}`}><GameSeriesSingle key={`gameSeries_${game.slug_}_${num}`}>
                     <img src={el.background_image} alt={el.name}/>
                     <h3>{el.name}</h3>
-                </GameSeriesSingle>)}
+                </GameSeriesSingle></Link>)}
             </GameSeries>
         </GameSeriesContainer>
     </Container>
