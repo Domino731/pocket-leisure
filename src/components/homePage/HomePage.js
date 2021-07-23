@@ -11,7 +11,7 @@ import {
 } from "../../styled-components/elements/homePage/homePage";
 import {useState} from "react";
 import {changeMainColor} from "../../redux/actions/mainColor.action";
-
+import {Link} from "react-router-dom";
 
 const HomePage = ({mainColor, setMainColor}) => {
 
@@ -49,28 +49,32 @@ const HomePage = ({mainColor, setMainColor}) => {
     return <Container>
         <nav>
             <NavigationList>
-                <NavigationItem animation={animation.movies} onClick={() => handleRedirect("movies")}>
-                    <NavigationItemTitle>
-                        Movies
-                    </NavigationItemTitle>
-                    <NavigationImg src={moviesImg}/>
+                <NavigationItem>
+                    <Link to="/movies">
+                        <NavigationItemTitle>
+                            Movies
+                        </NavigationItemTitle>
+                        <NavigationImg src={moviesImg}/>
+                    </Link>
                 </NavigationItem>
 
 
-                <NavigationItem animation={animation.games} onClick={() => handleRedirect("games")}>
-                    <NavigationItemTitle>
+                <NavigationItem >
+                    <Link to="/games"><NavigationItemTitle>
                         Games
                     </NavigationItemTitle>
-                    <NavigationImg src={gamesImg}/>
+                        <NavigationImg src={gamesImg}/>
+                    </Link>
                 </NavigationItem>
 
 
-                <NavigationItem animation={animation.books}
-                                onClick={() => handleRedirect("overwatch-search-your-profile")}>
-                    <NavigationItemTitle>
-                        Overwatch
-                    </NavigationItemTitle>
-                    <NavigationImg src={overwatchImg}/>
+                <NavigationItem>
+                    <Link to="/overwatch-search-your-profile">
+                        <NavigationItemTitle>
+                            Overwatch
+                        </NavigationItemTitle>
+                        <NavigationImg src={overwatchImg}/>
+                    </Link>
                 </NavigationItem>
 
             </NavigationList>
@@ -108,7 +112,7 @@ const HomePage = ({mainColor, setMainColor}) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-    setMainColor:  data => dispatch(changeMainColor(data))
+    setMainColor: data => dispatch(changeMainColor(data))
 })
 const mapStateToProps = state => ({
     mainColor: state.mainColor

@@ -21,3 +21,9 @@ export const an__checkboxRadio = keyframes`
   color: ${props => props.theme.color.white}
 }
 `
+
+export const an__loadingCircle = keyframes`
+100%{
+transform: translate(0, -90px);
+}
+`

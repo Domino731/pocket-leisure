@@ -26,6 +26,8 @@ import {
     MovieTagline,
     MovieVideos, MovieVideosSwitch
 } from "../../styled-components/elements/movie/movie";
+import {Loading} from "../loading/Loading";
+import {NotFound404} from "../notFound/NotFound404";
 
 
 export const Movie = (props) => {
@@ -58,23 +60,27 @@ export const Movie = (props) => {
     const handleSwitchPrevVideo = () => {
             setVideoNumber(prev => prev - 1)
     }
-    if (movie === undefined || movie.credits === undefined || similarMovies === undefined || videos === undefined) {
-        return null
+
+    if(movie === "notFound"){
+        return <NotFound404 redirectUrl="/movies"/>
     }
-
-
+    if (movie === undefined || movie.credits === undefined || similarMovies === undefined || videos === undefined) {
+        return <Loading/>
+    }
     return <Container>
         {/*poster, some movie dont have a poster, then dont render anything*/}
-        {movie.poster_path !== null ? <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/> : null}
+        {movie.poster_path !== null && <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/>}
 
         {/*director*/}
-        <MovieDirector>{movie.credits.director.name}</MovieDirector>
+        {movie.credits.director !== undefined && <MovieDirector>{movie.credits.director.name}</MovieDirector>}
+
 
         {/*title*/}
         <MovieTitle>{movie.title}</MovieTitle>
 
         {/*release date*/}
-        <MovieDetail>{getReleaseDate(movie.release_date)}</MovieDetail>
+        {movie.release_date !== undefined && <MovieDetail>{getReleaseDate(movie.release_date)}</MovieDetail>}
+
 
         {/*genres */}
         <MovieGenreList>
@@ -86,34 +92,42 @@ export const Movie = (props) => {
         </MovieGenreList>
 
         {/*average vote*/}
-        <MovieRating rating={movie.vote_average}><i className="far fa-grin"/>
+        {movie.vote_average !== null && <MovieRating rating={movie.vote_average}><i className="far fa-grin"/>
             <div/>
-        </MovieRating>
+        </MovieRating>}
 
-        <MovieTagline>{movie.tagline}</MovieTagline>
+
+        {movie.tagline !== null &&  <MovieTagline>{movie.tagline}</MovieTagline>}
         <MovieInfo>
+
+
             {/*description*/}
-            <MovieDescription>{movie.overview}</MovieDescription>
+            {movie.overview !== null && <MovieDescription>{movie.overview}</MovieDescription>}
 
             {/*movie details*/}
             <StatTable>
                 <tbody>
-                <tr>
+                {movie.credits.director !== undefined &&  <tr>
                     <td><i className="fas fa-circle"/>Director</td>
                     <td>{movie.credits.director.name}</td>
-                </tr>
-                <tr>
+                </tr>}
+                {movie.status !== null &&  <tr>
                     <td><i className="fas fa-circle"/>Status</td>
                     <td>{movie.status}</td>
-                </tr>
-                <tr>
+                </tr>}
+
+
+                {movie.production_countries.length !== 0 &&  <tr>
                     <td><i className="fas fa-circle"/>Country</td>
                     <td>{movie.production_countries.map((el,num) => <span key={`productionCountries_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
-                </tr>
-                <tr>
+                </tr>}
+
+
+                {movie.runtime !== null &&  <tr>
                     <td><i className="fas fa-circle"/>Time</td>
                     <td>{movie.runtime} min</td>
-                </tr>
+                </tr> }
+
 
                 {/*screening only when there is information about it, some films have no budget(0)*/}
                 { movie.budget !== 0 &&
@@ -122,10 +136,15 @@ export const Movie = (props) => {
                         <td><i className="fas fa-dollar-sign"/> {movie.budget.toLocaleString()}</td>
                     </tr>
                 }
-                <tr>
+
+                {movie.production_companies.length !== 0 && <tr>
                     <td><i className="fas fa-circle"/>Production</td>
                     <td>{movie.production_companies.map((el,num) => <span key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
-                </tr>
+                </tr>}
+
+
+
+
                 </tbody>
             </StatTable>
         </MovieInfo>
@@ -144,29 +163,38 @@ export const Movie = (props) => {
 
 
         {/* rendering cast*/}
-        <MovieItemTitle>Cast</MovieItemTitle>
-        <MovieActors>
-            {movie.credits.cast.map((el, num) => (
-                // not all actors have profile photo
-                el.profile_path !== null ?
-                <MovieActor key={`cast_${props.match.params.id}_${num}`}>
-                    <img src={`https://image.tmdb.org/t/p/original${el.profile_path}`} alt={el.name}/>
-                    <ItemTitleSmall>{el.name}</ItemTitleSmall>
-                    <MovieKnowFor>{el.character}</MovieKnowFor>
-                </MovieActor>
-                    :
-                    <MovieActor key={`cast_${props.match.params.id}_${num}`}>
-                        <PosterMedMissing><i className="fas fa-image"/></PosterMedMissing>
-                        <ItemTitleSmall>{el.name}</ItemTitleSmall>
-                        <MovieKnowFor>{el.character}</MovieKnowFor>
-                    </MovieActor>
-            ))}
-        </MovieActors>
+
+        {movie.credits.cast.length !== 0 && <>
+            <MovieItemTitle>Cast</MovieItemTitle>
+            <MovieActors>
+                {movie.credits.cast.map((el, num) => (
+                    // not all actors have profile photo
+                    el.profile_path !== null ?
+                        <MovieActor key={`cast_${props.match.params.id}_${num}`}>
+                            <img src={`https://image.tmdb.org/t/p/original${el.profile_path}`} alt={el.name}/>
+                            <ItemTitleSmall>{el.name}</ItemTitleSmall>
+                            <MovieKnowFor>{el.character}</MovieKnowFor>
+                        </MovieActor>
+                        :
+                        <MovieActor key={`cast_${props.match.params.id}_${num}`}>
+                            <PosterMedMissing><i className="fas fa-image"/></PosterMedMissing>
+                            <ItemTitleSmall>{el.name}</ItemTitleSmall>
+                            <MovieKnowFor>{el.character}</MovieKnowFor>
+                        </MovieActor>
+                ))}
+            </MovieActors>
+        </>}
+
 
         {/*similar movies*/}
-        <MovieItemTitle>Similar movies</MovieItemTitle>
-        {similarMovies.map((el, num) => <SimilarMovie movie={el}
-                                                      key={`similarMovie_${props.match.params.id}-${num}`}/>)}
+        {similarMovies.length !== 0 && <>
+
+            <MovieItemTitle>Similar movies</MovieItemTitle>
+            {similarMovies.map((el, num) => <SimilarMovie movie={el}
+                                                          key={`similarMovie_${props.match.params.id}-${num}`}/>)}
+
+        </>}
+
     </Container>
 
 

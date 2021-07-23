@@ -31,7 +31,7 @@ function App({mainColor}) {
             <Route path="/movies" component={Movies}/>
             <Route path="/movies-by-genre/:genre/:name" component={MoviesByGenre}/>
             <Route path="/movie/:id" component={Movie}/>
-            <Route path="/movie/search" component={MovieSearch}/>
+            <Route path="/movie-search" component={MovieSearch}/>
             <Route path="/overwatch-search-your-profile" component={OverwatchSearchProfile}/>
             <Route path="/overwatch/stats/:platform/:region/:user/:battleTag" component={OverwatchStatistics}/>
             <Route path="/overwatch/stats-competitive/:platform/:region/:user/:battleTag" component={OverwatchStatisticsCompetitive}/>

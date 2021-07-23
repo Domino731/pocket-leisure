@@ -10,10 +10,10 @@ import {
 } from "../../styled-components/elements/movie/movieCategory";
 import {CheckboxRadio} from "../../styled-components/general/general-styles";
 
-export const MoviesByCategory = () => {
+export const MoviesByCategory = ({moviesData}) => {
 
     // state with movies on the basis of which individual components are rendered
-    const [movies, setMovies] = useState([])
+    const [movies, setMovies] = useState(moviesData)
 
     // state with flag which is used to switch between films and a
     // form where the user can select other films (e.g. latest)
@@ -38,11 +38,6 @@ export const MoviesByCategory = () => {
            setFlag(false)
         },500)
     }
-    // when component mounted get popular movies
-    useEffect(() => {
-        getMoviesByCategory(setMovies, "/movie/popular")
-    }, [])
-
 
     if (movies === undefined) {
         return null

@@ -49,34 +49,6 @@ export const MovieSearch = () => {
         },500)
     }
 
-    if(movies === undefined){
-
-        return <Container>
-            <TitlePrimary>Search</TitlePrimary>
-            <MovieElementTitle onClick={handleChangeFlag}>Search by {searchBy}<i className="fas fa-search"/></MovieElementTitle>
-            {flag && true && <MovieCategoryForm>
-                <CheckboxRadio>
-                    <input type="radio" value="Movie title" checked={searchBy === "Movie title"}
-                           onChange={handleChangeSearchBy}/>
-                    <label>Movie title</label>
-                </CheckboxRadio>
-                <CheckboxRadio>
-                    <input type="radio" value="Actor" checked={searchBy === "Actor"}
-                           onChange={handleChangeSearchBy}/>
-                    <label>Actor</label>
-                </CheckboxRadio>
-                <CheckboxRadio>
-                    <input type="radio" value="Director" checked={searchBy === "Director"}
-                           onChange={handleChangeSearchBy}/>
-                    <label>Director</label>
-                </CheckboxRadio>
-            </MovieCategoryForm>}
-            <FormElement>
-                <i className="fas fa-search"/>
-                <input type="text" onChange={handleChangeMovies}/>
-            </FormElement>
-        </Container>
-    }
     return <Container>
         <TitlePrimary>Search</TitlePrimary>
         <MovieElementTitle onClick={handleChangeFlag}>Search by {searchBy}<i className="fas fa-search"/></MovieElementTitle>
@@ -102,8 +74,10 @@ export const MovieSearch = () => {
             <i className="fas fa-search"/>
             <input type="text" onChange={handleChangeMovies}/>
         </FormElement>
-        {
+
+        { movies !== undefined &&
             movies.map((el, num) => <SingleMovie movie={el} key={`movieSearch_${el.id}_${num}`}/>)
         }
     </Container>
 }
+

@@ -16,7 +16,6 @@ export const GameSearch = () => {
             <i className="fas fa-search"/>
             <input type="text" onChange={handleChangeMovies}/>
         </FormElement>
-        {games === null && <h1>asd</h1>}
         {games !== undefined && games.map((el,num) => {
             return <GameSingle game={el} key={`gameSearch_single_${num}_${el.slug}`}/>
         })}

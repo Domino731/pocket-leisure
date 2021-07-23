@@ -48,10 +48,13 @@ export const getMoviesByParticularGenre = (successCallback, genreId) => {
     fetch(`${url}/discover/movie?api_key=${apiKey}&with_genres=${genreId}`)
         .then(r => r.json())
         .then(data => {
-            if (typeof successCallback === "function") {
+            if ( data.total_results !== 0 && typeof successCallback === "function") {
                 // sort by top rated
                 const movies = data.results.sort((a, b) => b.vote_average - a.vote_average)
                 successCallback(movies);
+            }
+            if(data.total_results === 0){
+                successCallback("notFound")
             }
         })
         .catch(err => console.log(err));
@@ -68,8 +71,12 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
     fetch(`${url}/discover/movie?api_key=${apiKey}&with_genres=${genreId}&page=${pageNumber}`)
         .then(r => r.json())
         .then(data => {
-            if (typeof successCallback === "function") {
-                successCallback(prev => [...prev, ...data.results]);
+            if ( data.error === undefined &&typeof successCallback === "function") {
+                successCallback(prev => {
+                if(prev !== undefined && prev !== "notFound"){
+                    return  [...prev, ...data.results]
+                }
+                });
             }
         })
         .catch(err => console.log(err));
@@ -87,6 +94,9 @@ export const getSingleMovie = (successCallback, movieId) => {
         .then(data => {
             if (typeof successCallback === "function") {
                 successCallback(data)
+            }
+            if(data.success === false){
+                successCallback("notFound")
             }
         })
         .catch(err => console.log(err));
@@ -113,6 +123,9 @@ export const getMovieCredits = (successCallback, movieId) => {
                 }
                 successCallback(prev => ({...prev, credits}))
             }
+            if(data.success === false){
+                successCallback("notFound")
+            }
         })
         .catch(err => console.log(err));
 }
@@ -130,6 +143,9 @@ export const getMovieVideos = (successCallback, movieId) => {
                 const videos = data.results.filter(el => el.type === "Trailer" && el.site === "YouTube")
                 successCallback(videos)
             }
+            if(data.success === false){
+                successCallback("notFound")
+            }
         })
         .catch(err => console.log(err));
 }
@@ -145,6 +161,9 @@ export const getSimilarMovies = (successCallback, movieId) => {
         .then(data => {
             if (typeof successCallback === "function") {
                 successCallback(data.results)
+            }
+            if(data.success === false){
+                successCallback("notFound")
             }
         })
         .catch(err => console.log(err));
