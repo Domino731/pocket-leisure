@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {an__checkboxRadio} from "./animations";
-import {theme} from "./theme";
 
 export const Container = styled.section`
   width: 320px;
@@ -58,7 +57,7 @@ export const PosterMedMissing = styled.div`
   margin-right: 0.625rem;
   border-radius: ${props => props.theme.border_radius.l};
   color: ${props => props.theme.color.main};
-  font-size: 4.5rem;
+ 
 `
 export const TitleBar = styled.div`
   margin-top: 10px;

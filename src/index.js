@@ -14,11 +14,7 @@ const store = createStore(rootReducer)
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                <Reset/>
-                <GlobalStyle/>
                 <App/>
-            </ThemeProvider>
         </Provider>
 
     </React.StrictMode>,

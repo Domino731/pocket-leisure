@@ -1,12 +1,9 @@
-import {PasswordReset} from "./components/user-form/PasswordReset";
 import {BrowserRouter as Router} from "react-router-dom";
 import {connect} from "react-redux";
-import {useEffect} from "react";
-import {changeUser} from "./redux/actions/currentUser.action";
-import {auth} from "./firebase/firebase";
 import {Route} from "react-router";
 // components
-import PrivateRoute from "./components/privateRoute/PrivateRoute";
+import {ThemeProvider} from "styled-components";
+import {theme} from "./styled-components/general/theme";
 import HomePage from "./components/homePage/HomePage";
 import Movies from "./components/movies/Movies";
 import {MoviesByGenre} from "./components/movies/MoviesByGenre";
@@ -20,44 +17,35 @@ import {Games} from "./components/games/Games";
 import {GamesByGenre} from "./components/games/GamesByGenre";
 import {GameSearch} from "./components/games/GameSearch";
 import {Game} from "./components/games/Game";
+import {Reset} from "styled-reset";
+import {GlobalStyle} from "./styled-components/general/globalStyle";
 
-function App({setUser}) {
 
-    // when component mounted check the user is logged in,
-    //it is very important because based on this, the privateRoute component
-    // will  display a specific component(user logged in) or take the user to the login form(not logged in)
-    useEffect(()=>{
-        auth().onAuthStateChanged(user => {
-            if (user) {
-                // logged in
-                setUser(user);
-            } else {
-                // not logged in
-                setUser(null)
-            }
-        })
-    },)
 
-    return <Router>
-        <Route exact path="/" component={HomePage}/>
-        <Route path="/movies" component={Movies}/>
-        <Route path="/movies-by-genre/:genre/:name" component={MoviesByGenre}/>
-        <Route path="/movie/:id" component={Movie}/>
-        <Route path="/movie/search" component={MovieSearch}/>
-        <Route path="/overwatch-search-your-profile" component={OverwatchSearchProfile}/>
-        <Route path="/overwatch/stats/:platform/:region/:user/:battleTag" component={OverwatchStatistics}/>
-        <Route path="/overwatch/stats-competitive/:platform/:region/:user/:battleTag" component={OverwatchStatisticsCompetitive}/>
-        <Route path="/overwatch/stats-quick-play/:platform/:region/:user/:battleTag" component={OverwatchStatisticsQuickPlay}/>
-        <Route path="/games" component={Games}/>
-        <Route path="/password-reset" component={PasswordReset}/>
+function App({mainColor}) {
+    return <ThemeProvider theme={theme(mainColor)}>
+        <Reset/>
+        <GlobalStyle/>
+        <Router>
+            <Route exact path="/" component={HomePage}/>
+            <Route path="/movies" component={Movies}/>
+            <Route path="/movies-by-genre/:genre/:name" component={MoviesByGenre}/>
+            <Route path="/movie/:id" component={Movie}/>
+            <Route path="/movie/search" component={MovieSearch}/>
+            <Route path="/overwatch-search-your-profile" component={OverwatchSearchProfile}/>
+            <Route path="/overwatch/stats/:platform/:region/:user/:battleTag" component={OverwatchStatistics}/>
+            <Route path="/overwatch/stats-competitive/:platform/:region/:user/:battleTag" component={OverwatchStatisticsCompetitive}/>
+            <Route path="/overwatch/stats-quick-play/:platform/:region/:user/:battleTag" component={OverwatchStatisticsQuickPlay}/>
+            <Route path="/games" component={Games}/>
 
-        <Route path="/games-by-genre/:id/:name" component={GamesByGenre}/>
-        <Route path="/game/search" component={GameSearch}/>
-        <Route path="/game/:id" component={Game}/>
-    </Router>
+            <Route path="/games-by-genre/:id/:name" component={GamesByGenre}/>
+            <Route path="/game/search" component={GameSearch}/>
+            <Route path="/game/:id" component={Game}/>
 
+        </Router>
+    </ThemeProvider>
 }
-const mapDispatchToProps = dispatch => ({
-    setUser: data => dispatch(changeUser(data))
+const mapStateToProps = state => ({
+    mainColor: state.mainColor
 })
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
