@@ -4,19 +4,9 @@ import {getGamesGenres} from "../../api/rawg/operations";
 import {Genre} from "../../styled-components/general/general-styles";
 import {Link} from "react-router-dom";
 
-export const GamesGenres = () => {
+export const GamesGenres = ({gamesGenres}) => {
 
-    // state with games genres
-    const [gamesGenres, setGamesGenres] = useState(undefined)
 
-    // when component mounted get all games genres
-    useEffect(()=>{
-        getGamesGenres(setGamesGenres)
-    },[])
-
-    if(gamesGenres === undefined){
-        return null
-    }
     return <section>
         <GamesElementTitle>Genres</GamesElementTitle>
         <GamesGenresList>

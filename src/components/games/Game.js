@@ -28,6 +28,8 @@ import {
 } from "../../styled-components/elements/games/games";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
+import {Loading} from "../loading/Loading";
+import {NotFound404} from "../notFound/NotFound404";
 
 
 export const Game = (props) => {
@@ -65,7 +67,12 @@ export const Game = (props) => {
         getGameSeries(setGameSeries, props.match.params.id)
     }, [props.match.params])
 
+    // when game exist, get additional details - trailers, screenshots, stores and series
+    useEffect(()=>{
+        if(game !== undefined){
 
+        }
+    },[game, props.match.params])
     const handleSwitchPrevTrailer = () => {
         setTrailerNumber(prev => prev - 1)
     }
@@ -85,11 +92,13 @@ export const Game = (props) => {
     }
 
 
+    if(game === "notFound"){
+        return <NotFound404 redirectUrl="/games"/>
+    }
     if (game === undefined || gameTrailers === undefined || gameSc === undefined ||
         gameAdditions === undefined || gameStores === undefined || gameSeries === undefined) {
-        return null
+        return <Loading/>
     }
-
 
     return <Container>
         {/*poster, some movie dont have a poster, then dont render anything*/}
@@ -185,7 +194,7 @@ export const Game = (props) => {
         <GameSeriesContainer>
             <GameItemTitle>Game series</GameItemTitle>
             <GameSeries>
-                {gameSeries.map((el,num) => <Link to={`/game/${el.id}`}><GameSeriesSingle key={`gameSeries_${game.slug_}_${num}`}>
+                {gameSeries.map((el,num) => <Link to={`/game/${el.id}`}  key={`gameSeries_${game.slug_}_${num}`}><GameSeriesSingle>
                     <img src={el.background_image} alt={el.name}/>
                     <h3>{el.name}</h3>
                 </GameSeriesSingle></Link>)}

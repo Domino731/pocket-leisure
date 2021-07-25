@@ -47,10 +47,14 @@ export const getGamesByGenre = (successCallback, genreId) => {
     fetch(`${url}/games?key=${apiKey}&page_size=10&genres=${genreId}`)
         .then(r => r.json())
         .then(data => {
-            if (data.error === undefined && typeof successCallback === "function") {
+            if (data.error === undefined && data.results.length > 0 && typeof successCallback === "function") {
 
                 const games = data.results.sort((a, b) => b.rating - a.rating)
                 successCallback(games)
+                console.log(data)
+            }
+            else {
+                successCallback("notFound")
             }
         })
         .catch(err => console.log(err))
@@ -67,7 +71,11 @@ export const getMoreGames = (successCallback, genreId, pageNumber) => {
         .then(r => r.json())
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
-                successCallback(prev => [...prev, ...data.results]);
+                successCallback(prev => {
+                    if(prev !== undefined && prev !== "notFound"){
+                        return [...prev, ...data.results]
+                    }
+                });
             }
         })
         .catch(err => console.log(err))
@@ -86,8 +94,7 @@ export const getSearchedGame = (successCallback, game) => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(data.results)
                 console.log(data)
-            }
-            else{
+            } else {
                 successCallback(undefined)
             }
         })
@@ -96,7 +103,7 @@ export const getSearchedGame = (successCallback, game) => {
 
 
 /**
- fetch specific game - action, rpg, fps ...
+ fetch specific game - witcher 3, gta 5, minecraft.....
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} gameId - name of game that you want to get
  */
@@ -104,12 +111,13 @@ export const getGameDetails = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}?key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
-            if (data.error === undefined && typeof successCallback === "function") {
+            if (data.detail !== "Not found." && typeof successCallback === "function") {
                 successCallback(data)
             }
-            else{
-                successCallback(undefined)
+            if(data.detail === "Not found."){
+                successCallback("notFound")
             }
+
         })
         .catch(err => console.log(err))
 }
@@ -125,8 +133,7 @@ export const getGameTrailers = (successCallback, gameId) => {
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(data.results)
-            }
-            else{
+            } else {
                 successCallback(undefined)
             }
         })
@@ -144,8 +151,7 @@ export const getGameScreenshots = (successCallback, gameId) => {
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(data.results)
-            }
-            else{
+            } else {
                 successCallback(undefined)
             }
         })
@@ -157,7 +163,7 @@ export const getGameScreenshots = (successCallback, gameId) => {
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} gameId - name of game that you want to get
  */
-export const getGameAdditions= (successCallback, gameId) => {
+export const getGameAdditions = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}/additions?key=${apiKey}`)
         .then(r => r.json())
         .then(data => {

@@ -6,15 +6,15 @@ export const NotFound404 = ({redirectUrl}) => {
      const[redirectTime, setRedirectTime] = useState(5)
 
     const history = useHistory()
-    // useEffect(()=>{
-    //     const countdown = setInterval(()=>{
-    //        setRedirectTime(prev => prev - 1)
-    //     },1000)
-    //     setTimeout(()=>{
-    //         clearInterval(countdown)
-    //         history.push(redirectUrl)
-    //     },5000)
-    // },[])
+    useEffect(()=>{
+        const countdown = setInterval(()=>{
+           setRedirectTime(prev => prev - 1)
+        },1000)
+        setTimeout(()=>{
+            clearInterval(countdown)
+            history.push(redirectUrl)
+        },5000)
+    },[])
 
     return <NotFoundContainer>
         <NotFoundTitle>404 Not found</NotFoundTitle>
