@@ -50,6 +50,9 @@ export const Movie = (props) => {
         getMovieVideos(setVideos, props.match.params.id)
     }, [props.match.params.id])
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [movie])
 
     const handleSwitchNextVideo = () => {
         if(videoNumber < videos.length){

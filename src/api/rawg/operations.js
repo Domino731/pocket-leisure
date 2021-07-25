@@ -151,8 +151,6 @@ export const getGameScreenshots = (successCallback, gameId) => {
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(data.results)
-            } else {
-                successCallback(undefined)
             }
         })
         .catch(err => console.log(err))

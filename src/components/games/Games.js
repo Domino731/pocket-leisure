@@ -26,7 +26,7 @@ export const Games = () => {
         return <Loading/>
     }
     return <Container>
-        <TitleBar><TitlePrimary>Games</TitlePrimary> <Link to="/game/search"><i
+        <TitleBar><TitlePrimary>Games</TitlePrimary> <Link to="/game-search"><i
             className="fas fa-search"/></Link></TitleBar>
        <GamesListMain games={games}/>
        <GamesGenres gamesGenres={gamesGenres} />

@@ -39,7 +39,7 @@ function App({mainColor}) {
             <Route path="/games" component={Games}/>
 
             <Route path="/games-by-genre/:id/:name" component={GamesByGenre}/>
-            <Route path="/game/search" component={GameSearch}/>
+            <Route path="/game-search" component={GameSearch}/>
             <Route path="/game/:id" component={Game}/>
 
         </Router>
