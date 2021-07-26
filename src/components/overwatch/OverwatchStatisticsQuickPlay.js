@@ -1,14 +1,16 @@
-import { getOverwatchQuickPlayStats} from "../../api/overwatch/operations";
+import {getOverwatchQuickPlayStats} from "../../api/overwatch/operations";
 import {useEffect, useState} from "react";
 import {Container} from "../../styled-components/general/general-styles";
 import {
     OwMedalBar,
-    OwMedalsDiagram,
+    OwMedalsDiagram, OwPrivate,
     OwStatsTable,
     OwStatsTitle,
     OwStatTitle,
     OwWonGamesBar
 } from "../../styled-components/elements/overwatch/overwatch";
+import {Loading} from "../loading/Loading";
+
 export const OverwatchStatisticsQuickPlay = (props) => {
     const [stats, setStats] = useState(undefined)
     useEffect(() => {
@@ -19,7 +21,18 @@ export const OverwatchStatisticsQuickPlay = (props) => {
             setStats)
     }, [props.match.params])
     if (stats === undefined) {
-        return null
+        return <Loading/>
+    }
+    if(stats === "privateProfile"){
+        return <Container>
+            <OwStatsTitle>
+                <span>Quick play</span>
+            </OwStatsTitle>
+            <OwPrivate>
+                <i className="fas fa-lock"/>
+                <strong>Career profile visibility is set to private</strong>
+            </OwPrivate>
+        </Container>
     }
     return <Container>
         <OwStatsTitle>
@@ -196,6 +209,7 @@ export const OverwatchStatisticsQuickPlay = (props) => {
         <section>
             <OwStatTitle>On combat</OwStatTitle>
             <OwStatsTable>
+                <tbody>
                 <tr>
                     <td>Damage</td>
                     <td>{stats.completeStats.combat.damageDone}</td>
@@ -232,6 +246,7 @@ export const OverwatchStatisticsQuickPlay = (props) => {
                     <td>Time on fire</td>
                     <td>{stats.completeStats.combat.timeSpentOnFire}</td>
                 </tr>
+                </tbody>
             </OwStatsTable>
         </section>
     </Container>

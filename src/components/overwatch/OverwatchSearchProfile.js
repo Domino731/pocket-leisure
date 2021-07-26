@@ -4,6 +4,8 @@ import {OwSearchSettings} from "../../styled-components/elements/overwatch/overw
 import {getRegionImgOw, getPlatformIconOw} from "../../functions/overwatchSearch";
 import {validateOverwatchUser} from "../../api/overwatch/operations";
 import {useHistory} from "react-router";
+import {Container} from "../../styled-components/general/general-styles";
+import {Loading} from "../loading/Loading";
 
 export const OverwatchSearchProfile = () => {
     // array with which are supported by the api
@@ -27,6 +29,10 @@ export const OverwatchSearchProfile = () => {
 
     // incorrect data msg
     const [incorrect, setIncorrect] = useState({error: ""})
+
+    // checking flag, changes when user click button then handleSearchUser function will check the user with the given data exists
+    const [checkingFlag, setCheckingFlag] = useState(false)
+
     // listening to regionNumber state, when he changed, change region
     useEffect(() => {
         setRegion(regionsArr[regionNumber])
@@ -51,13 +57,14 @@ export const OverwatchSearchProfile = () => {
 
     // when search was successful, redirect to statistics page based on user data (username, battleTag, region, platform)
     const successful = () => {
-        console.log(1)
         history.push(`/overwatch/stats/${platform}/${region}/${data.username}/${data.battleTag}`)
     }
     // searching for user
     const handleSearchUser = (e) => {
         e.preventDefault()
+        setCheckingFlag(true)
         validateOverwatchUser(platform, region, data.username, data.battleTag, successful, setIncorrect)
+        setCheckingFlag(false)
     }
 
     // by this function user can change the current region
@@ -77,36 +84,38 @@ export const OverwatchSearchProfile = () => {
             setPlatformNumber(0)
         }
     }
+    return <Container>
+        {checkingFlag === false && <Form>
+            <h1>Overwatch statistics</h1>
+            <FormElement>
+                <i className="fas fa-user"/>
+                <input type="text" placeholder="Username" name="username" value={data.username}
+                       onChange={handleChangeData}/>
+            </FormElement>
+            <FormElement right>
+                <input type="text" placeholder="BattleTag" name="battleTag" value={data.battleTag}
+                       onChange={handleChangeData}/>
+                <i className="fas fa-hashtag"/>
+            </FormElement>
 
-    return <Form>
-        <h1>Overwatch statistics</h1>
-        <FormElement>
-            <i className="fas fa-user"/>
-            <input type="text" placeholder="Username" name="username" value={data.username}
-                   onChange={handleChangeData}/>
-        </FormElement>
-        <FormElement right>
-            <input type="text" placeholder="BattleTag" name="battleTag" value={data.battleTag}
-                   onChange={handleChangeData}/>
-            <i className="fas fa-hashtag"/>
-        </FormElement>
 
+            <FormElement>
+                <OwSearchSettings onClick={handleSelectPlatform}>
+                    <strong>Platform</strong>
+                    {getPlatformIconOw(platform)}
+                </OwSearchSettings>
 
-        <FormElement>
-            <OwSearchSettings onClick={handleSelectPlatform}>
-                <strong>Platform</strong>
-                {getPlatformIconOw(platform)}
-            </OwSearchSettings>
+                <OwSearchSettings onClick={handleSelectRegion}>
+                    <strong>Region</strong>
+                    {getRegionImgOw(region)}
+                </OwSearchSettings>
+            </FormElement>
 
-            <OwSearchSettings onClick={handleSelectRegion}>
-                <strong>Region</strong>
-                {getRegionImgOw(region)}
-            </OwSearchSettings>
-        </FormElement>
-
-        <FormInvalid>
-            <strong>{incorrect.error}</strong>
-        </FormInvalid>
-        <button onClick={handleSearchUser}>Search</button>
-    </Form>
+            <FormInvalid>
+                <strong>{incorrect.error}</strong>
+            </FormInvalid>
+            <button onClick={handleSearchUser}>Search</button>
+        </Form>}
+        {checkingFlag && <Loading/>}
+    </Container>
 }

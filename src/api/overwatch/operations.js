@@ -8,20 +8,24 @@ const url = "https://ow-api.com/v1/stats/"
  * @param region {string} - user region (asia,eu,us)
  * @param username {string} - username
  * @param battleTag {string, number} - user battleTag (12345)
+
  */
 export const validateOverwatchUser = (platform, region, username, battleTag, successCallback, failedCallback) => {
+
     fetch(`${url}${platform}/${region}/${username}-${battleTag}/profile`)
         .then(r => r.json())
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback()
             }
-            if(typeof failedCallback === "function"){
+            if (typeof failedCallback === "function") {
                 failedCallback(data)
             }
 
         })
         .catch(err => console.log(err));
+
+
 }
 
 /**
@@ -56,13 +60,17 @@ export const getOverwatchCompetitiveStats = (platform, region, username, battleT
     fetch(`${url}${platform}/${region}/${username}-${battleTag}/complete`)
         .then(r => r.json())
         .then(data => {
-            if (data.error === undefined && typeof successCallback === "function") {
+            if (data.quickPlayStats.competitiveStats !== null  && typeof successCallback === "function") {
+                console.log(data)
                 const stats = {
                     awards: data.competitiveStats.awards,
                     games: data.competitiveStats.games,
                     completeStats: data.competitiveStats.careerStats.allHeroes,
                 }
                 successCallback(stats)
+            }
+            else{
+                successCallback("privateProfile")
             }
         })
         .catch(err => console.log(err))
@@ -81,13 +89,17 @@ export const getOverwatchQuickPlayStats = (platform, region, username, battleTag
     fetch(`${url}${platform}/${region}/${username}-${battleTag}/complete`)
         .then(r => r.json())
         .then(data => {
-            if (data.error === undefined && typeof successCallback === "function") {
+            console.log(data)
+            if ( data.quickPlayStats.careerStats !== null && typeof successCallback === "function") {
                 const stats = {
                     awards: data.quickPlayStats.awards,
                     games: data.quickPlayStats.games,
                     completeStats: data.quickPlayStats.careerStats.allHeroes,
                 }
                 successCallback(stats)
+            }
+            else{
+                successCallback("privateProfile")
             }
         })
         .catch(err => console.log(err))
