@@ -88,10 +88,11 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of film that you want to get
  */
-export const getSingleMovie = (successCallback, movieId) => {
-    fetch(`${url}/movie/${movieId}?api_key=${apiKey}`)
+export const getSingleMovie = async (successCallback, movieId) => {
+   await fetch(`${url}/movie/${movieId}?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
+            console.log("pobrano jeden film")
             if (typeof successCallback === "function") {
                 successCallback(data)
             }
@@ -108,12 +109,12 @@ export const getSingleMovie = (successCallback, movieId) => {
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of film that you want to get
  */
-export const getMovieCredits = (successCallback, movieId) => {
-    fetch(`${url}/movie/${movieId}/credits?api_key=${apiKey}`)
+export const getMovieCredits = async (successCallback, movieId) => {
+  await  fetch(`${url}/movie/${movieId}/credits?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function") {
-
+                console.log("pobrano kredyty")
                 // getting the movie director
                 const director = data.crew.filter(el => el.job === 'Director')
                 const credits = {
@@ -134,10 +135,11 @@ export const getMovieCredits = (successCallback, movieId) => {
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of movie that you want to get
  */
-export const getMovieVideos = (successCallback, movieId) => {
-    fetch(`${url}/movie/${movieId}/videos?api_key=${apiKey}`)
+export const getMovieVideos = async (successCallback, movieId) => {
+   await fetch(`${url}/movie/${movieId}/videos?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
+            console.log("pobrano video")
             if (typeof successCallback === "function") {
                 // get trailers from yt
                 const videos = data.results.filter(el => el.type === "Trailer" && el.site === "YouTube")
@@ -155,10 +157,11 @@ export const getMovieVideos = (successCallback, movieId) => {
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId -  similar films will be downloaded from this id
  */
-export const getSimilarMovies = (successCallback, movieId) => {
-    fetch(`${url}/movie/${movieId}/similar?api_key=${apiKey}`)
+export const getSimilarMovies = async (successCallback, movieId) => {
+  await  fetch(`${url}/movie/${movieId}/similar?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
+            console.log("pobrano podobne")
             if (typeof successCallback === "function") {
                 successCallback(data.results)
             }

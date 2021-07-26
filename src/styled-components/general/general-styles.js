@@ -1,26 +1,15 @@
 import styled from "styled-components";
 import {an__checkboxRadio} from "./animations";
+import {device, size} from "./breakpoints";
 
 export const Container = styled.section`
   width: 320px;
   margin: 0 auto;
   padding-bottom: 54px;
-`
-export const TriangleBot = styled.div`
-  z-index: -10;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border-left: 100vw solid ${props => props.theme.color.main};
-  border-top: 100px solid transparent;
-`
-export const TriangleTop = styled.div`
-  z-index: -10;
-  position: absolute;
-  top: 0;
-  right: 0;
-  border-right: 100vw solid ${props => props.theme.color.main};
-  border-bottom: 100px solid transparent;
+
+  @media ${device.mobileM} {
+    width: ${size.mobileM};
+  }
 `
 export const PosterBig = styled.img`
   display: flex;
@@ -57,7 +46,7 @@ export const PosterMedMissing = styled.div`
   margin-right: 0.625rem;
   border-radius: ${props => props.theme.border_radius.l};
   color: ${props => props.theme.color.main};
- 
+
 `
 export const TitleBar = styled.div`
   margin-top: 10px;
@@ -102,18 +91,20 @@ export const StatTable = styled.table`
     i {
       color: ${props => props.theme.color.main};
       margin-right: 4px;
-    } 
-    span{
+    }
+
+    span {
       display: inline-block;
       word-wrap: break-word;
-      }
+    }
+
     td:first-child {
       vertical-align: top;
       white-space: nowrap;
       padding: 0 20px 13px 0;
       color: ${props => props.theme.color.gray};
     }
-  
+
 
     span {
       margin-right: 0.375rem;

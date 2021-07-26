@@ -7,7 +7,7 @@ import overwatchImg from "../../images/overwatch.jpg"
 import {Container} from "../../styled-components/general/general-styles";
 import {
     NavigationList,
-    NavigationItem, NavigationImg, NavigationItemTitle, ColorForm, ColorFormCheckbox
+    NavigationItem, NavigationImg, NavigationItemTitle, ColorForm, ColorFormCheckbox, NavigationItemTitleGames
 } from "../../styled-components/elements/homePage/homePage";
 import {useState} from "react";
 import {changeMainColor} from "../../redux/actions/mainColor.action";
@@ -60,9 +60,9 @@ const HomePage = ({mainColor, setMainColor}) => {
 
 
                 <NavigationItem >
-                    <Link to="/games"><NavigationItemTitle>
+                    <Link to="/games"><NavigationItemTitleGames>
                         Games
-                    </NavigationItemTitle>
+                    </NavigationItemTitleGames>
                         <NavigationImg src={gamesImg}/>
                     </Link>
                 </NavigationItem>

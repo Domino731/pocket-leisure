@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {an__navigationItem} from "../../general/animations";
+import {device} from "../../general/breakpoints";
 
 export const NavigationList = styled.ul`
   display: flex;
@@ -22,7 +23,10 @@ export const NavigationItem = styled.li`
   border-radius: 33px;
   overflow: hidden;
   animation: ${props => props.animation ? an__navigationItem : ""} 0.6s forwards;
-
+ 
+  @media ${device.mobileM} {
+    height: 207px;
+  }
 `
 export const NavigationItemTitle = styled.h2`
   position: absolute;
@@ -35,6 +39,10 @@ export const NavigationItemTitle = styled.h2`
   font-weight: bold;
   text-align: center;
 `
+export const NavigationItemTitleGames = styled(NavigationItemTitle)`
+  height: 216px;
+  padding-top: 32px;
+`
 export const NavigationImg = styled.img`
   width: 100%;
   height: 100%;
@@ -43,8 +51,8 @@ export const NavigationImg = styled.img`
 
 export const ColorForm = styled.form`
   display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
+  justify-content: space-between;
+  
   margin-top: 21px;
 `
 
@@ -52,6 +60,12 @@ export const ColorFormCheckbox = styled.div`
   position: relative;
   width: 73px;
   height: 73px;
+
+  @media ${device.mobileM} {
+    height: 83px;
+    width: 83px;
+  } 
+  
   input {
     appearance: none;
     background: transparent;
@@ -65,6 +79,9 @@ export const ColorFormCheckbox = styled.div`
 
  input:checked ~ label i {
    font-size: 56px;
+   @media ${device.mobileM} {
+     font-size: 66px;
+   }
  }
   label {
     display: flex;

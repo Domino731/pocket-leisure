@@ -58,11 +58,12 @@ export const MoviesByGenre = (props) => {
         }, 500)
     }
 
-    if (movies === "notFound") {
-        return <NotFound404 redirectUrl="/movies"/>
-    }
+
     if (movies === undefined) {
         return <Loading/>
+    }
+    if (movies === "notFound") {
+        return <NotFound404 redirectUrl="/movies"/>
     }
         return <Container>
 

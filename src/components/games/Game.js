@@ -60,10 +60,10 @@ export const Game = (props) => {
     // when component mounted get game details
     useEffect(() => {
         getGameDetails(setGame, props.match.params.id)
-
     }, [props.match.params])
 
     useEffect(() => {
+        console.log(1)
         if (game !== undefined && game !== "notFound") {
             getGameTrailers(setGameTrailers, props.match.params.id)
             getGameScreenshots(setGameSc, props.match.params.id)
@@ -94,6 +94,11 @@ export const Game = (props) => {
         }
     }
 
+    const getGameStoreUrl = (num) => {
+        if(gameStores !== undefined && gameStores[num] !== undefined){
+            return gameStores[num].url
+        }
+    }
 
     if (game === "notFound") {
         return <NotFound404 redirectUrl="/games"/>
@@ -209,9 +214,14 @@ export const Game = (props) => {
 
         {game.stores.length > 0 &&     <GameStoresContainer>
             <GameItemTitle>Stores</GameItemTitle>
+
               <GameStores>
                 {game.stores.map((el, num) => <GameStore key={`gameStore_${game.slug}_${num}`}><i
-                    className="fas fa-shopping-cart"/><a href={gameStores[num].url} target="_blank" rel="noopener noreferrer">{el.store.name}</a></GameStore>)}
+                    className="fas fa-shopping-cart"/>
+                    <a href={getGameStoreUrl(num)} target="_blank" rel="noopener noreferrer">{el.store.name}</a>
+
+
+                </GameStore>)}
             </GameStores>
         </GameStoresContainer>}
 

@@ -28,8 +28,7 @@ export const MovieGenreList = styled.ul`
   margin-top: 15px;
   overflow: auto;
   overflow-y: hidden;
-  gap: 10px;
-
+  
   &::-webkit-scrollbar {
     height: 8px;
   }
@@ -40,13 +39,13 @@ export const MovieGenreList = styled.ul`
   }
 
   a {
+    margin: 4px 6px;
     display: block;
     padding: 0.5rem 0.938rem;
     background: ${props => props.theme.color.main};
     border-radius: ${props => props.theme.border_radius.s};
     box-shadow: 0 0 7px ${props => props.theme.color.main};
     white-space: nowrap;
-
     &:hover {
       cursor: pointer;
     }

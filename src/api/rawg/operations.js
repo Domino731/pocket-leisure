@@ -32,7 +32,6 @@ export const getGamesGenres = (successCallback) => {
                 // so you need to add them after the species names have spaces
                 const genres = data.results.map(el => ({...el, gridArea: el.name.toLowerCase().replace(/\s+/g, '')}))
                 successCallback(genres)
-                console.log(genres)
             }
         })
         .catch(err => console.log(err))
@@ -51,7 +50,6 @@ export const getGamesByGenre = (successCallback, genreId) => {
 
                 const games = data.results.sort((a, b) => b.rating - a.rating)
                 successCallback(games)
-                console.log(data)
             }
             else {
                 successCallback("notFound")
@@ -93,7 +91,6 @@ export const getSearchedGame = (successCallback, game) => {
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(data.results)
-                console.log(data)
             } else {
                 successCallback(undefined)
             }
@@ -183,6 +180,7 @@ export const getGameStores = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}/stores?key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
+            console.log(data.results)
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(data.results)
             } else {
@@ -202,7 +200,6 @@ export const getGameSeries = (successCallback, gameId) => {
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(data.results)
-                console.log(data.results);
             } else {
                 successCallback(undefined)
             }
