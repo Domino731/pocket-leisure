@@ -24,7 +24,7 @@ import {
     MovieInfo,
     MovieTable,
     MovieTagline,
-    MovieVideos, MovieVideosSwitch, MovieActorPhotoMissing
+    MovieVideos, MovieVideosSwitch, MovieActorPhotoMissing, MoviesList
 } from "../../styled-components/elements/movie/movie";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
@@ -196,14 +196,13 @@ export const Movie = (props) => {
             {similarMovies.length !== 0 && <>
 
                 <MovieItemTitle>Similar movies</MovieItemTitle>
+                <MoviesList>
                 {similarMovies.map((el, num) => <SimilarMovie movie={el}
                                                               key={`similarMovie_${props.match.params.id}-${num}`}/>)}
 
+            </MoviesList>
             </>}
 
         </Container>
     }
-
-
-
 }

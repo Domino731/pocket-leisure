@@ -280,3 +280,14 @@ export const MovieInfo = styled.section`
   display: flex;
   flex-direction: column;
 `
+
+export const MoviesList = styled.ul`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+   display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+  }
+`

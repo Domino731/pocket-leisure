@@ -2,7 +2,7 @@
 import {Link} from "react-router-dom";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 //styles
-import {MovieGenreItem, MovieRating} from "../../styled-components/elements/movie/movieGenre";
+import {MovieGenreItem, MovieGenreItemDetails, MovieRating} from "../../styled-components/elements/movie/movieGenre";
 import {
     PosterMed,
     ItemTitleMedium,
@@ -30,7 +30,7 @@ export const MovieGenreSingle = ({movie}) => {
                     <PosterMedMissing><i className="fas fa-image"/></PosterMedMissing>
             }
         </Link>
-        <div>
+        <MovieGenreItemDetails>
 
             {/*not all movies have title key, certain have name key*/}
             <ItemTitleMedium>{movie.title !== undefined ? movie.title : movie.name}</ItemTitleMedium>
@@ -39,8 +39,8 @@ export const MovieGenreSingle = ({movie}) => {
 
             {/*if a film has no rating, dont show it*/}
             {movie.vote_average !== 0 &&
-            <MovieRating><i className="fas fa-grin-alt"/>{movie.vote_average.toFixed(1)}</MovieRating>}
+            <MovieRating><i className="fas fa-grin-alt"/><span>{movie.vote_average.toFixed(1)}</span></MovieRating>}
 
-        </div>
+        </MovieGenreItemDetails>
     </MovieGenreItem>
 }

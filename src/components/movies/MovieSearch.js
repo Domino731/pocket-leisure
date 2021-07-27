@@ -10,6 +10,7 @@ import {CheckboxRadio, Container} from "../../styled-components/general/general-
 import {useEffect, useState} from "react";
 import {MovieCategoryForm} from "../../styled-components/elements/movie/movieCategory";
 import {MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
+import { MoviesList} from "../../styled-components/elements/movie/movie";
 
 
 export const MovieSearch = () => {
@@ -25,14 +26,15 @@ export const MovieSearch = () => {
 
     // search movie
     const handleChangeMovies = (e) => {
-        switch (searchBy){
+        switch (searchBy) {
             case "Movie name":
                 return searchMovieByTitle(setMovies, e.target.value)
             case "Director":
                 return searchMovieByDirector(setMovies, e.target.value)
             case "Actor":
                 return searchMovieByActor(setMovies, e.target.value)
-            default: return searchMovieByTitle(setMovies, e.target.value)
+            default:
+                return searchMovieByTitle(setMovies, e.target.value)
         }
     }
 
@@ -44,14 +46,15 @@ export const MovieSearch = () => {
     // change searching type
     const handleChangeSearchBy = (e) => {
         setSearchBy(e.target.value)
-        setTimeout(()=>{
+        setTimeout(() => {
             setFlag(false)
-        },500)
+        }, 500)
     }
 
     return <Container>
         <TitlePrimary>Search</TitlePrimary>
-        <MovieElementTitle onClick={handleChangeFlag}>Search by {searchBy}<i className="fas fa-search"/></MovieElementTitle>
+        <MovieElementTitle onClick={handleChangeFlag}>Search by {searchBy}<i
+            className="fas fa-search"/></MovieElementTitle>
         {flag && true && <MovieCategoryForm>
             <CheckboxRadio>
                 <input type="radio" value="Movie title" checked={searchBy === "Movie title"}
@@ -75,9 +78,11 @@ export const MovieSearch = () => {
             <input type="text" onChange={handleChangeMovies}/>
         </FormElement>
 
-        { movies !== undefined &&
+        <MoviesList>
+            {movies !== undefined &&
             movies.map((el, num) => <SingleMovie movie={el} key={`movieSearch_${el.id}_${num}`}/>)
-        }
+            }
+        </MoviesList>
     </Container>
 }
 

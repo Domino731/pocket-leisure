@@ -56,7 +56,8 @@ export const PosterMed = styled.img`
   }
 
   @media ${device.tablet} {
-    width: 210px;
+    width: 262px;
+    height: 393px;
   }
 `
 export const PosterMedMissing = styled.div`
@@ -69,7 +70,7 @@ export const PosterMedMissing = styled.div`
   margin-right: 0.625rem;
   border-radius: ${props => props.theme.border_radius.l};
   color: ${props => props.theme.color.main};
-
+  background: ${props => props.theme.color.black};
   ///////////
   // media //
   ///////////
@@ -80,9 +81,11 @@ export const PosterMedMissing = styled.div`
 
   @media ${device.mobileL} {
     width: 210px;
-    height: 310px;
+    height: 315px;
     font-size: 54px;
   }
+  
+  
 `
 export const TitleBar = styled.div`
   margin-top: 10px;

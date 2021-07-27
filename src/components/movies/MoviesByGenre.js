@@ -6,7 +6,7 @@ import {sortMovies} from "../../functions/sortMovies";
 
 import {Container, TitlePrimary, GetMoreBtn, CheckboxRadio} from "../../styled-components/general/general-styles";
 import {MovieCategoryForm, MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
-
+import {MoviesList} from "../../styled-components/elements/movie/movie";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
 
@@ -93,8 +93,11 @@ export const MoviesByGenre = (props) => {
                 </CheckboxRadio>
             </MovieCategoryForm>}
 
-            {movies.map((el, num) => <MovieGenreSingle movie={el}
-                                                       key={`movieByGenre-${props.match.params.genre}-${num}`}/>)}
+            <MoviesList>
+                {movies.map((el, num) => <MovieGenreSingle movie={el}
+                                                           key={`movieByGenre-${props.match.params.genre}-${num}`}/>)}
+            </MoviesList>
+
             <GetMoreBtn onClick={handleGetMore}>More</GetMoreBtn>
         </Container>
 }
