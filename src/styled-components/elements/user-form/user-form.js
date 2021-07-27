@@ -76,6 +76,10 @@ export const FormElement = styled.div`
       width: 300px;
       height: 40px;
     }
+
+    @media ${device.tablet} {
+      width: 400px;
+    }
   }
 
   input:focus {

@@ -17,6 +17,10 @@ export const Container = styled.section`
   @media ${device.mobileL} {
     width: ${size.mobileL};
   }
+
+  @media ${device.tablet} {
+    width: ${size.tablet};
+  }
 `
 export const PosterBig = styled.img`
   display: flex;
@@ -50,6 +54,10 @@ export const PosterMed = styled.img`
   @media ${device.mobileL} {
     width: 125px;
   }
+
+  @media ${device.tablet} {
+    width: 210px;
+  }
 `
 export const PosterMedMissing = styled.div`
   display: flex;
@@ -69,13 +77,21 @@ export const PosterMedMissing = styled.div`
     width: 125px;
     font-size: 44px;
   }
+
+  @media ${device.mobileL} {
+    width: 210px;
+    height: 310px;
+    font-size: 54px;
+  }
 `
 export const TitleBar = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  
+ 
+  
   i {
     font-size: ${props => props.theme.icons.l};
     display: flex;
@@ -88,6 +104,15 @@ export const TitleBar = styled.div`
     border-radius: 40px;
     margin-left: ${props => props.right ? "-21px" : "0"};
     background: ${props => props.theme.color.main};
+    
+    ///////////
+    // media //
+    ///////////
+    @media ${device.tablet} {
+      height: 80px;
+      width: 80px;
+    }
+  
   }
 `
 export const ItemTitleSmall = styled.h3`
@@ -171,6 +196,13 @@ export const CheckboxRadio = styled.div`
     margin-bottom: 0.5rem;
     border: none;
 
+    ///////////
+    // media //
+    ///////////
+    @media ${device.tablet} {
+      height: 57px;
+    }
+    
     i {
       position: absolute;
       left: 0;
@@ -187,6 +219,12 @@ export const CheckboxRadio = styled.div`
       left: 0;
       border-radius: 0 50px 50px 0;
 
+      ///////////
+      // media //
+      ///////////
+      @media ${device.tablet} {
+        width: 55px
+      }
     }
   }
 
@@ -212,8 +250,9 @@ export const TitlePrimary = styled.h1`
   font-weight: bold;
   letter-spacing: 0.063rem;
 `
-export const Genre = styled.div`
+export const Genre = styled.li`
   grid-area: ${props => props.area};
+  margin: 5px;
   border-radius: ${props => props.theme.border_radius.l};
   background: ${props => props.theme.color.main};
   font-weight: bold;
@@ -237,6 +276,13 @@ export const GetMoreBtn = styled.button`
   color: ${props => props.theme.color.white};
   border-radius: ${props => props.theme.border_radius.l};
   background: ${props => props.theme.color.main};
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    height: 70px;
+  }
 `
 export const FullWidePoster = styled.img`
   width: 100%;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../general/breakpoints";
 
 export const MovieGenresList = styled.ul`
   width: 100%;
@@ -21,7 +22,13 @@ export const MovieGenresList = styled.ul`
   "TVMovie TVMovie TVMovie Thriller Thriller Thriller"
   "War War War War War War"
   "Western Western Western Western Western Western";
-  gap: 14px;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    height: 1300px;
+  }
 `
 export const MovieGenreItem = styled.div`
   width: 100%;
@@ -50,6 +57,14 @@ export const MovieRating = styled.strong`
   padding: 0.625rem 1.25rem;
   font-size: 1rem;
   box-shadow: 0 0 12px ${props => props.theme.color.main};
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    padding: 0.8rem 1.92rem;
+  }
+  
   i {
     margin-right: 0.5rem;
   }

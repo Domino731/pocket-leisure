@@ -1,4 +1,4 @@
-import {Container} from "../../styled-components/general/general-styles";
+import {Container, TitlePrimary} from "../../styled-components/general/general-styles";
 import {useState} from "react";
 import {FormElement} from "../../styled-components/elements/user-form/user-form";
 import {GameSingle} from "./GameSingle";
@@ -12,6 +12,7 @@ export const GameSearch = () => {
       getSearchedGame(setGames, e.target.value)
     }
     return <Container>
+        <TitlePrimary>Search</TitlePrimary>
         <FormElement>
             <i className="fas fa-search"/>
             <input type="text" onChange={handleChangeMovies}/>

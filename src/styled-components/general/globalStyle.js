@@ -16,6 +16,10 @@ export const GlobalStyle = createGlobalStyle`
     @media ${device.mobileL} {
       font-size: 18px;
     }
+
+    @media ${device.tablet} {
+      font-size: 20px;
+    }
   }
   * {
     box-sizing: border-box;

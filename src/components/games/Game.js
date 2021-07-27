@@ -24,7 +24,7 @@ import {
     GameAdditions,
     GameAdditionsContainer,
     GameAddition,
-    GameStoresContainer, GameStores, GameStore, GameSeriesContainer, GameSeries, GameSeriesSingle
+    GameStoresContainer, GameStores, GameStore, GameSeriesContainer, GameSeries, GameSeriesSingle, GameSeriesMissing
 } from "../../styled-components/elements/games/games";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
@@ -231,7 +231,14 @@ export const Game = (props) => {
                 {gameSeries.map((el, num) => <GameSeriesSingle>
                         <Link to={`/game/${el.id}`}
                               key={`gameSeries_${game.slug_}_${num}`}>
-                            <img src={el.background_image} alt={el.name}/>
+
+                            {el.background_image !== null ?
+                                <img src={el.background_image} alt={el.name}/>
+                            :
+                                <GameSeriesMissing><i className="fas fa-gamepad"/></GameSeriesMissing>
+                            }
+
+
                             <h3>{el.name}</h3>
                         </Link>
                     </GameSeriesSingle>

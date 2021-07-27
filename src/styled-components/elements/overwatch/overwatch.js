@@ -35,6 +35,14 @@ export const OwSearchSettings = styled.div`
     transition: 0.2s;
     border-radius: ${props => props.theme.border_radius.s};
 
+    ///////////
+    // media //
+    ///////////
+    @media ${device.tablet} {
+      width: 94px;
+      height: 64px;
+    }
+    
     &:hover {
       cursor: pointer;
     }

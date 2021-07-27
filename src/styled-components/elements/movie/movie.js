@@ -51,6 +51,7 @@ export const MovieGenreList = styled.ul`
     &:hover {
       cursor: pointer;
     }
+    
   }
 `
 export const MovieRating = styled.div`
@@ -71,15 +72,18 @@ export const MovieRating = styled.div`
     border-radius: 40px;
     margin-left: 0;
     font-size: 2.5rem;
-    font-size: 2.5rem;
     
-
     ///////////
     // media //
     ///////////
     @media ${device.mobileL} {
       height: 70px;
       width: 70px;
+    }
+    
+    @media ${device.tablet} {
+      height: 84px;
+      width: 84px;
     }
   }
 
@@ -100,6 +104,11 @@ export const MovieRating = styled.div`
       width: 335px;
       height: 40px;
       margin-left: -7px;
+    }
+    
+    @media ${device.tablet} {
+      width: 700px;
+      height: 49px;
     }
     
     &::before {
@@ -177,6 +186,9 @@ export const MovieVideosSwitch = styled.div`
     ///////////
     @media ${device.mobileL} {
       height: 42px;
+    }
+    @media ${device.tablet} {
+      height: 50px;
     }
     
     &:focus {

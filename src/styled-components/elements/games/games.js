@@ -38,8 +38,13 @@ export const GameSingleContainer = styled.div`
   @media ${device.mobileM} {
     width: 360px;
   }
+  
   @media ${device.mobileL} {
     width: 420px;
+  }
+  
+  @media ${device.tablet} {
+    width: 760px;
   }
 `
 export const GameSingleImg = styled.img`
@@ -54,8 +59,13 @@ export const GameSingleImg = styled.img`
   @media ${device.mobileM} {
     height: 199px;
   }
+  
   @media ${device.mobileL} {
     height: 233px;
+  }
+
+  @media ${device.tablet} {
+    height: 420px;
   }
 `
 export const GameSingleTitle = styled.h3`
@@ -79,6 +89,14 @@ export const GameSinglePlatform = styled.li`
     background: ${props => props.theme.color.main};
     border-radius: 50px;
     box-shadow: 0 0 4px ${props => props.theme.color.main};
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.tablet} {
+      width: 44px;
+      height: 44px;
+    }
   }
 `
 export const GameSingleReleased = styled.span`
@@ -89,6 +107,13 @@ export const GameSingleRatingsBar = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 14px;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+   margin-top: 22px;
+  }
 `
 export const GameSingleRating = styled.div`
   width: 112px;
@@ -98,8 +123,17 @@ export const GameSingleRating = styled.div`
   border-radius: ${props => props.theme.border_radius.s};
   box-shadow: 0 0 12px ${props => props.theme.color.yellow};;
   background: ${props => props.theme.color.yellow};
-
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    width: 136px;
+    height: 50px;
+  }
+  
   span {
+    display: block;
     margin-left: 7px;
   }
 `
@@ -109,6 +143,12 @@ export const GameSingleRatingMetacritic = styled.div`
   justify-content: center;
   align-items: center;
 
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    margin-right: 17px;
+  }
   img {
     width: 32px;
     height: auto;
@@ -173,6 +213,11 @@ export const GameRating = styled(MovieRating)`
       width: 335px;
       height: 40px;
       margin-left: -7px;
+    }
+    
+    @media ${device.tablet} {
+      width: 700px;
+      height: 49px;
     }
   }
 `
@@ -293,17 +338,22 @@ export const GameSeries = styled.ul`
 export const GameSeriesSingle = styled.li`
   position: relative;
   width: 100%;
+  overflow: hidden;
+  border-radius: ${props => props.theme.border_radius.m};
   img {
     z-index: -1;
     width: 100%;
     height: 200px;
     object-fit: cover;
-    
     ///////////
     // media //
     ///////////
     @media ${device.mobileL} {
       height: 240px;
+    }
+
+    @media ${device.tablet} {
+      height: 264px;
     }
   }
   h3{
@@ -311,6 +361,7 @@ export const GameSeriesSingle = styled.li`
     top:0;
     width: 100%;
     height: 200px;
+    padding: 0 10px;
     padding-top: 1.188rem;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(52, 58, 64, 0.2));
     text-align: center;
@@ -322,5 +373,20 @@ export const GameSeriesSingle = styled.li`
     @media ${device.mobileL} {
       height: 240px;
     }
+    @media ${device.tablet} {
+      height: 264px;
+    }
+  }
+`
+
+export const GameSeriesMissing = styled.div`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i{
+    font-size: 75px;
+    color: ${props => props.theme.color.main};
   }
 `

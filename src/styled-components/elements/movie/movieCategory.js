@@ -30,13 +30,20 @@ export const MovieElementTitle = styled.h2`
     font-size: 1.063rem;
     color: ${props => props.theme.color.main}
   }
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    margin-top: 28px;
+  }
 `
 export const MovieCategoryList = styled.ul`
   width: 100%;
   display: flex;
   overflow: auto;
   overflow-y: hidden;
-  padding-bottom: 10px;
+  padding-bottom: 13px;
   &::-webkit-scrollbar{
     height: 8px;
   }
@@ -45,7 +52,7 @@ export const MovieCategoryList = styled.ul`
     border-radius: 6px;
   }
 `
-export const MovieCategoryItem = styled.div`
+export const MovieCategoryItem = styled.li`
   width: 128px;
   margin-right: 23px;
   flex-shrink: 0;
@@ -55,6 +62,10 @@ export const MovieCategoryItem = styled.div`
   ///////////
   @media ${device.mobileL} {
     width: 147px;
+  }
+  
+  @media ${device.tablet} {
+    width: 240px;
   }
 `
 export const MovieCategoryForm = styled.form`
