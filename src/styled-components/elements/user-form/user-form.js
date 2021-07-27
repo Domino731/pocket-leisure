@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {formIcon} from "../../general/animations";
 import {an__formRecovery} from "../../general/animations";
+import {device} from "../../general/breakpoints";
 
 export const Form = styled.form`
   width: 100%;
@@ -47,6 +47,14 @@ export const FormElement = styled.div`
     border-radius: 40px;
     margin-left: ${props => props.right ? "-21px" : "0"};
     background: ${props => props.theme.color.main};
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      width: 70px;
+      height: 70px;
+    }
   }
 
   input {
@@ -60,6 +68,14 @@ export const FormElement = styled.div`
     outline: none;
     transition: 0.5s;
     position: relative;
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      width: 300px;
+      height: 40px;
+    }
   }
 
   input:focus {

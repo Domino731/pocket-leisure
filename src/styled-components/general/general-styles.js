@@ -7,8 +7,15 @@ export const Container = styled.section`
   margin: 0 auto;
   padding-bottom: 54px;
 
+  ///////////
+  // media //
+  ///////////
   @media ${device.mobileM} {
     width: ${size.mobileM};
+  }
+  
+  @media ${device.mobileL} {
+    width: ${size.mobileL};
   }
 `
 export const PosterBig = styled.img`
@@ -20,13 +27,14 @@ export const PosterBig = styled.img`
   object-fit: cover;
   border-radius: ${props => props.theme.border_radius.l};
 `
-export const PosterBigMissing = styled.img`
+export const PosterBigMissing = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   border-radius: ${props => props.theme.border_radius.l};
   font-size: 4.5rem;
+  
 `
 export const PosterMed = styled.img`
   width: 100px;
@@ -35,6 +43,13 @@ export const PosterMed = styled.img`
   border-radius: ${props => props.theme.border_radius.l};
   margin-right: 0.625rem;
   flex-shrink: 0;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    width: 125px;
+  }
 `
 export const PosterMedMissing = styled.div`
   display: flex;
@@ -47,6 +62,13 @@ export const PosterMedMissing = styled.div`
   border-radius: ${props => props.theme.border_radius.l};
   color: ${props => props.theme.color.main};
 
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    width: 125px;
+    font-size: 44px;
+  }
 `
 export const TitleBar = styled.div`
   margin-top: 10px;

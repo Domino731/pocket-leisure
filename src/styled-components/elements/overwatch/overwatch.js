@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../general/breakpoints";
 
 export const OwRegions = styled.div`
   display: flex;
@@ -176,6 +177,13 @@ export const OwWonGamesBar = styled.div`
     transform: skew(17deg, 0deg);
     background: ${props => props.theme.color.green};
   }
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    height: 52px;
+  }
 `
 
 export const OwMedalsDiagram = styled.div`
@@ -184,6 +192,8 @@ export const OwMedalsDiagram = styled.div`
   width: 100%;
   margin: 0.813rem 0 1.688rem;
   border-bottom: 4px solid ${props => props.theme.color.main};
+
+
 `
 export const OwMedalBar = styled.div`
   height: 126px;
@@ -191,7 +201,7 @@ export const OwMedalBar = styled.div`
   background: ${props => props.theme.color.white};
   border-radius: 50px 50px 0 0;
   position: relative;
-
+  
   &::after {
     content: "";
     display: block;
@@ -200,6 +210,13 @@ export const OwMedalBar = styled.div`
     width: 100%;
     height: ${props => ((props.medal / props.allMedals) * 100) + "%"};;
     background: ${props => props.color};
+  }
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    width: 85px;
   }
 `
 

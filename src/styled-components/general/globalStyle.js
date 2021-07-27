@@ -1,4 +1,5 @@
 import {createGlobalStyle} from 'styled-components';
+import {device} from "./breakpoints";
 
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -8,7 +9,14 @@ export const GlobalStyle = createGlobalStyle`
     background: ${props => props.theme.color.black};
     color: ${props => props.theme.color.white};
   }
-
+  :root{
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      font-size: 18px;
+    }
+  }
   * {
     box-sizing: border-box;
   }

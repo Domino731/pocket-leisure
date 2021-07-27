@@ -7,7 +7,7 @@ import {MovieGenreSingle as SimilarMovie} from "./MovieGenreSingle";
 import {
     Container,
     FullWidePoster,
-    ItemTitleSmall,
+    ItemTitleSmall, PosterBigMissing,
     PosterMedMissing, StatTable
 } from "../../styled-components/general/general-styles";
 import {
@@ -24,7 +24,7 @@ import {
     MovieInfo,
     MovieTable,
     MovieTagline,
-    MovieVideos, MovieVideosSwitch
+    MovieVideos, MovieVideosSwitch, MovieActorPhotoMissing
 } from "../../styled-components/elements/movie/movie";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
@@ -183,7 +183,7 @@ export const Movie = (props) => {
                             </MovieActor>
                             :
                             <MovieActor key={`cast_${props.match.params.id}_${num}`}>
-                                <PosterMedMissing><i className="fas fa-image"/></PosterMedMissing>
+                                <MovieActorPhotoMissing><i className="far fa-user"/></MovieActorPhotoMissing>
                                 <ItemTitleSmall>{el.name}</ItemTitleSmall>
                                 <MovieKnowFor>{el.character}</MovieKnowFor>
                             </MovieActor>

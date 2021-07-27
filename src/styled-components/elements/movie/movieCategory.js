@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../general/breakpoints";
 
 export const Movie = styled.div`
   h1 {
@@ -48,6 +49,13 @@ export const MovieCategoryItem = styled.div`
   width: 128px;
   margin-right: 23px;
   flex-shrink: 0;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    width: 147px;
+  }
 `
 export const MovieCategoryForm = styled.form`
     width: 100%;

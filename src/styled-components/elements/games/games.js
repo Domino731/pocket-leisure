@@ -9,6 +9,7 @@ import {
     MovieVideosSwitch
 } from "../movie/movie";
 import {StatTable} from "../../general/general-styles";
+import {device} from "../../general/breakpoints";
 
 export const GamesElementTitle = styled.h2`
   display: flex;
@@ -29,12 +30,33 @@ export const GamesList = styled.section`
 export const GameSingleContainer = styled.div`
   width: 300px;
   margin-bottom: 43px;
+
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+    width: 360px;
+  }
+  @media ${device.mobileL} {
+    width: 420px;
+  }
 `
 export const GameSingleImg = styled.img`
   width: 100%;
   height: 183px;
   object-fit: cover;
   border-radius: ${props => props.theme.border_radius.l};
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+    height: 199px;
+  }
+  @media ${device.mobileL} {
+    height: 233px;
+  }
 `
 export const GameSingleTitle = styled.h3`
   font-weight: bold;
@@ -143,6 +165,15 @@ export const GameRating = styled(MovieRating)`
     &::before {
       width: ${props => (2 * (props.rating * 10) + "%")};
     }
+    
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      width: 335px;
+      height: 40px;
+      margin-left: -7px;
+    }
   }
 `
 export const GameDescription = styled(MovieDescription)`
@@ -151,8 +182,15 @@ export const GameFacts = styled(StatTable)`
 `
 export const GameRatingMetacritic = styled(MovieRating)`
   img {
-    width: 36px;
+    width: 42px;
     height: auto;
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      width: 50px;
+    }
   }
 
   i {
@@ -173,7 +211,16 @@ export const GameTrailersContainer = styled.div`
 
 export const GameTrailers = styled(MovieVideos)``
 
-export const GameMediaSwitch = styled(MovieVideosSwitch)``
+export const GameMediaSwitch = styled(MovieVideosSwitch)`
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    height: 42px;
+  }
+  
+`
 
 export const GameScContainer = styled.div`
   margin-top: 61px;
@@ -204,6 +251,7 @@ export const GameAdditions = styled.ul`
 `
 
 export const GameAddition = styled.li`
+  margin-right: 13px;
   img {
     width: 134px;
     height: 75px;
@@ -244,11 +292,19 @@ export const GameSeries = styled.ul`
 `
 export const GameSeriesSingle = styled.li`
   position: relative;
+  width: 100%;
   img {
     z-index: -1;
     width: 100%;
     height: 200px;
     object-fit: cover;
+    
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      height: 240px;
+    }
   }
   h3{
     position: absolute;
@@ -259,5 +315,12 @@ export const GameSeriesSingle = styled.li`
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(52, 58, 64, 0.2));
     text-align: center;
     font-size: 1.188rem;
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      height: 240px;
+    }
   }
 `

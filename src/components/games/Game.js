@@ -95,7 +95,7 @@ export const Game = (props) => {
     }
 
     const getGameStoreUrl = (num) => {
-        if(gameStores !== undefined && gameStores[num] !== undefined){
+        if (gameStores !== undefined && gameStores[num] !== undefined) {
             return gameStores[num].url
         }
     }
@@ -212,10 +212,10 @@ export const Game = (props) => {
             </GameAdditions>
         </GameAdditionsContainer>}
 
-        {game.stores.length > 0 &&     <GameStoresContainer>
+        {game.stores.length > 0 && <GameStoresContainer>
             <GameItemTitle>Stores</GameItemTitle>
 
-              <GameStores>
+            <GameStores>
                 {game.stores.map((el, num) => <GameStore key={`gameStore_${game.slug}_${num}`}><i
                     className="fas fa-shopping-cart"/>
                     <a href={getGameStoreUrl(num)} target="_blank" rel="noopener noreferrer">{el.store.name}</a>
@@ -228,11 +228,14 @@ export const Game = (props) => {
         {gameSeries.length > 0 && <GameSeriesContainer>
             <GameItemTitle>Game series</GameItemTitle>
             <GameSeries>
-                {gameSeries.map((el, num) => <Link to={`/game/${el.id}`}
-                                                   key={`gameSeries_${game.slug_}_${num}`}><GameSeriesSingle>
-                    <img src={el.background_image} alt={el.name}/>
-                    <h3>{el.name}</h3>
-                </GameSeriesSingle></Link>)}
+                {gameSeries.map((el, num) => <GameSeriesSingle>
+                        <Link to={`/game/${el.id}`}
+                              key={`gameSeries_${game.slug_}_${num}`}>
+                            <img src={el.background_image} alt={el.name}/>
+                            <h3>{el.name}</h3>
+                        </Link>
+                    </GameSeriesSingle>
+                )}
             </GameSeries>
         </GameSeriesContainer>}
 

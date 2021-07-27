@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {device} from "../../general/breakpoints";
 
 export const MovieDirector = styled.strong`
   width: 100%;
@@ -28,7 +29,7 @@ export const MovieGenreList = styled.ul`
   margin-top: 15px;
   overflow: auto;
   overflow-y: hidden;
-  
+
   &::-webkit-scrollbar {
     height: 8px;
   }
@@ -46,6 +47,7 @@ export const MovieGenreList = styled.ul`
     border-radius: ${props => props.theme.border_radius.s};
     box-shadow: 0 0 7px ${props => props.theme.color.main};
     white-space: nowrap;
+
     &:hover {
       cursor: pointer;
     }
@@ -68,7 +70,17 @@ export const MovieRating = styled.div`
     background: ${props => props.theme.color.main};
     border-radius: 40px;
     margin-left: 0;
-    font-size: 1.688rem;
+    font-size: 2.5rem;
+    font-size: 2.5rem;
+    
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      height: 70px;
+      width: 70px;
+    }
   }
 
   div {
@@ -79,7 +91,17 @@ export const MovieRating = styled.div`
     border-radius: 0 ${props => props.theme.border_radius.l} ${props => props.theme.border_radius.l} 0;
     position: relative;
     text-align: center;
-  overflow: hidden;
+    overflow: hidden;
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      width: 335px;
+      height: 40px;
+      margin-left: -7px;
+    }
+    
     &::before {
       content: "";
       position: absolute;
@@ -133,10 +155,11 @@ export const MovieVideos = styled.figure`
 `
 export const MovieVideosSwitch = styled.div`
   display: flex;
+  justify-content: space-between;
   flex-grow: 1;
-  gap: 10px;
   margin-top: 12px;
   font-size: 1rem;
+
   button {
     font-size: 1rem;
     font-weight: bold;
@@ -148,14 +171,30 @@ export const MovieVideosSwitch = styled.div`
     outline: none;
     border-radius: ${props => props.theme.border_radius.l};
     transition: 0.2s;
-    &:focus{
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      height: 42px;
+    }
+    
+    &:focus {
       transition: 0.2s;
       font-size: 19px;
     }
-    &:hover{
+
+    &:hover {
       cursor: pointer;
       transition: 0.2s;
       font-size: 19px;
+    }
+    
+    &:first-child{
+      margin-right: 5px;
+    }
+    &:last-child{
+      margin-left: 5px;
     }
   }
 `
@@ -163,7 +202,7 @@ export const MovieActors = styled.ul`
   width: 100%;
   display: flex;
   overflow: auto;
-  padding-bottom: 4px;
+  padding-bottom: 13px;
   margin-bottom: 42px;
 
   &::-webkit-scrollbar {
@@ -184,10 +223,41 @@ export const MovieActor = styled.li`
     margin-right: 15px;
     border-radius: ${props => props.theme.border_radius.m};
     object-fit: cover;
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      width: 147px;
+    }
   }
 
   h3 {
     width: 105px;
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileL} {
+      width: 147px;
+    }
+  }
+`
+export const MovieActorPhotoMissing = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 105px;
+  height: 158px;
+  margin-right: 15px;
+  font-size: 4.5rem;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    width: 147px;
+    height: 224px;
   }
 `
 export const MovieKnowFor = styled.strong`

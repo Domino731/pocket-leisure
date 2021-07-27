@@ -23,9 +23,15 @@ export const NavigationItem = styled.li`
   border-radius: 33px;
   overflow: hidden;
   animation: ${props => props.animation ? an__navigationItem : ""} 0.6s forwards;
- 
+
+  ///////////
+  // media //
+  ///////////
   @media ${device.mobileM} {
     height: 207px;
+  }
+  @media ${device.mobileL} {
+    height: 237px;
   }
 `
 export const NavigationItemTitle = styled.h2`
@@ -38,10 +44,30 @@ export const NavigationItemTitle = styled.h2`
   font-size: 2.063rem;
   font-weight: bold;
   text-align: center;
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+    height: 211px;
+  }
+  @media ${device.mobileL} {
+    height: 241px;
+  }
 `
 export const NavigationItemTitleGames = styled(NavigationItemTitle)`
   height: 216px;
   padding-top: 32px;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+    height: 230px;
+  }
+  @media ${device.mobileL} {
+    height: 261px;
+  }
 `
 export const NavigationImg = styled.img`
   width: 100%;
@@ -61,10 +87,13 @@ export const ColorFormCheckbox = styled.div`
   width: 73px;
   height: 73px;
 
+  ///////////
+  // media //
+  //////////
   @media ${device.mobileM} {
     height: 83px;
     width: 83px;
-  } 
+  }
   
   input {
     appearance: none;
