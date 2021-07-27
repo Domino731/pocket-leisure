@@ -42,7 +42,7 @@ export const MovieGenreItem = styled.li`
   ///////////
   @media ${device.tablet} {
     flex-direction: column;
-    width: 330px;
+    width: 305px;
     margin-right: 25px;
     margin-left: 25px;
     margin-bottom: 40px;
@@ -100,7 +100,7 @@ export const MovieRating = styled.strong`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 393px;
+    height: 360px;
     padding-left: 28px;
     span{
       margin-top: 8px;

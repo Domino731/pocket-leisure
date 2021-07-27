@@ -3,6 +3,7 @@ import {useState} from "react";
 import {FormElement} from "../../styled-components/elements/user-form/user-form";
 import {GameSingle} from "./GameSingle";
 import {getSearchedGame} from "../../api/rawg/operations";
+import {GamesList} from "../../styled-components/elements/games/games";
 
 export const GameSearch = () => {
 
@@ -17,8 +18,10 @@ export const GameSearch = () => {
             <i className="fas fa-search"/>
             <input type="text" onChange={handleChangeMovies}/>
         </FormElement>
-        {games !== undefined && games.map((el,num) => {
-            return <GameSingle game={el} key={`gameSearch_single_${num}_${el.slug}`}/>
-        })}
+        <GamesList>
+            {games !== undefined && games.map((el,num) => {
+                return <GameSingle game={el} key={`gameSearch_single_${num}_${el.slug}`}/>
+            })}
+        </GamesList>
     </Container>
 }

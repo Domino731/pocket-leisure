@@ -56,8 +56,8 @@ export const PosterMed = styled.img`
   }
 
   @media ${device.tablet} {
-    width: 262px;
-    height: 393px;
+    width: 240px;
+    height: 360px;
   }
 `
 export const PosterMedMissing = styled.div`

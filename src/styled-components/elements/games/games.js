@@ -20,14 +20,23 @@ export const GamesElementTitle = styled.h2`
   margin: 1.563rem 0 0.625rem;
   transition: 0.1s;
 `
-export const GamesList = styled.section`
+export const GamesList = styled.ul`
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  list-style-type: none;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+   
+  }
 `
-export const GameSingleContainer = styled.div`
+export const GameSingleContainer = styled.li`
+  list-style-type: none;
   width: 300px;
   margin-bottom: 43px;
 
@@ -44,7 +53,9 @@ export const GameSingleContainer = styled.div`
   }
   
   @media ${device.tablet} {
-    width: 760px;
+    width: 333px;
+    margin-right: 25px;
+    margin-left: 25px;
   }
 `
 export const GameSingleImg = styled.img`
@@ -190,6 +201,23 @@ export const GameMissingImg = styled.div`
   align-items: center;
   color: ${props => props.theme.color.main};
   font-size: 143px;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+    width: 360px;
+    height: 199px;
+  }
+  @media ${device.mobileM} {
+    width: 420px;
+    height: 233px;
+  }
+  @media ${device.tablet} {
+    width: 333px;
+    height: 420px;
+    font-size: 210px;
+  }
 `
 
 export const GameTitle = styled(MovieTitle)`

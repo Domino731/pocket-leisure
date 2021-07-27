@@ -7,6 +7,7 @@ import {GamesSortForm} from "../../styled-components/elements/games/games";
 import {sortGames} from "../../functions/sortGames";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
+import {GamesList} from "../../styled-components/elements/games/games";
 
 export const GamesByGenre = (props) => {
 
@@ -92,7 +93,11 @@ export const GamesByGenre = (props) => {
                     <label><i className="fas fa-sort-alpha-down-alt"/>Alphabetically Z - A</label>
                 </CheckboxRadio>
             </GamesSortForm>}
+
+            <GamesList>
             {games.map((el, num) => <GameSingle game={el} key={`game_single_byGenre_${num}_${el.slug}`}/>)}
+        </GamesList>
+
             <GetMoreBtn onClick={handleGetMore}>More</GetMoreBtn>
         </Container>
     }
