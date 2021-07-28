@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {device} from "../../general/breakpoints";
+import {FormElement} from "../user-form/user-form";
 
 export const OwRegions = styled.div`
   display: flex;
@@ -11,7 +12,16 @@ export const OwRegions = styled.div`
     text-align: center;
   }
 `
-
+export const OwFormElement = styled(FormElement)`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    input{
+        width: 400px;
+    }
+  }
+`
 export const OwSearchSettings = styled.div`
   display: flex;
   flex-direction: column;

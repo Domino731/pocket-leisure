@@ -1,6 +1,6 @@
 import {Form, FormElement, FormInvalid} from "../../styled-components/elements/user-form/user-form";
 import {useEffect, useState} from "react";
-import {OwSearchSettings} from "../../styled-components/elements/overwatch/overwatch";
+import {OwFormElement, OwSearchSettings} from "../../styled-components/elements/overwatch/overwatch";
 import {getRegionImgOw, getPlatformIconOw} from "../../functions/overwatchSearch";
 import {validateOverwatchUser} from "../../api/overwatch/operations";
 import {useHistory} from "react-router";
@@ -87,16 +87,16 @@ export const OverwatchSearchProfile = () => {
     return <Container>
         {checkingFlag === false && <Form>
             <h1>Overwatch statistics</h1>
-            <FormElement>
+            <OwFormElement>
                 <i className="fas fa-user"/>
                 <input type="text" placeholder="Username" name="username" value={data.username}
                        onChange={handleChangeData}/>
-            </FormElement>
-            <FormElement right>
+            </OwFormElement>
+            <OwFormElement right>
                 <input type="text" placeholder="BattleTag" name="battleTag" value={data.battleTag}
                        onChange={handleChangeData}/>
                 <i className="fas fa-hashtag"/>
-            </FormElement>
+            </OwFormElement>
 
 
             <FormElement>

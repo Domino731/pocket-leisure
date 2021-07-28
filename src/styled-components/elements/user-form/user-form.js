@@ -44,7 +44,7 @@ export const FormElement = styled.div`
     height: 60px;
     width: 60px;
     box-shadow: 0 0 14px ${props => props.theme.color.main};
-    border-radius: 40px;
+    border-radius: 70px;
     margin-left: ${props => props.right ? "-21px" : "0"};
     background: ${props => props.theme.color.main};
 
@@ -55,9 +55,13 @@ export const FormElement = styled.div`
       width: 70px;
       height: 70px;
     }
-    @media ${device.mobileL} {
-      width: 80px;
-      height: 80px;
+    @media ${device.tablet} {
+      width: 78px;
+      height: 78px;
+    }
+    @media ${device.laptop} {
+      width: 85px;
+      height: 85px;
     }
   }
 
@@ -72,7 +76,7 @@ export const FormElement = styled.div`
     outline: none;
     transition: 0.5s;
     position: relative;
-
+    font-size: 1rem;
     ///////////
     // media //
     ///////////
@@ -84,6 +88,9 @@ export const FormElement = styled.div`
     @media ${device.tablet} {
       width: 400px;
       height: 47px;
+    }
+    @media ${device.laptop} {
+      width: 600px;
     }
   }
 

@@ -53,9 +53,14 @@ export const GameSingleContainer = styled.li`
   }
   
   @media ${device.tablet} {
-    width: 333px;
+    width: 330px;
     margin-right: 25px;
     margin-left: 25px;
+  }
+  @media ${device.laptop} {
+    width: 300px;
+    margin-right: 20px;
+    margin-left: 20px;
   }
 `
 export const GameSingleImg = styled.img`
@@ -186,7 +191,6 @@ export const GamesGenresList = styled.ul`
   "family family family boardgames boardgames boardgames"
   "massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer"
   "educational educational educational educational card card";
-  gap: 14px;
 `
 export const GamesSortForm = styled.form`
   width: 100%;
