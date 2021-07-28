@@ -51,6 +51,15 @@ export const MovieCategoryList = styled.ul`
     background: ${props => props.theme.color.main};
     border-radius: 6px;
   }
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    &::-webkit-scrollbar{
+      height: 12px;
+    }
+  }
 `
 export const MovieCategoryItem = styled.li`
   width: 128px;
@@ -66,6 +75,12 @@ export const MovieCategoryItem = styled.li`
   
   @media ${device.tablet} {
     width: 240px;
+  }
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    width: 255px;
   }
 `
 export const MovieCategoryForm = styled.form`

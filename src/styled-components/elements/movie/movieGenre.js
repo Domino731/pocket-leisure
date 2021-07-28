@@ -37,6 +37,15 @@ export const MovieGenreItem = styled.li`
   margin-bottom: 20px;
   flex-shrink: 0;
 
+
+  img {
+    align-self: flex-start;
+  }
+
+  &:last-child {
+    margin-bottom: 35px;
+  }
+
   ///////////
   // media //
   ///////////
@@ -46,28 +55,14 @@ export const MovieGenreItem = styled.li`
     margin-right: 25px;
     margin-left: 25px;
     margin-bottom: 40px;
-  }
-
-
-  img {
-    align-self: flex-start;
-  }
-
-  &:first-child {
-    margin-top: 35px;
-
-    ///////////
-    // media //
-    ///////////
-    @media ${device.tablet} {
+    &:first-child {
       margin-top: 0;
     }
   }
-
-  &:last-child {
-    margin-bottom: 35px;
+  @media ${device.laptop} {
+    margin-right: 16px;
+    margin-left: 16px;
   }
-
 `
 
 export const MovieGenreItemDetails = styled.div`
@@ -102,15 +97,16 @@ export const MovieRating = styled.strong`
     align-items: center;
     height: 360px;
     padding-left: 28px;
-    span{
+    span {
       margin-top: 8px;
       margin-left: -10px;
     }
-    i{
+
+    i {
       font-size: 34px;
     }
   }
- 
+
   i {
     margin-right: 0.5rem;
   }

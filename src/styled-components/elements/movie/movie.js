@@ -288,6 +288,5 @@ export const MoviesList = styled.ul`
   @media ${device.tablet} {
    display: flex;
     flex-wrap: wrap;
-   justify-content: center;
   }
 `

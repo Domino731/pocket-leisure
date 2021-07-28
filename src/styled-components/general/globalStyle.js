@@ -20,6 +20,9 @@ export const GlobalStyle = createGlobalStyle`
     @media ${device.tablet} {
       font-size: 20px;
     }
+    @media ${device.laptop} {
+      font-size: 22px;
+    }
   }
   * {
     box-sizing: border-box;

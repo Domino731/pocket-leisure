@@ -274,6 +274,13 @@ export const Genre = styled.li`
     width: 100%;
     height: 100%;
   }
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    margin: 9px;
+  }
 `
 export const GetMoreBtn = styled.button`
   width: 100%;
