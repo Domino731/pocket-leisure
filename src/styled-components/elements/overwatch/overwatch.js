@@ -137,6 +137,24 @@ export const OwStatsSingleOverall = styled.section`
   }
 `
 
+export const OwStatsColumns = styled.div`
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    display: flex;
+  }
+`
+export const OwStatsSingleColumn = styled.div`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    width: 50%;
+  }
+`
+
 export const OwStatsTable = styled.table`
   tr {
     display: flex;
@@ -167,6 +185,20 @@ export const OwStatsTable = styled.table`
       z-index: -1;
       background: ${props => props.theme.color.white};
       color: ${props => props.theme.color.black}
+    }
+  }
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    tr{
+      td:first-child{
+        width: 177px;
+        padding: 14px 23px 14px 13px;
+      }
+      td:nth-child(2){
+        width: 177px;
+      }
     }
   }
 `
@@ -206,6 +238,14 @@ export const OwStatTitle = styled.h3`
   letter-spacing: 0.063rem;
   text-decoration: underline;
   text-decoration-color: ${props => props.theme.color.main};
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    width: 211px;
+    text-align: left;
+  }
 `
 
 export const OwWonGamesBar = styled.div`
@@ -233,6 +273,9 @@ export const OwWonGamesBar = styled.div`
   @media ${device.mobileL} {
     height: 52px;
   }
+  @media ${device.tablet} {
+    width: 322px;
+  }
 `
 
 export const OwMedalsDiagram = styled.div`
@@ -242,7 +285,12 @@ export const OwMedalsDiagram = styled.div`
   margin: 0.813rem 0 1.688rem;
   border-bottom: 4px solid ${props => props.theme.color.main};
 
-
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    width: 322px;
+  }
 `
 export const OwMedalBar = styled.div`
   height: 126px;
@@ -266,6 +314,9 @@ export const OwMedalBar = styled.div`
   ///////////
   @media ${device.mobileL} {
     width: 85px;
+  }
+  @media ${device.tablet} {
+    width: 72px;
   }
 `
 export const OwLinksContainer = styled.div`
