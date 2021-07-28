@@ -1,6 +1,67 @@
 import styled from "styled-components";
 import {device} from "../../general/breakpoints";
 
+
+export const MovieRow = styled.div`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: flex;
+    margin-top: 15px;
+  }
+`
+export const MoviePosterContainer = styled.div`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    width: 40%;
+  }
+`
+export const MovieIntroductionContainer = styled.div`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    width: 60%;
+    padding-left: 20px;
+    max-height: 610px;
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.laptop} {
+      justify-content: flex-start;
+      margin-top: 20px;
+      &::-webkit-scrollbar{
+        height: 12px;
+      }
+      &::-webkit-scrollbar-thumb{
+        background: ${props => props.theme.color.main};
+        border-radius: 6px;
+      }
+    }
+  }
+  
+`
+export const MovieMediaContainer = styled.div`
+  @media ${device.laptop} {
+    width: 60%;
+  }
+`
+
+export const MovieFactsContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    width: 40%;
+    margin-top: 28px;
+  }
+`
 export const MovieDirector = styled.strong`
   width: 100%;
   display: flex;
@@ -12,15 +73,39 @@ export const MovieDirector = styled.strong`
   box-shadow: 0 -25px 42px ${props => props.theme.color.black},
     0 -25px 42px ${props => props.theme.color.black},
     0 -69px 38px ${props => props.theme.color.black}, 0 -65px 36px ${props => props.theme.color.black};
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
 `
 export const MovieTitle = styled.h1`
   text-align: center;
   font-size: 1.625rem;
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    text-align: left;
+    margin-top: 4px;
+  }
 `
 export const MovieDetail = styled.div`
   text-align: center;
   margin-top: 0.813rem;
   color: ${props => props.theme.color.gray};
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    text-align: left;
+    margin-top: 9px;
+  }
 `
 export const MovieGenreList = styled.ul`
   display: flex;
@@ -51,7 +136,12 @@ export const MovieGenreList = styled.ul`
     &:hover {
       cursor: pointer;
     }
-    
+  }
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    justify-content: flex-start;
   }
 `
 export const MovieRating = styled.div`
@@ -72,19 +162,6 @@ export const MovieRating = styled.div`
     border-radius: 40px;
     margin-left: 0;
     font-size: 2.5rem;
-    
-    ///////////
-    // media //
-    ///////////
-    @media ${device.mobileL} {
-      height: 70px;
-      width: 70px;
-    }
-    
-    @media ${device.tablet} {
-      height: 84px;
-      width: 84px;
-    }
   }
 
   div {
@@ -96,20 +173,6 @@ export const MovieRating = styled.div`
     position: relative;
     text-align: center;
     overflow: hidden;
-
-    ///////////
-    // media //
-    ///////////
-    @media ${device.mobileL} {
-      width: 335px;
-      height: 40px;
-      margin-left: -7px;
-    }
-    
-    @media ${device.tablet} {
-      width: 700px;
-      height: 49px;
-    }
     
     &::before {
       content: "";
@@ -121,6 +184,39 @@ export const MovieRating = styled.div`
       transform: skew(17deg, 0deg);
     }
   }
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    i{
+      height: 70px;
+      width: 70px;
+    }
+    div{
+      width: 335px;
+      height: 40px;
+      margin-left: -7px;
+    }
+  }
+  
+  @media  ${device.tablet} {
+    i{
+      height: 84px;
+      width: 84px;
+    }
+    div{
+      width: 700px;
+      height: 49px;
+    }
+  }
+  @media ${device.laptop} {
+    justify-content: flex-start;
+    div{
+      width: 490px;
+    }
+  }
+  
 `
 
 export const MovieTagline = styled.strong`
@@ -130,6 +226,13 @@ export const MovieTagline = styled.strong`
   font-size: 1.063rem;
   font-weight: bold;
   letter-spacing: 0.063rem;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+   margin-top:0;
+  }
 `
 export const MovieDescription = styled.div`
   margin: 22px 8px;
@@ -190,7 +293,7 @@ export const MovieVideosSwitch = styled.div`
     @media ${device.tablet} {
       height: 50px;
     }
-    
+
     &:focus {
       transition: 0.2s;
       font-size: 19px;
@@ -201,11 +304,12 @@ export const MovieVideosSwitch = styled.div`
       transition: 0.2s;
       font-size: 19px;
     }
-    
-    &:first-child{
+
+    &:first-child {
       margin-right: 5px;
     }
-    &:last-child{
+
+    &:last-child {
       margin-left: 5px;
     }
   }
@@ -225,6 +329,16 @@ export const MovieActors = styled.ul`
     background: ${props => props.theme.color.main};
     border-radius: 6px;
   }
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    &::-webkit-scrollbar{
+      height: 12px;
+    }
+  }
+  
 `
 export const MovieActor = styled.li`
   margin-right: 14px;
@@ -276,17 +390,13 @@ export const MovieKnowFor = styled.strong`
   color: ${props => props.theme.color.gray};
 `
 
-export const MovieInfo = styled.section`
-  display: flex;
-  flex-direction: column;
-`
 
 export const MoviesList = styled.ul`
   ///////////
   // media //
   ///////////
   @media ${device.tablet} {
-   display: flex;
+    display: flex;
     flex-wrap: wrap;
   }
 `
