@@ -55,6 +55,10 @@ export const FormElement = styled.div`
       width: 70px;
       height: 70px;
     }
+    @media ${device.mobileL} {
+      width: 80px;
+      height: 80px;
+    }
   }
 
   input {
@@ -79,6 +83,7 @@ export const FormElement = styled.div`
 
     @media ${device.tablet} {
       width: 400px;
+      height: 47px;
     }
   }
 

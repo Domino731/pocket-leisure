@@ -35,6 +35,7 @@ export const GlobalStyle = createGlobalStyle`
     &:hover {
       cursor: pointer;
     }
+    
   }
 
   h1 {

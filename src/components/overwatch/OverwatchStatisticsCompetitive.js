@@ -157,7 +157,7 @@ export const OverwatchStatisticsCompetitive = (props) => {
 
             {/*best stats and records*/}
             <section>
-                <OwStatTitle>best</OwStatTitle>
+                <OwStatTitle>Best</OwStatTitle>
                 <OwStatsTable>
                     <tbody>
                     <tr>

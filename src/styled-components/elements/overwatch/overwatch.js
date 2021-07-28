@@ -40,9 +40,9 @@ export const OwSearchSettings = styled.div`
     ///////////
     @media ${device.tablet} {
       width: 94px;
-      height: 64px;
+      height: 50px;
     }
-    
+
     &:hover {
       cursor: pointer;
     }
@@ -107,11 +107,42 @@ export const OwPrivate = styled.div`
     margin-top: 18px;
   }
 `
+export const OwStatsGeneral = styled.div`
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+`
+export const OwStatsSingle = styled.section`
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    width: 45%;
+  }
+`
+export const OwStatsSingleOverall = styled.section`
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    width: 100%
+  }
+`
+
 export const OwStatsTable = styled.table`
   tr {
     display: flex;
     vertical-align: middle;
     border-color: inherit;
+
     td {
       display: flex;
       align-items: center;
@@ -155,6 +186,16 @@ export const OwStatsTitle = styled.h2`
     transform: skew(-17deg);
     font-weight: bold;
     font-size: 2.75rem;
+
+  }
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    span {
+      font-size: 47px;
+    }
   }
 `
 export const OwStatTitle = styled.h3`
@@ -209,7 +250,7 @@ export const OwMedalBar = styled.div`
   background: ${props => props.theme.color.white};
   border-radius: 50px 50px 0 0;
   position: relative;
-  
+
   &::after {
     content: "";
     display: block;
@@ -219,7 +260,7 @@ export const OwMedalBar = styled.div`
     height: ${props => ((props.medal / props.allMedals) * 100) + "%"};;
     background: ${props => props.color};
   }
-  
+
   ///////////
   // media //
   ///////////
@@ -227,14 +268,25 @@ export const OwMedalBar = styled.div`
     width: 85px;
   }
 `
+export const OwLinksContainer = styled.div`
+  display: flex;
+  flex-direction: column;
 
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+`
 export const OwLink = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 286px;
   height: 93px;
-  margin: 27px auto;
+  margin: 12px auto;
   border: none;
   border-radius: 18px;
   background: ${props => props.theme.color.main};;
@@ -243,4 +295,13 @@ export const OwLink = styled.div`
   font-weight: bold;
   font-size: 2.125rem;
   text-align: center;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    margin: 0;
+    width: 360px;
+    font-size: 40px;
+  }
 `
