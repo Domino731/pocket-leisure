@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import {useHistory} from "react-router";
+
 import gamesImg from "../../images/game_xboxone.jpg";
 import moviesImg from "../../images/movie_clapper_board.jpg"
 import overwatchImg from "../../images/overwatch.jpg"
@@ -7,7 +7,13 @@ import overwatchImg from "../../images/overwatch.jpg"
 import {Container} from "../../styled-components/general/general-styles";
 import {
     NavigationList,
-    NavigationItem, NavigationImg, NavigationItemTitle, ColorForm, ColorFormCheckbox, NavigationItemTitleGames
+    NavigationItem,
+    NavigationImg,
+    NavigationItemTitle,
+    ColorForm,
+    ColorFormCheckbox,
+    NavigationItemTitleGames,
+    NavigationItemTitleOverwatch
 } from "../../styled-components/elements/homePage/homePage";
 import {useState} from "react";
 import {changeMainColor} from "../../redux/actions/mainColor.action";
@@ -15,31 +21,9 @@ import {Link} from "react-router-dom";
 
 const HomePage = ({mainColor, setMainColor}) => {
 
-    // flags responsible for animations
-    const [animation, setAnimation] = useState({movies: false, series: false, games: false, books: false})
 
     // state with main color(from redux state), which can be change by user
     const [color, setColor] = useState(mainColor)
-
-    // to move the user to another subpage at the end of the animation
-    let history = useHistory()
-
-    // when the user clicks on the item, add the animation and when it is finished, redirect the user to the subpage
-    /** @param item {string} - so that the function knows where to place the animation and where to redirect the user
-     */
-    const handleRedirect = (item) => {
-        // add animation
-        setAnimation(prev => ({
-            ...prev,
-            [item]: true
-        }))
-
-        // redirect after 0.6s
-        setTimeout(() => {
-            history.push(`/${item}`)
-        }, 600)
-
-    }
 
     const handleChangeMainColor = (e) => {
         localStorage.setItem("mainColor", e.target.value)
@@ -70,9 +54,9 @@ const HomePage = ({mainColor, setMainColor}) => {
 
                 <NavigationItem>
                     <Link to="/overwatch-search-your-profile">
-                        <NavigationItemTitle>
+                        <NavigationItemTitleOverwatch>
                             Overwatch
-                        </NavigationItemTitle>
+                        </NavigationItemTitleOverwatch>
                         <NavigationImg src={overwatchImg}/>
                     </Link>
                 </NavigationItem>

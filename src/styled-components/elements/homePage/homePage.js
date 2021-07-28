@@ -6,10 +6,15 @@ export const NavigationList = styled.ul`
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 42px;
   width: 100%;
   margin-top: 20px;
-
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `
 export const NavigationItem = styled.li`
   position: relative;
@@ -24,11 +29,12 @@ export const NavigationItem = styled.li`
   border-radius: 33px;
   overflow: hidden;
   animation: ${props => props.animation ? an__navigationItem : ""} 0.6s forwards;
-  
-  a{
+
+  a {
     display: block;
     width: 100%;
   }
+
   ///////////
   // media //
   ///////////
@@ -44,6 +50,11 @@ export const NavigationItem = styled.li`
     height: 297px;
   }
 
+  @media ${device.laptop} {
+    width: 33%;
+    height: 315px;
+    flex-shrink: 1;
+  }
 `
 export const NavigationItemTitle = styled.h2`
   position: absolute;
@@ -56,21 +67,34 @@ export const NavigationItemTitle = styled.h2`
   font-weight: bold;
   text-align: center;
 
+  transition: 0.2s;
+  &:hover{
+    transition: 0.2s;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
+  }
   ///////////
   // media //
   ///////////
   @media ${device.mobileM} {
     height: 211px;
   }
-  
+
   @media ${device.mobileL} {
     height: 241px;
   }
-  
+
   @media ${device.tablet} {
     height: 372px;
     font-size: 2.64rem;
     padding-top: 78px;
+  }
+  @media ${device.laptop} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 317px;
+    width: 502px;
+    padding: 0;
   }
 `
 export const NavigationItemTitleGames = styled(NavigationItemTitle)`
@@ -83,33 +107,58 @@ export const NavigationItemTitleGames = styled(NavigationItemTitle)`
   @media ${device.mobileM} {
     height: 230px;
   }
-  
+
   @media ${device.mobileL} {
     height: 261px;
   }
-  
+
   @media ${device.tablet} {
     height: 403px;
     padding-top: 119px;
   }
+  @media ${device.laptop} {
+    width: 502px;
+    height: 317px;
+    padding: 0;
+    //margin-top: 20px;
+  }
+`
+export const NavigationItemTitleOverwatch = styled(NavigationItemTitle)`
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    height: 316px;
+    width: 1014px;
+    padding: 0;
+  }
+  
 `
 export const NavigationImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
 
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    height: 315px;
+  }
 `
 
 export const ColorForm = styled.form`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 21px;
 
   ///////////
   // media //
   //////////
   @media ${device.tablet} {
-   margin-top: 56px;
+    margin-top: 56px;
   }
 `
 
@@ -118,18 +167,7 @@ export const ColorFormCheckbox = styled.div`
   width: 73px;
   height: 73px;
 
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileM} {
-    height: 83px;
-    width: 83px;
-  }
 
-  @media ${device.tablet} {
-    height: 142px;
-    width: 142px;
-  }
   input {
     appearance: none;
     background: transparent;
@@ -139,21 +177,14 @@ export const ColorFormCheckbox = styled.div`
     left: 0;
     z-index: 3;
     border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   input:checked ~ label i {
     font-size: 56px;
-
-    ///////////
-    // media //
-    ///////////
-    @media ${device.mobileM} {
-      font-size: 66px;
-    }
-    @media ${device.tablet} {
-      font-size: 128px;
-    }
-    
   }
 
   label {
@@ -166,6 +197,36 @@ export const ColorFormCheckbox = styled.div`
     border-radius: ${props => props.theme.border_radius.l};
     font-size: 0;
   }
+
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+    height: 83px;
+    width: 83px;
+    input:checked ~ label i {
+      font-size: 66px;
+    }
+  }
+
+  @media ${device.tablet} {
+    height: 142px;
+    width: 142px;
+    input:checked ~ label i {
+      font-size: 128px;
+    }
+  }
+
+  @media ${device.laptop} {
+    height: 85px;
+    width: 245px;
+
+    input:checked ~ label i {
+      font-size: 80px;
+    }
+  }
+
 `
 
 
