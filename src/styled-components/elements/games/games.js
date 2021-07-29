@@ -62,6 +62,9 @@ export const GameSingleContainer = styled.li`
     margin-right: 20px;
     margin-left: 20px;
   }
+  @media ${device.laptopL} {
+    width: 318px;
+  }
 `
 export const GameSingleImg = styled.img`
   width: 100%;
@@ -82,6 +85,9 @@ export const GameSingleImg = styled.img`
 
   @media ${device.tablet} {
     height: 420px;
+  }
+  @media ${device.tablet} {
+    height: 430px;
   }
 `
 export const GameSingleTitle = styled.h3`
@@ -257,6 +263,11 @@ display: none;
     }
   }
   
+  @media ${device.laptopL} {
+    img{
+      height: 703px;
+    }
+  }
 `
 export const GameIntroductionContainer = styled.div`
   ///////////
@@ -291,40 +302,25 @@ export const GameRating = styled(MovieRating)`
       margin-left: -7px;
     }
   }
-
+  
   @media ${device.tablet} {
     div{
       width: 700px;
       height: 49px;
     }
   }
-
+  
   @media ${device.laptop} {
     div{
       width: 505px;
       margin-left: -10px;
     }
   }
-  
-`
-export const GameDescription = styled(MovieDescription)`
-`
-export const GameFacts = styled(StatTable)`
-  ///////////
-  // media //
-  ///////////
-  @media ${device.laptop} {
-    display: none;
-  }
-`
-export const GameFactsDesktop = styled(StatTable)`
-  display: none;
-  margin-top: 20px;
-  ///////////
-  // media //
-  ///////////
-  @media ${device.laptop} {
-    display: block;
+
+  @media ${device.laptopL} {
+    div{
+      width: 766px;
+    }
   }
 `
 export const GameRatingMetacritic = styled(MovieRating)`
@@ -356,7 +352,37 @@ export const GameRatingMetacritic = styled(MovieRating)`
       margin-left: -10px;
     }
   }
+  @media ${device.laptopL} {
+    div{
+      width: 766px;
+    }
+  }
 `
+
+
+
+
+export const GameDescription = styled(MovieDescription)`
+`
+export const GameFacts = styled(StatTable)`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: none;
+  }
+`
+export const GameFactsDesktop = styled(StatTable)`
+  display: none;
+  margin-top: 20px;
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: block;
+  }
+`
+
 export const GameTrailersContainer = styled.div`
 
 `
@@ -440,6 +466,17 @@ export const GameAddition = styled.li`
       font-size: 145px;
     }
   }
+
+  @media ${device.laptopL} {
+    width: 320px;
+    img{
+      height: 177px;
+    }
+    strong{
+      height: 177px;
+      font-size: 145px;
+    }
+  }
 `
 
 export const GameStoresContainer = styled.div``
@@ -510,6 +547,9 @@ export const GameSeriesSingle = styled.li`
     width: 480px;
     margin-right: 16px;
     margin-left: 16px;
+  }
+  @media ${device.laptopL} {
+    width: 446px;
   }
 `
 
