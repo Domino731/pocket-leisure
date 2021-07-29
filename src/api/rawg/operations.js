@@ -83,7 +83,7 @@ export const getMoreGames = (successCallback, genreId, pageNumber) => {
 /**
  fetch games by genre - action, rpg, fps ...
  * @param {function} successCallback - Function that saves incoming data
- * @param {function} setLoadingCallback - name of game that you want to get
+ * @param {function} setLoadingCallback - set loading screen during fetching searched games
  * @param {string} game - name of game that you want to get
  */
 export const getSearchedGame = async (successCallback, setLoadingCallback,  game) => {

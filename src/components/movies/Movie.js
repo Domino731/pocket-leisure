@@ -7,8 +7,8 @@ import {MovieGenreSingle as SimilarMovie} from "./MovieGenreSingle";
 import {
     Container,
     FullWidePoster,
-    ItemTitleSmall, PosterBigMissing,
-    PosterMedMissing, FactsTable
+    ItemTitleSmall,
+     FactsTable
 } from "../../styled-components/general/general-styles";
 import {
     MovieDirector,
@@ -21,8 +21,7 @@ import {
     MovieActor,
     MovieKnowFor,
     MovieItemTitle,
-    MovieInfo,
-    MovieTable,
+
     MovieTagline,
     MovieVideos,
     MovieVideosSwitch,
@@ -56,7 +55,6 @@ export const Movie = (props) => {
     //when component mounted get a movie with this id (from ulr path)
     useEffect(() => {
         getSingleMovie(setMovie, props.match.params.id)
-        getMovieCredits(setMovie, props.match.params.id)
         getSimilarMovies(setSimilarMovies, props.match.params.id)
         getMovieVideos(setVideos, props.match.params.id)
     }, [props.match.params])
@@ -137,6 +135,12 @@ export const Movie = (props) => {
                                     key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
                             </tr>}
 
+                            {
+                                movie.vote_average !== null && <tr>
+                                    <td><i className="fas fa-circle"/>Rating</td>
+                                    <td>{movie.vote_average.toFixed(1)} / 10</td>
+                                </tr>
+                            }
 
                             </tbody>
                         </FactsTable>
@@ -235,7 +239,12 @@ export const Movie = (props) => {
                             key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
                     </tr>}
 
-
+                    {
+                        movie.vote_average !== null && <tr>
+                            <td><i className="fas fa-circle"/>Rating</td>
+                            <td>{movie.vote_average.toFixed(1)} / 10</td>
+                        </tr>
+                    }
                     </tbody>
                 </FactsTable>
             </MovieFactsContainer>

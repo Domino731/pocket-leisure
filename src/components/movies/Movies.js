@@ -28,7 +28,7 @@ const Movies = () => {
     }
     return <Container>
         <Movie>
-            <TitleBar><TitlePrimary>Movies</TitlePrimary> <Link to="movie-search"><i className="fas fa-search"/></Link></TitleBar>
+            <TitleBar><TitlePrimary>Movies</TitlePrimary> <Link to="movie-search"><i className="fas fa-search"/> <span>Search</span></Link></TitleBar>
             <MoviesByCategory moviesData={popularMovies}/>
             <MoviesGenres movieGenresData={movieGenres}/>
         </Movie>

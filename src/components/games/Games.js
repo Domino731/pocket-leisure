@@ -25,7 +25,7 @@ export const Games = () => {
     }
     return <Container>
         <TitleBar><TitlePrimary>Games</TitlePrimary> <Link to="/game-search"><i
-            className="fas fa-search"/></Link></TitleBar>
+            className="fas fa-search"/> <span>Search</span></Link></TitleBar>
        <GamesListMain games={games}/>
        <GamesGenres gamesGenres={gamesGenres} />
     </Container>

@@ -163,7 +163,7 @@ export const Game = (props) => {
                     {game.rating > 0 &&
                     <tr>
                         <td><i className="fas fa-circle"/>Rating</td>
-                        <td>{game.rating} / 5</td>
+                        <td>{game.rating.toFixed(1)} / 5</td>
                     </tr>
                     }
                     {game.metacritic > 0 &&

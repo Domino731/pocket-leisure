@@ -55,7 +55,7 @@ export const PosterMed = styled.img`
   border-radius: ${props => props.theme.border_radius.l};
   margin-right: 0.625rem;
   flex-shrink: 0;
-
+  
   ///////////
   // media //
   ///////////
@@ -103,29 +103,56 @@ export const TitleBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  i {
-    font-size: ${props => props.theme.icons.l};
+
+  a {
     display: flex;
-    justify-content: center;
     align-items: center;
-    z-index: 1;
     height: 50px;
     width: 50px;
+    background: ${props => props.theme.color.main};
     box-shadow: 0 0 14px ${props => props.theme.color.main};
     border-radius: 40px;
-    margin-left: ${props => props.right ? "-21px" : "0"};
-    background: ${props => props.theme.color.main};
+    overflow: hidden;
 
-    ///////////
-    // media //
-    ///////////
-    @media ${device.tablet} {
-      height: 80px;
-      width: 80px;
+    transition: 0.4s;
+
+    &:hover {
+      transition: 0.4s;
+      width: 126px;
     }
+  }
 
+  i {
+    margin-left: 7px;
+    font-size: ${props => props.theme.icons.l};
+    z-index: 1;
+  }
+
+  span {
+    margin-left: 12px;
+  }
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    a{
+      height: 65px;
+      width: 65px;
+      &:hover {
+        width: 168px;
+      }
+    }
+    i{
+      font-size: 44px;
+      margin-left: 11px;
+    }
+    span{
+      font-size: 30px;
+    }
   }
 `
+
 export const ItemTitleSmall = styled.h3`
   font-weight: bold;
   margin: 0.313rem 0 0.625rem;
@@ -155,7 +182,7 @@ export const FactsTable = styled.table`
       display: inline-block;
       word-wrap: break-word;
     }
-    
+
     td:first-child {
       vertical-align: top;
       white-space: nowrap;
@@ -175,6 +202,7 @@ export const FactsTable = styled.table`
         &::after {
           content: "";
         }
+
         margin-bottom: 10px;
       }
     }

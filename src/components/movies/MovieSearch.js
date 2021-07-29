@@ -11,6 +11,7 @@ import {useEffect, useState} from "react";
 import {MovieCategoryForm} from "../../styled-components/elements/movie/movieCategory";
 import {MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
 import { MoviesList} from "../../styled-components/elements/movie/movie";
+import {Loading} from "../loading/Loading";
 
 
 export const MovieSearch = () => {
@@ -21,6 +22,7 @@ export const MovieSearch = () => {
     // based on this string, the function (handleChangeMovies) will return another function responsible for searching
     const [searchBy, setSearchBy] = useState("Movie title")
 
+    const [loading, setLoading] = useState(false)
     // flag which allows the user to toggle the sorting options
     const [flag, setFlag] = useState(false)
 
@@ -28,13 +30,13 @@ export const MovieSearch = () => {
     const handleChangeMovies = (e) => {
         switch (searchBy) {
             case "Movie name":
-                return searchMovieByTitle(setMovies, e.target.value)
+                return searchMovieByTitle(setMovies, setLoading,  e.target.value)
             case "Director":
-                return searchMovieByDirector(setMovies, e.target.value)
+                return searchMovieByDirector(setMovies, setLoading, e.target.value)
             case "Actor":
-                return searchMovieByActor(setMovies, e.target.value)
+                return searchMovieByActor(setMovies, setLoading, e.target.value)
             default:
-                return searchMovieByTitle(setMovies, e.target.value)
+                return searchMovieByTitle(setMovies, setLoading, e.target.value)
         }
     }
 
@@ -78,11 +80,16 @@ export const MovieSearch = () => {
             <input type="text" onChange={handleChangeMovies}/>
         </FormElement>
 
-        <MoviesList>
-            {movies !== undefined &&
-            movies.map((el, num) => <SingleMovie movie={el} key={`movieSearch_${el.id}_${num}`}/>)
-            }
-        </MoviesList>
+        {loading ?
+            <Loading/>
+        :
+            <MoviesList>
+                {movies !== undefined &&
+                movies.map((el, num) => <SingleMovie movie={el} key={`movieSearch_${el.id}_${num}`}/>)
+                }
+            </MoviesList>
+        }
+
     </Container>
 }
 
