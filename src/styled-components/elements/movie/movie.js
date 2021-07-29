@@ -21,6 +21,7 @@ export const MoviePosterContainer = styled.div`
 `
 export const MoviePosterContainerDesktop = styled.div`
   display: none;
+  width: 40%;
   ///////////
   // media //
   ///////////
@@ -35,7 +36,6 @@ export const MovieIntroductionContainer = styled.div`
   @media ${device.laptop} {
     width: 60%;
     padding-left: 20px;
-    max-height: 610px;
 
     ///////////
     // media //
@@ -53,11 +53,14 @@ export const MovieIntroductionContainer = styled.div`
       }
     }
   }
-
+  
+  @media ${device.laptopL} {
+    padding-left: 40px;
+  }
 `
 export const MovieMediaContainer = styled.div`
   @media ${device.laptop} {
-    width: 60%;
+    width: 100%;
   }
 `
 
@@ -239,7 +242,13 @@ export const MovieRating = styled.div`
       width: 490px;
     }
   }
-
+  
+  @media ${device.laptopL} {
+ 
+    div {
+      width: 741px;
+    }
+  }
 `
 
 export const MovieTagline = styled.strong`
@@ -361,7 +370,11 @@ export const MovieActors = styled.ul`
       height: 12px;
     }
   }
-
+  @media ${device.laptopL} {
+    &::-webkit-scrollbar{
+      height: 17px;
+    }
+  }
 `
 export const MovieActor = styled.li`
   margin-right: 14px;

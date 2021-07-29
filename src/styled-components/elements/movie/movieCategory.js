@@ -60,6 +60,11 @@ export const MovieCategoryList = styled.ul`
       height: 12px;
     }
   }
+  @media ${device.laptopL} {
+    &::-webkit-scrollbar{
+      height: 17px;
+    }
+  }
 `
 export const MovieCategoryItem = styled.li`
   width: 128px;
@@ -76,11 +81,13 @@ export const MovieCategoryItem = styled.li`
   @media ${device.tablet} {
     width: 240px;
   }
-  ///////////
-  // media //
-  ///////////
+
   @media ${device.laptop} {
     width: 255px;
+  }
+  
+  @media ${device.laptopL} {
+    width: 305px;
   }
 `
 export const MovieCategoryForm = styled.form`

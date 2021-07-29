@@ -67,6 +67,9 @@ export const PosterMed = styled.img`
     width: 240px;
     height: 360px;
   }
+  @media ${device.laptopL} {
+    width: 258px;
+  }
 `
 export const PosterMedMissing = styled.div`
   display: flex;

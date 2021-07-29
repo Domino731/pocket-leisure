@@ -63,6 +63,10 @@ export const MovieGenreItem = styled.li`
     margin-right: 16px;
     margin-left: 16px;
   }
+  @media ${device.laptopL} {
+    width: 326px;
+  }
+  
 `
 
 export const MovieGenreItemDetails = styled.div`
