@@ -28,7 +28,6 @@ export const Container = styled.section`
 
   @media ${device.laptopL} {
     width: ${size.laptopL};
-    border: 2px solid red;
   }
 `
 export const PosterBig = styled.img`

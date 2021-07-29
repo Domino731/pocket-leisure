@@ -53,6 +53,7 @@ export const OverwatchSearchProfile = () => {
             ...prev,
             [name]: value
         }))
+        setIncorrect({error: ""})
     }
 
     // when search was successful, redirect to statistics page based on user data (username, battleTag, region, platform)

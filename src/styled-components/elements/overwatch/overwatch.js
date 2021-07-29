@@ -80,10 +80,24 @@ export const OwLevelIcon = styled.img`
   object-fit: cover;
   position: absolute;
   top: 20px;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptopL} {
+    width: 354px;
+  }
 `
 export const OwPrestigeIcon = styled(OwLevelIcon)`
   position: absolute;
   top: 156px;
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptopL} {
+    top: 182px;
+  }
 `
 export const OwName = styled.h1`
   margin-top: 0.438rem;
@@ -93,6 +107,13 @@ export const OwName = styled.h1`
   font-weight: bold;
   font-size: 1.938rem;
   letter-spacing: 0.063rem;
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptopL} {
+    margin-top: 67px;
+  }
 `
 export const OwPrivate = styled.div`
   margin-top: 26px;
@@ -184,13 +205,13 @@ export const OwStatsTable = styled.table`
       white-space: nowrap;
       padding: 11px 22px 11px 10px;
       background: ${props => props.theme.color.main};
-      border-radius: 0 20px 20px 0;
+      border-radius: 0 40px 40px 0;
     }
 
     td:nth-child(2) {
       min-width: 155px;
       padding: 11px 22px 11px 40px;
-      border-radius: 20px;
+      border-radius: 0 40px 40px 0;
       margin-left: -32px;
       z-index: -1;
       background: ${props => props.theme.color.white};
@@ -208,6 +229,17 @@ export const OwStatsTable = styled.table`
       }
       td:nth-child(2){
         width: 177px;
+      }
+    }
+  }
+  @media ${device.laptopL} {
+    tr{
+      td:first-child{
+        width: 233px;
+        padding: 14px 23px 14px 13px;
+      }
+      td:nth-child(2){
+        width: 233px;
       }
     }
   }
@@ -286,6 +318,9 @@ export const OwWonGamesBar = styled.div`
   @media ${device.tablet} {
     width: 322px;
   }
+  @media ${device.laptopL} {
+    width: 434px;
+  }
 `
 
 export const OwMedalsDiagram = styled.div`
@@ -300,6 +335,9 @@ export const OwMedalsDiagram = styled.div`
   ///////////
   @media ${device.tablet} {
     width: 322px;
+  }
+  @media ${device.laptopL} {
+    width: 434px;
   }
 `
 export const OwMedalBar = styled.div`
@@ -327,6 +365,10 @@ export const OwMedalBar = styled.div`
   }
   @media ${device.tablet} {
     width: 72px;
+  }
+  @media ${device.laptopL} {
+    height: 155px;
+    width: 90px;
   }
 `
 export const OwLinksContainer = styled.div`
@@ -364,5 +406,8 @@ export const OwLink = styled.div`
     margin: 0;
     width: 360px;
     font-size: 40px;
+  }
+  @media ${device.laptopL} {
+    width: 512px;
   }
 `
