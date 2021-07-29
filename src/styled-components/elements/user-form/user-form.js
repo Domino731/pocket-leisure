@@ -99,6 +99,11 @@ export const FormElement = styled.div`
     border: ${props => props.theme.border.m} solid ${props => props.theme.color.main};
   }
 
+  input:hover {
+    transition: 0.3s;
+    border: ${props => props.theme.border.m} solid ${props => props.theme.color.main};
+  }
+
   strong, a {
     margin-top: 11px;
     padding: 8px 25px;

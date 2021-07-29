@@ -8,7 +8,7 @@ import {
     Container,
     FullWidePoster,
     ItemTitleSmall, PosterBigMissing,
-    PosterMedMissing, StatTable
+    PosterMedMissing, FactsTable
 } from "../../styled-components/general/general-styles";
 import {
     MovieDirector,
@@ -98,7 +98,7 @@ export const Movie = (props) => {
                     <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/>}
                     <MovieFactsContainerDesktop>
                         {/*movie details*/}
-                        <StatTable>
+                        <FactsTable>
                             <tbody>
                             {movie.credits.director !== undefined && <tr>
                                 <td><i className="fas fa-circle"/>Director</td>
@@ -139,7 +139,7 @@ export const Movie = (props) => {
 
 
                             </tbody>
-                        </StatTable>
+                        </FactsTable>
                     </MovieFactsContainerDesktop>
                 </MoviePosterContainerDesktop>
 
@@ -196,7 +196,7 @@ export const Movie = (props) => {
 
             <MovieFactsContainer>
                 {/*movie details*/}
-                <StatTable>
+                <FactsTable>
                     <tbody>
                     {movie.credits.director !== undefined && <tr>
                         <td><i className="fas fa-circle"/>Director</td>
@@ -237,7 +237,7 @@ export const Movie = (props) => {
 
 
                     </tbody>
-                </StatTable>
+                </FactsTable>
             </MovieFactsContainer>
 
 

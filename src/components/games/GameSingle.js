@@ -17,14 +17,13 @@ export const GameSingle = ({game}) => {
                 <GameMissingImg><i className="fas fa-image"/></GameMissingImg>
             }
         </Link>
-
         <GameSingleTitle>{game.name}</GameSingleTitle>
         <GameSingleReleased>{getReleaseDate(game.released)}</GameSingleReleased>
 
 
         {game.parent_platforms !== undefined && <GameSinglePlatforms>
             {game.parent_platforms.map((el, num) => <GameSinglePlatform
-                key={`${game.name}_${el.platform.slug}_${num}`}>{getGamePlatformIcon(el.platform.slug)}</GameSinglePlatform>)}
+                key={`${game.slug}_${el.platform.slug}_${num}`}>{getGamePlatformIcon(el.platform.slug)}</GameSinglePlatform>)}
         </GameSinglePlatforms>}
         <GameSingleRatingsBar>
             <GameSingleRating>

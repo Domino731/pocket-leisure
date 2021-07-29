@@ -6,7 +6,7 @@ const apiKey = "bf73a9fb5bc04232a685ada6d1349061"
  * @param {function} successCallback - Function that saves incoming data
  */
 export const getGames = (successCallback) => {
-    fetch(`${url}/games?key=${apiKey}&page_size=10&metacritic`)
+    fetch(`${url}/games?key=${apiKey}&page_size=12&metacritic`)
         .then(r => r.json())
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
@@ -43,7 +43,7 @@ export const getGamesGenres = (successCallback) => {
  * @param {string, number} genreId - id of genre that you want to fetch
  */
 export const getGamesByGenre = (successCallback, genreId) => {
-    fetch(`${url}/games?key=${apiKey}&page_size=10&genres=${genreId}`)
+    fetch(`${url}/games?key=${apiKey}&page_size=12&genres=${genreId}`)
         .then(r => r.json())
         .then(data => {
             if (data.error === undefined && data.results.length > 0 && typeof successCallback === "function") {
@@ -83,9 +83,13 @@ export const getMoreGames = (successCallback, genreId, pageNumber) => {
 /**
  fetch games by genre - action, rpg, fps ...
  * @param {function} successCallback - Function that saves incoming data
+ * @param {function} setLoadingCallback - name of game that you want to get
  * @param {string} game - name of game that you want to get
  */
-export const getSearchedGame = (successCallback, game) => {
+export const getSearchedGame = async (successCallback, setLoadingCallback,  game) => {
+    if(typeof setLoadingCallback === "function"){
+        setLoadingCallback(true)
+    }
     fetch(`${url}/games?key=${apiKey}&search=${game}`)
         .then(r => r.json())
         .then(data => {
@@ -96,6 +100,9 @@ export const getSearchedGame = (successCallback, game) => {
             }
         })
         .catch(err => console.log(err))
+    if(typeof setLoadingCallback === "function"){
+        setLoadingCallback(false)
+    }
 }
 
 

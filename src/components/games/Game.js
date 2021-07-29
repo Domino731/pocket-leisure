@@ -31,7 +31,12 @@ import {
     GameSeries,
     GameSeriesSingle,
     GameSeriesMissing,
-    GamePosterContainer, GameIntroductionContainer, GameRow, GamePosterContainerDesktop, GameFactsDesktop
+    GamePosterContainer,
+    GameIntroductionContainer,
+    GameRow,
+    GamePosterContainerDesktop,
+    GameFactsDesktop,
+    GamePosterMissing
 } from "../../styled-components/elements/games/games";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
@@ -70,7 +75,6 @@ export const Game = (props) => {
     }, [props.match.params])
 
     useEffect(() => {
-        console.log(1)
         if (game !== undefined && game !== "notFound") {
             getGameTrailers(setGameTrailers, props.match.params.id)
             getGameScreenshots(setGameSc, props.match.params.id)
@@ -126,8 +130,10 @@ export const Game = (props) => {
 
 
             <GamePosterContainerDesktop>
-                {/*poster, some movie dont have a poster, then dont render anything*/}
+
                 {game.background_image !== null && <FullWidePoster src={game.background_image}/>}
+
+                {game.background_image === null && <GamePosterMissing><i className="fas fa-gamepad"/></GamePosterMissing>}
                 <GameFactsDesktop>
                     <tbody>
 
@@ -166,6 +172,16 @@ export const Game = (props) => {
                         <td>{game.metacritic} / 100</td>
                     </tr>
                     }
+
+                    {game.platforms.length > 0 &&
+                    <tr>
+                        <td><i className="fas fa-circle"/>Platforms</td>
+                        <td>{game.platforms.map((el, num) => <span
+                            key={`productionCompanies_${props.match.params.id}_${num}`}>
+                      {el.platform.name}
+                  </span>)}</td>
+
+                    </tr>}
                     </tbody>
                 </GameFactsDesktop>
             </GamePosterContainerDesktop>
@@ -186,7 +202,7 @@ export const Game = (props) => {
                     <div/>
                 </GameRating>}
 
-                {game.metacritic !== 0 &&
+                {game.metacritic !== null &&
                 <GameRatingMetacritic rating={game.metacritic}><i><img src={metacriticIcon} alt="metacritic"/></i>
                     <div/>
                 </GameRatingMetacritic>}
@@ -194,7 +210,6 @@ export const Game = (props) => {
                 {game.description_raw !== null && <GameDescription>{game.description_raw}</GameDescription>}
             </GameIntroductionContainer>
         </GameRow>
-
 
 
         <GameFacts>
@@ -207,7 +222,6 @@ export const Game = (props) => {
                     key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
             </tr>
             }
-
             {game.publishers.length > 0 &&
             <tr>
                 <td><i className="fas fa-circle"/>Publishers</td>
@@ -235,13 +249,21 @@ export const Game = (props) => {
                 <td>{game.metacritic} / 100</td>
             </tr>
             }
+            {game.platforms.length > 0 &&
+            <tr>
+                <td><i className="fas fa-circle"/>Platforms</td>
+                <td>{game.platforms.map((el, num) => <span key={`productionCompanies_${props.match.params.id}_${num}`}>
+                      {el.platform.name}
+                  </span>)}</td>
+
+            </tr>}
             </tbody>
         </GameFacts>
 
 
         {gameTrailers.length > 0 && <GameTrailersContainer>
             <GameTrailers>
-                <iframe src={gameTrailers[trailerNumber].data.max} frameborder="0"/>
+                <iframe src={gameTrailers[trailerNumber].data.max} frameBorder="0" allowFullScreen/>
             </GameTrailers>
 
             <GameMediaSwitch>
@@ -278,9 +300,11 @@ export const Game = (props) => {
             <GameItemTitle>Stores</GameItemTitle>
 
             <GameStores>
-                {game.stores.map((el, num) => <GameStore key={`gameStore_${game.slug}_${num}`}><i
-                    className="fas fa-shopping-cart"/>
-                    <a href={getGameStoreUrl(num)} target="_blank" rel="noopener noreferrer">{el.store.name}</a>
+                {game.stores.map((el, num) => <GameStore key={`gameStore_${game.slug}_${num}`}>
+                    <a href={getGameStoreUrl(num)} target="_blank" rel="noopener noreferrer">
+                        <i className="fas fa-shopping-cart"/>
+                        {el.store.name}
+                    </a>
 
 
                 </GameStore>)}
@@ -290,9 +314,9 @@ export const Game = (props) => {
         {gameSeries.length > 0 && <GameSeriesContainer>
             <GameItemTitle>Game series</GameItemTitle>
             <GameSeries>
-                {gameSeries.map((el, num) => <GameSeriesSingle>
+                {gameSeries.map((el, num) => <GameSeriesSingle key={`gameSeries_${game.slug_}_${num}`}>
                         <Link to={`/game/${el.id}`}
-                              key={`gameSeries_${game.slug_}_${num}`}>
+                        >
 
                             {el.background_image !== null ?
                                 <img src={el.background_image} alt={el.name}/>

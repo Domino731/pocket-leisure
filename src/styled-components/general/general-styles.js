@@ -13,7 +13,7 @@ export const Container = styled.section`
   @media ${device.mobileM} {
     width: ${size.mobileM};
   }
-  
+
   @media ${device.mobileL} {
     width: ${size.mobileL};
   }
@@ -21,7 +21,7 @@ export const Container = styled.section`
   @media ${device.tablet} {
     width: ${size.tablet};
   }
-  
+
   @media ${device.laptop} {
     width: ${size.laptop};
   }
@@ -46,7 +46,7 @@ export const PosterBigMissing = styled.div`
   width: 100%;
   border-radius: ${props => props.theme.border_radius.l};
   font-size: 4.5rem;
-  
+
 `
 export const PosterMed = styled.img`
   width: 100px;
@@ -95,17 +95,14 @@ export const PosterMedMissing = styled.div`
     height: 315px;
     font-size: 54px;
   }
-  
-  
+
+
 `
 export const TitleBar = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
- 
-  
   i {
     font-size: ${props => props.theme.icons.l};
     display: flex;
@@ -118,7 +115,7 @@ export const TitleBar = styled.div`
     border-radius: 40px;
     margin-left: ${props => props.right ? "-21px" : "0"};
     background: ${props => props.theme.color.main};
-    
+
     ///////////
     // media //
     ///////////
@@ -126,7 +123,7 @@ export const TitleBar = styled.div`
       height: 80px;
       width: 80px;
     }
-  
+
   }
 `
 export const ItemTitleSmall = styled.h3`
@@ -141,7 +138,7 @@ export const ItemTitleMedium = styled.h3`
   letter-spacing: 0.063rem;
   font-size: 1rem;
 `
-export const StatTable = styled.table`
+export const FactsTable = styled.table`
   border-spacing: 0;
 
   tr {
@@ -158,7 +155,7 @@ export const StatTable = styled.table`
       display: inline-block;
       word-wrap: break-word;
     }
-
+    
     td:first-child {
       vertical-align: top;
       white-space: nowrap;
@@ -178,6 +175,7 @@ export const StatTable = styled.table`
         &::after {
           content: "";
         }
+        margin-bottom: 10px;
       }
     }
   }
@@ -196,7 +194,7 @@ export const CheckboxRadio = styled.div`
   display: flex;
   position: relative;
   align-items: center;
- 
+
   label {
     display: flex;
     align-items: center;
@@ -209,17 +207,18 @@ export const CheckboxRadio = styled.div`
     width: 100%;
     margin-bottom: 0.5rem;
     border: none;
-    &:hover{
+
+    &:hover {
       cursor: pointer;
     }
-    
+
     ///////////
     // media //
     ///////////
     @media ${device.tablet} {
       height: 57px;
     }
-    
+
     i {
       position: absolute;
       left: 0;
@@ -284,7 +283,7 @@ export const Genre = styled.li`
     width: 100%;
     height: 100%;
   }
-  
+
   ///////////
   // media //
   ///////////
