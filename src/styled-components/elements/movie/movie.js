@@ -16,7 +16,16 @@ export const MoviePosterContainer = styled.div`
   // media //
   ///////////
   @media ${device.laptop} {
-    width: 40%;
+    display: none;
+  }
+`
+export const MoviePosterContainerDesktop = styled.div`
+  display: none;
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: block;
   }
 `
 export const MovieIntroductionContainer = styled.div`
@@ -34,16 +43,17 @@ export const MovieIntroductionContainer = styled.div`
     @media ${device.laptop} {
       justify-content: flex-start;
       margin-top: 20px;
-      &::-webkit-scrollbar{
+      &::-webkit-scrollbar {
         height: 12px;
       }
-      &::-webkit-scrollbar-thumb{
+
+      &::-webkit-scrollbar-thumb {
         background: ${props => props.theme.color.main};
         border-radius: 6px;
       }
     }
   }
-  
+
 `
 export const MovieMediaContainer = styled.div`
   @media ${device.laptop} {
@@ -54,12 +64,22 @@ export const MovieMediaContainer = styled.div`
 export const MovieFactsContainer = styled.section`
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
   ///////////
   // media //
   ///////////
   @media ${device.laptop} {
-    width: 40%;
-    margin-top: 28px;
+    display: none;
+  }
+`
+export const MovieFactsContainerDesktop = styled.div`
+  display: none;
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: block;
+    margin-top: 30px;
   }
 `
 export const MovieDirector = styled.strong`
@@ -85,7 +105,7 @@ export const MovieDirector = styled.strong`
 export const MovieTitle = styled.h1`
   text-align: center;
   font-size: 1.625rem;
-  
+
   ///////////
   // media //
   ///////////
@@ -137,6 +157,7 @@ export const MovieGenreList = styled.ul`
       cursor: pointer;
     }
   }
+
   ///////////
   // media //
   ///////////
@@ -173,7 +194,7 @@ export const MovieRating = styled.div`
     position: relative;
     text-align: center;
     overflow: hidden;
-    
+
     &::before {
       content: "";
       position: absolute;
@@ -184,39 +205,41 @@ export const MovieRating = styled.div`
       transform: skew(17deg, 0deg);
     }
   }
-  
+
   ///////////
   // media //
   ///////////
   @media ${device.mobileL} {
-    i{
+    i {
       height: 70px;
       width: 70px;
     }
-    div{
+
+    div {
       width: 335px;
       height: 40px;
       margin-left: -7px;
     }
   }
-  
-  @media  ${device.tablet} {
-    i{
+
+  @media ${device.tablet} {
+    i {
       height: 84px;
       width: 84px;
     }
-    div{
+
+    div {
       width: 700px;
       height: 49px;
     }
   }
   @media ${device.laptop} {
     justify-content: flex-start;
-    div{
+    div {
       width: 490px;
     }
   }
-  
+
 `
 
 export const MovieTagline = styled.strong`
@@ -231,7 +254,7 @@ export const MovieTagline = styled.strong`
   // media //
   ///////////
   @media ${device.laptop} {
-   margin-top:0;
+    margin-top: 0;
   }
 `
 export const MovieDescription = styled.div`
@@ -329,16 +352,16 @@ export const MovieActors = styled.ul`
     background: ${props => props.theme.color.main};
     border-radius: 6px;
   }
-  
+
   ///////////
   // media //
   ///////////
   @media ${device.laptop} {
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       height: 12px;
     }
   }
-  
+
 `
 export const MovieActor = styled.li`
   margin-right: 14px;

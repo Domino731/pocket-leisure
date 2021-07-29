@@ -24,7 +24,14 @@ import {
     GameAdditions,
     GameAdditionsContainer,
     GameAddition,
-    GameStoresContainer, GameStores, GameStore, GameSeriesContainer, GameSeries, GameSeriesSingle, GameSeriesMissing
+    GameStoresContainer,
+    GameStores,
+    GameStore,
+    GameSeriesContainer,
+    GameSeries,
+    GameSeriesSingle,
+    GameSeriesMissing,
+    GamePosterContainer, GameIntroductionContainer, GameRow, GamePosterContainerDesktop, GameFactsDesktop
 } from "../../styled-components/elements/games/games";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
@@ -109,31 +116,86 @@ export const Game = (props) => {
     }
 
     return <Container>
-        {/*poster, some movie dont have a poster, then dont render anything*/}
 
-        {game.background_image !== null && <FullWidePoster src={game.background_image}/>}
-        <GameTitle>{game.name}</GameTitle>
+        <GameRow>
+            <GamePosterContainer>
+                {/*poster, some movie dont have a poster, then dont render anything*/}
+                {game.background_image !== null && <FullWidePoster src={game.background_image}/>}
+
+            </GamePosterContainer>
 
 
-        {game.released !== null && <GamePremiere>{getReleaseDate(game.released)}</GamePremiere>}
+            <GamePosterContainerDesktop>
+                {/*poster, some movie dont have a poster, then dont render anything*/}
+                {game.background_image !== null && <FullWidePoster src={game.background_image}/>}
+                <GameFactsDesktop>
+                    <tbody>
 
-        <GameGenreList>
-            {game.genres !== null && game.genres.map((el, num) => (
-                <li key={`game${num}_${props.match.params.id}_genre_${el.name}`}><Link
-                    to={`/games-by-genre/${el.id}/${el.name}`}>{el.name}</Link></li>
-            ))}
-        </GameGenreList>
+                    {game.developers.length > 0 &&
+                    <tr>
+                        <td><i className="fas fa-circle"/>Developers</td>
+                        <td>{game.developers.map((el, num) => <span
+                            key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
+                    </tr>
+                    }
 
-        {game.rating !== 0 && <GameRating rating={game.rating}><i className="far fa-grin"/>
-            <div/>
-        </GameRating>}
+                    {game.publishers.length > 0 &&
+                    <tr>
+                        <td><i className="fas fa-circle"/>Publishers</td>
+                        <td>{game.publishers.map((el, num) => <span
+                            key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
+                    </tr>
+                    }
 
-        {game.metacritic !== 0 &&
-        <GameRatingMetacritic rating={game.metacritic}><i><img src={metacriticIcon} alt="metacritic"/></i>
-            <div/>
-        </GameRatingMetacritic>}
+                    {game.playtime > 0 &&
+                    <tr>
+                        <td><i className="fas fa-circle"/>Playtime</td>
+                        <td>{game.playtime} hours</td>
+                    </tr>
+                    }
 
-        {game.description_raw !== null && <GameDescription>{game.description_raw}</GameDescription>}
+                    {game.rating > 0 &&
+                    <tr>
+                        <td><i className="fas fa-circle"/>Rating</td>
+                        <td>{game.rating} / 5</td>
+                    </tr>
+                    }
+                    {game.metacritic > 0 &&
+                    <tr>
+                        <td><i className="fas fa-circle"/>Metacritic</td>
+                        <td>{game.metacritic} / 100</td>
+                    </tr>
+                    }
+                    </tbody>
+                </GameFactsDesktop>
+            </GamePosterContainerDesktop>
+
+
+            <GameIntroductionContainer>
+                <GameTitle>{game.name}</GameTitle>
+                {game.released !== null && <GamePremiere>{getReleaseDate(game.released)}</GamePremiere>}
+
+                <GameGenreList>
+                    {game.genres !== null && game.genres.map((el, num) => (
+                        <li key={`game${num}_${props.match.params.id}_genre_${el.name}`}><Link
+                            to={`/games-by-genre/${el.id}/${el.name}`}>{el.name}</Link></li>
+                    ))}
+                </GameGenreList>
+
+                {game.rating !== 0 && <GameRating rating={game.rating}><i className="far fa-grin"/>
+                    <div/>
+                </GameRating>}
+
+                {game.metacritic !== 0 &&
+                <GameRatingMetacritic rating={game.metacritic}><i><img src={metacriticIcon} alt="metacritic"/></i>
+                    <div/>
+                </GameRatingMetacritic>}
+
+                {game.description_raw !== null && <GameDescription>{game.description_raw}</GameDescription>}
+            </GameIntroductionContainer>
+        </GameRow>
+
+
 
         <GameFacts>
             <tbody>
@@ -234,7 +296,7 @@ export const Game = (props) => {
 
                             {el.background_image !== null ?
                                 <img src={el.background_image} alt={el.name}/>
-                            :
+                                :
                                 <GameSeriesMissing><i className="fas fa-gamepad"/></GameSeriesMissing>
                             }
 

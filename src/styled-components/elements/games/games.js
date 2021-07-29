@@ -224,6 +224,49 @@ export const GameMissingImg = styled.div`
   }
 `
 
+
+export const GameRow = styled.div`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: flex;
+    margin-top: 15px;
+  }
+`
+export const GamePosterContainer = styled.div`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: none;
+  }
+  
+`
+export const GamePosterContainerDesktop = styled.div`
+display: none;
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: block;
+    width: 40%;
+    img{
+      height: 500px;
+    }
+  }
+  
+`
+export const GameIntroductionContainer = styled.div`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    width: 60%;
+    padding-left: 20px;
+  }
+`
 export const GameTitle = styled(MovieTitle)`
   margin-top: 14px;
 `
@@ -237,37 +280,57 @@ export const GameRating = styled(MovieRating)`
     &::before {
       width: ${props => (2 * (props.rating * 10) + "%")};
     }
-    
-    ///////////
-    // media //
-    ///////////
-    @media ${device.mobileL} {
+  }
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    div{
       width: 335px;
       height: 40px;
       margin-left: -7px;
     }
-    
-    @media ${device.tablet} {
+  }
+
+  @media ${device.tablet} {
+    div{
       width: 700px;
       height: 49px;
     }
   }
+
+  @media ${device.laptop} {
+    div{
+      width: 505px;
+      margin-left: -10px;
+    }
+  }
+  
 `
 export const GameDescription = styled(MovieDescription)`
 `
 export const GameFacts = styled(StatTable)`
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: none;
+  }
+`
+export const GameFactsDesktop = styled(StatTable)`
+  display: none;
+  margin-top: 20px;
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    display: block;
+  }
 `
 export const GameRatingMetacritic = styled(MovieRating)`
   img {
     width: 42px;
     height: auto;
-
-    ///////////
-    // media //
-    ///////////
-    @media ${device.mobileL} {
-      width: 50px;
-    }
   }
 
   i {
@@ -279,6 +342,18 @@ export const GameRatingMetacritic = styled(MovieRating)`
     &::before {
       width: ${props => ((props.rating) + "%")};
       background: ${props => props.theme.color.yellow};
+    }
+  }
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    img{
+      width: 50px;
+    }
+    div{
+      width: 505px;
+      margin-left: -10px;
     }
   }
 `
@@ -329,8 +404,9 @@ export const GameAdditions = styled.ul`
 
 export const GameAddition = styled.li`
   margin-right: 13px;
+  width: 134px;
   img {
-    width: 134px;
+    width: 100%;
     height: 75px;
     object-fit: cover;
     margin-right: 17px;
@@ -340,10 +416,29 @@ export const GameAddition = styled.li`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 134px;
+    width: 100%;
     height: 75px;
     margin-right: 17px;
     font-size: 4.5rem;
+  }
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    width: 154px;
+    margin-right: 20px;
+  }
+
+  @media ${device.laptop} {
+    width: 250px;
+   img{
+     height: 141px;
+   }
+    strong{
+      height: 141px;
+      font-size: 145px;
+    }
   }
 `
 
@@ -365,28 +460,18 @@ export const GameSeriesContainer = styled.div``
 export const GameSeries = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 23px;
 `
 export const GameSeriesSingle = styled.li`
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin-top: 17px;
   border-radius: ${props => props.theme.border_radius.m};
   img {
     z-index: -1;
     width: 100%;
     height: 200px;
     object-fit: cover;
-    ///////////
-    // media //
-    ///////////
-    @media ${device.mobileL} {
-      height: 240px;
-    }
-
-    @media ${device.tablet} {
-      height: 264px;
-    }
   }
   h3{
     position: absolute;
@@ -397,17 +482,34 @@ export const GameSeriesSingle = styled.li`
     padding-top: 1.188rem;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(52, 58, 64, 0.2));
     text-align: center;
-    font-size: 1.188rem;
+    font-size: 1.188rem;F
+  }
 
-    ///////////
-    // media //
-    ///////////
-    @media ${device.mobileL} {
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    img{
       height: 240px;
     }
-    @media ${device.tablet} {
+    h3{
+      height: 240px;
+    }
+  }
+
+  @media ${device.tablet} {
+    img{
       height: 264px;
     }
+    h3{
+      height: 264px;
+    }
+  }
+  
+  @media ${device.laptop} {
+    width: 480px;
+    margin-right: 16px;
+    margin-left: 16px;
   }
 `
 

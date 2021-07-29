@@ -29,7 +29,12 @@ import {
     MovieActorPhotoMissing,
     MoviesList,
     MoviePosterContainer,
-    MovieRow, MovieIntroductionContainer, MovieFactsContainer, MovieMediaContainer
+    MovieRow,
+    MovieIntroductionContainer,
+    MovieFactsContainer,
+    MovieMediaContainer,
+    MoviePosterContainerDesktop,
+    MovieFactsContainerDesktop
 } from "../../styled-components/elements/movie/movie";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
@@ -88,6 +93,57 @@ export const Movie = (props) => {
                     <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/>}
                 </MoviePosterContainer>
 
+                <MoviePosterContainerDesktop>
+                    {movie.poster_path !== null &&
+                    <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/>}
+                    <MovieFactsContainerDesktop>
+                        {/*movie details*/}
+                        <StatTable>
+                            <tbody>
+                            {movie.credits.director !== undefined && <tr>
+                                <td><i className="fas fa-circle"/>Director</td>
+                                <td>{movie.credits.director.name}</td>
+                            </tr>}
+                            {movie.status !== null && <tr>
+                                <td><i className="fas fa-circle"/>Status</td>
+                                <td>{movie.status}</td>
+                            </tr>}
+
+
+                            {movie.production_countries.length !== 0 && <tr>
+                                <td><i className="fas fa-circle"/>Country</td>
+                                <td>{movie.production_countries.map((el, num) => <span
+                                    key={`productionCountries_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
+                            </tr>}
+
+
+                            {movie.runtime !== null && <tr>
+                                <td><i className="fas fa-circle"/>Time</td>
+                                <td>{movie.runtime} min</td>
+                            </tr>}
+
+
+                            {/*screening only when there is information about it, some films have no budget(0)*/}
+                            {movie.budget !== 0 &&
+                            <tr>
+                                <td><i className="fas fa-circle"/>Budget</td>
+                                <td><i className="fas fa-dollar-sign"/> {movie.budget.toLocaleString()}</td>
+                            </tr>
+                            }
+
+                            {movie.production_companies.length !== 0 && <tr>
+                                <td><i className="fas fa-circle"/>Production</td>
+                                <td>{movie.production_companies.map((el, num) => <span
+                                    key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
+                            </tr>}
+
+
+                            </tbody>
+                        </StatTable>
+                    </MovieFactsContainerDesktop>
+                </MoviePosterContainerDesktop>
+
+
                 <MovieIntroductionContainer>
                     {/*director*/}
                     {movie.credits.director !== undefined &&
@@ -119,70 +175,70 @@ export const Movie = (props) => {
                     {movie.tagline !== null && <MovieTagline>{movie.tagline}</MovieTagline>}
 
                     {movie.overview !== null && <MovieDescription>{movie.overview}</MovieDescription>}
+
+                    <MovieMediaContainer>
+                        {/*movie videos -> trailers*/}
+                        {videos.length > 0 && <>
+                            <MovieVideos>
+                                <iframe src={`https://www.youtube.com/embed/${videos[videoNumber].key}`}
+                                        frameBorder="0"/>
+                            </MovieVideos>
+                            {/*switch video*/}
+                            <MovieVideosSwitch>
+                                {videoNumber !== 0 && <button onClick={handleSwitchPrevVideo}>Previous</button>}
+                                {videoNumber < videos.length - 1 &&
+                                <button onClick={handleSwitchNextVideo}>Next</button>}
+                            </MovieVideosSwitch>
+                        </>}
+                    </MovieMediaContainer>
                 </MovieIntroductionContainer>
             </MovieRow>
 
-<MovieRow>
-    <MovieFactsContainer>
-        {/*movie details*/}
-        <StatTable>
-            <tbody>
-            {movie.credits.director !== undefined && <tr>
-                <td><i className="fas fa-circle"/>Director</td>
-                <td>{movie.credits.director.name}</td>
-            </tr>}
-            {movie.status !== null && <tr>
-                <td><i className="fas fa-circle"/>Status</td>
-                <td>{movie.status}</td>
-            </tr>}
+            <MovieFactsContainer>
+                {/*movie details*/}
+                <StatTable>
+                    <tbody>
+                    {movie.credits.director !== undefined && <tr>
+                        <td><i className="fas fa-circle"/>Director</td>
+                        <td>{movie.credits.director.name}</td>
+                    </tr>}
+                    {movie.status !== null && <tr>
+                        <td><i className="fas fa-circle"/>Status</td>
+                        <td>{movie.status}</td>
+                    </tr>}
 
 
-            {movie.production_countries.length !== 0 && <tr>
-                <td><i className="fas fa-circle"/>Country</td>
-                <td>{movie.production_countries.map((el, num) => <span
-                    key={`productionCountries_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
-            </tr>}
+                    {movie.production_countries.length !== 0 && <tr>
+                        <td><i className="fas fa-circle"/>Country</td>
+                        <td>{movie.production_countries.map((el, num) => <span
+                            key={`productionCountries_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
+                    </tr>}
 
 
-            {movie.runtime !== null && <tr>
-                <td><i className="fas fa-circle"/>Time</td>
-                <td>{movie.runtime} min</td>
-            </tr>}
+                    {movie.runtime !== null && <tr>
+                        <td><i className="fas fa-circle"/>Time</td>
+                        <td>{movie.runtime} min</td>
+                    </tr>}
 
 
-            {/*screening only when there is information about it, some films have no budget(0)*/}
-            {movie.budget !== 0 &&
-            <tr>
-                <td><i className="fas fa-circle"/>Budget</td>
-                <td><i className="fas fa-dollar-sign"/> {movie.budget.toLocaleString()}</td>
-            </tr>
-            }
+                    {/*screening only when there is information about it, some films have no budget(0)*/}
+                    {movie.budget !== 0 &&
+                    <tr>
+                        <td><i className="fas fa-circle"/>Budget</td>
+                        <td><i className="fas fa-dollar-sign"/> {movie.budget.toLocaleString()}</td>
+                    </tr>
+                    }
 
-            {movie.production_companies.length !== 0 && <tr>
-                <td><i className="fas fa-circle"/>Production</td>
-                <td>{movie.production_companies.map((el, num) => <span
-                    key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
-            </tr>}
+                    {movie.production_companies.length !== 0 && <tr>
+                        <td><i className="fas fa-circle"/>Production</td>
+                        <td>{movie.production_companies.map((el, num) => <span
+                            key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
+                    </tr>}
 
 
-            </tbody>
-        </StatTable>
-    </MovieFactsContainer>
-
-    <MovieMediaContainer>
-        {/*movie videos -> trailers*/}
-        {videos.length > 0 && <>
-            <MovieVideos>
-                <iframe src={`https://www.youtube.com/embed/${videos[videoNumber].key}`} frameBorder="0"/>
-            </MovieVideos>
-            {/*switch video*/}
-            <MovieVideosSwitch>
-                {videoNumber !== 0 && <button onClick={handleSwitchPrevVideo}>Previous</button>}
-                {videoNumber < videos.length - 1 && <button onClick={handleSwitchNextVideo}>Next</button>}
-            </MovieVideosSwitch>
-        </>}
-    </MovieMediaContainer>
-</MovieRow>
+                    </tbody>
+                </StatTable>
+            </MovieFactsContainer>
 
 
             {/* rendering cast*/}

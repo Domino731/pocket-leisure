@@ -189,7 +189,7 @@ export const CheckboxRadio = styled.div`
   display: flex;
   position: relative;
   align-items: center;
-
+ 
   label {
     display: flex;
     align-items: center;
@@ -202,7 +202,10 @@ export const CheckboxRadio = styled.div`
     width: 100%;
     margin-bottom: 0.5rem;
     border: none;
-
+    &:hover{
+      cursor: pointer;
+    }
+    
     ///////////
     // media //
     ///////////
