@@ -25,6 +25,10 @@ export const Container = styled.section`
   @media ${device.laptop} {
     width: ${size.laptop};
   }
+
+  @media ${device.laptopL} {
+    width: ${size.laptopL};
+  }
 `
 export const PosterBig = styled.img`
   display: flex;

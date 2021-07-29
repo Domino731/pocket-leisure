@@ -55,6 +55,11 @@ export const NavigationItem = styled.li`
     height: 315px;
     flex-shrink: 1;
   }
+  @media ${device.laptopL} {
+    background: red;
+    height: 365px;
+    flex-shrink: 1;
+  }
 `
 export const NavigationItemTitle = styled.h2`
   position: absolute;
@@ -96,6 +101,10 @@ export const NavigationItemTitle = styled.h2`
     width: 502px;
     padding: 0;
   }
+  @media ${device.laptopL} {
+    width: 710px;
+    height: 370px;
+  }
 `
 export const NavigationItemTitleGames = styled(NavigationItemTitle)`
   height: 216px;
@@ -122,6 +131,10 @@ export const NavigationItemTitleGames = styled(NavigationItemTitle)`
     padding: 0;
     //margin-top: 20px;
   }
+  @media ${device.laptopL} {
+    width: 710px;
+    height: 370px;
+  }
 `
 export const NavigationItemTitleOverwatch = styled(NavigationItemTitle)`
 
@@ -132,6 +145,10 @@ export const NavigationItemTitleOverwatch = styled(NavigationItemTitle)`
     height: 316px;
     width: 1014px;
     padding: 0;
+  }
+  @media ${device.laptopL} {
+    width: 1430px;
+    height: 370px;
   }
   
 `
@@ -146,6 +163,9 @@ export const NavigationImg = styled.img`
   @media ${device.laptop} {
     height: 315px;
   }
+  @media ${device.laptopL} {
+    height: 370px;
+  }
 `
 
 export const ColorForm = styled.form`
@@ -158,7 +178,7 @@ export const ColorForm = styled.form`
   // media //
   //////////
   @media ${device.tablet} {
-    margin-top: 56px;
+    margin-top: 23px;
   }
 `
 
@@ -226,7 +246,13 @@ export const ColorFormCheckbox = styled.div`
       font-size: 80px;
     }
   }
-
+  @media ${device.laptopL} {
+    height: 94px;
+    width: 288px;
+    input:checked ~ label i {
+      font-size: 80px;
+    }
+  }
 `
 
 
