@@ -53,7 +53,7 @@ export const MovieIntroductionContainer = styled.div`
       }
     }
   }
-  
+
   @media ${device.laptopL} {
     padding-left: 40px;
   }
@@ -242,9 +242,9 @@ export const MovieRating = styled.div`
       width: 490px;
     }
   }
-  
+
   @media ${device.laptopL} {
- 
+
     div {
       width: 741px;
     }
@@ -371,7 +371,7 @@ export const MovieActors = styled.ul`
     }
   }
   @media ${device.laptopL} {
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       height: 17px;
     }
   }

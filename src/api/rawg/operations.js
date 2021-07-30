@@ -1,5 +1,5 @@
-const url = "https://api.rawg.io/api"
-const apiKey = "bf73a9fb5bc04232a685ada6d1349061"
+import {apiKey} from "./constans";
+import {url} from "./constans";
 
 /**
  fetch games list sorted by metecritic grade
@@ -15,7 +15,6 @@ export const getGames = (successCallback) => {
         })
         .catch(err => console.log(err))
 }
-
 
 /**
  fetch games genres
@@ -48,9 +47,12 @@ export const getGamesByGenre = (successCallback, genreId) => {
         .then(data => {
             if (data.error === undefined && data.results.length > 0 && typeof successCallback === "function") {
 
+                // sort by rating by users
                 const games = data.results.sort((a, b) => b.rating - a.rating)
                 successCallback(games)
             }
+
+            // genreId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/games")
             else {
                 successCallback("notFound")
             }
@@ -59,7 +61,7 @@ export const getGamesByGenre = (successCallback, genreId) => {
 }
 
 /**
- fetch games by genre - action, rpg, fps ...
+ fetch more games by genre,  and add them into state
  * @param {function} successCallback - Function that saves incoming data
  * @param {string, number} genreId - id of genre that you want to fetch
  * @param {string, number} pageNumber - number of page with games that you want to fetch
@@ -70,7 +72,9 @@ export const getMoreGames = (successCallback, genreId, pageNumber) => {
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(prev => {
-                    if(prev !== undefined && prev !== "notFound"){
+
+                    // add new games to state
+                    if (prev !== undefined && prev !== "notFound") {
                         return [...prev, ...data.results]
                     }
                 });
@@ -81,15 +85,18 @@ export const getMoreGames = (successCallback, genreId, pageNumber) => {
 
 
 /**
- fetch games by genre - action, rpg, fps ...
+ fetch searched game - witcher3, doom, terraria.....
  * @param {function} successCallback - Function that saves incoming data
  * @param {function} setLoadingCallback - set loading screen during fetching searched games
  * @param {string} game - name of game that you want to get
  */
-export const getSearchedGame = async (successCallback, setLoadingCallback,  game) => {
-    if(typeof setLoadingCallback === "function"){
+export const getSearchedGame = async (successCallback, setLoadingCallback, game) => {
+
+    // set state which is responsible for loading screen
+    if (typeof setLoadingCallback === "function") {
         setLoadingCallback(true)
     }
+
     fetch(`${url}/games?key=${apiKey}&search=${game}`)
         .then(r => r.json())
         .then(data => {
@@ -100,11 +107,12 @@ export const getSearchedGame = async (successCallback, setLoadingCallback,  game
             }
         })
         .catch(err => console.log(err))
-    if(typeof setLoadingCallback === "function"){
+
+    // when searched games was found, remove loading screen
+    if (typeof setLoadingCallback === "function") {
         setLoadingCallback(false)
     }
 }
-
 
 /**
  fetch specific game - witcher 3, gta 5, minecraft.....
@@ -118,16 +126,15 @@ export const getGameDetails = (successCallback, gameId) => {
             if (data.detail !== "Not found." && typeof successCallback === "function") {
                 successCallback(data)
             }
-            if(data.detail === "Not found."){
+            if (data.detail === "Not found.") {
                 successCallback("notFound")
             }
-
         })
         .catch(err => console.log(err))
 }
 
 /**
- fetch game trailers - action, rpg, fps ...
+ fetch game trailers, some trailers may have another language than English
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} gameId - name of game that you want to get
  */
@@ -145,7 +152,7 @@ export const getGameTrailers = (successCallback, gameId) => {
 }
 
 /**
- fetch game screenshots - action, rpg, fps ...
+ fetch game screenshots
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} gameId - name of game that you want to get
  */
@@ -179,7 +186,7 @@ export const getGameAdditions = (successCallback, gameId) => {
 
 
 /**
- fetch game stores - steam, epicgames, origin .....
+ fetch game stores - steam, epic Games, origin .....
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} gameId - name of game that you want to get
  */
@@ -187,7 +194,6 @@ export const getGameStores = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}/stores?key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
-            console.log(data.results)
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(data.results)
             } else {
@@ -197,7 +203,7 @@ export const getGameStores = (successCallback, gameId) => {
 }
 
 /**
- fetch list of games that are part of the same series
+ fetch list of games that are part of the same series. Series of gta 5 -> gta:chinatown wars, gta4, gta vice cite :)
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} gameId - name of game that you want to get
  */

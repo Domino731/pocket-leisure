@@ -55,7 +55,7 @@ export const PosterMed = styled.img`
   border-radius: ${props => props.theme.border_radius.l};
   margin-right: 0.625rem;
   flex-shrink: 0;
-  
+
   ///////////
   // media //
   ///////////
@@ -107,8 +107,8 @@ export const TitleBar = styled.div`
   a {
     display: flex;
     align-items: center;
-    height: 50px;
-    width: 50px;
+    height: 46px;
+    width: 46px;
     background: ${props => props.theme.color.main};
     box-shadow: 0 0 14px ${props => props.theme.color.main};
     border-radius: 40px;
@@ -136,18 +136,21 @@ export const TitleBar = styled.div`
   // media //
   ///////////
   @media ${device.tablet} {
-    a{
+    a {
       height: 65px;
       width: 65px;
+
       &:hover {
         width: 168px;
       }
     }
-    i{
+
+    i {
       font-size: 44px;
       margin-left: 11px;
     }
-    span{
+
+    span {
       font-size: 30px;
     }
   }
@@ -293,6 +296,13 @@ export const TitlePrimary = styled.h1`
   color: ${props => props.theme.color.main};;
   font-weight: bold;
   letter-spacing: 0.063rem;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    font-size: 15px;
+    color: ${props => props.theme.color.white}
+  }
 `
 export const Genre = styled.li`
   grid-area: ${props => props.area};

@@ -1,9 +1,8 @@
-//function that sets errors based on code
-
-/*
-@param code  state is set by this code
- @param msg  displaying msg and code in console
- @param set  state to set
+/**
+ * function that sets errors based on code
+ * @param code {string} -  state is set by this code
+ * @param msg {string} -  displaying msg and code in console
+ * @param set {string} - state to set
  */
 export const userRegisterValidate = (code, msg, set) => {
     if (code === "auth/invalid-email") {
@@ -16,5 +15,4 @@ export const userRegisterValidate = (code, msg, set) => {
         set(prev => ({...prev, password: "*Password should contain 6 characters"}))
 
     }
-    console.log(code, msg)
 }

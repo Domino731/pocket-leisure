@@ -1,4 +1,4 @@
-import {getSingleMovie, getMovieCredits, getSimilarMovies, getMovieVideos} from "../../api/themoviedb/operations";
+import {getSingleMovie, getSimilarMovies, getMovieVideos} from "../../api/themoviedb/operations";
 import {useEffect, useState} from "react";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
@@ -8,7 +8,7 @@ import {
     Container,
     FullWidePoster,
     ItemTitleSmall,
-     FactsTable
+    FactsTable
 } from "../../styled-components/general/general-styles";
 import {
     MovieDirector,
@@ -38,7 +38,11 @@ import {
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
 
-
+/**
+ * component which renders single movie and details about him
+ * @param props.props.match.params.id {string} - id of film that you want to get (comes from url)
+ * @returns {JSX.Element} - details about movie - trailers, poster, title, similar movies, facts....
+ */
 export const Movie = (props) => {
 
     // state with movie
@@ -184,8 +188,9 @@ export const Movie = (props) => {
                         {/*movie videos -> trailers*/}
                         {videos.length > 0 && <>
                             <MovieVideos>
-                                <iframe src={`https://www.youtube.com/embed/${videos[videoNumber].key}`}
-                                        frameBorder="0"/>
+                                <iframe title={`${movie.title} trailer`}
+                                        src={`https://www.youtube.com/embed/${videos[videoNumber].key}`}
+                                        frameBorder="0" allowFullScreen/>
                             </MovieVideos>
                             {/*switch video*/}
                             <MovieVideosSwitch>

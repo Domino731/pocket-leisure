@@ -2,23 +2,18 @@ import styled from "styled-components";
 import {device} from "../../general/breakpoints";
 import {FormElement} from "../user-form/user-form";
 
-export const OwRegions = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  h1 {
-    text-align: center;
-  }
+export const OwPoweredBy = styled.div`
+  font-size: 16px;
+  margin-top: -12px;
+  margin-bottom: 12px;
 `
 export const OwFormElement = styled(FormElement)`
   ///////////
   // media //
   ///////////
   @media ${device.tablet} {
-    input{
-        width: 400px;
+    input {
+      width: 400px;
     }
   }
 `
@@ -91,7 +86,7 @@ export const OwLevelIcon = styled.img`
 export const OwPrestigeIcon = styled(OwLevelIcon)`
   position: absolute;
   top: 156px;
-  
+
   ///////////
   // media //
   ///////////
@@ -107,7 +102,7 @@ export const OwName = styled.h1`
   font-weight: bold;
   font-size: 1.938rem;
   letter-spacing: 0.063rem;
-  
+
   ///////////
   // media //
   ///////////
@@ -169,7 +164,7 @@ export const OwStatsSingleOverall = styled.section`
 `
 
 export const OwStatsColumns = styled.div`
-  
+
   ///////////
   // media //
   ///////////
@@ -218,27 +213,30 @@ export const OwStatsTable = styled.table`
       color: ${props => props.theme.color.black}
     }
   }
+
   ///////////
   // media //
   ///////////
   @media ${device.tablet} {
-    tr{
-      td:first-child{
+    tr {
+      td:first-child {
         width: 177px;
         padding: 14px 23px 14px 13px;
       }
-      td:nth-child(2){
+
+      td:nth-child(2) {
         width: 177px;
       }
     }
   }
   @media ${device.laptopL} {
-    tr{
-      td:first-child{
+    tr {
+      td:first-child {
         width: 233px;
         padding: 14px 23px 14px 13px;
       }
-      td:nth-child(2){
+
+      td:nth-child(2) {
         width: 233px;
       }
     }

@@ -7,7 +7,8 @@ export const NotFoundContainer = styled.div`
   justify-content: center;
   width: 100%;
   height: 100vh;
-  i{
+
+  i {
     font-size: 203px;
     color: ${props => props.theme.color.main};
   }

@@ -9,7 +9,8 @@ export const GlobalStyle = createGlobalStyle`
     background: ${props => props.theme.color.black};
     color: ${props => props.theme.color.white};
   }
-  :root{
+
+  :root {
     ///////////
     // media //
     ///////////
@@ -21,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 20px;
     }
   }
+
   * {
     box-sizing: border-box;
   }
@@ -35,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
     &:hover {
       cursor: pointer;
     }
-    
+
   }
 
   h1 {

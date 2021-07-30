@@ -1,9 +1,7 @@
-const apiKey = "1780f0e5259eb8d6b75cd52b9621e80a"
-const url = "https://api.themoviedb.org/3"
-
+import {url, apiKey} from "./constans";
 
 /**
- * Fetch movies by api path
+ * Fetch movies by category - pupular, top rated, now playing, upcoming
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} category - category that you want to fetch - pupular, top rated...
  */
@@ -18,7 +16,6 @@ export const getMoviesByCategory = (successCallback, category) => {
         .catch(err => console.log(err));
 }
 
-
 /**
  fetch all movies genres - horror movies, action...
  * @param {function} successCallback - Function that saves incoming data
@@ -30,17 +27,16 @@ export const getMoviesGenres = (successCallback) => {
             if (typeof successCallback === "function") {
 
                 // we must add additional key(gridArea, which is genre name but with no with spaces) to each object
-                // because species are rendered automatically and are set by grid--template-areas,
-                // so you need to add them after the species names have spaces
+                // because genres are rendered automatically and are set by grid--template-areas,
+                // so you need to add them after the genres names have spaces
                 const genres = data.genres.map(el => ({...el, gridArea: el.name.replace(/\s+/g, '')}))
                 successCallback(genres);
-
             }
         })
 }
 
 /**
- fetch all movies genres - horror movies, action...
+ fetch movies by genre - horror movies, action...
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} genreId - id of genre that you want to fetch
  */
@@ -53,6 +49,8 @@ export const getMoviesByParticularGenre = (successCallback, genreId) => {
                 const movies = data.results.sort((a, b) => b.vote_average - a.vote_average)
                 successCallback(movies);
             }
+
+            // genreId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.total_results === 0) {
                 successCallback("notFound")
             }
@@ -60,9 +58,8 @@ export const getMoviesByParticularGenre = (successCallback, genreId) => {
         .catch(err => console.log(err));
 }
 
-
 /**
- * fetch additional movies
+ * fetch more movies, and add them to state
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} genreId - id of genre that you want to fetch
  * @param {number} pageNumber - number of page with movies that you want to fetch
@@ -73,6 +70,8 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
                 successCallback(prev => {
+
+                    // add new movies to state
                     if (prev !== undefined && prev !== "notFound") {
                         return [...prev, ...data.results]
                     }
@@ -82,28 +81,29 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
         .catch(err => console.log(err));
 }
 
-
 /**
- * fetch single movie
+ * fetch single movie - Black Widow, Space Jam...
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of film that you want to get
  */
 export const getSingleMovie = async (successCallback, movieId) => {
 
+    // get movie details
     await fetch(`${url}/movie/${movieId}?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
-            console.log(data)
             if (typeof successCallback === "function") {
                 successCallback(data)
             }
+
+            // movieId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.success === false) {
                 successCallback("notFound")
             }
         })
         .catch(err => console.log(err));
 
-
+    // get movie credits and add them into state to the same state where movie details (successCallback)
     await fetch(`${url}/movie/${movieId}/credits?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
@@ -117,6 +117,8 @@ export const getSingleMovie = async (successCallback, movieId) => {
                 }
                 successCallback(prev => ({...prev, credits}))
             }
+
+            // movieId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.success === false) {
                 successCallback("notFound")
             }
@@ -125,7 +127,7 @@ export const getSingleMovie = async (successCallback, movieId) => {
 }
 
 /**
- * fetch videos for movie, only trailer on yt
+ * fetch videos for movie, only trailers from yt
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of movie that you want to get
  */
@@ -133,12 +135,13 @@ export const getMovieVideos = async (successCallback, movieId) => {
     await fetch(`${url}/movie/${movieId}/videos?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
-
             if (typeof successCallback === "function" && data !== undefined) {
                 // get trailers from yt
                 const videos = data.results.filter(el => el.type === "Trailer" && el.site === "YouTube")
                 successCallback(videos)
             }
+
+            // movieId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.success === false) {
                 successCallback("notFound")
             }
@@ -172,6 +175,8 @@ export const getSimilarMovies = async (successCallback, movieId) => {
  * @param {string} name -  name of movie that you want to get
  */
 export const searchMovieByTitle = async (successCallback, setLoadingCallback, name) => {
+
+    // set state which is responsible for loading screen
     if (typeof setLoadingCallback === "function") {
         setLoadingCallback(true)
     }
@@ -183,20 +188,22 @@ export const searchMovieByTitle = async (successCallback, setLoadingCallback, na
             }
         })
         .catch(err => console.log(err));
+
+    // remove loading screen
     if (typeof setLoadingCallback === "function") {
         setLoadingCallback(false)
     }
 }
 
-
 /**
- *
  * search movies by director
  * @param {function} successCallback - Function that saves incoming data
  * @param {function} setLoadingCallback - set loading screen during fetching searched games
  * @param {string} name -  name of director
  */
 export const searchMovieByDirector = async (successCallback, setLoadingCallback, name) => {
+
+    // set state which is responsible for loading screen
     if (typeof setLoadingCallback === "function") {
         setLoadingCallback(true)
     }
@@ -214,6 +221,8 @@ export const searchMovieByDirector = async (successCallback, setLoadingCallback,
             }
         })
         .catch(err => console.log(err))
+
+    // remove loading screen
     if (typeof setLoadingCallback === "function") {
         setLoadingCallback(false)
     }
@@ -228,6 +237,8 @@ export const searchMovieByDirector = async (successCallback, setLoadingCallback,
  * @param {string} name -  name of actor
  */
 export const searchMovieByActor = async (successCallback, setLoadingCallback, name) => {
+
+    // set state which is responsible for loading screen
     if (typeof setLoadingCallback === "function") {
         setLoadingCallback(true)
     }
@@ -245,6 +256,8 @@ export const searchMovieByActor = async (successCallback, setLoadingCallback, na
             }
         })
         .catch(err => console.log(err))
+
+    // remove loading screen
     if (typeof setLoadingCallback === "function") {
         setLoadingCallback(false)
     }

@@ -6,6 +6,9 @@ import {GamesGenres} from "./GamesGenres";
 import {GamesListMain} from "./GamesListMain";
 import {Loading} from "../loading/Loading";
 
+/**
+ * @returns {JSX.Element} - Main games page with games and genres
+ */
 export const Games = () => {
 
     // state with games
@@ -23,8 +26,9 @@ export const Games = () => {
     if (games === undefined || gamesGenres === undefined) {
         return <Loading/>
     }
+
     return <Container>
-        <TitleBar><TitlePrimary>Games</TitlePrimary> <Link to="/game-search"><i
+        <TitleBar><TitlePrimary>Games <span>Powered by Rawg Api</span></TitlePrimary> <Link to="/game-search"><i
             className="fas fa-search"/> <span>Search</span></Link></TitleBar>
        <GamesListMain games={games}/>
        <GamesGenres gamesGenres={gamesGenres} />

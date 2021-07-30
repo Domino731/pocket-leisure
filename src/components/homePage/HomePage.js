@@ -1,9 +1,7 @@
 import {connect} from "react-redux";
-
 import gamesImg from "../../images/game_xboxone.jpg";
 import moviesImg from "../../images/movie_clapper_board.jpg"
 import overwatchImg from "../../images/overwatch.jpg"
-// styles
 import {Container} from "../../styled-components/general/general-styles";
 import {
     NavigationList,
@@ -19,21 +17,35 @@ import {useState} from "react";
 import {changeMainColor} from "../../redux/actions/mainColor.action";
 import {Link} from "react-router-dom";
 
+/**
+ *
+ * @param mainColor - REDUX - main color in app
+ * @param setMainColor {function} - REDUX - function that changes main color
+ * @returns {JSX.Element} - home page with links to sections (movies, games, overwatch stats), also returns form on which user can change main color
+ */
 const HomePage = ({mainColor, setMainColor}) => {
-
 
     // state with main color(from redux state), which can be change by user
     const [color, setColor] = useState(mainColor)
 
     const handleChangeMainColor = (e) => {
+
+        // save selected into local storage
         localStorage.setItem("mainColor", e.target.value)
+
+        // set color state
         setColor(e.target.value)
+
+        // set main color in redux
         setMainColor(e.target.value)
     }
+
     return <Container>
         <nav>
             <NavigationList>
                 <NavigationItem>
+
+                    {/*movies section*/}
                     <Link to="/movies">
                         <NavigationItemTitle>
                             Movies
@@ -43,7 +55,9 @@ const HomePage = ({mainColor, setMainColor}) => {
                 </NavigationItem>
 
 
-                <NavigationItem >
+                <NavigationItem>
+
+                    {/*games section*/}
                     <Link to="/games"><NavigationItemTitleGames>
                         Games
                     </NavigationItemTitleGames>
@@ -53,6 +67,8 @@ const HomePage = ({mainColor, setMainColor}) => {
 
 
                 <NavigationItem>
+
+                    {/*overwatch section*/}
                     <Link to="/overwatch-search-your-profile">
                         <NavigationItemTitleOverwatch>
                             Overwatch
@@ -65,8 +81,8 @@ const HomePage = ({mainColor, setMainColor}) => {
         </nav>
 
 
+        {/*change main color*/}
         <ColorForm>
-
             <ColorFormCheckbox color="#e63946">
                 <input type="radio" value="#e63946" checked={color === "#e63946"}
                        onChange={handleChangeMainColor}/>
@@ -91,7 +107,6 @@ const HomePage = ({mainColor, setMainColor}) => {
                 <label><i className="fas fa-times"/>Top Rated</label>
             </ColorFormCheckbox>
         </ColorForm>
-
     </Container>
 }
 

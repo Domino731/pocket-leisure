@@ -152,13 +152,15 @@ export const FormPasswordRecovery = styled.div`
   box-shadow: 0 0 14px ${props => props.theme.color.main};
   transform: scale(0);
   animation: ${an__formRecovery} 0.7s forwards;
-  strong{
+
+  strong {
     margin-top: 14px;
     text-align: center;
     font-size: 1.688rem;
     line-height: 1.938rem;
   }
-  i{
+
+  i {
     margin-top: 35px;
     font-size: 10.25rem;
   }

@@ -162,10 +162,12 @@ export const NavigationImg = styled.img`
   ///////////
   @media ${device.laptop} {
     height: 315px;
+    object-position: top;
   }
   @media ${device.laptopL} {
     height: 370px;
   }
+  
 `
 
 export const ColorForm = styled.form`

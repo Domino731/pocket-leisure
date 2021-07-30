@@ -11,8 +11,19 @@ import {
 } from "../../styled-components/elements/overwatch/overwatch";
 import {Loading} from "../loading/Loading";
 
+/**
+ * @param props.match.params.platform {string} - platform of user account (come from ulr)
+ * @param props.match.params.region {string} - region of user account (come from ulr)
+ * @param props.match.params.user {string} - username (come from ulr)
+ * @param props.match.params.battleTag {string} - battleTag (come from ulr)
+ * @returns {JSX.Element} - quick play overwatch stats
+ */
 export const OverwatchStatisticsQuickPlay = (props) => {
+
+    // state with quick play stats
     const [stats, setStats] = useState(undefined)
+
+    // when component mounted get quick play stats
     useEffect(() => {
         getOverwatchQuickPlayStats(props.match.params.platform,
             props.match.params.region,
@@ -20,9 +31,12 @@ export const OverwatchStatisticsQuickPlay = (props) => {
             props.match.params.battleTag,
             setStats)
     }, [props.match.params])
+
     if (stats === undefined) {
         return <Loading/>
     }
+
+    // if user have private profile (no access to stats) show info about it
     if (stats === "privateProfile") {
         return <Container>
             <OwStatsTitle>
@@ -34,6 +48,7 @@ export const OverwatchStatisticsQuickPlay = (props) => {
             </OwPrivate>
         </Container>
     }
+
     return <Container>
         <OwStatsTitle>
             <span>Quick play</span>
@@ -260,7 +275,6 @@ export const OverwatchStatisticsQuickPlay = (props) => {
             </OwStatsSingleColumn>
 
         </OwStatsColumns>
-
 
     </Container>
 }

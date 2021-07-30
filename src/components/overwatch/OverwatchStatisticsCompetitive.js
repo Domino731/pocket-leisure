@@ -11,8 +11,19 @@ import {
 } from "../../styled-components/elements/overwatch/overwatch";
 import {Loading} from "../loading/Loading";
 
+/**
+ * @param props.match.params.platform {string} - platform of user account (come from ulr)
+ * @param props.match.params.region {string} - region of user account (come from ulr)
+ * @param props.match.params.user {string} - username (come from ulr)
+ * @param props.match.params.battleTag {string} - battleTag (come from ulr)
+ * @returns {JSX.Element} - competitive overwatch stats
+ */
 export const OverwatchStatisticsCompetitive = (props) => {
+
+    // state with competitive stats
     const [stats, setStats] = useState(undefined)
+
+    // when component mounted get competitive stats
     useEffect(() => {
         getOverwatchCompetitiveStats(props.match.params.platform,
             props.match.params.region,
@@ -20,9 +31,13 @@ export const OverwatchStatisticsCompetitive = (props) => {
             props.match.params.battleTag,
             setStats)
     }, [props.match.params])
+
+
     if (stats === undefined) {
         return <Loading/>
     }
+
+    // if user have private profile (no access to stats) show info about it
     if (stats === "privateProfile") {
         return <Container>
             <OwStatsTitle>
@@ -33,9 +48,9 @@ export const OverwatchStatisticsCompetitive = (props) => {
                 <strong>Career profile visibility is set to private</strong>
             </OwPrivate>
         </Container>
-    } else if (stats === "privateProfile") {
-        return <h1>asd</h1>
     }
+
+
     return <Container>
         <OwStatsTitle>
             <span>Competitive</span>
@@ -44,7 +59,6 @@ export const OverwatchStatisticsCompetitive = (props) => {
         <OwStatsColumns>
 
             <OwStatsSingleColumn>
-
 
                 {/*games*/}
                 <OwStatsSingle>
@@ -263,9 +277,7 @@ export const OverwatchStatisticsCompetitive = (props) => {
 
             </OwStatsSingleColumn>
 
-
         </OwStatsColumns>
-
 
     </Container>
 }

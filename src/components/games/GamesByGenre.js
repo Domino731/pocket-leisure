@@ -9,13 +9,19 @@ import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
 import {GamesList} from "../../styled-components/elements/games/games";
 
+/**
+ *
+ * @param props.match.params.id {string} - id of game genre, base on that games will be download (comes from url)
+ * @param props.match.params.name {string} - name of game genre (comes from url)
+ * @returns {JSX.Element} - list of games of specific genre
+ */
 export const GamesByGenre = (props) => {
 
     // state with games
     const [games, setGames] = useState(undefined)
 
     // state  with a number, the increase of which (handleGetMore)will result in the download of 20 more films
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(2)
 
     //  // flag which allows the user to toggle the film sorting form
     const [sortFlag, setSortFlag] = useState(false)
@@ -47,57 +53,82 @@ export const GamesByGenre = (props) => {
         }, 500)
     }
 
+    // change page state, and by useEffect get more games
     const handleGetMore = () => {
         setPage(prev => prev + 1)
     }
 
+
     if (games === undefined) {
         return <Loading/>
-    } else if (games === "notFound") {
+    }
+
+    // if movie genre doesnt exist redirect user to /games
+    else if (games === "notFound") {
         return <NotFound404 redirectUrl="/games"/>
     } else {
         return <Container>
 
+            {/*name of genre*/}
             <TitlePrimary>{props.match.params.name}</TitlePrimary>
+
+            {/*selected sorting option*/}
             <MovieElementTitle onClick={handleChangeFlag}>{sort} <i className="fas fa-filter"/>
             </MovieElementTitle>
+
+            {/*change sort*/}
             {sortFlag && <GamesSortForm>
+
+                {/*top rated by users*/}
                 <CheckboxRadio>
                     <input type="radio" value="Users - Top Rated" checked={sort === "Users - Top Rated"}
                            onChange={handleSortGames}/>
                     <label><i className="fas fa-long-arrow-alt-up"/>Users - Top Rated</label>
                 </CheckboxRadio>
+
+                {/*lowest rated by users*/}
                 <CheckboxRadio>
-                    <input type="radio" value="Users - Lowest-Rated" checked={sort === "Users - Lowest-Rated"}
+                    <input type="radio" value="Users - Lowest Rated" checked={sort === "Users - Lowest Rated"}
                            onChange={handleSortGames}/>
                     <label><i className="fas fa-long-arrow-alt-down"/>Users - Lowest-Rated</label>
                 </CheckboxRadio>
+
+                {/*top rated by metacritic*/}
                 <CheckboxRadio>
                     <input type="radio" value="Metacritic - Top Rated" checked={sort === "Metacritic - Top Rated"}
                            onChange={handleSortGames}/>
                     <label><i className="fas fa-long-arrow-alt-up"/>Metacritic - Top Rated</label>
                 </CheckboxRadio>
+
+                {/*lowest rated by metacritic*/}
                 <CheckboxRadio>
-                    <input type="radio" value="Metacritic - Lowest-Rated" checked={sort === "Metacritic - Lowest-Rated"}
+                    <input type="radio" value="Metacritic - Lowest Rated" checked={sort === "Metacritic - Lowest Rated"}
                            onChange={handleSortGames}/>
                     <label><i className="fas fa-long-arrow-alt-down"/>Metacritic - Lowest-Rated</label>
                 </CheckboxRadio>
+
+                {/*Alphabetically A - Z*/}
                 <CheckboxRadio>
                     <input type="radio" value="Alphabetically A - Z" checked={sort === "Alphabetically A - Z"}
                            onChange={handleSortGames}/>
                     <label><i className=" fas fa-sort-alpha-up"/>Alphabetically A - Z</label>
                 </CheckboxRadio>
+
+                {/*Alphabetically Z - A*/}
                 <CheckboxRadio>
                     <input type="radio" value="Alphabetically Z - A" checked={sort === "Alphabetically Z - A"}
                            onChange={handleSortGames}/>
                     <label><i className="fas fa-sort-alpha-down-alt"/>Alphabetically Z - A</label>
                 </CheckboxRadio>
+
             </GamesSortForm>}
 
+            {/*rendering games*/}
             <GamesList>
-            {games.map((el, num) => <GameSingle game={el} key={`game_single_byGenre_${num}_${el.slug}`}/>)}
-        </GamesList>
+                {games.map((el, num) => <GameSingle game={el} key={`game_single_byGenre_${num}_${el.slug}`}/>)}
+            </GamesList>
 
+            {/*when user click on this button get more games*/}
             <GetMoreBtn onClick={handleGetMore}>More</GetMoreBtn>
         </Container>
     }

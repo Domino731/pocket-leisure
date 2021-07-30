@@ -11,19 +11,19 @@ export const an__formRecovery = keyframes`
   }
 `
 export const an__navigationItem = keyframes`
-100%{
- transform: scale(0);
-}
+  100% {
+    transform: scale(0);
+  }
 `
 export const an__checkboxRadio = keyframes`
-100%{
-  width: 100%;
-  color: ${props => props.theme.color.white}
-}
+  100% {
+    width: 100%;
+    color: ${props => props.theme.color.white}
+  }
 `
 
 export const an__loadingCircle = keyframes`
-100%{
-transform: translate(0, -90px);
-}
+  100% {
+    transform: translate(0, -90px);
+  }
 `

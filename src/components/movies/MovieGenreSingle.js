@@ -10,17 +10,14 @@ import {
     PosterMedMissing
 } from "../../styled-components/general/general-styles";
 
-
 /**
- @param movie {object} - object with a film which contains his basic data - title, rating, premiere
+ * @param movie {object} - object with a film which contains his basic data - title, rating, premiere
+ * @returns {JSX.Element} - movie poster as link to single movie, title, release date and rating
  */
 export const MovieGenreSingle = ({movie}) => {
-
-
     return <MovieGenreItem>
-
-
         <Link to={`/movie/${movie.id}`}>
+
             {/*not all movies have a poster*/}
             {
                 movie.poster_path !== null ?
@@ -30,6 +27,7 @@ export const MovieGenreSingle = ({movie}) => {
                     <PosterMedMissing><i className="fas fa-image"/></PosterMedMissing>
             }
         </Link>
+
         <MovieGenreItemDetails>
 
             {/*not all movies have title key, certain have name key*/}
@@ -40,7 +38,6 @@ export const MovieGenreSingle = ({movie}) => {
             {/*if a film has no rating, dont show it*/}
             {movie.vote_average !== 0 &&
             <MovieRating><i className="fas fa-grin-alt"/><span>{movie.vote_average.toFixed(1)}</span></MovieRating>}
-
         </MovieGenreItemDetails>
     </MovieGenreItem>
 }

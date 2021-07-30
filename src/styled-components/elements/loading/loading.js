@@ -10,7 +10,7 @@ export const LoadingContainer = styled.div`
   height: 100vh;
 `
 export const LoadingTitle = styled.h1`
-font-size: 44px;
+  font-size: 44px;
   margin-bottom: 128px;
 `
 export const LoadingContent = styled.div`
@@ -19,24 +19,30 @@ export const LoadingContent = styled.div`
   width: 300px;
   border-bottom: 4px solid ${props => props.theme.color.main};
   padding-bottom: 13px;
-  span{
+
+  span {
     width: 38px;
     height: 38px;
     background: ${props => props.theme.color.main};
     border-radius: 100px;
-    &:nth-child(1){
+
+    &:nth-child(1) {
       animation: 0.5s ${an__loadingCircle} infinite alternate;
     }
-    &:nth-child(2){
+
+    &:nth-child(2) {
       animation: 0.5s 0.5s ${an__loadingCircle} infinite alternate;
     }
-    &:nth-child(3){
+
+    &:nth-child(3) {
       animation: 0.6s 0.3s ${an__loadingCircle} infinite alternate;
     }
-    &:nth-child(4){
+
+    &:nth-child(4) {
       animation: 0.5s ${an__loadingCircle} infinite alternate;
     }
-    &:nth-child(5){
+
+    &:nth-child(5) {
       animation: 0.5s 0.5s ${an__loadingCircle} infinite alternate;
     }
   }

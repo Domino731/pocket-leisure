@@ -19,10 +19,19 @@ import {
 import {Link} from "react-router-dom";
 import {Loading} from "../loading/Loading";
 
+/**
+ * @param props.match.params.platform {string} - platform of user account (come from ulr)
+ * @param props.match.params.region {string} - region of user account (come from ulr)
+ * @param props.match.params.user {string} - username (come from ulr)
+ * @param props.match.params.battleTag {string} - battleTag (come from ulr)
+ * @returns {JSX.Element} - general overwatch stats
+ */
 export const OverwatchStatistics = (props) => {
 
     // state with user statistics
     const [stats, setStats] = useState(undefined)
+
+    // when component mounted get general overwatch stats
     useEffect(() => {
         getOverwatchStats(props.match.params.platform,
             props.match.params.region,
@@ -31,32 +40,38 @@ export const OverwatchStatistics = (props) => {
             setStats)
     }, [props.match.params])
 
+
     if (stats === undefined) {
         return <Loading/>
     }
 
     return <Container>
+
+        {/*user portrait*/}
         <OwPlayerBoard>
             <OwLevelIcon src={stats.levelIcon}/>
             <OwPrestigeIcon src={stats.prestigeIcon}/>
             <OwIcon src={stats.icon}/>
         </OwPlayerBoard>
+
+        {/*username*/}
         <OwName>{stats.name}</OwName>
 
+        {/*if user have private profile (no access to stats)show info about it*/}
         {stats.private && <OwPrivate>
             <i className="fas fa-lock"/>
             <strong>Career profile visibility is set to private</strong>
         </OwPrivate>}
 
+        {/*if user dont have private profile return stats*/}
         {stats.private !== true && <>
-
             <OwStatsGeneral>
 
+                {/*overall*/}
                 <OwStatsSingleOverall>
                     <OwStatsTitle>
                         <span>Overall</span>
                     </OwStatsTitle>
-
                     <OwStatsTable>
                         <tbody>
                         <tr>
@@ -80,6 +95,7 @@ export const OverwatchStatistics = (props) => {
                     </OwStatsTable>
                 </OwStatsSingleOverall>
 
+                {/*quick play stats*/}
                 <OwStatsSingle>
                     <OwStatsTitle>
                         <span>Quick play</span>
@@ -121,8 +137,7 @@ export const OverwatchStatistics = (props) => {
                         </tr>
                         </tbody>
                     </OwStatsTable>
-                    {/*<OwMedalBar medals={stats.competitiveStats.awards.medals} gold={stats.competitiveStats.awards.medalsGold}*/}
-                    {/*            silver={stats.competitiveStats.awards.medalsSilver}/>*/}
+
                     <OwMedalsDiagram>
                         <OwMedalBar allMedals={stats.quickPlayStats.awards.medals}
                                     medal={stats.quickPlayStats.awards.medalsGold} color="#D9AD45"/>
@@ -133,6 +148,7 @@ export const OverwatchStatistics = (props) => {
                     </OwMedalsDiagram>
                 </OwStatsSingle>
 
+                {/*competitive stats*/}
                 <OwStatsSingle>
                     <OwStatsTitle>
                         <span>Competitive</span>
@@ -175,8 +191,7 @@ export const OverwatchStatistics = (props) => {
                         </tr>
                         </tbody>
                     </OwStatsTable>
-                    {/*<OwMedalBar medals={stats.competitiveStats.awards.medals} gold={stats.competitiveStats.awards.medalsGold}*/}
-                    {/*            silver={stats.competitiveStats.awards.medalsSilver}/>*/}
+
                     <OwMedalsDiagram>
                         <OwMedalBar allMedals={stats.competitiveStats.awards.medals}
                                     medal={stats.competitiveStats.awards.medalsGold} color="#D9AD45"/>
@@ -189,21 +204,24 @@ export const OverwatchStatistics = (props) => {
 
             </OwStatsGeneral>
 
-           <OwLinksContainer>
-            <OwLink>
-                <Link
-                    to={`/overwatch/stats-competitive/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete
-                    competitive</Link>
-            </OwLink>
 
-            <OwLink>
-                <Link
-                    to={`/overwatch/stats-quick-play/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete
-                    quick play</Link>
-            </OwLink>
-        </OwLinksContainer>
+            <OwLinksContainer>
+
+                {/*link to competitive stats*/}
+                <OwLink>
+                    <Link
+                        to={`/overwatch/stats-competitive/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete
+                        competitive</Link>
+                </OwLink>
+
+                {/*link to quick play stats*/}
+                <OwLink>
+                    <Link
+                        to={`/overwatch/stats-quick-play/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete
+                        quick play</Link>
+                </OwLink>
+            </OwLinksContainer>
         </>}
-
 
     </Container>
 

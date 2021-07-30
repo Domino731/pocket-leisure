@@ -9,9 +9,15 @@ import {
 import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
 
+/**
+ *
+ * @param game {object} - game details with poster path, name, platforms...
+ * @returns {JSX.Element} - component of game with link to specific game
+ */
 export const GameSingle = ({game}) => {
     return <GameSingleContainer>
 
+        {/*link*/}
         <Link to={`/game/${game.id}`}>
             {game.background_image !== null ? <GameSingleImg src={game.background_image} alt={game.name}/> :
                 <GameMissingImg><i className="fas fa-image"/></GameMissingImg>
@@ -20,17 +26,19 @@ export const GameSingle = ({game}) => {
         <GameSingleTitle>{game.name}</GameSingleTitle>
         <GameSingleReleased>{getReleaseDate(game.released)}</GameSingleReleased>
 
-
+        {/*platforms*/}
         {game.parent_platforms !== undefined && <GameSinglePlatforms>
             {game.parent_platforms.map((el, num) => <GameSinglePlatform
                 key={`${game.slug}_${el.platform.slug}_${num}`}>{getGamePlatformIcon(el.platform.slug)}</GameSinglePlatform>)}
         </GameSinglePlatforms>}
         <GameSingleRatingsBar>
+
+            {/*rating by users*/}
             <GameSingleRating>
-                <i className="fas fa-star"/> <span>{game.rating.toFixed(1)}/5</span>
+                <i className="fas fa-star"/> <span>{game.rating.toFixed(1)} / 5</span>
             </GameSingleRating>
 
-
+            {/*rating by metacritic*/}
             <GameSingleRatingMetacritic>
                 <img src={metacriticIcon} alt="metacritic"/>
                 {game.metacritic !== null ? <span>{game.metacritic}/100</span> :

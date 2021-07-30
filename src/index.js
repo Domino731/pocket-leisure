@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {ThemeProvider} from "styled-components";
-import {theme} from "./styled-components/general/theme";
-import {Reset} from 'styled-reset'
-import {GlobalStyle} from "./styled-components/general/globalStyle";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 import rootReducer from "./redux/reducers/allReducers"
@@ -14,7 +10,7 @@ const store = createStore(rootReducer)
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-                <App/>
+            <App/>
         </Provider>
 
     </React.StrictMode>,

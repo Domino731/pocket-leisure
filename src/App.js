@@ -21,7 +21,6 @@ import {Reset} from "styled-reset";
 import {GlobalStyle} from "./styled-components/general/globalStyle";
 
 
-
 function App({mainColor}) {
     return <ThemeProvider theme={theme(mainColor)}>
         <Reset/>
@@ -34,8 +33,10 @@ function App({mainColor}) {
             <Route path="/movie-search" component={MovieSearch}/>
             <Route path="/overwatch-search-your-profile" component={OverwatchSearchProfile}/>
             <Route path="/overwatch/stats/:platform/:region/:user/:battleTag" component={OverwatchStatistics}/>
-            <Route path="/overwatch/stats-competitive/:platform/:region/:user/:battleTag" component={OverwatchStatisticsCompetitive}/>
-            <Route path="/overwatch/stats-quick-play/:platform/:region/:user/:battleTag" component={OverwatchStatisticsQuickPlay}/>
+            <Route path="/overwatch/stats-competitive/:platform/:region/:user/:battleTag"
+                   component={OverwatchStatisticsCompetitive}/>
+            <Route path="/overwatch/stats-quick-play/:platform/:region/:user/:battleTag"
+                   component={OverwatchStatisticsQuickPlay}/>
             <Route path="/games" component={Games}/>
 
             <Route path="/games-by-genre/:id/:name" component={GamesByGenre}/>
@@ -45,6 +46,7 @@ function App({mainColor}) {
         </Router>
     </ThemeProvider>
 }
+
 const mapStateToProps = state => ({
     mainColor: state.mainColor
 })

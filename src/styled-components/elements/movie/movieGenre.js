@@ -66,7 +66,7 @@ export const MovieGenreItem = styled.li`
   @media ${device.laptopL} {
     width: 326px;
   }
-  
+
 `
 
 export const MovieGenreItemDetails = styled.div`

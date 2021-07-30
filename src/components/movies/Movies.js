@@ -9,11 +9,15 @@ import {useEffect, useState} from "react";
 import {getMoviesByCategory, getMoviesGenres} from "../../api/themoviedb/operations";
 import {Loading} from "../loading/Loading";
 
+/**
+ * @returns {JSX.Element} - Main movies page with movies sorted by category and movie genres
+ */
 const Movies = () => {
 
     // state with movies genres
     const [movieGenres, setMovieGenres] = useState(undefined)
 
+    // state with popular movies
     const [popularMovies, setPopularMovies] = useState(undefined)
 
 
@@ -28,7 +32,7 @@ const Movies = () => {
     }
     return <Container>
         <Movie>
-            <TitleBar><TitlePrimary>Movies</TitlePrimary> <Link to="movie-search"><i className="fas fa-search"/> <span>Search</span></Link></TitleBar>
+            <TitleBar><TitlePrimary>Movies <span>Powered by TheMovieDb Api</span></TitlePrimary> <Link to="movie-search"><i className="fas fa-search"/> <span>Search</span></Link></TitleBar>
             <MoviesByCategory moviesData={popularMovies}/>
             <MoviesGenres movieGenresData={movieGenres}/>
         </Movie>

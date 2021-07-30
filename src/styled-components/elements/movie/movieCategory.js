@@ -21,10 +21,12 @@ export const MovieElementTitle = styled.h2`
   letter-spacing: 0.063rem;
   margin: 1.563rem 0 0.625rem;
   transition: 0.1s;
+
   i {
-  margin-left: 0.875rem;
+    margin-left: 0.875rem;
   }
-  &:hover{
+
+  &:hover {
     cursor: pointer;
     transition: 0.2s;
     font-size: 1.063rem;
@@ -44,10 +46,12 @@ export const MovieCategoryList = styled.ul`
   overflow: auto;
   overflow-y: hidden;
   padding-bottom: 13px;
-  &::-webkit-scrollbar{
+
+  &::-webkit-scrollbar {
     height: 8px;
   }
-  &::-webkit-scrollbar-thumb{
+
+  &::-webkit-scrollbar-thumb {
     background: ${props => props.theme.color.main};
     border-radius: 6px;
   }
@@ -56,12 +60,12 @@ export const MovieCategoryList = styled.ul`
   // media //
   ///////////
   @media ${device.laptop} {
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       height: 12px;
     }
   }
   @media ${device.laptopL} {
-    &::-webkit-scrollbar{
+    &::-webkit-scrollbar {
       height: 17px;
     }
   }
@@ -77,7 +81,7 @@ export const MovieCategoryItem = styled.li`
   @media ${device.mobileL} {
     width: 147px;
   }
-  
+
   @media ${device.tablet} {
     width: 240px;
   }
@@ -85,12 +89,12 @@ export const MovieCategoryItem = styled.li`
   @media ${device.laptop} {
     width: 255px;
   }
-  
+
   @media ${device.laptopL} {
     width: 305px;
   }
 `
 export const MovieCategoryForm = styled.form`
-    width: 100%;
+  width: 100%;
   overflow: hidden;
 `
