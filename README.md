@@ -47,6 +47,5 @@ Application where you can search for your favorite movie or game and check your 
 * ### Others
     * Loading - loading screen
     * NotFound404 - information about the 404 error and redirecting the user to a specific section
-    
-tyyy
+  
 
