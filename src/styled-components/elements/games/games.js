@@ -54,16 +54,16 @@ export const GameSingleContainer = styled.li`
 
   @media ${device.tablet} {
     width: 330px;
-    margin-right: 25px;
-    margin-left: 25px;
+    margin-right: 17px;
+    margin-left: 17px;
   }
   @media ${device.laptop} {
     width: 300px;
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 8px;
+    margin-left: 8px;
   }
   @media ${device.laptopL} {
-    width: 318px;
+    width: 339px;
   }
 `
 export const GameSingleImg = styled.img`
@@ -204,7 +204,7 @@ export const GamesSortForm = styled.form`
 `
 
 export const GameMissingImg = styled.div`
-  width: 300px;
+  width: 100%;
   height: 183px;
   display: flex;
   justify-content: center;
@@ -216,28 +216,23 @@ export const GameMissingImg = styled.div`
   // media //
   ///////////
   @media ${device.mobileM} {
-    width: 360px;
     height: 199px;
   }
 
   @media ${device.mobileM} {
-    width: 420px;
     height: 233px;
   }
 
   @media ${device.tablet} {
-    width: 333px;
     height: 430px;
     font-size: 210px;
   }
 
   @media ${device.laptop} {
-    width: 300px;
     height: 430px;
   }
 
   @media ${device.laptopL} {
-    width: 318px;
     height: 430px;
   }
 `

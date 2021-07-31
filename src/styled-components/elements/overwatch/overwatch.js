@@ -68,6 +68,14 @@ export const OwIcon = styled.img`
   position: absolute;
   top: 119px;
   z-index: -1;
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.laptopL} {
+    width: 121px;
+    top: 135px;
+  }
 `
 export const OwLevelIcon = styled.img`
   width: 293px;

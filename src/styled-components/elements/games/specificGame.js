@@ -396,8 +396,8 @@ export const GameSeriesSingle = styled.li`
 
   @media ${device.laptop} {
     width: 480px;
-    margin-right: 16px;
-    margin-left: 16px;
+    margin-right: 5px;
+    margin-left: 5px;
   }
   @media ${device.laptopL} {
     width: 446px;

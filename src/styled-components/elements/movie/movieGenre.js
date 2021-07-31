@@ -60,11 +60,12 @@ export const MovieGenreItem = styled.li`
     }
   }
   @media ${device.laptop} {
+    width: 301px;
     margin-right: 16px;
     margin-left: 16px;
   }
   @media ${device.laptopL} {
-    width: 326px;
+    width: 323px;
   }
 
 `
@@ -100,7 +101,7 @@ export const MovieRating = styled.strong`
     justify-content: center;
     align-items: center;
     height: 360px;
-    padding-left: 28px;
+    padding-left: 34px;
     span {
       margin-top: 8px;
       margin-left: -10px;

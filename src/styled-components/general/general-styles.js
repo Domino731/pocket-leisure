@@ -19,15 +19,15 @@ export const Container = styled.section`
   }
 
   @media ${device.tablet} {
-    width: ${size.tablet};
+    width: 750px;
   }
 
   @media ${device.laptop} {
-    width: ${size.laptop};
+    width: 1000px;
   }
 
   @media ${device.laptopL} {
-    width: ${size.laptopL};
+    width: 1420px;
   }
 `
 export const PosterBig = styled.img`
