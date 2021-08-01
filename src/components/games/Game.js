@@ -391,7 +391,6 @@ export const Game = (props) => {
                                 // have poster
                                 <img src={el.background_image} alt={el.name}/>
                                 :
-
                                 // dont have
                                 <GameSeriesMissing><i className="fas fa-gamepad"/></GameSeriesMissing>
                             }

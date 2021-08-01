@@ -428,11 +428,99 @@ export const MovieKnowFor = styled.strong`
 
 
 export const MoviesList = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+`
+export const MovieSimilarSingle = styled.li`
+  width: 140px;
+  height: 210px;
+  margin:  10px;
+  border-radius: ${props => props.theme.border_radius.m};
+  overflow: hidden;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    margin: 7px;
+    width: 173px;
+    height: 259px;
+  }
+
+  @media ${device.mobileL} {
+    width: 127px;
+    height: 190px;
+  }
+
   @media ${device.tablet} {
-    display: flex;
-    flex-wrap: wrap;
+    width: 173px;
+    height: 259px;
+  }
+
+  @media ${device.laptop} {
+    width: 236px;
+    height: 354px;
+  }
+
+  @media ${device.laptopL} {
+    margin: 9px;
+    width: 265px;
+    height: 397px;
+  }
+`
+
+export const MovieSimilarMissing = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  font-size: 42px;
+  position: relative;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: ${props => props.theme.border_radius.m};
+  border: 3px solid ${props => props.theme.color.main};
+  &:hover {
+    transition: 0.2s;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
+  };
+  
+  h3{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding-top: 19px;
+    text-align: center;
+    z-index: 2;
+    font-size: 1.188rem;
+    transition: 0.2s;
+  
+  }
+  i {
+    color: ${props => props.theme.color.main};
+    transform: rotate(-30deg);
+  }
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+   font-size: 50px;
+  }
+
+  @media ${device.tablet} {
+    font-size: 100px;
+  }
+
+  @media ${device.laptopL} {
+    font-size: 152px;
   }
 `

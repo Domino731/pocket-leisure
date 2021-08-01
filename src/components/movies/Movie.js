@@ -33,7 +33,7 @@ import {
     MovieFactsContainer,
     MovieMediaContainer,
     MoviePosterContainerDesktop,
-    MovieFactsContainerDesktop
+    MovieFactsContainerDesktop, MovieSimilarSingle, MovieSimilarMissing
 } from "../../styled-components/elements/movie/movie";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
@@ -283,9 +283,26 @@ export const Movie = (props) => {
 
                 <MovieItemTitle>Similar movies</MovieItemTitle>
                 <MoviesList>
-                    {similarMovies.map((el, num) => <SimilarMovie movie={el}
-                                                                  key={`similarMovie_${props.match.params.id}-${num}`}/>)}
 
+                    {/*{similarMovies.map((el, num) => <SimilarMovie movie={el}*/}
+                    {/*                                              key={`similarMovie_${props.match.params.id}-${num}`}/>)}*/}
+                    {similarMovies.map((el, num) =>
+                        <Link to={`/movie/${el.id}`} key={`similarMovies_${el.title}-${num}`}>
+                            <MovieSimilarSingle>
+                                {
+
+                                    // not all movies have a poster
+                                    el.poster_path !== null ?
+                                        <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
+                                             alt={el.title}/>
+                                        :
+                                        <MovieSimilarMissing><i className="fas fa-film"/><h3>{el.title}</h3>
+                                        </MovieSimilarMissing>
+
+                                }
+                            </MovieSimilarSingle>
+                        </Link>)
+                    }
                 </MoviesList>
             </>}
 
