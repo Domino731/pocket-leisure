@@ -4,7 +4,7 @@ import {device} from "../../general/breakpoints";
 
 export const Form = styled.form`
   width: 100%;
-  height: 100vh;
+  margin-top: 60px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,12 @@ export const Form = styled.form`
     color: ${props => props.theme.color.white};
     font-weight: bold;
   }
-
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    margin-top: 30px;
+  }
 `
 export const FormElement = styled.div`
   display: flex;
