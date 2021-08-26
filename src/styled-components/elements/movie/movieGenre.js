@@ -78,7 +78,7 @@ export const MovieGenreItemDetails = styled.div`
 
   }
 `
-export const MovieRating = styled.strong`
+export const MovieRating = styled.div`
   min-width: 88px;
   position: absolute;
   right: 0;

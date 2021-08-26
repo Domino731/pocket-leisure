@@ -21,8 +21,10 @@ export const MovieGenreSingle = ({movie}) => {
             {/*not all movies have a poster*/}
             {
                 movie.poster_path !== null ?
-                    <PosterMed src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                               alt={movie.title !== undefined ? movie.title : movie.name}/>
+                    <PosterMed>
+                        <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                             alt={movie.title !== undefined ? movie.title : movie.name} />
+                    </PosterMed>
                     :
                     <PosterMedMissing><i className="fas fa-image"/></PosterMedMissing>
             }

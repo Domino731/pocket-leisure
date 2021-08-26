@@ -16,7 +16,9 @@ export const MovieCategorySingle = ({movie}) => {
             {movie.poster_path !== null ?
 
                 // have poster
-                <PosterBig src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title}/>
+                <PosterBig >
+                    <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title}/>
+                </PosterBig>
                 :
 
                 // dont have
