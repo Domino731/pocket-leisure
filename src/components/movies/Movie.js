@@ -54,7 +54,12 @@ export const Movie = (props) => {
     // state with movie videos
     const [videos, setVideos] = useState(undefined)
 
+    // state with number, when user change this number then the next trailer or the previous one will be shown
     const [videoNumber, setVideoNumber] = useState(0)
+
+    //A state containing the width of the page based on which the elements will be rendered.
+    // For widths below 1024px there is a different layout at the top and for widths above 1024px
+    const [windowWidth, setWindowWidth] = useState(0);
 
     //when component mounted get a movie with this id (from ulr path)
     useEffect(() => {
@@ -64,9 +69,13 @@ export const Movie = (props) => {
     }, [props.match.params])
 
 
+    // set the windowWidth state
+    const resizeWindow = () => setWindowWidth(window.innerWidth);
     useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [props.match.params])
+        resizeWindow();
+        window.addEventListener("resize", resizeWindow);
+        return () => window.removeEventListener("resize", resizeWindow);
+    }, []);
 
     const handleSwitchNextVideo = () => {
         if (videoNumber < videos.length) {
@@ -79,23 +88,24 @@ export const Movie = (props) => {
     }
 
 
-    if (movie === "notFound") {
+    if (movie === undefined) {
         return <NotFound404 redirectUrl="/movies"/>
     }
-    if (movie === undefined || movie.credits === undefined || similarMovies === undefined || videos === undefined) {
+    if (movie === null || movie.credits === undefined || similarMovies === null || videos === null) {
         return <Loading/>
     }
-    if (typeof movie === "object") {
+
         return <Container>
 
             <MovieRow>
                 {/*poster, some movie dont have a poster, then dont render anything*/}
-                <MoviePosterContainer>
+                {windowWidth < 1024 && <MoviePosterContainer>
                     {movie.poster_path !== null &&
                     <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/>}
-                </MoviePosterContainer>
+                </MoviePosterContainer>}
 
-                <MoviePosterContainerDesktop>
+
+                {windowWidth >= 1024 && <MoviePosterContainerDesktop>
                     {movie.poster_path !== null &&
                     <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/>}
                     <MovieFactsContainerDesktop>
@@ -149,8 +159,7 @@ export const Movie = (props) => {
                             </tbody>
                         </FactsTable>
                     </MovieFactsContainerDesktop>
-                </MoviePosterContainerDesktop>
-
+                </MoviePosterContainerDesktop>}
 
                 <MovieIntroductionContainer>
                     {/*director*/}
@@ -201,9 +210,10 @@ export const Movie = (props) => {
                         </>}
                     </MovieMediaContainer>
                 </MovieIntroductionContainer>
+
             </MovieRow>
 
-            <MovieFactsContainer>
+            {windowWidth < 1024 && <MovieFactsContainer>
                 {/*movie details*/}
                 <FactsTable>
                     <tbody>
@@ -252,8 +262,7 @@ export const Movie = (props) => {
                     }
                     </tbody>
                 </FactsTable>
-            </MovieFactsContainer>
-
+            </MovieFactsContainer>}
 
             {/* rendering cast*/}
             {movie.credits.cast.length !== 0 && <>
@@ -309,5 +318,4 @@ export const Movie = (props) => {
             </>}
 
         </Container>
-    }
 }

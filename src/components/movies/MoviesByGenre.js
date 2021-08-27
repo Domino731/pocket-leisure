@@ -15,8 +15,9 @@ import {MoviesList} from "../../styled-components/elements/movie/movie";
  */
 export const MoviesByGenre = (props) => {
 
-    // state with movies with specific genre
-    const [movies, setMovies] = useState(undefined)
+    // state with movies with specific genre, base on this state list with movies will be rendered
+    // by MovieGenreSingle component
+    const [movies, setMovies] = useState(null)
 
     // state  with a number, the increase of which (handleGetMore)will result in the download of 20 more films
     const [page, setPage] = useState(1)
@@ -59,12 +60,12 @@ export const MoviesByGenre = (props) => {
         }, 500)
     }
 
-    if (movies === undefined) {
+    if (movies === null) {
         return <Loading/>
     }
 
     // if movie genre doesnt exist redirect user to /movies
-    if (movies === "notFound") {
+    if (movies === undefined) {
         return <NotFound404 redirectUrl="/movies"/>
     }
 

@@ -9,16 +9,14 @@ import {useEffect, useState} from "react";
 import {getMoviesByCategory, getMoviesGenres} from "../../api/themoviedb/operations";
 import {Loading} from "../loading/Loading";
 
-/**
- * @returns {JSX.Element} - Main movies page with movies sorted by category and movie genres
- */
+// Main movies page with movies sorted by category and movie genres
 const Movies = () => {
 
-    // state with movies genres
-    const [movieGenres, setMovieGenres] = useState(undefined)
+    // state with movies genres, base on this state list with movie genres will be rendered in MovieGenres component
+    const [movieGenres, setMovieGenres] = useState(null)
 
-    // state with popular movies
-    const [popularMovies, setPopularMovies] = useState(undefined)
+    // state with popular movies, base on this list with movies will be rendered in MoviesByCategory component
+    const [popularMovies, setPopularMovies] = useState(null)
 
 
     // when component mounted get all movies with specific genre, and popular movies
@@ -27,7 +25,7 @@ const Movies = () => {
         getMoviesByCategory(setPopularMovies, "/movie/popular")
     }, [])
 
-    if(movieGenres === undefined || popularMovies === undefined){
+    if(movieGenres === null || popularMovies === null){
         return <Loading/>
     }
     return <Container>

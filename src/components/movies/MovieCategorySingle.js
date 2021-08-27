@@ -6,8 +6,8 @@ import {ItemTitleSmall} from "../../styled-components/general/general-styles";
 import {ItemPremiereSmall} from "../../styled-components/general/general-styles";
 
 /**
+ * Box with  movie title, release date, and  poster as link to single movie site with details
  * @param movie {object} - object with movie
- * @returns {JSX.Element} - movie title, release date, and  poster as link to single movie site with details ,
  */
 export const MovieCategorySingle = ({movie}) => {
     return <MovieCategoryItem>

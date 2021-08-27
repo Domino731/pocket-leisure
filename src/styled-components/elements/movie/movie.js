@@ -12,22 +12,10 @@ export const MovieRow = styled.div`
   }
 `
 export const MoviePosterContainer = styled.div`
-  ///////////
-  // media //
-  ///////////
-  @media ${device.laptop} {
-    display: none;
-  }
+ 
 `
 export const MoviePosterContainerDesktop = styled.div`
-  display: none;
   width: 40%;
-  ///////////
-  // media //
-  ///////////
-  @media ${device.laptop} {
-    display: block;
-  }
 `
 export const MovieIntroductionContainer = styled.div`
   ///////////
@@ -68,12 +56,6 @@ export const MovieFactsContainer = styled.section`
   display: flex;
   flex-direction: column;
   margin-top: 30px;
-  ///////////
-  // media //
-  ///////////
-  @media ${device.laptop} {
-    display: none;
-  }
 `
 export const MovieFactsContainerDesktop = styled.div`
   display: none;

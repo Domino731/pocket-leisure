@@ -17,13 +17,14 @@ import {MoviesList} from "../../styled-components/elements/movie/movie";
  */
 export const MovieSearch = () => {
 
-    // state with movies
-    const [movies, setMovies] = useState([])
+    // state with movies, base on this state list with movies will by rendered by SingleMovie component
+    const [movies, setMovies] = useState(null)
 
     // based on this string, the function (handleChangeMovies) will return another function responsible for searching
     const [searchBy, setSearchBy] = useState("Movie title")
 
     const [loading, setLoading] = useState(false)
+
     // flag which allows the user to toggle the sorting options
     const [flag, setFlag] = useState(false)
 
@@ -103,7 +104,7 @@ export const MovieSearch = () => {
             <Loading/>
             :
             <MoviesList>
-                {movies !== undefined &&
+                {movies !== null &&
                 movies.map((el, num) => <SingleMovie movie={el} key={`movieSearch_${el.id}_${num}`}/>)
                 }
             </MoviesList>

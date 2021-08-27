@@ -41,6 +41,11 @@ export const getMoviesGenres = (successCallback) => {
  * @param {string} genreId - id of genre that you want to fetch
  */
 export const getMoviesByParticularGenre = (successCallback, genreId) => {
+
+    // set loading screen
+    successCallback(null)
+
+    // get movies list with particular genre
     fetch(`${url}/discover/movie?api_key=${apiKey}&with_genres=${genreId}`)
         .then(r => r.json())
         .then(data => {
@@ -52,7 +57,7 @@ export const getMoviesByParticularGenre = (successCallback, genreId) => {
 
             // genreId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.total_results === 0) {
-                successCallback("notFound")
+                successCallback(undefined)
             }
         })
         .catch(err => console.log(err));
@@ -72,7 +77,7 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
                 successCallback(prev => {
 
                     // add new movies to state
-                    if (prev !== undefined && prev !== "notFound") {
+                    if (prev !== null && prev !== undefined) {
                         return [...prev, ...data.results]
                     }
                 });
@@ -88,6 +93,9 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
  */
 export const getSingleMovie = async (successCallback, movieId) => {
 
+    // set loading screen
+    successCallback(null)
+
     // get movie details
     await fetch(`${url}/movie/${movieId}?api_key=${apiKey}`)
         .then(r => r.json())
@@ -98,7 +106,7 @@ export const getSingleMovie = async (successCallback, movieId) => {
 
             // movieId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.success === false) {
-                successCallback("notFound")
+                successCallback(undefined)
             }
         })
         .catch(err => console.log(err));

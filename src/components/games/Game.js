@@ -67,7 +67,7 @@ export const Game = (props) => {
     // state, which change, shows another trailer
     const [trailerNumber, setTrailerNumber] = useState(0)
 
-    // state, which change, shows another trailer
+    // state, which change, shows another screenshot
     const [scNumber, setScNumber] = useState(0)
 
     //A state containing the width of the page based on which the elements will be rendered.

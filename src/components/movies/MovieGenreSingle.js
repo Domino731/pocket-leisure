@@ -11,8 +11,8 @@ import {
 } from "../../styled-components/general/general-styles";
 
 /**
+ * movie poster as link to single movie, title, release date and rating
  * @param movie {object} - object with a film which contains his basic data - title, rating, premiere
- * @returns {JSX.Element} - movie poster as link to single movie, title, release date and rating
  */
 export const MovieGenreSingle = ({movie}) => {
     return <MovieGenreItem>
