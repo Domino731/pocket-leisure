@@ -2,7 +2,6 @@ import {getSingleMovie, getSimilarMovies, getMovieVideos} from "../../api/themov
 import {useEffect, useState} from "react";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
-import {MovieGenreSingle as SimilarMovie} from "./MovieGenreSingle";
 // styles
 import {
     Container,
@@ -46,13 +45,13 @@ import {NotFound404} from "../notFound/NotFound404";
 export const Movie = (props) => {
 
     // state with movie
-    const [movie, setMovie] = useState(undefined)
+    const [movie, setMovie] = useState(null)
 
     // state with similar movies
-    const [similarMovies, setSimilarMovies] = useState(undefined)
+    const [similarMovies, setSimilarMovies] = useState(null)
 
     // state with movie videos
-    const [videos, setVideos] = useState(undefined)
+    const [videos, setVideos] = useState(null)
 
     // state with number, when user change this number then the next trailer or the previous one will be shown
     const [videoNumber, setVideoNumber] = useState(0)
@@ -77,6 +76,7 @@ export const Movie = (props) => {
         return () => window.removeEventListener("resize", resizeWindow);
     }, []);
 
+    //
     const handleSwitchNextVideo = () => {
         if (videoNumber < videos.length) {
             setVideoNumber(prev => prev + 1)

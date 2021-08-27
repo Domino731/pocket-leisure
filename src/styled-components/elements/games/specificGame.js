@@ -47,10 +47,11 @@ export const GamePosterMissing = styled.div`
 export const GamePosterContainerDesktop = styled.div`
   display: block;
   width: 40%;
+
   img {
     height: 500px;
   }
-  
+
   ///////////
   // media //
   ///////////
@@ -355,11 +356,6 @@ export const GameSeriesSingle = styled.li`
     font-size: 1.188rem;
 
     transition: 0.2s;
-
-    &:hover {
-      transition: 0.2s;
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
-    }
   }
 
   ///////////
@@ -389,6 +385,12 @@ export const GameSeriesSingle = styled.li`
     width: 480px;
     margin-right: 5px;
     margin-left: 5px;
+    h3 {
+      &:hover {
+        transition: 0.2s;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
+      }
+    }
   }
   @media ${device.laptopL} {
     width: 446px;

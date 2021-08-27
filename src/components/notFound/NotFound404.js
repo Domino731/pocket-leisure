@@ -9,9 +9,13 @@ import {useHistory} from "react-router";
 
  */
 export const NotFound404 = ({redirectUrl}) => {
-    const [redirectTime, setRedirectTime] = useState(5)
+
+    // state with number needed to display how much time is left before redirection
+    const [redirectTime, setRedirectTime] = useState(10)
 
     const history = useHistory()
+
+    // when component mounted do a countdown, and after 10s redirect user to specific path
     useEffect(() => {
 
         // do a countdown
@@ -23,7 +27,7 @@ export const NotFound404 = ({redirectUrl}) => {
         setTimeout(() => {
             clearInterval(countdown)
             history.push(redirectUrl)
-        }, 5000)
+        }, 10000)
     }, [])
 
     return <NotFoundContainer>

@@ -72,11 +72,7 @@ export const NavigationItemTitle = styled.h2`
   font-weight: bold;
   text-align: center;
 
-  transition: 0.2s;
-  &:hover{
-    transition: 0.2s;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
-  }
+
   ///////////
   // media //
   ///////////
@@ -100,6 +96,15 @@ export const NavigationItemTitle = styled.h2`
     height: 317px;
     width: 502px;
     padding: 0;
+    transition: 0.2s;
+    &:hover {
+      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
+    }
+
+    &:hover ~ img {
+      transition: 0.5s;
+      transform: scale(110%);
+    }
   }
   @media ${device.laptopL} {
     width: 710px;
@@ -150,7 +155,7 @@ export const NavigationItemTitleOverwatch = styled(NavigationItemTitle)`
     width: 1430px;
     height: 370px;
   }
-  
+
 `
 export const NavigationImg = styled.img`
   width: 100%;
@@ -167,7 +172,7 @@ export const NavigationImg = styled.img`
   @media ${device.laptopL} {
     height: 370px;
   }
-  
+
 `
 
 export const ColorForm = styled.form`

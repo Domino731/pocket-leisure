@@ -6,8 +6,7 @@ import {MovieGenreItem, MovieGenreItemDetails, MovieRating} from "../../styled-c
 import {
     PosterMed,
     ItemTitleMedium,
-    ItemPremiereMedium,
-    PosterMedMissing
+    ItemPremiereMedium
 } from "../../styled-components/general/general-styles";
 
 /**

@@ -100,24 +100,24 @@ export const Game = (props) => {
     }, []);
 
 
-    // switch to previous trailer
+    // increase trailerNumber state -> switch to previous trailer
     const handleSwitchPrevTrailer = () => {
         setTrailerNumber(prev => prev - 1)
     }
 
-    // switch to next trailer
+    // decrease trailerNumber state -> switch to next trailer
     const handleSwitchNextTrailer = () => {
         if (trailerNumber < gameTrailers.length) {
             setTrailerNumber(prev => prev + 1)
         }
     }
 
-    // switch to previous screenshot
+    //  decrease scNumber state -> switch to previous screenshot
     const handleSwitchPrevSc = () => {
         setScNumber(prev => prev - 1)
     }
 
-    // switch to next screenshot
+    // increase scNumber state -> switch to next screenshot
     const handleSwitchNextSc = () => {
         if (scNumber < gameSc.length) {
             setScNumber(prev => prev + 1)

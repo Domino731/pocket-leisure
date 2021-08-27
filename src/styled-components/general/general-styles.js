@@ -389,7 +389,12 @@ export const Genre = styled.li`
   // media //
   ///////////
   @media ${device.laptop} {
+    font-size: 1.5rem;
     margin: 9px;
+    transition: 0.3s;
+    &:hover{
+      letter-spacing: 0.25rem;
+    }
   }
 `
 export const GetMoreBtn = styled.button`
