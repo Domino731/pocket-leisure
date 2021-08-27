@@ -81,44 +81,58 @@ export const GamesByGenre = (props) => {
 
                 {/*top rated by users*/}
                 <CheckboxRadio>
-                    <input type="radio" value="Users - Top Rated" checked={sort === "Users - Top Rated"}
-                           onChange={handleSortGames}/>
-                    <label><i className="fas fa-long-arrow-alt-up"/>Users - Top Rated</label>
+                    <label><i className="fas fa-long-arrow-alt-up"/>Users - Top Rated
+                        <input type="radio" value="Users - Top Rated" checked={sort === "Users - Top Rated"}
+                               onChange={handleSortGames} name="usersTopRatedGames"/>
+                        <span/>
+                    </label>
                 </CheckboxRadio>
 
                 {/*lowest rated by users*/}
                 <CheckboxRadio>
-                    <input type="radio" value="Users - Lowest Rated" checked={sort === "Users - Lowest Rated"}
-                           onChange={handleSortGames}/>
-                    <label><i className="fas fa-long-arrow-alt-down"/>Users - Lowest-Rated</label>
+                    <label><i className="fas fa-long-arrow-alt-down"/>Users - Lowest-Rated
+                        <input type="radio" value="Users - Lowest Rated" checked={sort === "Users - Lowest Rated"}
+                               onChange={handleSortGames} name="usersLowestRatedGames"/>
+                        <span/>
+                    </label>
                 </CheckboxRadio>
 
                 {/*top rated by metacritic*/}
                 <CheckboxRadio>
+                    <label><i className="fas fa-long-arrow-alt-up"/>Metacritic - Top Rated
                     <input type="radio" value="Metacritic - Top Rated" checked={sort === "Metacritic - Top Rated"}
-                           onChange={handleSortGames}/>
-                    <label><i className="fas fa-long-arrow-alt-up"/>Metacritic - Top Rated</label>
+                           onChange={handleSortGames} name="metacriticTopRatedGames"/>
+                        <span/>
+                </label>
                 </CheckboxRadio>
 
                 {/*lowest rated by metacritic*/}
                 <CheckboxRadio>
-                    <input type="radio" value="Metacritic - Lowest Rated" checked={sort === "Metacritic - Lowest Rated"}
-                           onChange={handleSortGames}/>
-                    <label><i className="fas fa-long-arrow-alt-down"/>Metacritic - Lowest-Rated</label>
+                    <label><i className="fas fa-long-arrow-alt-down"/>Metacritic - Lowest-Rated
+                        <input type="radio" value="Metacritic - Lowest Rated" checked={sort === "Metacritic - Lowest Rated"}
+                               onChange={handleSortGames} name="metacriticLowestRatedGames"/>
+                        <span/>
+                    </label>
+
+
                 </CheckboxRadio>
 
                 {/*Alphabetically A - Z*/}
                 <CheckboxRadio>
-                    <input type="radio" value="Alphabetically A - Z" checked={sort === "Alphabetically A - Z"}
-                           onChange={handleSortGames}/>
-                    <label><i className=" fas fa-sort-alpha-up"/>Alphabetically A - Z</label>
+                    <label><i className=" fas fa-sort-alpha-up"/>Alphabetically A - Z
+                        <input type="radio" value="Alphabetically A - Z" checked={sort === "Alphabetically A - Z"}
+                               onChange={handleSortGames} name="AZgames"/>
+                        <span/>
+                    </label>
                 </CheckboxRadio>
 
                 {/*Alphabetically Z - A*/}
                 <CheckboxRadio>
-                    <input type="radio" value="Alphabetically Z - A" checked={sort === "Alphabetically Z - A"}
-                           onChange={handleSortGames}/>
-                    <label><i className="fas fa-sort-alpha-down-alt"/>Alphabetically Z - A</label>
+                    <label><i className="fas fa-sort-alpha-down-alt"/>Alphabetically Z - A
+                        <input type="radio" value="Alphabetically Z - A" checked={sort === "Alphabetically Z - A"}
+                               onChange={handleSortGames} name="ZAgames"/>
+                        <span/>
+                    </label>
                 </CheckboxRadio>
 
             </GamesSortForm>}

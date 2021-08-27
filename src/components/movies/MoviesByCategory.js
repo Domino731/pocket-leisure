@@ -59,30 +59,41 @@ export const MoviesByCategory = ({moviesData}) => {
 
                     {/*popular*/}
                     <CheckboxRadio>
-                        <input type="radio" value="Popular" checked={category === "Popular"}
-                               onChange={(e) => handleChangeCategory(e, "/movie/popular")}/>
-                        <label><i className="fas fa-fire"/>Popular</label>
+
+                        <label><i className="fas fa-fire"/>Popular
+                            <input type="radio" value="Popular" checked={category === "Popular"}
+                                   onChange={(e) => handleChangeCategory(e, "/movie/popular")} name="popularMovies"/>
+                            <span/>
+                        </label>
                     </CheckboxRadio>
 
                     {/*now playing*/}
                     <CheckboxRadio>
-                        <input type="radio" value="Now playing" checked={category === "Now playing"}
-                               onChange={(e) => handleChangeCategory(e, "/movie/now_playing")}/>
-                        <label><i className="fas fa-play"/>Now playing</label>
+
+                        <label><i className="fas fa-play"/> Now playing
+                            <input type="radio" value="Now playing" checked={category === "Now playing"}
+                                   onChange={(e) => handleChangeCategory(e, "/movie/now_playing")}
+                                   name="nowPlayingMovies"/>
+                            <span/>
+                        </label>
                     </CheckboxRadio>
 
                     {/*top rated*/}
                     <CheckboxRadio>
-                        <input type="radio" value="Top rated" checked={category === "Top rated"}
-                               onChange={(e) => handleChangeCategory(e, "/movie/top_rated")}/>
-                        <label><i className="fas fa-star"/>Top rated</label>
+                        <label><i className="fas fa-star"/>Top rated
+                            <input type="radio" value="Top rated" checked={category === "Top rated"}
+                                   onChange={(e) => handleChangeCategory(e, "/movie/top_rated")} name="topRatedMovies"/>
+                            <span/>
+                        </label>
                     </CheckboxRadio>
 
                     {/*upcoming*/}
                     <CheckboxRadio>
-                        <input type="radio" value="Upcoming" checked={category === "Upcoming"}
-                               onChange={(e) => handleChangeCategory(e, "/movie/upcoming")}/>
-                        <label><i className="fas fa-calendar-day"/>Upcoming</label>
+                        <label><i className="fas fa-calendar-day"/>Upcoming
+                            <input type="radio" value="Upcoming" checked={category === "Upcoming"}
+                                   onChange={(e) => handleChangeCategory(e, "/movie/upcoming")} name="upcomingMovies"/>
+                            <span/>
+                        </label>
                     </CheckboxRadio>
                 </MovieCategoryForm>}
             </MovieCategoryList>

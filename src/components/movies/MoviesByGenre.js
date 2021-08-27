@@ -82,30 +82,39 @@ export const MoviesByGenre = (props) => {
 
             {/*top rated*/}
             <CheckboxRadio>
-                <input type="radio" value="Top Rated" checked={sort === "Top Rated"}
-                       onChange={handleSortMovies}/>
-                <label><i className="fas fa-long-arrow-alt-up"/>Top Rated</label>
+                <label><i className="fas fa-long-arrow-alt-up"/>Top Rated
+                    <input type="radio" value="Top Rated" checked={sort === "Top Rated"}
+                           onChange={handleSortMovies} name="topRatedMovies"/>
+                    <span/>
+                </label>
             </CheckboxRadio>
 
             {/*lowest rated*/}
             <CheckboxRadio>
-                <input type="radio" value="Lowest Rated" checked={sort === "Lowest Rated"}
-                       onChange={handleSortMovies}/>
-                <label><i className="fas fa-long-arrow-alt-down"/>Lowest Rated</label>
+                <label><i className="fas fa-long-arrow-alt-down"/>Lowest Rated
+                    <input type="radio" value="Lowest Rated" checked={sort === "Lowest Rated"}
+                           onChange={handleSortMovies} name="lowestRatedMovies"/>
+                    <span/>
+                </label>
             </CheckboxRadio>
 
             {/*Alphabetically A - Z*/}
             <CheckboxRadio>
+                <label><i className=" fas fa-sort-alpha-up"/>Alphabetically A - Z
                 <input type="radio" value="Alphabetically A - Z" checked={sort === "Alphabetically A - Z"}
-                       onChange={handleSortMovies}/>
-                <label><i className=" fas fa-sort-alpha-up"/>Alphabetically A - Z</label>
+                       onChange={handleSortMovies} name="AZmovies"/>
+                    <span/>
+            </label>
             </CheckboxRadio>
 
             {/*Alphabetically Z - A*/}
             <CheckboxRadio>
+                <label><i className="fas fa-sort-alpha-down-alt"/>Alphabetically Z - A
                 <input type="radio" value="Alphabetically Z - A" checked={sort === "Alphabetically Z - A"}
-                       onChange={handleSortMovies}/>
-                <label><i className="fas fa-sort-alpha-down-alt"/>Alphabetically Z - A</label>
+                       onChange={handleSortMovies} name="ZAmovies"/>
+                    <span/>
+                </label>
+
             </CheckboxRadio>
         </MovieCategoryForm>}
 

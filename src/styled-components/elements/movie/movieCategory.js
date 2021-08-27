@@ -74,7 +74,7 @@ export const MovieCategoryItem = styled.li`
   width: 128px;
   margin-right: 23px;
   flex-shrink: 0;
-
+  
   ///////////
   // media //
   ///////////

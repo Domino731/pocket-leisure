@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {an__checkboxRadio} from "./animations";
 import {device, size} from "./breakpoints";
 
-export const Container = styled.section`
+export const Container = styled.main`
   width: 320px;
   margin: 0 auto;
   padding-bottom: 54px;
@@ -39,6 +39,10 @@ export const PosterBig = styled.div`
   border-radius: ${props => props.theme.border_radius.l};
   overflow: hidden;
 
+  &:hover {
+    cursor: pointer;
+  }
+  
   img {
     width: 100%;
     height: 100%;
@@ -71,30 +75,55 @@ export const PosterBigMissing = styled.div`
 
 `
 export const PosterMed = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
   height: 150px;
   border-radius: ${props => props.theme.border_radius.l};
+  background: ${props => props.theme.color.black};
+  color: ${props => props.theme.color.main};
   margin-right: 0.625rem;
   flex-shrink: 0;
   overflow: hidden;
+ z-index: 3;
 
+  &:hover {
+    cursor: pointer;
+  }
+  
+  a{
+    &:hover{
+      cursor: pointer;
+    }
+  }
   img {
     object-fit: cover;
     width: 100%;
     height: 100%;
   }
-
+  i{
+    font-size: 30px;
+  }
   ///////////
   // media //
   ///////////
   @media ${device.mobileL} {
     width: 125px;
     height: 188px;
+    i{
+      font-size: 54px;
+    }
+    
   }
 
   @media ${device.tablet} {
     width: 240px;
     height: 360px;
+    i{
+      font-size: 82px;
+    }
+   
   }
   @media ${device.laptopL} {
     width: 258px;
@@ -287,7 +316,9 @@ export const CheckboxRadio = styled.div`
       left: 0;
       margin-left: 0.75rem;
     }
-
+  }
+  span{
+    
     &::before {
       content: "";
       height: 100%;
@@ -295,6 +326,7 @@ export const CheckboxRadio = styled.div`
       background: ${props => props.theme.color.main};
       position: absolute;
       z-index: -3;
+      top: 0;
       left: 0;
       border-radius: 0 50px 50px 0;
 
@@ -306,8 +338,7 @@ export const CheckboxRadio = styled.div`
       }
     }
   }
-
-  input:checked ~ label::before {
+  input:checked ~ span::before {
     animation: ${an__checkboxRadio} 0.5s forwards;
   }
 

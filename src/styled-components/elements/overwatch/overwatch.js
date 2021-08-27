@@ -2,6 +2,23 @@ import styled from "styled-components";
 import {device} from "../../general/breakpoints";
 import {FormElement} from "../user-form/user-form";
 
+export const OwSearchContainer = styled.main`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  form > button {
+    margin-bottom: 12px;
+  }
+  
+  @media (max-height: 480px){
+    justify-content: flex-start;
+    padding-top: 20px;
+    height: auto;
+  }
+`
+
 export const OwPoweredBy = styled.div`
   font-size: 16px;
   margin-top: -12px;
@@ -17,12 +34,12 @@ export const OwFormElement = styled(FormElement)`
     }
   }
 `
+
 export const OwSearchSettings = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   i {
     font-size: 2.5rem;
     margin-top: 2px;

@@ -67,23 +67,29 @@ export const MovieSearch = () => {
 
             {/*by movie title*/}
             <CheckboxRadio>
-                <input type="radio" value="Movie title" checked={searchBy === "Movie title"}
-                       onChange={handleChangeSearchBy}/>
-                <label>Movie title</label>
+                <label>Movie title
+                    <input type="radio" value="Movie title" checked={searchBy === "Movie title"}
+                           onChange={handleChangeSearchBy} name="searchMovieByTitle"/>
+                    <span/>
+                </label>
             </CheckboxRadio>
 
             {/*by actor*/}
             <CheckboxRadio>
-                <input type="radio" value="Actor" checked={searchBy === "Actor"}
-                       onChange={handleChangeSearchBy}/>
-                <label>Actor</label>
+                <label>Actor
+                    <input type="radio" value="Actor" checked={searchBy === "Actor"}
+                           onChange={handleChangeSearchBy} name="searchMovieByActor"/>
+                    <span/>
+                </label>
             </CheckboxRadio>
 
             {/*by director*/}
             <CheckboxRadio>
-                <input type="radio" value="Director" checked={searchBy === "Director"}
-                       onChange={handleChangeSearchBy}/>
-                <label>Director</label>
+                <label>Director
+                    <input type="radio" value="Director" checked={searchBy === "Director"}
+                           onChange={handleChangeSearchBy} name="searchMovieByDirector"/>
+                    <spam/>
+                </label>
             </CheckboxRadio>
         </MovieCategoryForm>}
 

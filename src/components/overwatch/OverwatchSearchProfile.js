@@ -1,10 +1,9 @@
 import {Form, FormElement, FormInvalid} from "../../styled-components/elements/user-form/user-form";
 import {useEffect, useState} from "react";
-import {OwFormElement, OwPoweredBy, OwSearchSettings} from "../../styled-components/elements/overwatch/overwatch";
+import {OwSearchContainer, OwFormElement, OwPoweredBy, OwSearchSettings} from "../../styled-components/elements/overwatch/overwatch";
 import {getRegionImgOw, getPlatformIconOw} from "../../functions/overwatchSearch";
 import {validateOverwatchUser} from "../../api/overwatch/operations";
 import {useHistory} from "react-router";
-import {Container} from "../../styled-components/general/general-styles";
 import {Loading} from "../loading/Loading";
 
 /**
@@ -112,7 +111,7 @@ export const OverwatchSearchProfile = () => {
     }
 
 
-    return <Container>
+    return <OwSearchContainer>
 
         {checkingFlag === false && <Form>
 
@@ -155,5 +154,5 @@ export const OverwatchSearchProfile = () => {
 
         {/*when handleSearchUserFunction is looking for user set loading screen*/}
         {checkingFlag && <Loading/>}
-    </Container>
+    </ OwSearchContainer>
 }

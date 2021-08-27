@@ -26,7 +26,7 @@ export const MovieGenreSingle = ({movie}) => {
                              alt={movie.title !== undefined ? movie.title : movie.name} />
                     </PosterMed>
                     :
-                    <PosterMedMissing><i className="fas fa-image"/></PosterMedMissing>
+                    <PosterMed><i className="fas fa-image"/></PosterMed>
             }
         </Link>
 

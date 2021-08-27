@@ -33,7 +33,7 @@ import {
     MovieFactsContainer,
     MovieMediaContainer,
     MoviePosterContainerDesktop,
-    MovieFactsContainerDesktop, MovieSimilarSingle, MovieSimilarMissing
+    MovieFactsContainerDesktop, MovieSimilarSingle, MovieSimilarMissing, MovieSimilarPoster
 } from "../../styled-components/elements/movie/movie";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
@@ -293,8 +293,10 @@ export const Movie = (props) => {
 
                                     // not all movies have a poster
                                     el.poster_path !== null ?
-                                        <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
-                                             alt={el.title}/>
+                                        <MovieSimilarPoster>
+                                            <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
+                                                 alt={el.title}/>
+                                        </MovieSimilarPoster>
                                         :
                                         <MovieSimilarMissing><i className="fas fa-film"/><h3>{el.title}</h3>
                                         </MovieSimilarMissing>

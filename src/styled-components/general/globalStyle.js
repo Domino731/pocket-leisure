@@ -8,8 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
     background: ${props => props.theme.color.black};
     color: ${props => props.theme.color.white};
+    &:hover {
+      cursor: default;
+    }
   }
-
+ 
   :root {
     ///////////
     // media //
