@@ -1,14 +1,4 @@
 import styled from "styled-components";
-import {
-    MovieDescription,
-    MovieDetail,
-    MovieGenreList, MovieItemTitle,
-    MovieRating,
-    MovieTitle,
-    MovieVideos,
-    MovieVideosSwitch
-} from "../movie/movie";
-import {FactsTable} from "../../general/general-styles";
 import {device} from "../../general/breakpoints";
 
 export const GamesElementTitle = styled.h2`

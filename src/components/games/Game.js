@@ -43,32 +43,36 @@ import {Link} from "react-router-dom";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
 
-
+// A component that returns details about specific game.
 export const Game = (props) => {
 
     // state with game details
-    const [game, setGame] = useState(undefined)
+    const [game, setGame] = useState(null)
 
     // state with game trailers
-    const [gameTrailers, setGameTrailers] = useState(undefined)
+    const [gameTrailers, setGameTrailers] = useState(null)
 
     // state with game screenshots
-    const [gameSc, setGameSc] = useState(undefined)
+    const [gameSc, setGameSc] = useState(null)
 
     // state with game additions
-    const [gameAdditions, setGameAdditions] = useState(undefined)
+    const [gameAdditions, setGameAdditions] = useState(null)
 
     // state with game stores
-    const [gameStores, setGameStores] = useState(undefined)
+    const [gameStores, setGameStores] = useState(null)
 
     // state with game list that are part of same series
-    const [gameSeries, setGameSeries] = useState(undefined)
+    const [gameSeries, setGameSeries] = useState(null)
 
     // state, which change, shows another trailer
     const [trailerNumber, setTrailerNumber] = useState(0)
 
     // state, which change, shows another trailer
     const [scNumber, setScNumber] = useState(0)
+
+    //A state containing the width of the page based on which the elements will be rendered.
+    // For widths below 1024px there is a different layout at the top and for widths above 1024px
+    const [windowWidth, setWindowWidth] = useState(0);
 
     // when component mounted get game details
     useEffect(() => {
@@ -77,7 +81,7 @@ export const Game = (props) => {
 
     // get game trailers, screenshots, additions, stores, series
     useEffect(() => {
-        if (game !== undefined && game !== "notFound") {
+        if (game !== null && game !== undefined) {
             getGameTrailers(setGameTrailers, props.match.params.id)
             getGameScreenshots(setGameSc, props.match.params.id)
             getGameAdditions(setGameAdditions, props.match.params.id)
@@ -86,10 +90,15 @@ export const Game = (props) => {
         }
     }, [game, props.match.params])
 
-    // when user chose another game scroll to top of the browser window
+
+    // set the windowWidth state
+    const resizeWindow = () => setWindowWidth(window.innerWidth);
     useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [game])
+        resizeWindow();
+        window.addEventListener("resize", resizeWindow);
+        return () => window.removeEventListener("resize", resizeWindow);
+    }, []);
+
 
     // switch to previous trailer
     const handleSwitchPrevTrailer = () => {
@@ -128,30 +137,29 @@ export const Game = (props) => {
     }
 
     // when the game doesn't even exist redirect user to main games page ("/games")
-    if (game === "notFound") {
+    if (game === undefined) {
         return <NotFound404 redirectUrl="/games"/>
     }
-    if (game === undefined || gameTrailers === undefined || gameSc === undefined ||
-        gameAdditions === undefined || gameStores === undefined || gameSeries === undefined) {
+
+    if (game === null || gameTrailers === null || gameSc === null ||
+        gameAdditions === null || gameStores === null || gameSeries === null) {
         return <Loading/>
     }
 
 
     return <Container>
-
-
         <GameRow>
 
             {/*game poster*/}
             {/*renders only below 1024px - tablets, phones...*/}
-            <GamePosterContainer>
+            {windowWidth < 1024 && <GamePosterContainer>
                 {/*poster, some movie dont have a poster, then dont render anything*/}
                 {game.background_image !== null && <FullWidePoster src={game.background_image}/>}
-            </GamePosterContainer>
+            </GamePosterContainer>}
 
             {/*game poster with game facts*/}
             {/*renders only above 1024px - for desktops, laptops...*/}
-            <GamePosterContainerDesktop>
+            {windowWidth >= 1024 && <GamePosterContainerDesktop>
 
                 {/*when have game have poster show it */}
                 {game.background_image !== null && <FullWidePoster src={game.background_image}/>}
@@ -217,7 +225,7 @@ export const Game = (props) => {
 
                     </tbody>
                 </GameFactsDesktop>
-            </GamePosterContainerDesktop>
+            </GamePosterContainerDesktop>}
 
             {/*game introduction - title, genres, rating, description*/}
             <GameIntroductionContainer>
@@ -255,7 +263,7 @@ export const Game = (props) => {
 
         {/*game facts - developers, publishers, playtime...*/}
         {/*renders only below 1024px - tablets, phones...*/}
-        <GameFacts>
+        {windowWidth < 1024 && <GameFacts>
             <tbody>
 
             {/*developers*/}
@@ -309,7 +317,7 @@ export const Game = (props) => {
                   </span>)}</td>
             </tr>}
             </tbody>
-        </GameFacts>
+        </GameFacts>}
 
 
         {/*game trailers*/}
@@ -401,6 +409,5 @@ export const Game = (props) => {
                 )}
             </GameSeries>
         </GameSeriesContainer>}
-
     </Container>
 }

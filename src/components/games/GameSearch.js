@@ -11,8 +11,8 @@ import {Loading} from "../loading/Loading";
  */
 export const GameSearch = () => {
 
-    // state with searched games
-    const [games, setGames] = useState(undefined)
+    // state with searched games, base on this state games list will be rendered
+    const [games, setGames] = useState(null)
 
     // flag by which loading screen is set
     const [loading, setLoading] = useState(false)
@@ -34,7 +34,7 @@ export const GameSearch = () => {
             <Loading/>
             :
             <GamesList>
-                {games !== undefined && games.map((el, num) => {
+                {games !== null && games.map((el, num) => {
                     return <GameSingle game={el} key={`gameSearch_single_${num}_${el.slug}`}/>
                 })}
             </GamesList>

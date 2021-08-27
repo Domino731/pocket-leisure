@@ -45,19 +45,15 @@ export const GamePosterMissing = styled.div`
 
 `
 export const GamePosterContainerDesktop = styled.div`
-  display: none;
-
+  display: block;
+  width: 40%;
+  img {
+    height: 500px;
+  }
+  
   ///////////
   // media //
   ///////////
-  @media ${device.laptop} {
-    display: block;
-    width: 40%;
-    img {
-      height: 500px;
-    }
-  }
-
   @media ${device.laptopL} {
     img {
       height: 703px;
@@ -184,12 +180,7 @@ export const GameRatingMetacritic = styled(MovieRating)`
 export const GameDescription = styled(MovieDescription)`
 `
 export const GameFacts = styled(FactsTable)`
-  ///////////
-  // media //
-  ///////////
-  @media ${device.laptop} {
-    display: none;
-  }
+
 `
 export const GameFactsDesktop = styled(FactsTable)`
   display: none;

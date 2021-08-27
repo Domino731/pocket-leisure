@@ -11,11 +11,11 @@ import {Loading} from "../loading/Loading";
  */
 export const Games = () => {
 
-    // state with games
-    const [games, setGames] = useState(undefined)
+    // state with games, based on this, a list with games list will be rendered
+    const [games, setGames] = useState(null)
 
-    // state with games genres
-    const [gamesGenres, setGamesGenres] = useState(undefined)
+    // state with games genres, based on this, a list with game genres will be rendered
+    const [gamesGenres, setGamesGenres] = useState(null)
 
     // when component mounted get games list and save them to games state
     useEffect(() => {
@@ -23,7 +23,7 @@ export const Games = () => {
         getGamesGenres(setGamesGenres)
     }, [])
 
-    if (games === undefined || gamesGenres === undefined) {
+    if (games === null|| gamesGenres === null) {
         return <Loading/>
     }
 

@@ -10,9 +10,8 @@ import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
 
 /**
- *
+ * Box with games - poster, platforms, premiere and ratings
  * @param game {object} - game details with poster path, name, platforms...
- * @returns {JSX.Element} - component of game with link to specific game
  */
 export const GameSingle = ({game}) => {
     return <GameSingleContainer>

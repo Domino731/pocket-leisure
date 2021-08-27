@@ -42,6 +42,11 @@ export const getGamesGenres = (successCallback) => {
  * @param {string, number} genreId - id of genre that you want to fetch
  */
 export const getGamesByGenre = (successCallback, genreId) => {
+
+    // set loading screen
+    successCallback(null)
+
+    // get the games and save them into state (successCallback function)
     fetch(`${url}/games?key=${apiKey}&page_size=12&genres=${genreId}`)
         .then(r => r.json())
         .then(data => {
@@ -54,7 +59,7 @@ export const getGamesByGenre = (successCallback, genreId) => {
 
             // genreId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/games")
             else {
-                successCallback("notFound")
+                successCallback(undefined)
             }
         })
         .catch(err => console.log(err))
@@ -74,7 +79,7 @@ export const getMoreGames = (successCallback, genreId, pageNumber) => {
                 successCallback(prev => {
 
                     // add new games to state
-                    if (prev !== undefined && prev !== "notFound") {
+                    if (prev !== null && prev !== undefined) {
                         return [...prev, ...data.results]
                     }
                 });
@@ -120,6 +125,11 @@ export const getSearchedGame = async (successCallback, setLoadingCallback, game)
  * @param {string} gameId - name of game that you want to get
  */
 export const getGameDetails = (successCallback, gameId) => {
+
+    // set loading screen
+    successCallback(null)
+
+    // get the specific game
     fetch(`${url}/games/${gameId}?key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
@@ -127,7 +137,7 @@ export const getGameDetails = (successCallback, gameId) => {
                 successCallback(data)
             }
             if (data.detail === "Not found.") {
-                successCallback("notFound")
+                successCallback(undefined)
             }
         })
         .catch(err => console.log(err))
