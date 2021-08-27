@@ -29,19 +29,19 @@ import {Loading} from "../loading/Loading";
 export const OverwatchStatistics = (props) => {
 
     // state with user statistics
-    const [stats, setStats] = useState(undefined)
+    const [stats, setStats] = useState(null);
 
     // when component mounted get general overwatch stats
     useEffect(() => {
-        getOverwatchStats(props.match.params.platform,
+        return getOverwatchStats(props.match.params.platform,
             props.match.params.region,
             props.match.params.user,
             props.match.params.battleTag,
-            setStats)
-    }, [props.match.params])
+            setStats);
+    }, [props.match.params]);
 
 
-    if (stats === undefined) {
+    if (stats === null) {
         return <Loading/>
     }
 
@@ -225,4 +225,4 @@ export const OverwatchStatistics = (props) => {
 
     </Container>
 
-}
+};

@@ -10,11 +10,11 @@ export const getMoviesByCategory = (successCallback, category) => {
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function") {
-                successCallback(data.results);
+                return successCallback(data.results);
             }
         })
         .catch(err => console.log(err));
-}
+};
 
 /**
  fetch all movies genres - horror movies, action...
@@ -29,11 +29,11 @@ export const getMoviesGenres = (successCallback) => {
                 // we must add additional key(gridArea, which is genre name but with no with spaces) to each object
                 // because genres are rendered automatically and are set by grid--template-areas,
                 // so you need to add them after the genres names have spaces
-                const genres = data.genres.map(el => ({...el, gridArea: el.name.replace(/\s+/g, '')}))
-                successCallback(genres);
+                const genres = data.genres.map(el => ({...el, gridArea: el.name.replace(/\s+/g, '')}));
+                return successCallback(genres);
             }
-        })
-}
+        });
+};
 
 /**
  fetch movies by genre - horror movies, action...
@@ -43,7 +43,7 @@ export const getMoviesGenres = (successCallback) => {
 export const getMoviesByParticularGenre = (successCallback, genreId) => {
 
     // set loading screen
-    successCallback(null)
+    successCallback(null);
 
     // get movies list with particular genre
     fetch(`${url}/discover/movie?api_key=${apiKey}&with_genres=${genreId}`)
@@ -51,17 +51,17 @@ export const getMoviesByParticularGenre = (successCallback, genreId) => {
         .then(data => {
             if (data.total_results !== 0 && typeof successCallback === "function") {
                 // sort by top rated
-                const movies = data.results.sort((a, b) => b.vote_average - a.vote_average)
-                successCallback(movies);
+                const movies = data.results.sort((a, b) => b.vote_average - a.vote_average);
+                return successCallback(movies);
             }
 
             // genreId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.total_results === 0) {
-                successCallback(undefined)
+                return successCallback(undefined);
             }
         })
         .catch(err => console.log(err));
-}
+};
 
 /**
  * fetch more movies, and add them to state
@@ -84,35 +84,41 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
             }
         })
         .catch(err => console.log(err));
-}
+};
 
 /**
  * fetch single movie - Black Widow, Space Jam...
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of film that you want to get
  */
-export const getSingleMovie = async (successCallback, movieId) => {
+export const getSingleMovie = (successCallback, movieId) => {
 
     // set loading screen
-    successCallback(null)
+    successCallback(null);
 
     // get movie details
-    await fetch(`${url}/movie/${movieId}?api_key=${apiKey}`)
+     fetch(`${url}/movie/${movieId}?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function") {
-                successCallback(data)
+                return successCallback(data);
             }
 
             // movieId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.success === false) {
-                successCallback(undefined)
+                return successCallback(undefined);
             }
         })
         .catch(err => console.log(err));
+};
+
+export const getMovieCredits = (successCallback, movieId) => {
+
+    // set loading screen
+    successCallback(null);
 
     // get movie credits and add them into state to the same state where movie details (successCallback)
-    await fetch(`${url}/movie/${movieId}/credits?api_key=${apiKey}`)
+    fetch(`${url}/movie/${movieId}/credits?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function") {
@@ -123,58 +129,65 @@ export const getSingleMovie = async (successCallback, movieId) => {
                     cast: data.cast,
                     director: director[0]
                 }
-                successCallback(prev => ({...prev, credits}))
+                return successCallback(credits)
             }
 
             // movieId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.success === false) {
-                successCallback("notFound")
+                return successCallback("notFound");
             }
         })
         .catch(err => console.log(err));
-}
+};
+
+
+
+
+
+
+
 
 /**
  * fetch videos for movie, only trailers from yt
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of movie that you want to get
  */
-export const getMovieVideos = async (successCallback, movieId) => {
-    await fetch(`${url}/movie/${movieId}/videos?api_key=${apiKey}`)
+export const getMovieVideos =  (successCallback, movieId) => {
+    fetch(`${url}/movie/${movieId}/videos?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function" && data !== undefined) {
                 // get trailers from yt
                 const videos = data.results.filter(el => el.type === "Trailer" && el.site === "YouTube")
-                successCallback(videos)
+                return successCallback(videos);
             }
 
             // movieId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/movies")
             if (data.success === false) {
-                successCallback("notFound")
+                return successCallback("notFound");
             }
         })
         .catch(err => console.log(err));
-}
+};
 
 /**
  * fetch similar movies
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId -  similar films will be downloaded from this id
  */
-export const getSimilarMovies = async (successCallback, movieId) => {
-    await fetch(`${url}/movie/${movieId}/similar?api_key=${apiKey}`)
+export const getSimilarMovies = (successCallback, movieId) => {
+     fetch(`${url}/movie/${movieId}/similar?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function") {
-                successCallback(data.results)
+                return successCallback(data.results);
             }
             if (data.success === false) {
-                successCallback("notFound")
+                return successCallback("notFound");
             }
         })
         .catch(err => console.log(err));
-}
+};
 /**
  *
  * fetch movies by title
@@ -186,22 +199,22 @@ export const searchMovieByTitle = async (successCallback, setLoadingCallback, na
 
     // set state which is responsible for loading screen
     if (typeof setLoadingCallback === "function") {
-        setLoadingCallback(true)
+        setLoadingCallback(true);
     }
     fetch(`${url}/search/movie?api_key=${apiKey}&query=${name}`)
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function") {
-                successCallback(data.results)
+                successCallback(data.results);
             }
         })
         .catch(err => console.log(err));
 
     // remove loading screen
     if (typeof setLoadingCallback === "function") {
-        setLoadingCallback(false)
+        return setLoadingCallback(false);
     }
-}
+};
 
 /**
  * search movies by director
@@ -220,21 +233,21 @@ export const searchMovieByDirector = async (successCallback, setLoadingCallback,
         .then(data => {
             if (typeof successCallback === "function") {
                 // getting all directors
-                const allDirectors = data.results.filter(el => el.known_for_department === "Directing")
-                let directors = []
+                const allDirectors = data.results.filter(el => el.known_for_department === "Directing");
+                let directors = [];
 
                 // films he directed
-                allDirectors.map(el => directors.push(el.known_for))
-                successCallback(directors[0])
+                allDirectors.map(el => directors.push(el.known_for));
+                successCallback(directors[0]);
             }
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
 
     // remove loading screen
     if (typeof setLoadingCallback === "function") {
-        setLoadingCallback(false)
+        return setLoadingCallback(false);
     }
-}
+};
 
 
 /**
@@ -255,18 +268,18 @@ export const searchMovieByActor = async (successCallback, setLoadingCallback, na
         .then(data => {
             if (typeof successCallback === "function") {
                 // getting all actors
-                const allActors = data.results.filter(el => el.known_for_department === "Acting")
+                const allActors = data.results.filter(el => el.known_for_department === "Acting");
 
                 // movies in which he appears
-                let actors = []
-                allActors.map(el => actors.push(el.known_for))
-                successCallback(actors[0])
+                let actors = [];
+                allActors.map(el => actors.push(el.known_for));
+                successCallback(actors[0]);
             }
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(err));
 
     // remove loading screen
     if (typeof setLoadingCallback === "function") {
-        setLoadingCallback(false)
+        return setLoadingCallback(false);
     }
-}
+};

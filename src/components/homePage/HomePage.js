@@ -26,19 +26,19 @@ import {Link} from "react-router-dom";
 const HomePage = ({mainColor, setMainColor}) => {
 
     // state with main color(from redux state), which can be change by user
-    const [color, setColor] = useState(mainColor)
+    const [color, setColor] = useState(mainColor);
 
     const handleChangeMainColor = (e) => {
 
         // save selected into local storage
-        localStorage.setItem("mainColor", e.target.value)
+        localStorage.setItem("mainColor", e.target.value);
 
         // set color state
-        setColor(e.target.value)
+        setColor(e.target.value);
 
         // set main color in redux
-        setMainColor(e.target.value)
-    }
+        return setMainColor(e.target.value);
+    };
 
     return <Container>
         <nav>
@@ -108,12 +108,12 @@ const HomePage = ({mainColor, setMainColor}) => {
             </ColorFormCheckbox>
         </ColorForm>
     </Container>
-}
+};
 
 const mapDispatchToProps = dispatch => ({
     setMainColor: data => dispatch(changeMainColor(data))
-})
+});
 const mapStateToProps = state => ({
     mainColor: state.mainColor
-})
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+});
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

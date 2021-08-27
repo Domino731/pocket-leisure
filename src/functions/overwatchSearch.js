@@ -5,13 +5,13 @@
 export const getRegionImgOw = (region) => {
     switch (region) {
         case "us":
-            return <img src="https://flagcdn.com/us.svg" alt="United States of America"/>
+            return <img src="https://flagcdn.com/us.svg" alt="United States of America"/>;
         case "eu":
-            return <img src="https://flagcdn.com/eu.svg" alt="Europe"/>
+            return <img src="https://flagcdn.com/eu.svg" alt="Europe"/>;
         case "asia":
-            return <img src="https://flagcdn.com/cn.svg" alt="asia"/>
+            return <img src="https://flagcdn.com/cn.svg" alt="asia"/>;
         default:
-            return null
+            return null;
     }
 
 }
@@ -24,12 +24,12 @@ export const getRegionImgOw = (region) => {
 export const getPlatformIconOw = (platform) => {
     switch (platform) {
         case "pc":
-            return <i className="fas fa-desktop"/>
+            return <i className="fas fa-desktop"/>;
         case "xbl":
-            return <i className="fab fa-xbox"/>
+            return <i className="fab fa-xbox"/>;
         case "psn":
-            return <i className="fab fa-playstation"/>
+            return <i className="fab fa-playstation"/>;
         default:
-            return null
+            return null;
     }
 }

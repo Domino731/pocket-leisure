@@ -21,19 +21,19 @@ import {Loading} from "../loading/Loading";
 export const OverwatchStatisticsCompetitive = (props) => {
 
     // state with competitive stats
-    const [stats, setStats] = useState(undefined)
+    const [stats, setStats] = useState(null);
 
     // when component mounted get competitive stats
     useEffect(() => {
-        getOverwatchCompetitiveStats(props.match.params.platform,
+        return getOverwatchCompetitiveStats(props.match.params.platform,
             props.match.params.region,
             props.match.params.user,
             props.match.params.battleTag,
-            setStats)
-    }, [props.match.params])
+            setStats);
+    }, [props.match.params]);
 
 
-    if (stats === undefined) {
+    if (stats === null) {
         return <Loading/>
     }
 
@@ -280,4 +280,4 @@ export const OverwatchStatisticsCompetitive = (props) => {
         </OwStatsColumns>
 
     </Container>
-}
+};

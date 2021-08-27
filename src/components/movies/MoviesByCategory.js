@@ -12,33 +12,32 @@ import {CheckboxRadio} from "../../styled-components/general/general-styles";
 export const MoviesByCategory = ({moviesData}) => {
 
     // state with movies on the basis of which individual components are rendered
-    const [movies, setMovies] = useState(moviesData)
+    const [movies, setMovies] = useState(moviesData);
 
     // state with flag which is used to switch between films and a
     // form where the user can select other films (e.g. latest)
-    const [flag, setFlag] = useState(false)
+    const [flag, setFlag] = useState(false);
 
     // state with string, by this user can fetch movies by another category - popular, now playing, top rated, upcoming
-    const [category, setCategory] = useState("Popular")
+    const [category, setCategory] = useState("Popular");
 
     // switching between films and form
-    const handleChangeFlag = () => {
-        setFlag(!flag)
-    }
+    const handleChangeFlag = () => setFlag(!flag);
+
 
     // changing  movies category
     const handleChangeCategory = (e, category) => {
         // get movies by category
-        getMoviesByCategory(setMovies, category)
+        getMoviesByCategory(setMovies, category);
 
         // set selected category
-        setCategory(e.target.value)
+        setCategory(e.target.value);
 
         // when animation ended(5s) hide form
-        setTimeout(() => {
-            setFlag(false)
-        }, 500)
-    }
+        return setTimeout(() => {
+            setFlag(false);
+        }, 500);
+    };
 
 
     return <MovieCategory>
@@ -97,4 +96,4 @@ export const MoviesByCategory = ({moviesData}) => {
         </MovieCategoryList>
     </MovieCategory>
 
-}
+};

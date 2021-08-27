@@ -12,9 +12,9 @@ const month = ["January", "February", "March", "April", "May", "June", "July",
  */
 export const getReleaseDate = (date) => {
     if (date !== undefined && date !== null && date.length > 0) {
-        let monthNumber = parseInt(date.slice(5, 7)) - 1
-        const year = date.slice(0, 4)
-        const day = date.slice(8, 10)
-        return `${year} ${month[monthNumber]} ${day}`
+        let monthNumber = parseInt(date.slice(5, 7)) - 1;
+        const year = date.slice(0, 4);
+        const day = date.slice(8, 10);
+        return `${year} ${month[monthNumber]} ${day}`;
     }
 }

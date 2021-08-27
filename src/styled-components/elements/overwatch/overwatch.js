@@ -8,11 +8,12 @@ export const OwSearchContainer = styled.main`
   align-items: center;
   justify-content: center;
   height: 100vh;
+
   form > button {
     margin-bottom: 12px;
   }
-  
-  @media (max-height: 480px){
+
+  @media (max-height: 480px) {
     justify-content: flex-start;
     padding-top: 20px;
     height: auto;
@@ -40,6 +41,7 @@ export const OwSearchSettings = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
   i {
     font-size: 2.5rem;
     margin-top: 2px;
@@ -85,7 +87,7 @@ export const OwIcon = styled.img`
   position: absolute;
   top: 119px;
   z-index: -1;
-  
+
   ///////////
   // media //
   ///////////

@@ -1,4 +1,5 @@
 /**
+ * sort games by particular condition
  * @param condition {string} condition: Users - Top Rated, Users - Lowest Rated, Metacritic - Top Rated,
  * Metacritic - Lowest-Rated, Alphabetically A - Z, Alphabetically Z - A
  * @param callback {function} - function that saves sorting data
@@ -8,19 +9,16 @@ export const sortGames = (condition, callback) => {
     if (typeof callback === "function") {
         switch (condition) {
             case "Users - Top Rated":
-                callback(prev => prev.sort((a, b) => b.rating - a.rating))
-                break;
+                return callback(prev => prev.sort((a, b) => b.rating - a.rating));
             case "Users - Lowest Rated":
-                callback(prev => prev.sort((a, b) => a.rating - b.rating))
-                break;
+                return callback(prev => prev.sort((a, b) => a.rating - b.rating));
             case "Metacritic - Top Rated":
-                callback(prev => prev.sort((a, b) => b.metacritic - a.metacritic))
-                break;
+                return callback(prev => prev.sort((a, b) => b.metacritic - a.metacritic));
             case "Metacritic - Lowest Rated":
-                callback(prev => prev.sort((a, b) => a.metacritic - b.metacritic))
-                break;
+                return callback(prev => prev.sort((a, b) => a.metacritic - b.metacritic));
+
             case"Alphabetically A - Z":
-                callback(prev => prev.sort((a, b) => {
+                return callback(prev => prev.sort((a, b) => {
                     if (a.name < b.name) {
                         return -1;
                     }
@@ -28,10 +26,10 @@ export const sortGames = (condition, callback) => {
                         return 1;
                     }
                     return 0;
-                }))
-                break;
+                }));
+
             case"Alphabetically Z - A":
-                callback(prev => prev.sort((a, b) => {
+                return callback(prev => prev.sort((a, b) => {
                     if (a.name < b.name) {
                         return 1;
                     }
@@ -39,10 +37,10 @@ export const sortGames = (condition, callback) => {
                         return -1;
                     }
                     return 0;
-                }))
-                break;
+                }));
+
             default:
-                console.log("wrong condition")
+                return console.log("wrong condition");
         }
     }
-}
+};

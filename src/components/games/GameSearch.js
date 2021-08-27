@@ -12,14 +12,14 @@ import {Loading} from "../loading/Loading";
 export const GameSearch = () => {
 
     // state with searched games, base on this state games list will be rendered
-    const [games, setGames] = useState(null)
+    const [games, setGames] = useState(null);
 
     // flag by which loading screen is set
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     // get searched games
     const handleChangeMovies = (e) => {
-        getSearchedGame(setGames, setLoading, e.target.value)
+        return getSearchedGame(setGames, setLoading, e.target.value);
     }
 
     return <Container>
@@ -41,4 +41,4 @@ export const GameSearch = () => {
         }
 
     </Container>
-}
+};

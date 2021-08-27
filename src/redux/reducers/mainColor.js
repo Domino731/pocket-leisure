@@ -1,6 +1,6 @@
 /**
  * function that return main color who's saved in local storage
- * @returns {string}
+ * @returns {string} main color for app
  */
 const getColorFromLocalStorage = () => {
     if (localStorage.getItem("mainColor") === null) {

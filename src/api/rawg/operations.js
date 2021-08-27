@@ -10,11 +10,11 @@ export const getGames = (successCallback) => {
         .then(r => r.json())
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
-                successCallback(data.results)
+                return successCallback(data.results);
             }
         })
-        .catch(err => console.log(err))
-}
+        .catch(err => console.log(err));
+};
 
 /**
  fetch games genres
@@ -29,12 +29,12 @@ export const getGamesGenres = (successCallback) => {
                 // we must add additional key(gridArea, which is genre name but with no with spaces) to each object
                 // because species are rendered automatically and are set by grid--template-areas,
                 // so you need to add them after the species names have spaces
-                const genres = data.results.map(el => ({...el, gridArea: el.name.toLowerCase().replace(/\s+/g, '')}))
-                successCallback(genres)
+                const genres = data.results.map(el => ({...el, gridArea: el.name.toLowerCase().replace(/\s+/g, '')}));
+                return successCallback(genres);
             }
         })
-        .catch(err => console.log(err))
-}
+        .catch(err => console.log(err));
+};
 
 /**
  fetch games by genre - action, rpg, fps ...
@@ -44,7 +44,7 @@ export const getGamesGenres = (successCallback) => {
 export const getGamesByGenre = (successCallback, genreId) => {
 
     // set loading screen
-    successCallback(null)
+    successCallback(null);
 
     // get the games and save them into state (successCallback function)
     fetch(`${url}/games?key=${apiKey}&page_size=12&genres=${genreId}`)
@@ -53,17 +53,17 @@ export const getGamesByGenre = (successCallback, genreId) => {
             if (data.error === undefined && data.results.length > 0 && typeof successCallback === "function") {
 
                 // sort by rating by users
-                const games = data.results.sort((a, b) => b.rating - a.rating)
-                successCallback(games)
+                const games = data.results.sort((a, b) => b.rating - a.rating);
+                return successCallback(games);
             }
 
             // genreId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/games")
             else {
-                successCallback(undefined)
+                return successCallback(undefined);
             }
         })
-        .catch(err => console.log(err))
-}
+        .catch(err => console.log(err));
+};
 
 /**
  fetch more games by genre,  and add them into state
@@ -80,13 +80,13 @@ export const getMoreGames = (successCallback, genreId, pageNumber) => {
 
                     // add new games to state
                     if (prev !== null && prev !== undefined) {
-                        return [...prev, ...data.results]
+                        return [...prev, ...data.results];
                     }
                 });
             }
         })
-        .catch(err => console.log(err))
-}
+        .catch(err => console.log(err));
+};
 
 
 /**
@@ -99,7 +99,7 @@ export const getSearchedGame = async (successCallback, setLoadingCallback, game)
 
     // set state which is responsible for loading screen
     if (typeof setLoadingCallback === "function") {
-        setLoadingCallback(true)
+        setLoadingCallback(true);
     }
 
     fetch(`${url}/games?key=${apiKey}&search=${game}`)
@@ -115,7 +115,7 @@ export const getSearchedGame = async (successCallback, setLoadingCallback, game)
 
     // when searched games was found, remove loading screen
     if (typeof setLoadingCallback === "function") {
-        setLoadingCallback(false)
+        return setLoadingCallback(false)
     }
 }
 

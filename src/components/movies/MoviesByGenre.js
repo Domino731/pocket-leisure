@@ -17,48 +17,45 @@ export const MoviesByGenre = (props) => {
 
     // state with movies with specific genre, base on this state list with movies will be rendered
     // by MovieGenreSingle component
-    const [movies, setMovies] = useState(null)
+    const [movies, setMovies] = useState(null);
 
     // state  with a number, the increase of which (handleGetMore)will result in the download of 20 more films
-    const [page, setPage] = useState(1)
+    const [page, setPage] = useState(1);
 
     // flag which allows the user to toggle the film sorting form
-    const [flag, setFlag] = useState(false)
+    const [flag, setFlag] = useState(false);
 
     // by this string movies will be sorted
-    const [sort, setSort] = useState("Top Rated")
+    const [sort, setSort] = useState("Top Rated");
 
     // when component mounted get movies
     useEffect(() => {
-        getMoviesByParticularGenre(setMovies, props.match.params.genre)
-    }, [props.match.params.genre])
+        return getMoviesByParticularGenre(setMovies, props.match.params.genre);
+    }, [props.match.params.genre]);
 
     // when page state will change get more movies
     useEffect(() => {
-        getMoreMovies(setMovies, props.match.params.genre, page)
-    }, [page, props.match.params.genre])
+        return getMoreMovies(setMovies, props.match.params.genre, page);
+    }, [page, props.match.params.genre]);
 
     // by this function user can fetch more movies, by increasing page state
-    const handleGetMore = () => {
-        setPage(prev => prev + 1)
-    }
+    const handleGetMore = () =>   setPage(prev => prev + 1);
 
-    // show sorting options
-    const handleChangeFlag = () => {
-        setFlag(!flag)
-    }
+    // change flag state -> show sorting options
+    const handleChangeFlag = () => setFlag(!flag);
 
-    // sort movies
+    // change sort state -> sort movies
     const handleSortMovies = (e) => {
 
         // set the state so that the user know which option he selected
-        setSort(e.target.value)
-        sortMovies(e.target.value, setMovies)
+        setSort(e.target.value);
+        sortMovies(e.target.value, setMovies);
+
         // when animation ended(0.5s) hide form
-        setTimeout(() => {
+        return setTimeout(() => {
             setFlag(false)
-        }, 500)
-    }
+        }, 500);
+    };
 
     if (movies === null) {
         return <Loading/>
@@ -128,4 +125,4 @@ export const MoviesByGenre = (props) => {
         {/*when user click on this button, get more movies*/}
         <GetMoreBtn onClick={handleGetMore}>More</GetMoreBtn>
     </Container>
-}
+};

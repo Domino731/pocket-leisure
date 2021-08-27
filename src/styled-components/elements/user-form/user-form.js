@@ -26,6 +26,7 @@ export const Form = styled.form`
     color: ${props => props.theme.color.white};
     font-weight: bold;
   }
+
   ///////////
   // media //
   ///////////

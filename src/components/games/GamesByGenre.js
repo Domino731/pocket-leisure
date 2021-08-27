@@ -18,46 +18,44 @@ import {GamesList} from "../../styled-components/elements/games/games";
 export const GamesByGenre = (props) => {
 
     // state with games
-    const [games, setGames] = useState(null)
+    const [games, setGames] = useState(null);
 
     // state  with a number, the increase of which (handleGetMore)will result in the download of 20 more films
-    const [page, setPage] = useState(2)
+    const [page, setPage] = useState(2);
 
-    //  // flag which allows the user to toggle the film sorting form
-    const [sortFlag, setSortFlag] = useState(false)
+    // flag which allows the user to toggle the film sorting form
+    const [sortFlag, setSortFlag] = useState(false);
 
     // by this string movies will be sorted
-    const [sort, setSort] = useState("Users - Top Rated")
+    const [sort, setSort] = useState("Users - Top Rated");
 
     // when component mounted get all games with this genre (from url)
     useEffect(() => {
-        getGamesByGenre(setGames, props.match.params.id)
-    }, [props.match.params])
+        return getGamesByGenre(setGames, props.match.params.id);
+    }, [props.match.params]);
 
     // when page state will change get more games
     useEffect(() => {
-        getMoreGames(setGames, props.match.params.id, page)
-    }, [page])
+        return getMoreGames(setGames, props.match.params.id, page);
+    }, [page]);
 
-    const handleChangeFlag = () => setSortFlag(!sortFlag)
+    // change flag state -> show or hide sorting form
+    const handleChangeFlag = () => setSortFlag(!sortFlag);
 
 
     // sort movies
     const handleSortGames = (e) => {
         // set the state so that the user know which option he selected
-        setSort(e.target.value)
-        sortGames(e.target.value, setGames)
+        setSort(e.target.value);
+        sortGames(e.target.value, setGames);
         // when animation ended(0.5s) hide form
-        setTimeout(() => {
-            setSortFlag(false)
-        }, 500)
-    }
+        return setTimeout(() => {
+            setSortFlag(false);
+        }, 500);
+    };
 
     // change page state, and by useEffect get more games
-    const handleGetMore = () => {
-        setPage(prev => prev + 1)
-    }
-
+    const handleGetMore = () => setPage(prev => prev + 1);
 
     if (games === null) {
         return <Loading/>

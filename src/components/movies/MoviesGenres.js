@@ -19,4 +19,4 @@ export const MoviesGenres = ({movieGenresData}) => {
                 to={`/movies-by-genre/${el.id}/${el.name}`}>{el.name}</Link></Genre>)}
         </MovieGenresList>
     </section>
-}
+};

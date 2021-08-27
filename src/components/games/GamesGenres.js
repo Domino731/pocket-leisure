@@ -14,4 +14,4 @@ export const GamesGenres = ({gamesGenres}) => {
                 to={`/games-by-genre/${el.id}/${el.name}`}>{el.name}</Link></Genre>)}
         </GamesGenresList>
     </section>
-}
+};

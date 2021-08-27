@@ -18,42 +18,43 @@ import {MoviesList} from "../../styled-components/elements/movie/movie";
 export const MovieSearch = () => {
 
     // state with movies, base on this state list with movies will by rendered by SingleMovie component
-    const [movies, setMovies] = useState(null)
+    const [movies, setMovies] = useState(null);
 
     // based on this string, the function (handleChangeMovies) will return another function responsible for searching
-    const [searchBy, setSearchBy] = useState("Movie title")
+    const [searchBy, setSearchBy] = useState("Movie title");
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     // flag which allows the user to toggle the sorting options
-    const [flag, setFlag] = useState(false)
+    const [flag, setFlag] = useState(false);
 
     // search movie by
     const handleChangeMovies = (e) => {
         switch (searchBy) {
             case "Movie name":
-                return searchMovieByTitle(setMovies, setLoading, e.target.value)
+                return searchMovieByTitle(setMovies, setLoading, e.target.value);
             case "Director":
-                return searchMovieByDirector(setMovies, setLoading, e.target.value)
+                return searchMovieByDirector(setMovies, setLoading, e.target.value);
             case "Actor":
-                return searchMovieByActor(setMovies, setLoading, e.target.value)
+                return searchMovieByActor(setMovies, setLoading, e.target.value);
             default:
-                return searchMovieByTitle(setMovies, setLoading, e.target.value)
+                return searchMovieByTitle(setMovies, setLoading, e.target.value);
         }
     }
 
-    //show sorting options
-    const handleChangeFlag = () => {
-        setFlag(!flag)
-    }
+    // change flag state -> show sorting options
+    const handleChangeFlag = () => setFlag(!flag);
+
 
     // change searching type
     const handleChangeSearchBy = (e) => {
-        setSearchBy(e.target.value)
-        setTimeout(() => {
+        setSearchBy(e.target.value);
+
+        // when animation ended(0.5s) hide form
+        return setTimeout(() => {
             setFlag(false)
-        }, 500)
-    }
+        }, 500);
+    };
 
     return <Container>
 
@@ -111,5 +112,5 @@ export const MovieSearch = () => {
         }
 
     </Container>
-}
+};
 

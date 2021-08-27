@@ -12,20 +12,20 @@ import {Loading} from "../loading/Loading";
 export const Games = () => {
 
     // state with games, based on this, a list with games list will be rendered
-    const [games, setGames] = useState(null)
+    const [games, setGames] = useState(null);
 
     // state with games genres, based on this, a list with game genres will be rendered
-    const [gamesGenres, setGamesGenres] = useState(null)
+    const [gamesGenres, setGamesGenres] = useState(null);
 
     // when component mounted get games list and save them to games state
     useEffect(() => {
-        getGames(setGames)
-        getGamesGenres(setGamesGenres)
-    }, [])
+        getGames(setGames);
+        getGamesGenres(setGamesGenres);
+    }, []);
 
     if (games === null|| gamesGenres === null) {
         return <Loading/>
-    }
+    };
 
     return <Container>
         <TitleBar><TitlePrimary>Games <span>Powered by Rawg Api</span></TitlePrimary> <Link to="/game-search"><i
@@ -33,4 +33,4 @@ export const Games = () => {
        <GamesListMain games={games}/>
        <GamesGenres gamesGenres={gamesGenres} />
     </Container>
-}
+};

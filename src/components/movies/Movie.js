@@ -1,4 +1,4 @@
-import {getSingleMovie, getSimilarMovies, getMovieVideos} from "../../api/themoviedb/operations";
+import {getSingleMovie, getSimilarMovies, getMovieVideos, getMovieCredits} from "../../api/themoviedb/operations";
 import {useEffect, useState} from "react";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
@@ -44,17 +44,20 @@ import {NotFound404} from "../notFound/NotFound404";
  */
 export const Movie = (props) => {
 
-    // state with movie
-    const [movie, setMovie] = useState(null)
+    // state with movie data
+    const [movie, setMovie] = useState(null);
+
+    // state with movie credits - cast, director
+    const [credits, setCredits] = useState(null)
 
     // state with similar movies
-    const [similarMovies, setSimilarMovies] = useState(null)
+    const [similarMovies, setSimilarMovies] = useState(null);
 
     // state with movie videos
-    const [videos, setVideos] = useState(null)
+    const [videos, setVideos] = useState(null);
 
     // state with number, when user change this number then the next trailer or the previous one will be shown
-    const [videoNumber, setVideoNumber] = useState(0)
+    const [videoNumber, setVideoNumber] = useState(0);
 
     //A state containing the width of the page based on which the elements will be rendered.
     // For widths below 1024px there is a different layout at the top and for widths above 1024px
@@ -62,10 +65,11 @@ export const Movie = (props) => {
 
     //when component mounted get a movie with this id (from ulr path)
     useEffect(() => {
-        getSingleMovie(setMovie, props.match.params.id)
-        getSimilarMovies(setSimilarMovies, props.match.params.id)
-        getMovieVideos(setVideos, props.match.params.id)
-    }, [props.match.params])
+        getSingleMovie(setMovie, props.match.params.id);
+        getSimilarMovies(setSimilarMovies, props.match.params.id);
+        getMovieVideos(setVideos, props.match.params.id);
+        getMovieCredits(setCredits, props.match.params.id);
+    }, [props.match.params]);
 
 
     // set the windowWidth state
@@ -91,7 +95,7 @@ export const Movie = (props) => {
     if (movie === undefined) {
         return <NotFound404 redirectUrl="/movies"/>
     }
-    if (movie === null || movie.credits === undefined || similarMovies === null || videos === null) {
+    if (movie === null || credits === null || similarMovies === null || videos === null) {
         return <Loading/>
     }
 
@@ -112,9 +116,9 @@ export const Movie = (props) => {
                         {/*movie details*/}
                         <FactsTable>
                             <tbody>
-                            {movie.credits.director !== undefined && <tr>
+                            {credits.director !== undefined && <tr>
                                 <td><i className="fas fa-circle"/>Director</td>
-                                <td>{movie.credits.director.name}</td>
+                                <td>{credits.director.name}</td>
                             </tr>}
                             {movie.status !== null && <tr>
                                 <td><i className="fas fa-circle"/>Status</td>
@@ -163,8 +167,8 @@ export const Movie = (props) => {
 
                 <MovieIntroductionContainer>
                     {/*director*/}
-                    {movie.credits.director !== undefined &&
-                    <MovieDirector>{movie.credits.director.name}</MovieDirector>}
+                    {credits.director !== undefined &&
+                    <MovieDirector>{credits.director.name}</MovieDirector>}
 
                     {/*title*/}
                     <MovieTitle>{movie.title}</MovieTitle>
@@ -217,9 +221,9 @@ export const Movie = (props) => {
                 {/*movie details*/}
                 <FactsTable>
                     <tbody>
-                    {movie.credits.director !== undefined && <tr>
+                    {credits.director !== undefined && <tr>
                         <td><i className="fas fa-circle"/>Director</td>
-                        <td>{movie.credits.director.name}</td>
+                        <td>{credits.director.name}</td>
                     </tr>}
                     {movie.status !== null && <tr>
                         <td><i className="fas fa-circle"/>Status</td>
@@ -265,10 +269,10 @@ export const Movie = (props) => {
             </MovieFactsContainer>}
 
             {/* rendering cast*/}
-            {movie.credits.cast.length !== 0 && <>
+            {credits.cast.length !== 0 && <>
                 <MovieItemTitle>Cast</MovieItemTitle>
                 <MovieActors>
-                    {movie.credits.cast.map((el, num) => (
+                    {credits.cast.map((el, num) => (
                         // not all actors have profile photo
                         el.profile_path !== null ?
                             <MovieActor key={`cast_${props.match.params.id}_${num}`}>
@@ -318,4 +322,4 @@ export const Movie = (props) => {
             </>}
 
         </Container>
-}
+};

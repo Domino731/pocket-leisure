@@ -1,6 +1,11 @@
 import {Form, FormElement, FormInvalid} from "../../styled-components/elements/user-form/user-form";
 import {useEffect, useState} from "react";
-import {OwSearchContainer, OwFormElement, OwPoweredBy, OwSearchSettings} from "../../styled-components/elements/overwatch/overwatch";
+import {
+    OwSearchContainer,
+    OwFormElement,
+    OwPoweredBy,
+    OwSearchSettings
+} from "../../styled-components/elements/overwatch/overwatch";
 import {getRegionImgOw, getPlatformIconOw} from "../../functions/overwatchSearch";
 import {validateOverwatchUser} from "../../api/overwatch/operations";
 import {useHistory} from "react-router";
@@ -13,53 +18,55 @@ import {Loading} from "../loading/Loading";
 export const OverwatchSearchProfile = () => {
 
     // array with which are supported by the api
-    const regionsArr = ["eu", "us", "asia"]
+    const regionsArr = ["eu", "us", "asia"];
 
     // array with platforms supported by the api => xbox, ps ,pc
-    const platformsArr = ["pc", "psn", "xbl"]
+    const platformsArr = ["pc", "psn", "xbl"];
 
-    const [regionNumber, setRegionNumber] = useState(0)
+    // state with a number, when increase this state next region to be displayed
+    const [regionNumber, setRegionNumber] = useState(0);
 
-    const [platformNumber, setPlatformNumber] = useState(0)
+    // state with a number, when increase this state next platform to be displayed
+    const [platformNumber, setPlatformNumber] = useState(0);
 
     // state with data, on the basis of this, the user will be searched
-    const [data, setData] = useState({username: "", battleTag: ""})
+    const [data, setData] = useState({username: "", battleTag: ""});
 
     // region on which the search will be based
-    const [region, setRegion] = useState(regionsArr[regionNumber])
+    const [region, setRegion] = useState(regionsArr[regionNumber]);
 
     // platform on which the search will be based
-    const [platform, setPlatform] = useState(platformsArr[platformNumber])
+    const [platform, setPlatform] = useState(platformsArr[platformNumber]);
 
     // incorrect data msg
-    const [incorrect, setIncorrect] = useState({error: ""})
+    const [incorrect, setIncorrect] = useState({error: ""});
 
     // checking flag, changes when user click button then handleSearchUser function will check the user with the given data exists
-    const [checkingFlag, setCheckingFlag] = useState(false)
+    const [checkingFlag, setCheckingFlag] = useState(false);
 
 
     // listening to regionNumber state, when he changed, change region
     useEffect(() => {
-        setRegion(regionsArr[regionNumber])
-    }, [regionNumber])
+        return setRegion(regionsArr[regionNumber]);
+    }, [regionNumber]);
 
     // listening to platformNumber state, when he changed, change platform
     useEffect(() => {
-        setPlatform(platformsArr[platformNumber])
-    }, [platformNumber])
+        return setPlatform(platformsArr[platformNumber]);
+    }, [platformNumber]);
 
     // avoid memory leak
     useEffect(() => {
-        let isUnmount = false
+        let isUnmount = false;
         return () => {
-            isUnmount = true
+            isUnmount = true;
         }
-    }, [])
+    }, []);
 
     // for redirection
-    let history = useHistory()
+    let history = useHistory();
 
-    // changing data
+    // changing data for form
     const handleChangeData = (e) => {
 
         // set data
@@ -67,48 +74,48 @@ export const OverwatchSearchProfile = () => {
         setData(prev => ({
             ...prev,
             [name]: value
-        }))
+        }));
 
         // remove error
-        setIncorrect({error: ""})
-    }
+        return setIncorrect({error: ""});
+    };
 
     // when search was successful, redirect to statistics page based on user data (username, battleTag, region, platform)
     const successful = () => {
-        history.push(`/overwatch/stats/${platform}/${region}/${data.username}/${data.battleTag}`)
-    }
+        return history.push(`/overwatch/stats/${platform}/${region}/${data.username}/${data.battleTag}`);
+    };
     // searching for user
     const handleSearchUser = (e) => {
         e.preventDefault()
 
         // set loading screen
-        setCheckingFlag(true)
-
-        // check the user battle net account is exist
-        validateOverwatchUser(platform, region, data.username, data.battleTag, successful, setIncorrect)
+        setCheckingFlag(true);
 
 
         // remove loading screen
-        setCheckingFlag(false)
-    }
+        setCheckingFlag(false);
+
+        // check the user battle net account is exist
+        return validateOverwatchUser(platform, region, data.username, data.battleTag, successful, setIncorrect);
+    };
 
     // by this function user can change the current region
     const handleSelectRegion = () => {
         if (regionNumber < regionsArr.length - 1) {
-            setRegionNumber(prev => prev + 1)
+            return setRegionNumber(prev => prev + 1);
         } else {
-            setRegionNumber(0)
+            return setRegionNumber(0);
         }
-    }
+    };
 
     //  by this function user can change the platform
     const handleSelectPlatform = () => {
         if (platformNumber < platformsArr.length - 1) {
-            setPlatformNumber(prev => prev + 1)
+            return setPlatformNumber(prev => prev + 1);
         } else {
-            setPlatformNumber(0)
+            return setPlatformNumber(0);
         }
-    }
+    };
 
 
     return <OwSearchContainer>
@@ -155,4 +162,4 @@ export const OverwatchSearchProfile = () => {
         {/*when handleSearchUserFunction is looking for user set loading screen*/}
         {checkingFlag && <Loading/>}
     </ OwSearchContainer>
-}
+};

@@ -47,4 +47,4 @@ export const GameSingle = ({game}) => {
 
         </GameSingleRatingsBar>
     </GameSingleContainer>
-}
+};

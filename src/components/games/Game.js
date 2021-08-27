@@ -47,28 +47,28 @@ import {NotFound404} from "../notFound/NotFound404";
 export const Game = (props) => {
 
     // state with game details
-    const [game, setGame] = useState(null)
+    const [game, setGame] = useState(null);
 
     // state with game trailers
-    const [gameTrailers, setGameTrailers] = useState(null)
+    const [gameTrailers, setGameTrailers] = useState(null);
 
     // state with game screenshots
-    const [gameSc, setGameSc] = useState(null)
+    const [gameSc, setGameSc] = useState(null);
 
     // state with game additions
-    const [gameAdditions, setGameAdditions] = useState(null)
+    const [gameAdditions, setGameAdditions] = useState(null);
 
     // state with game stores
-    const [gameStores, setGameStores] = useState(null)
+    const [gameStores, setGameStores] = useState(null);
 
     // state with game list that are part of same series
-    const [gameSeries, setGameSeries] = useState(null)
+    const [gameSeries, setGameSeries] = useState(null);
 
     // state, which change, shows another trailer
-    const [trailerNumber, setTrailerNumber] = useState(0)
+    const [trailerNumber, setTrailerNumber] = useState(0);
 
     // state, which change, shows another screenshot
-    const [scNumber, setScNumber] = useState(0)
+    const [scNumber, setScNumber] = useState(0);
 
     //A state containing the width of the page based on which the elements will be rendered.
     // For widths below 1024px there is a different layout at the top and for widths above 1024px
@@ -76,19 +76,19 @@ export const Game = (props) => {
 
     // when component mounted get game details
     useEffect(() => {
-        getGameDetails(setGame, props.match.params.id)
-    }, [props.match.params])
+        getGameDetails(setGame, props.match.params.id);
+    }, [props.match.params]);
 
     // get game trailers, screenshots, additions, stores, series
     useEffect(() => {
         if (game !== null && game !== undefined) {
-            getGameTrailers(setGameTrailers, props.match.params.id)
-            getGameScreenshots(setGameSc, props.match.params.id)
-            getGameAdditions(setGameAdditions, props.match.params.id)
-            getGameStores(setGameStores, props.match.params.id)
-            getGameSeries(setGameSeries, props.match.params.id)
+            getGameTrailers(setGameTrailers, props.match.params.id);
+            getGameScreenshots(setGameSc, props.match.params.id);
+            getGameAdditions(setGameAdditions, props.match.params.id);
+            getGameStores(setGameStores, props.match.params.id);
+            getGameSeries(setGameSeries, props.match.params.id);
         }
-    }, [game, props.match.params])
+    }, [game, props.match.params]);
 
 
     // set the windowWidth state
@@ -101,26 +101,22 @@ export const Game = (props) => {
 
 
     // increase trailerNumber state -> switch to previous trailer
-    const handleSwitchPrevTrailer = () => {
-        setTrailerNumber(prev => prev - 1)
-    }
+    const handleSwitchPrevTrailer = () => setTrailerNumber(prev => prev - 1);
 
     // decrease trailerNumber state -> switch to next trailer
     const handleSwitchNextTrailer = () => {
         if (trailerNumber < gameTrailers.length) {
-            setTrailerNumber(prev => prev + 1)
+            return setTrailerNumber(prev => prev + 1)
         }
     }
 
     //  decrease scNumber state -> switch to previous screenshot
-    const handleSwitchPrevSc = () => {
-        setScNumber(prev => prev - 1)
-    }
+    const handleSwitchPrevSc = () => setScNumber(prev => prev - 1);
 
     // increase scNumber state -> switch to next screenshot
     const handleSwitchNextSc = () => {
         if (scNumber < gameSc.length) {
-            setScNumber(prev => prev + 1)
+            return setScNumber(prev => prev + 1);
         }
     }
 
@@ -132,9 +128,9 @@ export const Game = (props) => {
      */
     const getGameStoreUrl = (num) => {
         if (gameStores !== undefined && gameStores[num] !== undefined) {
-            return gameStores[num].url
+            return gameStores[num].url;
         }
-    }
+    };
 
     // when the game doesn't even exist redirect user to main games page ("/games")
     if (game === undefined) {
@@ -410,4 +406,4 @@ export const Game = (props) => {
             </GameSeries>
         </GameSeriesContainer>}
     </Container>
-}
+};

@@ -42,7 +42,7 @@ export const PosterBig = styled.div`
   &:hover {
     cursor: pointer;
   }
-  
+
   img {
     width: 100%;
     height: 100%;
@@ -86,44 +86,47 @@ export const PosterMed = styled.div`
   margin-right: 0.625rem;
   flex-shrink: 0;
   overflow: hidden;
- z-index: 3;
+  z-index: 3;
 
   &:hover {
     cursor: pointer;
   }
-  
-  a{
-    &:hover{
+
+  a {
+    &:hover {
       cursor: pointer;
     }
   }
+
   img {
     object-fit: cover;
     width: 100%;
     height: 100%;
   }
-  i{
+
+  i {
     font-size: 30px;
   }
+
   ///////////
   // media //
   ///////////
   @media ${device.mobileL} {
     width: 125px;
     height: 188px;
-    i{
+    i {
       font-size: 54px;
     }
-    
+
   }
 
   @media ${device.tablet} {
     width: 240px;
     height: 360px;
-    i{
+    i {
       font-size: 82px;
     }
-   
+
   }
   @media ${device.laptopL} {
     width: 258px;
@@ -317,8 +320,9 @@ export const CheckboxRadio = styled.div`
       margin-left: 0.75rem;
     }
   }
-  span{
-    
+
+  span {
+
     &::before {
       content: "";
       height: 100%;
@@ -338,6 +342,7 @@ export const CheckboxRadio = styled.div`
       }
     }
   }
+
   input:checked ~ span::before {
     animation: ${an__checkboxRadio} 0.5s forwards;
   }
@@ -392,11 +397,12 @@ export const Genre = styled.li`
     font-size: 1.5rem;
     margin: 9px;
     transition: 0.3s;
-    &:hover{
+    &:hover {
       letter-spacing: 0.25rem;
     }
   }
-`
+`;
+
 export const GetMoreBtn = styled.button`
   width: 100%;
   height: 48px;
@@ -412,7 +418,8 @@ export const GetMoreBtn = styled.button`
   @media ${device.tablet} {
     height: 70px;
   }
-`
+`;
+
 export const FullWidePoster = styled.img`
   width: 100%;
   height: auto;
@@ -420,5 +427,4 @@ export const FullWidePoster = styled.img`
   z-index: -3;
   position: relative;
   filter: drop-shadow(5px 5px 5px #fff inset);
-
-`
+`;

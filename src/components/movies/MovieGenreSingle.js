@@ -41,4 +41,4 @@ export const MovieGenreSingle = ({movie}) => {
             <MovieRating><i className="fas fa-grin-alt"/><span>{movie.vote_average.toFixed(1)}</span></MovieRating>}
         </MovieGenreItemDetails>
     </MovieGenreItem>
-}
+};

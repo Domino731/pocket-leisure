@@ -14,4 +14,4 @@ export const Loading = () => {
             <span/>
         </LoadingContent>
     </LoadingContainer>
-}
+};

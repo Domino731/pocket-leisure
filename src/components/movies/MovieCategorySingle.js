@@ -28,4 +28,4 @@ export const MovieCategorySingle = ({movie}) => {
         <ItemTitleSmall>{movie.title}</ItemTitleSmall>
         <ItemPremiereSmall>{getReleaseDate(movie.release_date)}</ItemPremiereSmall>
     </MovieCategoryItem>
-}
+};

@@ -10,20 +10,19 @@ import {url} from "./constans";
  * @param battleTag {string, number} - user battleTag (12345)
  */
 export const validateOverwatchUser = (platform, region, username, battleTag, successCallback, failedCallback) => {
-
     fetch(`${url}${platform}/${region}/${username}-${battleTag}/profile`)
         .then(r => r.json())
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
-                successCallback()
+                return successCallback();
             }
             //when user enters invalid data, change state and notify him of the error - bad battleTag, nick, region ...
             if (typeof failedCallback === "function") {
-                failedCallback(data)
+                return failedCallback(data);
             }
         })
         .catch(err => console.log(err));
-}
+};
 
 /**
  * This function fetch user  general stats
@@ -38,11 +37,11 @@ export const getOverwatchStats = (platform, region, username, battleTag, success
         .then(r => r.json())
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
-                successCallback(data)
+                return successCallback(data);
             }
         })
         .catch(err => console.log(err))
-}
+};
 
 /**
  * This function fetch complete user complete stats for competitive,
@@ -66,19 +65,19 @@ export const getOverwatchCompetitiveStats = (platform, region, username, battleT
                     awards: data.competitiveStats.awards,
                     games: data.competitiveStats.games,
                     completeStats: data.competitiveStats.careerStats.allHeroes,
-                }
-                successCallback(stats)
+                };
+                return successCallback(stats);
             }
 
             // when he have private profile, set the state
             else {
 
                 //so you can notify a user that he have a private profile
-                successCallback("privateProfile")
+                return successCallback("privateProfile");
             }
         })
         .catch(err => console.log(err))
-}
+};
 
 
 /**
@@ -104,15 +103,15 @@ export const getOverwatchQuickPlayStats = (platform, region, username, battleTag
                     games: data.quickPlayStats.games,
                     completeStats: data.quickPlayStats.careerStats.allHeroes,
                 }
-                successCallback(stats)
+                return successCallback(stats);
             }
 
             // when he have private profile, set the state
             else {
                 //so you can notify a user that he have a private profile
-                successCallback("privateProfile")
+                return successCallback("privateProfile");
             }
         })
         .catch(err => console.log(err))
-}
+};
 

@@ -12,7 +12,7 @@ export const MovieRow = styled.div`
   }
 `
 export const MoviePosterContainer = styled.div`
- 
+
 `
 export const MoviePosterContainerDesktop = styled.div`
   width: 40%;
@@ -416,11 +416,11 @@ export const MoviesList = styled.ul`
 export const MovieSimilarSingle = styled.li`
   width: 140px;
   height: 210px;
-  margin:  10px;
+  margin: 10px;
   border-radius: ${props => props.theme.border_radius.m};
   overflow: hidden;
   position: relative;
-  
+
   ///////////
   // media //
   ///////////
@@ -453,7 +453,8 @@ export const MovieSimilarSingle = styled.li`
 `
 export const MovieSimilarPoster = styled.div`
   height: 100%;
-  img{
+
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -472,12 +473,14 @@ export const MovieSimilarMissing = styled.div`
   padding-right: 5px;
   border-radius: ${props => props.theme.border_radius.m};
   border: 3px solid ${props => props.theme.color.main};
+
   &:hover {
     transition: 0.2s;
     background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
-  };
-  
-  h3{
+  }
+;
+
+  h3 {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -486,8 +489,9 @@ export const MovieSimilarMissing = styled.div`
     z-index: 2;
     font-size: 1.188rem;
     transition: 0.2s;
-  
+
   }
+
   i {
     color: ${props => props.theme.color.main};
     transform: rotate(-30deg);
@@ -497,7 +501,7 @@ export const MovieSimilarMissing = styled.div`
   // media //
   ///////////
   @media ${device.mobileM} {
-   font-size: 50px;
+    font-size: 50px;
   }
 
   @media ${device.tablet} {
