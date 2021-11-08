@@ -7,6 +7,7 @@ https://ecstatic-shockley-450960.netlify.app/
 ## Technology
 
 * Create React App
+* React - function components
 * React Redux
 * Styled Components
 * React Router

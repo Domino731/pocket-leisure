@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {an__formRecovery} from "../../general/animations";
-import {device} from "../../general/breakpoints";
+import { an__formRecovery } from "../../general/animations";
+import { device } from "../../general/breakpoints";
 
 export const Form = styled.form`
   width: 100%;
@@ -17,8 +17,8 @@ export const Form = styled.form`
   }
 
   button {
-    width: 286px;
-    height: 50px;
+    width: 276px;
+    height: 45px;
     border: none;
     border-radius: ${props => props.theme.border_radius.l};
     background: ${props => props.theme.color.main};
@@ -66,8 +66,8 @@ export const FormElement = styled.div`
       height: 78px;
     }
     @media ${device.laptop} {
-      width: 85px;
-      height: 85px;
+      width: 72px; 
+      height: 72px;
     }
   }
 
@@ -97,6 +97,7 @@ export const FormElement = styled.div`
     }
     @media ${device.laptop} {
       width: 600px;
+      height: 43px;
     }
   }
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {an__navigationItem} from "../../general/animations";
-import {device} from "../../general/breakpoints";
+import { an__navigationItem } from "../../general/animations";
+import { device } from "../../general/breakpoints";
 
 export const NavigationList = styled.ul`
   display: flex;
@@ -24,9 +24,9 @@ export const NavigationItem = styled.li`
   justify-content: center;
   flex-grow: 1;
   width: 100%;
-  height: 180px;
+  height: 162px;
   margin: 5px;
-  border-radius: 33px;
+  border-radius: 17px;
   overflow: hidden;
   animation: ${props => props.animation ? an__navigationItem : ""} 0.6s forwards;
 
@@ -61,7 +61,7 @@ export const NavigationItem = styled.li`
     flex-shrink: 1;
   }
 `
-export const NavigationItemTitle = styled.h2`
+export const NavigationItemTitle = styled.strong`
   position: absolute;
   z-index: 2;
   height: 100%;
@@ -161,7 +161,7 @@ export const NavigationImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-
+  
   ///////////
   // media //
   ///////////
@@ -179,13 +179,14 @@ export const ColorForm = styled.form`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 21px;
+  margin-top: 13px;
 
   ///////////
   // media //
   //////////
   @media ${device.tablet} {
-    margin-top: 23px;
+    margin-top: 17px;
+    justify-content: space-evenly;
   }
 `
 
@@ -221,8 +222,17 @@ export const ColorFormCheckbox = styled.div`
     width: 100%;
     height: 100%;
     background: ${props => props.color};
-    border-radius: ${props => props.theme.border_radius.l};
+    border-radius: 10px;
     font-size: 0;
+    @media ${device.mobileM} {
+      border-radius: 13px;
+    }
+    @media ${device.mobileL} {
+      border-radius: 16px;
+    }
+    @media ${device.tablet} {
+      border-radius: 20px;
+    }
   }
 
 
@@ -236,21 +246,20 @@ export const ColorFormCheckbox = styled.div`
       font-size: 66px;
     }
   }
-
   @media ${device.tablet} {
-    height: 142px;
-    width: 142px;
+    height: 96px;
+    width: 96px;
     input:checked ~ label i {
-      font-size: 128px;
+      font-size: 75px;
     }
   }
 
   @media ${device.laptop} {
-    height: 85px;
+    height: 52px;
     width: 245px;
 
     input:checked ~ label i {
-      font-size: 80px;
+      font-size: 53px;
     }
   }
   @media ${device.laptopL} {
