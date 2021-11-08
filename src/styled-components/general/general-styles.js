@@ -30,7 +30,7 @@ export const Container = styled.main`
     width: 1250px;
   }
   @media ${device.laptopL} {
-    width: 1420px;
+    width: 1430px;
   }
   @media ${device.desktopS} {
     width: 1590px;
@@ -208,6 +208,7 @@ export const TitleBar = styled.div`
     @media ${device.laptop} {
       height: 46px;
       width: 46px;
+      border-radius: 23px;
     }
   }
 
@@ -227,7 +228,7 @@ export const TitleBar = styled.div`
       font-size: 34px;
       margin-left: 8px   
     }
-    @media ${device.laptop } {
+    @media ${device.laptop} {
       font-size: 28px;
     }
   }
@@ -446,6 +447,10 @@ export const Genre = styled.li`
     &:hover {
       letter-spacing: 0.25rem;
     }
+  }
+  @media ${device.laptopL} {
+    font-size: 23px;
+    border-radius: 11px;
   }
 `;
 
