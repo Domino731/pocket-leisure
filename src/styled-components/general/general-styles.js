@@ -1,33 +1,39 @@
 import styled from "styled-components";
 import {an__checkboxRadio} from "./animations";
-import {device, size} from "./breakpoints";
+import {device} from "./breakpoints";
 
 export const Container = styled.main`
-  width: 320px;
+  width: 310px;
   margin: 0 auto;
-  padding-bottom: 54px;
+  padding-bottom: 17px;
 
   ///////////
   // media //
   ///////////
   @media ${device.mobileM} {
-    width: ${size.mobileM};
+    width: 370px;
   }
 
   @media ${device.mobileL} {
-    width: ${size.mobileL};
+    width: 410px;
   }
-
+  @media ${device.mobileXL}{
+    width: 590px;
+  }
   @media ${device.tablet} {
     width: 750px;
   }
-
   @media ${device.laptop} {
     width: 1000px;
   }
-
+  @media ${device.laptopM} {
+    width: 1250px;
+  }
   @media ${device.laptopL} {
     width: 1420px;
+  }
+  @media ${device.desktopS} {
+    width: 1590px;
   }
 `
 export const PosterBig = styled.div`

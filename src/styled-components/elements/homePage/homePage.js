@@ -33,6 +33,16 @@ export const NavigationItem = styled.li`
   a {
     display: block;
     width: 100%;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(52, 58, 64, 0.2));
+    }
   }
 
   ///////////
@@ -43,22 +53,22 @@ export const NavigationItem = styled.li`
   }
 
   @media ${device.mobileL} {
+    margin: 7px;
     height: 237px;
   }
 
   @media ${device.tablet} {
-    height: 297px;
+    height: 272px;
+    margin: 11px;
   }
 
   @media ${device.laptop} {
     width: 33%;
-    height: 315px;
+    height: 286px;
     flex-shrink: 1;
   }
   @media ${device.laptopL} {
-    background: red;
-    height: 365px;
-    flex-shrink: 1;
+    height: 350px;
   }
 `
 export const NavigationItemTitle = styled.strong`
@@ -66,102 +76,46 @@ export const NavigationItemTitle = styled.strong`
   z-index: 2;
   height: 100%;
   width: 100%;
-  padding-top: 1.188rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(52, 58, 64, 0.2));
-  font-size: 2.063rem;
+  font-size: 31px;
   font-weight: bold;
-  text-align: center;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   ///////////
   // media //
   ///////////
   @media ${device.mobileM} {
-    height: 211px;
+    font-size: 38px;
   }
 
   @media ${device.mobileL} {
-    height: 241px;
+    font-size: 45px;
   }
 
+  @media ${device.mobileXL} {
+    font-size: 47px;
+  }
   @media ${device.tablet} {
-    height: 372px;
-    font-size: 2.64rem;
-    padding-top: 78px;
+    font-size: 54px;
   }
   @media ${device.laptop} {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 317px;
-    width: 502px;
-    padding: 0;
+    font-size: 56px;
     transition: 0.2s;
-    &:hover {
-      background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
-    }
-
     &:hover ~ img {
-      transition: 0.5s;
       transform: scale(110%);
     }
   }
-  @media ${device.laptopL} {
-    width: 710px;
-    height: 370px;
+  @media ${device.desktopS} {
+   font-size: 69px;
   }
 `
-export const NavigationItemTitleGames = styled(NavigationItemTitle)`
-  height: 216px;
-  padding-top: 32px;
 
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileM} {
-    height: 230px;
-  }
-
-  @media ${device.mobileL} {
-    height: 261px;
-  }
-
-  @media ${device.tablet} {
-    height: 403px;
-    padding-top: 119px;
-  }
-  @media ${device.laptop} {
-    width: 502px;
-    height: 317px;
-    padding: 0;
-    //margin-top: 20px;
-  }
-  @media ${device.laptopL} {
-    width: 710px;
-    height: 370px;
-  }
-`
-export const NavigationItemTitleOverwatch = styled(NavigationItemTitle)`
-
-  ///////////
-  // media //
-  ///////////
-  @media ${device.laptop} {
-    height: 316px;
-    width: 1014px;
-    padding: 0;
-  }
-  @media ${device.laptopL} {
-    width: 1430px;
-    height: 370px;
-  }
-
-`
 export const NavigationImg = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
+  transition: 0.2s;
   ///////////
   // media //
   ///////////
@@ -177,7 +131,7 @@ export const NavigationImg = styled.img`
 
 export const ColorForm = styled.form`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-top: 13px;
 
@@ -188,14 +142,18 @@ export const ColorForm = styled.form`
     margin-top: 17px;
     justify-content: space-evenly;
   }
+  @media ${device.laptop} {
+    margin-top: 14px;
+  }
+  @media ${device.laptopM} {
+    margin-top: 16px;
+  }
 `
 
 export const ColorFormCheckbox = styled.div`
   position: relative;
-  width: 73px;
-  height: 73px;
-
-
+  width: 52px;
+  height: 52px;
   input {
     appearance: none;
     background: transparent;
@@ -209,12 +167,11 @@ export const ColorFormCheckbox = styled.div`
     &:hover {
       cursor: pointer;
     }
+    &:checked ~ label i {
+    font-size: 39px;
   }
-
-  input:checked ~ label i {
-    font-size: 56px;
   }
-
+ 
   label {
     display: flex;
     justify-content: center;
@@ -228,10 +185,16 @@ export const ColorFormCheckbox = styled.div`
       border-radius: 13px;
     }
     @media ${device.mobileL} {
-      border-radius: 16px;
+      border-radius: 15px;
     }
     @media ${device.tablet} {
-      border-radius: 20px;
+      border-radius: 17px;
+    }
+    @media ${device.laptop} {
+      border-radius: 14px;
+    }
+    @media ${device.laptopL} {
+      border-radius: 17px;
     }
   }
 
@@ -240,33 +203,46 @@ export const ColorFormCheckbox = styled.div`
   // media //
   ///////////
   @media ${device.mobileM} {
-    height: 83px;
-    width: 83px;
+    height: 64px;
+    width: 64px;
     input:checked ~ label i {
-      font-size: 66px;
+      font-size: 52px;
+    }
+  }
+  @media ${device.mobileM} {
+    height: 68px;
+    width: 112px;
+    input:checked ~ label i {
+      font-size: 56px;
     }
   }
   @media ${device.tablet} {
-    height: 96px;
-    width: 96px;
+    height: 78px;
+    width: 158px;
     input:checked ~ label i {
-      font-size: 75px;
+      font-size: 71px;
     }
   }
 
   @media ${device.laptop} {
-    height: 52px;
-    width: 245px;
-
+    height: 59px;
+    width: 221px;
     input:checked ~ label i {
       font-size: 53px;
     }
   }
-  @media ${device.laptopL} {
-    height: 94px;
-    width: 288px;
+  @media ${device.laptopM} {
+    height: 62px;
+    width: 265px;
     input:checked ~ label i {
-      font-size: 80px;
+      font-size: 54px;
+    }
+  }
+  @media ${device.laptopL} {
+    height: 74px;
+    width: 291px;
+    input:checked ~ label i {
+      font-size: 68px;
     }
   }
 `

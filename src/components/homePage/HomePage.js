@@ -10,8 +10,6 @@ import {
     NavigationItemTitle,
     ColorForm,
     ColorFormCheckbox,
-    NavigationItemTitleGames,
-    NavigationItemTitleOverwatch
 } from "../../styled-components/elements/homePage/homePage";
 import {useState} from "react";
 import {changeMainColor} from "../../redux/actions/mainColor.action";
@@ -58,9 +56,10 @@ const HomePage = ({mainColor, setMainColor}) => {
                 <NavigationItem>
 
                     {/*games section*/}
-                    <Link to="/games"><NavigationItemTitleGames>
-                        Games
-                    </NavigationItemTitleGames>
+                    <Link to="/games">
+                    <NavigationItemTitle>
+                            Games
+                        </NavigationItemTitle>
                         <NavigationImg src={gamesImg}/>
                     </Link>
                 </NavigationItem>
@@ -70,9 +69,9 @@ const HomePage = ({mainColor, setMainColor}) => {
 
                     {/*overwatch section*/}
                     <Link to="/overwatch-search-your-profile">
-                        <NavigationItemTitleOverwatch>
+                    <NavigationItemTitle>
                             Overwatch
-                        </NavigationItemTitleOverwatch>
+                        </NavigationItemTitle>
                         <NavigationImg src={overwatchImg}/>
                     </Link>
                 </NavigationItem>
