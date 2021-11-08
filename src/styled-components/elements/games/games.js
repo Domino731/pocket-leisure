@@ -54,11 +54,14 @@ export const GameSingleContainer = styled.li`
     margin-bottom: 23px;
   }
   @media ${device.laptopM} {
-    padding: 0 12px;
+    padding: 0 11px;
     margin-bottom: 29px;
   }
   @media ${device.laptopL} {
-    width: 339px;
+    margin-bottom: 32px;
+  }
+  @media ${device.desktopS} {
+    margin-bottom: 41px;
   }
 `
 export const GameSingleImg = styled.img`
@@ -86,6 +89,10 @@ export const GameSingleImg = styled.img`
   @media ${device.laptop} {
     border-radius: 18px;
     height: 412px;
+  }
+  @media ${device.desktopS} {
+    border-radius: 21px;
+    height: 461px;
   }
 `
 export const GameSingleTitle = styled.h3`
@@ -123,7 +130,10 @@ export const GameSinglePlatform = styled.li`
    }
    @media ${device.laptopL} {
    font-size: 11px;
- }
+   }
+   @media ${device.desktopS}{
+    font-size: 12px;
+   }
    img {
     width: 2.3em;
     height: 2.3em;
@@ -169,6 +179,10 @@ export const GameSingleRatingsBar = styled.div`
  }
  @media ${device.laptopL} {
    font-size: 12px;
+ }
+ @media ${device.desktopS}{
+   font-size: 13px;
+   margin-top: 19px
  }
 `
 export const GameSingleRating = styled.div`
@@ -243,6 +257,9 @@ export const GamesGenresList = styled.ul`
   @media ${device.laptopL} {
     height: 826px;
   }
+  @media ${device.desktop} {
+    height: 923px;
+  }
 `
 export const GamesSortForm = styled.form`
   width: 100%;
@@ -305,5 +322,8 @@ font-size: 10px;
  }
  @media ${device.laptopL} {
    font-size: 12px;
+ }
+ @media ${device.desktop} {
+   font-size: 14px;
  }
 `

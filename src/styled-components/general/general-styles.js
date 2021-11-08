@@ -210,6 +210,11 @@ export const TitleBar = styled.div`
       width: 46px;
       border-radius: 23px;
     }
+    @media ${device.desktopS} {
+    height: 51px;
+    width: 51px;
+    border-radius: 27px;
+    }
   }
 
   i {
@@ -230,6 +235,9 @@ export const TitleBar = styled.div`
     }
     @media ${device.laptop} {
       font-size: 28px;
+    }
+    @media ${device.desktopS} {
+      font-size: 33px;
     }
   }
 
@@ -451,6 +459,10 @@ export const Genre = styled.li`
   @media ${device.laptopL} {
     font-size: 23px;
     border-radius: 11px;
+  }
+  @media ${device.desktopS} {
+    font-size: 24px;
+    border-radius: 15px;
   }
 `;
 
