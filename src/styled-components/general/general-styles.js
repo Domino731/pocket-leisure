@@ -426,6 +426,10 @@ export const Genre = styled.li`
     margin: 5px 4px;
     border-radius: 11px;
   }
+  @media ${device.mobileL} {
+    font-size: 20px;
+    border-radius: 12px;
+  }
   @media ${device.laptop} {
     font-size: 1.5rem;
     margin: 9px;
