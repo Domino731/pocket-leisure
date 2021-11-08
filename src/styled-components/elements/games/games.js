@@ -4,11 +4,40 @@ import { device } from "../../general/breakpoints";
 export const GamesElementTitle = styled.h2`
   display: flex;
   align-items: center;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.063rem;
-  margin: 1.563rem 0 0.625rem;
+  margin: 8px 0;
   transition: 0.1s;
+  border-bottom: 1px solid ${props => props.theme.color.gray};
+  @media ${device.mobileL} {
+    margin: 10px 0;
+    font-size: 21px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid ${props => props.theme.color.gray};
+  }
+  @media ${device.tablet} {
+    margin: 12px 0;
+    font-size: 23px;
+  }
+  @media ${device.laptop} {
+    margin: 9px 0;
+    font-size: 18px;
+  }
+  @media ${device.laptopM} {
+    margin: 11px 0;
+    font-size: 19px;
+  }
+  @media ${device.laptopL} {
+    margin: 13px 0;
+    font-size: 22px;
+    padding-bottom: 4px;
+    border-bottom: 3px solid ${props => props.theme.color.gray};
+  }
+  @media ${device.laptopL} {
+    margin: 16px 0;
+    font-size: 22px;
+  }
 `
 export const GamesList = styled.ul`
   width: 100%;
@@ -97,8 +126,8 @@ export const GameSingleImg = styled.img`
 `
 export const GameSingleTitle = styled.h3`
   font-weight: bold;
-  font-size: 1.5em;
   margin: 0.4em 0;
+  font-size: 1.2em;
   letter-spacing: 0.063rem;
 `
 export const GameSinglePlatforms = styled.ul`
@@ -110,7 +139,7 @@ export const GameSinglePlatform = styled.li`
    font-size: 10px;
    padding: 0.6em;
    background: ${props => props.theme.color.main};
-   box-shadow: 0 0 29px ${props => props.theme.color.gray} inset;
+   box-shadow: 0 0 15px ${props => props.theme.color.black} inset;
    border-radius: 50%;
    margin: 0.3em;
    @media ${device.mobileM}{
@@ -118,6 +147,7 @@ export const GameSinglePlatform = styled.li`
    }
    @media ${device.mobileL}{
      font-size: 13px;
+     box-shadow: 0 0 17px ${props => props.theme.color.black} inset;
    }
    @media ${device.mobileXL}{
      font-size: 14px;
@@ -127,12 +157,14 @@ export const GameSinglePlatform = styled.li`
    }
    @media ${device.laptop}{
      font-size: 9px;
+     box-shadow: 0 0 13px ${props => props.theme.color.black} inset;
    }
    @media ${device.laptopL} {
    font-size: 11px;
    }
    @media ${device.desktopS}{
     font-size: 12px;
+    box-shadow: 0 0 15px ${props => props.theme.color.black} inset;
    }
    img {
     width: 2.3em;
@@ -143,6 +175,7 @@ export const GameSingleReleased = styled.span`
   display: block;
   font-size: 1.2em;
   margin-bottom: 0.7em;
+  color: ${props => props.theme.color.gray}
 `
 export const GameSingleRatingsBar = styled.div`
   display: flex;
@@ -257,7 +290,7 @@ export const GamesGenresList = styled.ul`
   @media ${device.laptopL} {
     height: 826px;
   }
-  @media ${device.desktop} {
+  @media ${device.desktopS} {
     height: 923px;
   }
 `
