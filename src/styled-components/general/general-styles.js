@@ -184,6 +184,7 @@ export const TitleBar = styled.div`
     border-radius: 50%;
     overflow: hidden;
     transition: 0.4s;
+
     &:hover {
       transition: 0.4s;
       width: 126px;
@@ -191,7 +192,11 @@ export const TitleBar = styled.div`
 
     @media ${device.mobileM} {
       height: 41px;
-    width: 41px;
+      width: 41px;
+    }
+    @media ${device.mobileL} {
+      height: 48px;
+      width: 48px;
     }
   }
 
@@ -202,6 +207,10 @@ export const TitleBar = styled.div`
     @media ${device.mobileM} {
       margin-left: 9px;
       font-size: 24px;
+    }
+    @media ${device.mobileL} {
+      margin-left: 11px;
+      font-size: 27px;
     }
   }
 
@@ -406,10 +415,16 @@ export const Genre = styled.li`
   ///////////
   // media //
   ///////////
+
   @media ${device.mobileM} {
     font-size: 15px;
     margin: 4px 3px;
-  border-radius: 9px;
+    border-radius: 9px;
+  }
+  @media ${device.mobileL} {
+    font-size: 17px;
+    margin: 5px 4px;
+    border-radius: 11px;
   }
   @media ${device.laptop} {
     font-size: 1.5rem;
