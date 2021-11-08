@@ -198,6 +198,13 @@ export const TitleBar = styled.div`
       height: 48px;
       width: 48px;
     }
+    @media ${device.tablet} {
+      height: 53px;
+      width: 53px;
+      &:hover {
+        width: 168px;
+      }
+    }
   }
 
   i {
@@ -212,33 +219,23 @@ export const TitleBar = styled.div`
       margin-left: 11px;
       font-size: 27px;
     }
+    @media ${device.tablet} { 
+      font-size: 34px;
+      margin-left: 8px   
+    }
   }
 
   span {
     margin-left: 12px;
+    @media ${device.tablet} { 
+      font-size: 30px;
+    }
   }
 
   ///////////
   // media //
   ///////////
   @media ${device.tablet} {
-    a {
-      height: 65px;
-      width: 65px;
-
-      &:hover {
-        width: 168px;
-      }
-    }
-
-    i {
-      font-size: 44px;
-      margin-left: 11px;
-    }
-
-    span {
-      font-size: 30px;
-    }
   }
 `
 
@@ -429,6 +426,10 @@ export const Genre = styled.li`
   @media ${device.mobileL} {
     font-size: 20px;
     border-radius: 12px;
+  }
+  @media ${device.tablet} {
+    font-size: 22px;
+    border-radius: 14px;
   }
   @media ${device.laptop} {
     font-size: 1.5rem;
