@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { MovieElementTitle } from "../elements/movie/movieCategory";
 import { an__checkboxRadio } from "./animations";
 import { device } from "./breakpoints";
 
@@ -349,6 +350,12 @@ export const CheckboxRadio = styled.div`
       height: 57px;
     }
 
+    @media ${device.laptop} {
+      height: 41px;
+    }
+    @media ${device.laptopL} {
+      height: 44px;
+    }
     i {
       position: absolute;
       left: 0;
@@ -374,6 +381,9 @@ export const CheckboxRadio = styled.div`
       ///////////
       @media ${device.tablet} {
         width: 55px
+      }
+      @media ${device.laptop} {
+        width: 42px;
       }
     }
   }
@@ -468,18 +478,42 @@ export const Genre = styled.li`
 
 export const GetMoreBtn = styled.button`
   width: 100%;
-  height: 48px;
-  margin: 30px 0;
+  padding: 0.1em;
+  font-size: 26px;
+  margin: 16px 0;
   border: none;
   color: ${props => props.theme.color.white};
-  border-radius: ${props => props.theme.border_radius.l};
+  border-radius: 7px;
   background: ${props => props.theme.color.main};
 
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    font-size: 28px;
+    margin: 18px 0;
+  }
+  @media ${device.mobileL} {
+    font-size: 31px;
+    border-radius: 9px;
+  }
   @media ${device.tablet} {
-    height: 70px;
+    font-size: 34px;
+  }
+  @media ${device.laptop} {
+    font-size: 27px;
+    border-radius: 6px;
+  }
+  @media ${device.laptopM} {
+    font-size: 28px;
+  }
+  @media ${device.laptopL} {
+    font-size: 33px;
+    border-radius: 9px;
+  }
+  @media ${device.desktopS} {
+    font-size: 36px;
+    border-radius: 12px;
   }
 `;
 
@@ -491,3 +525,32 @@ export const FullWidePoster = styled.img`
   position: relative;
   filter: drop-shadow(5px 5px 5px #fff inset);
 `;
+export const SortElementsButton = styled.button`
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.063rem;
+  margin: 1.563rem 0 0.625rem;
+  transition: 0.1s;
+  background: transparent;
+  color: #707070;
+  i {
+    margin-left: 0.875rem;
+  }
+  &:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    letter-spacing: 0.063rem;
+    color: ${props => props.theme.color.main}
+  }
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    margin-top: 28px;
+  }
+`

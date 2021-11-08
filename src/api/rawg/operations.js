@@ -50,6 +50,7 @@ export const getGamesByGenre = (successCallback, genreId) => {
     fetch(`${url}/games?key=${apiKey}&page_size=12&genres=${genreId}`)
         .then(r => r.json())
         .then(data => {
+            // check if genre exists
             if (data.error === undefined && data.results.length > 0 && typeof successCallback === "function") {
 
                 // sort by rating by users
@@ -57,7 +58,7 @@ export const getGamesByGenre = (successCallback, genreId) => {
                 return successCallback(games);
             }
 
-            // genreId comes from url, when genre id is invalid set state, so the component will redirect user to main movies page ("/games")
+            // when particular generce doesnt exist then return undefined -> component will handle this by returning <Error404/> component
             else {
                 return successCallback(undefined);
             }

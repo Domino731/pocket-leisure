@@ -42,7 +42,6 @@ export const GamesElementTitle = styled.h2`
 export const GamesList = styled.ul`
   width: 100%;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
   list-style-type: none;

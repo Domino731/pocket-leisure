@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {getGamesByGenre, getMoreGames} from "../../api/rawg/operations";
-import {CheckboxRadio, Container, GetMoreBtn, TitlePrimary} from "../../styled-components/general/general-styles";
+import {CheckboxRadio, Container, GetMoreBtn, SortElementsButton, TitlePrimary} from "../../styled-components/general/general-styles";
 import {GameSingle} from "./GameSingle";
 import {MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
 import {GamesSortForm} from "../../styled-components/elements/games/games";
@@ -72,8 +72,8 @@ export const GamesByGenre = (props) => {
         <TitlePrimary>{props.match.params.name}</TitlePrimary>
 
         {/*selected sorting option*/}
-        <MovieElementTitle onClick={handleChangeFlag}>{sort} <i className="fas fa-filter"/>
-        </MovieElementTitle>
+        <SortElementsButton onClick={handleChangeFlag}>{sort} <i className="fas fa-filter"/>
+        </SortElementsButton >
 
         {/*change sort*/}
         {sortFlag && <GamesSortForm>
