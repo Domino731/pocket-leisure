@@ -205,6 +205,10 @@ export const TitleBar = styled.div`
         width: 168px;
       }
     }
+    @media ${device.laptop} {
+      height: 46px;
+      width: 46px;
+    }
   }
 
   i {
@@ -222,6 +226,9 @@ export const TitleBar = styled.div`
     @media ${device.tablet} { 
       font-size: 34px;
       margin-left: 8px   
+    }
+    @media ${device.laptop } {
+      font-size: 28px;
     }
   }
 
@@ -432,8 +439,9 @@ export const Genre = styled.li`
     border-radius: 14px;
   }
   @media ${device.laptop} {
-    font-size: 1.5rem;
-    margin: 9px;
+    font-size: 20px;
+    border-radius: 8px;
+    margin: 7px 5px;
     transition: 0.3s;
     &:hover {
       letter-spacing: 0.25rem;
