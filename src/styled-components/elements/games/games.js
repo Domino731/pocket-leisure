@@ -67,6 +67,8 @@ export const GameSingleContainer = styled.li`
   }
 
   @media ${device.mobileL} {
+    width: 50%;
+    padding: 0 4px;
     margin-bottom: 45px;
   }
   @media ${device.mobileXL} {
@@ -146,7 +148,6 @@ export const GameSinglePlatform = styled.li`
      font-size: 11px;
    }
    @media ${device.mobileL}{
-     font-size: 13px;
      box-shadow: 0 0 17px ${props => props.theme.color.black} inset;
    }
    @media ${device.mobileXL}{
@@ -191,8 +192,9 @@ export const GameSingleRatingsBar = styled.div`
     margin-top: 16px;
   }
   @media ${device.mobileL} {
-    font-size: 13px;
-    margin-top: 22px;
+    font-size: 9px;
+    margin-top: 15px;
+    padding: 0 3px;
   }
   @media ${device.mobileXL} {
     font-size: 14px;
