@@ -406,7 +406,7 @@ export const Game = (props) => {
                                 <GameSeriesMissing><i className="fas fa-gamepad"/></GameSeriesMissing>
                             }
 
-                            <h3>{el.name}</h3>
+                            <strong>{el.name}</strong>
                         </Link>
                     </GameSeriesSingle>
                 )}

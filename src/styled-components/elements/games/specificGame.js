@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import {device} from "../../general/breakpoints";
+import { device } from "../../general/breakpoints";
 import {
-    MovieDescription,
-    MovieDetail,
-    MovieGenreList,
-    MovieItemTitle,
-    MovieRating,
-    MovieTitle,
-    MovieVideos, MovieVideosSwitch
+  MovieDescription,
+  MovieDetail,
+  MovieGenreList,
+  MovieItemTitle,
+  MovieRating,
+  MovieTitle,
+  MovieVideos, MovieVideosSwitch
 } from "../movie/movie";
-import {FactsTable} from "../../general/general-styles";
+import { FactsTable } from "../../general/general-styles";
 
 export const GameRow = styled.div`
   ///////////
@@ -128,14 +128,12 @@ export const GameTrailersContainer = styled.div`
 export const GameTrailers = styled(MovieVideos)``
 
 export const GameMediaSwitch = styled(MovieVideosSwitch)`
-
   ///////////
   // media //
   ///////////
   @media ${device.mobileL} {
     height: 42px;
   }
-
 `
 
 export const GameScContainer = styled.div`
@@ -153,9 +151,9 @@ export const GameAdditions = styled.ul`
   width: 100%;
   display: flex;
   overflow: auto;
-  padding-bottom: 13px;
-  margin-bottom: 42px;
-
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+  padding-left: 10px;
   &::-webkit-scrollbar {
     height: 8px;
   }
@@ -164,12 +162,22 @@ export const GameAdditions = styled.ul`
     background: ${props => props.theme.color.main};
     border-radius: 6px;
   }
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+   padding-bottom: 14px;
+   margin-bottom: 25px;
+  }
+  @media ${device.tablet} {
+   padding-bottom: 17px;
+   margin-bottom: 28px;
+  }
 `
 
 export const GameAddition = styled.li`
   margin-right: 13px;
   width: 134px;
-
   transition: 0.2s;
 
   h3:hover {
@@ -182,7 +190,15 @@ export const GameAddition = styled.li`
     width: 100%;
     height: 75px;
     object-fit: cover;
-    margin-right: 17px;
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileXL} {
+    height: 129px;
+  }
+  @media ${device.tablet} {
+    height: 169px;
+  }
   }
 
   strong {
@@ -199,33 +215,13 @@ export const GameAddition = styled.li`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileXL} {
+    margin-right: 16px;
+    width: 162px;
+  }
   @media ${device.tablet} {
-    width: 154px;
-    margin-right: 20px;
-  }
-
-  @media ${device.laptop} {
-    width: 250px;
-    img {
-      height: 141px;
-    }
-
-    strong {
-      height: 141px;
-      font-size: 145px;
-    }
-  }
-
-  @media ${device.laptopL} {
-    width: 320px;
-    img {
-      height: 177px;
-    }
-
-    strong {
-      height: 177px;
-      font-size: 145px;
-    }
+    margin-right: 18px;
+    width: 184px;
   }
 `
 
@@ -250,37 +246,48 @@ export const GameStore = styled.li`
   }
 `
 
-export const GameSeriesContainer = styled.div``
+export const GameSeriesContainer = styled.div`
+
+`
 
 export const GameSeries = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileXL} {
+    justify-content: space-between;
+    padding: 10px;
+  }
 `
 export const GameSeriesSingle = styled.li`
   position: relative;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   overflow: hidden;
   margin-top: 17px;
-  border-radius: ${props => props.theme.border_radius.m};
-
+  border-radius: 13px;
+  height: 200px;
   img {
     z-index: -1;
     width: 100%;
-    height: 200px;
+    height: 100%;
     object-fit: cover;
   }
 
-  h3 {
+  strong {
+    display: block;
     position: absolute;
     top: 0;
     width: 100%;
-    height: 200px;
+    height: 100%;
     padding: 0 10px;
     padding-top: 1.188rem;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(52, 58, 64, 0.2));
     text-align: center;
     font-size: 1.188rem;
-
     transition: 0.2s;
   }
 
@@ -288,44 +295,32 @@ export const GameSeriesSingle = styled.li`
   // media //
   ///////////
   @media ${device.mobileL} {
-    img {
-      height: 240px;
-    }
-
-    h3 {
-      height: 240px;
-    }
+    border-radius: 18px;
   }
-
+  @media ${device.mobileXL} {
+    width: 47%;
+    margin-top: 10px;
+    flex-grow: 1;
+    margin: 7px 9px;
+    height: 235px;
+  }
   @media ${device.tablet} {
-    img {
-      height: 264px;
-    }
-
-    h3 {
-      height: 264px;
-    }
+    height: 265px;
   }
-
-  @media ${device.laptop} {
-    width: 480px;
-    margin-right: 5px;
-    margin-left: 5px;
-    h3 {
-      &:hover {
-        transition: 0.2s;
-        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
-      }
-    }
+  @media ${device.laptop}{
+    border-radius: 14px;
   }
   @media ${device.laptopL} {
-    width: 446px;
+    border-radius: 18px;
+  }
+  @media ${device.desktopS} {
+    border-radius: 21px;
   }
 `
 
 export const GameSeriesMissing = styled.div`
   width: 100%;
-  height: 200px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;

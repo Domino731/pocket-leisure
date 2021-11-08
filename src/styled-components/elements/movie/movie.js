@@ -153,7 +153,7 @@ export const MovieGenreList = styled.ul`
 export const RatingIconWrapper = styled.div `
   height: 50px;
   width: 50px;
-  border-radius: 25px;
+  border-radius: 50%;
   background-color: ${props => props.theme.color.main};
   z-index: 1;
   padding: 6px;
@@ -162,6 +162,22 @@ export const RatingIconWrapper = styled.div `
   align-items: center;
   img {
     width: 100%;
+  }
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+    width: 55px;
+    height: 55px;
+  }
+  @media ${device.mobileL} {
+    width: 59px;
+    height: 59px;
+  }
+  @media ${device.tablet} {
+    width: 64px;
+    height: 64px;
   }
 `
 export const MovieRating = styled.div`
@@ -175,7 +191,7 @@ export const MovieRating = styled.div`
     height: 35px;
     background: ${props => props.theme.color.white};
     margin-left: -9px;
-    border-radius: 0 ${props => props.theme.border_radius.l} ${props => props.theme.border_radius.l} 0;
+    border-radius: 0 20px 20px 0;
     position: relative;
     text-align: center;
     overflow: hidden;
@@ -194,12 +210,16 @@ export const MovieRating = styled.div`
     // media //
     ///////////
     @media ${device.mobileM} { 
-      height: 40px;
+      height: 37px;
       margin-left: -7px;
     }
     @media ${device.mobileL} { 
-      height: 40px;
-      margin-left: -7px;
+      height: 39px;
+      margin-left: -13px;
+      border-radius: 0 30px 30px 0;
+    }
+    @media ${device.tablet} {
+      height: 43px;
     }
   }
 
@@ -267,7 +287,7 @@ export const MovieVideosSwitch = styled.div`
     background: ${props => props.theme.color.main};
     border: none;
     outline: none;
-    border-radius: ${props => props.theme.border_radius.l};
+    border-radius: 80px;
     transition: 0.2s;
 
     ///////////
@@ -276,10 +296,10 @@ export const MovieVideosSwitch = styled.div`
     @media ${device.mobileL} {
       height: 42px;
     }
-    @media ${device.tablet} {
-      height: 50px;
+    @media ${device.mobileXL} {
+       border-radius: 80px;
     }
-
+ 
     &:focus {
       transition: 0.2s;
       font-size: 19px;
