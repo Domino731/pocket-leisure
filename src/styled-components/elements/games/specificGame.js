@@ -85,94 +85,21 @@ export const GameRating = styled(MovieRating)`
     }
   }
 
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileM} {
-    div {
-      width: 305px;
-    }
-  }
-  @media ${device.mobileL} {
-    div {
-      width: 335px;
-      height: 40px;
-      margin-left: -7px;
-    }
-  }
-
-  @media ${device.tablet} {
-    div {
-      width: 700px;
-      height: 49px;
-    }
-  }
-
-  @media ${device.laptop} {
-    div {
-      width: 505px;
-      margin-left: -10px;
-    }
-  }
-
-  @media ${device.laptopL} {
-    div {
-      width: 766px;
-    }
-  }
+ 
 `
 export const GameRatingMetacritic = styled(MovieRating)`
+div{
+  background-color: ${props => props.theme.color.yellow};
+}
   img {
     width: 42px;
     height: auto;
   }
 
-  i {
-    box-shadow: 0 0 14px ${props => props.theme.color.yellow};
-    background: ${props => props.theme.color.yellow};
-  }
-
-  div {
+  span {
     &::before {
       width: ${props => ((props.rating) + "%")};
       background: ${props => props.theme.color.yellow};
-    }
-  }
-
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileM} {
-    div {
-      width: 305px;
-    }
-  }
-
-  @media ${device.mobileL} {
-    img {
-      width: 50px;
-    }
-
-    div {
-      width: 335px;
-      margin-left: -10px;
-    }
-  }
-  @media ${device.tablet} {
-    div {
-      width: 700px;
-      height: 49px;
-    }
-  }
-  @media ${device.laptop} {
-    div {
-      width: 505px;
-      margin-left: -10px;
-    }
-  }
-  @media ${device.laptopL} {
-    div {
-      width: 766px;
     }
   }
 `
@@ -267,7 +194,6 @@ export const GameAddition = styled.li`
     margin-right: 17px;
     font-size: 4.5rem;
     text-decoration: none;
-  !important;
   }
 
   ///////////

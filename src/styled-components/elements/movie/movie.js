@@ -150,31 +150,31 @@ export const MovieGenreList = styled.ul`
     justify-content: flex-start;
   }
 `
+export const RatingIconWrapper = styled.div `
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  background-color: ${props => props.theme.color.main};
+  z-index: 1;
+  padding: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 100%;
+  }
+`
 export const MovieRating = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 16px auto;
-
-  i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    height: 60px;
-    width: 60px;
-    box-shadow: 0 0 14px ${props => props.theme.color.main};
-    background: ${props => props.theme.color.main};
-    border-radius: 40px;
-    margin-left: 0;
-    font-size: 2.5rem;
-  }
-
-  div {
-    width: 235px;
+  span {
+    display: block;
+    width: calc(100% - 62px);
     height: 35px;
     background: ${props => props.theme.color.white};
-    margin-left: -5px;
+    margin-left: -9px;
     border-radius: 0 ${props => props.theme.border_radius.l} ${props => props.theme.border_radius.l} 0;
     position: relative;
     text-align: center;
@@ -189,48 +189,20 @@ export const MovieRating = styled.div`
       background: ${props => props.theme.color.main};
       transform: skew(17deg, 0deg);
     }
-  }
 
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileL} {
-    i {
-      height: 70px;
-      width: 70px;
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileM} { 
+      height: 40px;
+      margin-left: -7px;
     }
-
-    div {
-      width: 335px;
+    @media ${device.mobileL} { 
       height: 40px;
       margin-left: -7px;
     }
   }
 
-  @media ${device.tablet} {
-    i {
-      height: 84px;
-      width: 84px;
-    }
-
-    div {
-      width: 700px;
-      height: 49px;
-    }
-  }
-  @media ${device.laptop} {
-    justify-content: flex-start;
-    div {
-      width: 490px;
-    }
-  }
-
-  @media ${device.laptopL} {
-
-    div {
-      width: 741px;
-    }
-  }
 `
 
 export const MovieTagline = styled.strong`

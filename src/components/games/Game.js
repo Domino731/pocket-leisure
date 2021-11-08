@@ -1,4 +1,5 @@
 import metacriticIcon from "../../images/768px-Metacritic.svg.png"
+import userRating from "../../images/users_rating.svg";
 import {useEffect, useState} from "react";
 import {
     getGameAdditions,
@@ -42,7 +43,7 @@ import {getReleaseDate} from "../../functions/getReleaseDate";
 import {Link} from "react-router-dom";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
-
+import { RatingIconWrapper } from "../../styled-components/elements/movie/movie";
 // A component that returns details about specific game.
 export const Game = (props) => {
 
@@ -241,14 +242,20 @@ export const Game = (props) => {
                 </GameGenreList>
 
                 {/*game rating by users*/}
-                {game.rating !== 0 && <GameRating rating={game.rating}><i className="far fa-grin"/>
-                    <div/>
+                {game.rating !== 0 && <GameRating rating={game.rating}>
+                    <RatingIconWrapper>
+                        <img src={userRating} title='Users rating' alt="Users rating"/>
+                    </RatingIconWrapper>
+                    <span/>
                 </GameRating>}
 
                 {/*game rating by metacritic*/}
                 {game.metacritic !== null &&
-                <GameRatingMetacritic rating={game.metacritic}><i><img src={metacriticIcon} alt="metacritic"/></i>
-                    <div/>
+                <GameRatingMetacritic rating={game.metacritic}>
+                     <RatingIconWrapper>
+                        <img src={metacriticIcon} title='Metacritic rating' alt="Metacritic rating"/>
+                    </RatingIconWrapper>
+                    <span/>
                 </GameRatingMetacritic>}
 
                 {/*description*/}

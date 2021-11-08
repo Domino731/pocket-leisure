@@ -3,14 +3,13 @@ import { an__checkboxRadio } from "./animations";
 import { device } from "./breakpoints";
 
 export const Container = styled.main`
-  width: 310px;
   margin: 0 auto;
   padding-bottom: 17px;
-
+  max-width: 1600px;
   ///////////
   // media //
   ///////////
-  @media ${device.mobileM} {
+  /* @media ${device.mobileM} {
     width: 370px;
   }
 
@@ -34,7 +33,7 @@ export const Container = styled.main`
   }
   @media ${device.desktopS} {
     width: 1590px;
-  }
+  } */
 `
 export const PosterBig = styled.div`
   display: flex;
