@@ -28,8 +28,13 @@ export const Games = () => {
     };
 
     return <Container>
-        <TitleBar><TitlePrimary>Games <span>Powered by Rawg Api</span></TitlePrimary> <Link to="/game-search"><i
-            className="fas fa-search"/> <span>Search</span></Link></TitleBar>
+        <TitleBar><TitlePrimary>
+            Games <span>Powered by Rawg Api</span></TitlePrimary>
+            <Link to="/game-search"><i
+            className="fas fa-search"/> 
+            <span>Search</span></Link>
+            
+            </TitleBar>
        <GamesListMain games={games}/>
        <GamesGenres gamesGenres={gamesGenres} />
     </Container>

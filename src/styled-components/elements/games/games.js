@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {device} from "../../general/breakpoints";
+import { device } from "../../general/breakpoints";
 
 export const GamesElementTitle = styled.h2`
   display: flex;
@@ -61,64 +61,41 @@ export const GameSingleImg = styled.img`
   height: 183px;
   object-fit: cover;
   border-radius: ${props => props.theme.border_radius.l};
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileM} {
-    height: 199px;
-  }
-
-  @media ${device.mobileL} {
-    height: 233px;
-  }
-
-  @media ${device.tablet} {
-    height: 420px;
-  }
-  @media ${device.tablet} {
-    height: 430px;
-  }
 `
 export const GameSingleTitle = styled.h3`
   font-weight: bold;
-  margin: 0.75rem 0.125rem;
+  font-size: 15px;
+  margin: 8px 0;
   letter-spacing: 0.063rem;
 `
 export const GameSinglePlatforms = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 4px;
+ 
 `
 export const GameSinglePlatform = styled.li`
-  i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    margin: 3px;
-    background: ${props => props.theme.color.main};
-    border-radius: 50px;
-    box-shadow: 0 0 4px ${props => props.theme.color.main};
-
-    ///////////
-    // media //
-    ///////////
-    @media ${device.tablet} {
-      width: 44px;
-      height: 44px;
-    }
+  box-sizing: border-box;
+   font-size: 10px;
+   padding: 0.6em;
+   background: ${props => props.theme.color.main};
+   border-radius: 50%;
+   margin: 2px 3px 0;
+ img {
+    width: 2.3em;
+    height: 2.3em;
   }
 `
 export const GameSingleReleased = styled.span`
   display: block;
-  margin-bottom: 7px;
+  font-size: 1.2em;
+  margin-bottom: 0.7em;
 `
 export const GameSingleRatingsBar = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 14px;
-
+  font-size: 10px;
   ///////////
   // media //
   ///////////
@@ -127,29 +104,21 @@ export const GameSingleRatingsBar = styled.div`
   }
 `
 export const GameSingleRating = styled.div`
-  width: 112px;
+  font-size: 1.5em;
+  padding: 0.4em 0.8em;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: ${props => props.theme.border_radius.s};
+   
+  border-radius: 10px;
   box-shadow: 0 0 12px ${props => props.theme.color.yellow};;
   background: ${props => props.theme.color.yellow};
-
-  ///////////
-  // media //
-  ///////////
-  @media ${device.tablet} {
-    width: 136px;
-    height: 50px;
-  }
-
   span {
     display: block;
-    margin-left: 7px;
+    margin-left: 0.7em;
   }
 `
 export const GameSingleRatingMetacritic = styled.div`
-  width: 112px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -162,9 +131,12 @@ export const GameSingleRatingMetacritic = styled.div`
   }
 
   img {
-    width: 32px;
+    width: 3.2em;
     height: auto;
-    margin-right: 7px;
+    margin-right: 0.7em;
+  }
+  span {
+    font-size: 1.5em;
   }
 `
 
@@ -225,4 +197,8 @@ export const GameMissingImg = styled.div`
   @media ${device.laptopL} {
     height: 430px;
   }
+`
+
+export const GameSingleTitleScale = styled.div`
+font-size: 10px;
 `

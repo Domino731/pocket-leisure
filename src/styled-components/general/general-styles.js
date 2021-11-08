@@ -177,11 +177,11 @@ export const TitleBar = styled.div`
   a {
     display: flex;
     align-items: center;
-    height: 46px;
-    width: 46px;
+    height: 36px;
+    width: 36px;
     background: ${props => props.theme.color.main};
     box-shadow: 0 0 14px ${props => props.theme.color.main};
-    border-radius: 40px;
+    border-radius: 50%;
     overflow: hidden;
 
     transition: 0.4s;
@@ -194,7 +194,7 @@ export const TitleBar = styled.div`
 
   i {
     margin-left: 7px;
-    font-size: ${props => props.theme.icons.l};
+    font-size: 20px;
     z-index: 1;
   }
 
