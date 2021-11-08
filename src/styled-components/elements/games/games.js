@@ -28,14 +28,14 @@ export const GamesList = styled.ul`
 export const GameSingleContainer = styled.li`
   list-style-type: none;
   width: 300px;
-  margin-bottom: 43px;
-
+  margin-bottom: 33px;
 
   ///////////
   // media //
   ///////////
   @media ${device.mobileM} {
     width: 360px;
+    margin-bottom: 37px;
   }
 
   @media ${device.mobileL} {
@@ -60,28 +60,30 @@ export const GameSingleImg = styled.img`
   width: 100%;
   height: 183px;
   object-fit: cover;
-  border-radius: ${props => props.theme.border_radius.l};
+  border-radius: 13px;
 `
 export const GameSingleTitle = styled.h3`
   font-weight: bold;
-  font-size: 15px;
-  margin: 8px 0;
+  font-size: 1.5em;
+  margin: 0.4em 0;
   letter-spacing: 0.063rem;
 `
 export const GameSinglePlatforms = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
- 
 `
 export const GameSinglePlatform = styled.li`
   box-sizing: border-box;
    font-size: 10px;
    padding: 0.6em;
    background: ${props => props.theme.color.main};
+   box-shadow: 0 0 29px ${props => props.theme.color.gray} inset;
    border-radius: 50%;
-   margin: 2px 3px 0;
- img {
+   margin: 0.2em 0.3em 0;
+   @media ${device.mobileM}{
+     font-size: 11px;
+   }
+   img {
     width: 2.3em;
     height: 2.3em;
   }
@@ -99,6 +101,10 @@ export const GameSingleRatingsBar = styled.div`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    font-size: 11px;
+    margin-top: 16px;
+  }
   @media ${device.tablet} {
     margin-top: 22px;
   }
@@ -110,7 +116,7 @@ export const GameSingleRating = styled.div`
   justify-content: center;
   align-items: center;
    
-  border-radius: 10px;
+  border-radius: 0.6em;
   box-shadow: 0 0 12px ${props => props.theme.color.yellow};;
   background: ${props => props.theme.color.yellow};
   span {
@@ -142,8 +148,8 @@ export const GameSingleRatingMetacritic = styled.div`
 
 export const GamesGenresList = styled.ul`
   width: 100%;
-  height: 1100px;
-  margin-bottom: 80px;
+  height: 591px;
+  margin-bottom: 21px;
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -159,6 +165,10 @@ export const GamesGenresList = styled.ul`
   "family family family boardgames boardgames boardgames"
   "massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer massivelymultiplayer"
   "educational educational educational educational card card";
+
+  @media ${device.mobileM} {
+    height: 621px;
+  }
 `
 export const GamesSortForm = styled.form`
   width: 100%;
@@ -201,4 +211,7 @@ export const GameMissingImg = styled.div`
 
 export const GameSingleTitleScale = styled.div`
 font-size: 10px;
+@media ${device.mobileM} {
+  font-size: 12px;
+  }
 `

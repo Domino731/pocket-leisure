@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {an__checkboxRadio} from "./animations";
-import {device} from "./breakpoints";
+import { an__checkboxRadio } from "./animations";
+import { device } from "./breakpoints";
 
 export const Container = styled.main`
   width: 310px;
@@ -183,12 +183,15 @@ export const TitleBar = styled.div`
     box-shadow: 0 0 14px ${props => props.theme.color.main};
     border-radius: 50%;
     overflow: hidden;
-
     transition: 0.4s;
-
     &:hover {
       transition: 0.4s;
       width: 126px;
+    }
+
+    @media ${device.mobileM} {
+      height: 41px;
+    width: 41px;
     }
   }
 
@@ -196,6 +199,10 @@ export const TitleBar = styled.div`
     margin-left: 7px;
     font-size: 20px;
     z-index: 1;
+    @media ${device.mobileM} {
+      margin-left: 9px;
+      font-size: 24px;
+    }
   }
 
   span {
@@ -380,14 +387,14 @@ export const TitlePrimary = styled.h1`
 `
 export const Genre = styled.li`
   grid-area: ${props => props.area};
-  margin: 5px;
-  border-radius: ${props => props.theme.border_radius.l};
+  margin: 4px 3px;
+  border-radius: 6px;
   background: ${props => props.theme.color.main};
   font-weight: bold;
   letter-spacing: 0.081rem;
   overflow: hidden;
-  box-shadow: 0 0 10px ${props => props.theme.color.main};
-
+  box-shadow: 0 0 8px ${props => props.theme.color.main};
+    font-size: 13px;
   a {
     display: flex;
     justify-content: center;
@@ -399,6 +406,11 @@ export const Genre = styled.li`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    font-size: 15px;
+    margin: 4px 3px;
+  border-radius: 9px;
+  }
   @media ${device.laptop} {
     font-size: 1.5rem;
     margin: 9px;
