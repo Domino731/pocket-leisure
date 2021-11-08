@@ -230,10 +230,27 @@ export const GameStoresContainer = styled.div``
 export const GameStores = styled.ul`
 `
 export const GameStore = styled.li`
-  padding: 11px 6px;
-
+  padding: 4px 0;
   transition: 0.2s;
 
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    padding: 6px 0;
+  }
+  @media ${device.mobileXL} {
+    padding: 7px 0;
+  }
+  @media ${device.tablet} {
+    padding: 9px 0;
+  }
+
+  img {
+    width: 1em;
+    object-fit: cover;
+    margin: 0 0.4em;
+  }
   &:hover {
     transition: 0.2s;
     text-decoration: underline;

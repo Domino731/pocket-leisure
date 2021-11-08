@@ -44,6 +44,7 @@ import {Link} from "react-router-dom";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
 import { RatingIconWrapper } from "../../styled-components/elements/movie/movie";
+import buyBtn from "../../images/buy_btn.svg";
 // A component that returns details about specific game.
 export const Game = (props) => {
 
@@ -381,7 +382,7 @@ export const Game = (props) => {
             <GameStores>
                 {game.stores.map((el, num) => <GameStore key={`gameStore_${game.slug}_${num}`}>
                     <a href={getGameStoreUrl(num)} target="_blank" rel="noopener noreferrer">
-                        <i className="fas fa-shopping-cart"/>
+                        <img src={buyBtn }/>
                         {el.store.name}
                     </a>
                 </GameStore>)}
