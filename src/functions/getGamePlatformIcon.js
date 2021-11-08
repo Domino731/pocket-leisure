@@ -6,6 +6,7 @@ import android from "../images/android.svg";
 import mac from "../images/computer.svg";
 import linux from "../images/linux.svg";
 import nintendo from "../images/console.svg";
+import web from "../images/web.svg";
 /**
  * get icon of platform
  * @param platform {string}
@@ -29,6 +30,8 @@ export const getGamePlatformIcon = (platform) => {
             return  <img src={linux} title='Linux' alt='Linux'/>
         case "nintendo":
             return  <img src={nintendo} title='Nintendo' alt='Nintendo'/>
+            case "web":
+                return  <img src={web} title='Web' alt='Web'/>
         default:
             return null;
     }

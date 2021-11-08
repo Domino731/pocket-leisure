@@ -1,4 +1,4 @@
-import {Container, TitlePrimary} from "../../styled-components/general/general-styles";
+import {Container, SearchInputContainer, TitlePrimary} from "../../styled-components/general/general-styles";
 import {useState} from "react";
 import {FormElement} from "../../styled-components/elements/user-form/user-form";
 import {GameSingle} from "./GameSingle";
@@ -24,10 +24,10 @@ export const GameSearch = () => {
 
     return <Container>
         <TitlePrimary>Search</TitlePrimary>
-        <FormElement>
+        <SearchInputContainer>
             <i className="fas fa-search"/>
             <input type="text" onChange={handleChangeMovies} placeholder="Powered by Rawg Api"/>
-        </FormElement>
+        </SearchInputContainer>
 
         {/*when component download searched games, set loading screen */}
         {loading ?

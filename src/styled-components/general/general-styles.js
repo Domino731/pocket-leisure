@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { MovieElementTitle } from "../elements/movie/movieCategory";
 import { an__checkboxRadio } from "./animations";
 import { device } from "./breakpoints";
 
@@ -552,5 +551,116 @@ export const SortElementsButton = styled.button`
   ///////////
   @media ${device.tablet} {
     margin-top: 28px;
+  }
+`
+export const SearchInputContainer = styled.div`
+display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  i {
+    font-size: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 49px;
+    width: 49px;
+    box-shadow: 0 0 14px ${props => props.theme.color.main};
+    border-radius: 70px;
+    margin-left: ${props => props.right ? "-21px" : "0"};
+    background: ${props => props.theme.color.main};
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileM} {
+      width: 53px;
+      height: 53px;
+    }
+    @media ${device.mobileL} {
+      width: 59px;
+      height: 59px;
+      font-size: 32px;
+    }
+    @media ${device.tablet} {
+      width: 66px;
+      height: 66px;
+      font-size: 34px;
+    }
+    @media ${device.laptop} {
+      width: 50px; 
+      height: 50px;
+      font-size: 29px;
+    }
+    @media ${device.laptopL} {
+      width: 56px; 
+      height: 56px;
+      font-size: 32px;
+    }
+    @media ${device.desktopS} {
+      width: 62px; 
+      height: 62px;
+      font-size: 37px;
+    }
+  }
+
+  input {
+    margin-left: -21px;
+    padding-left: 25px;
+    border: none;
+    border-radius: 40px;
+    font-weight: bold;
+    color: ${props => props.theme.color.black};
+    outline: none;
+    transition: 0.1s;
+    position: relative;
+    font-size: 16px;
+    width: calc(100% - 50px);
+
+    ///////////
+    // media //
+    ///////////
+    @media ${device.mobileM} {
+      width: calc(100% - 54px);
+    }
+    @media ${device.mobileL} {
+      width: calc(100% - 60px);
+      height: 39px;
+    }
+    @media ${device.tablet} {
+      width: calc(100% - 67px);
+      height: 43px;
+      font-size: 20px;
+    }
+    @media ${device.laptop} {
+      width: calc(100% - 50px);
+      width: 600px;
+      height: 36px;
+      font-size: 17px;
+    }
+    @media ${device.laptopL} {
+      height: 38px;
+    }
+    @media ${device.desktopS} {
+      height: 43px;
+      width: 750px;
+    }
+  }
+
+  input:focus {
+    transition: 0.1s;
+    border: 2px solid ${props => props.theme.color.main};
+    @media ${device.laptopL} {
+      border: 4px solid ${props => props.theme.color.main};
+    }
+  }
+
+  input:hover {
+    @media ${device.laptop} {
+    border: 3px solid ${props => props.theme.color.main};
+    }
+    @media ${device.laptopL} {
+      border: 4px solid ${props => props.theme.color.main};
+    }
   }
 `
