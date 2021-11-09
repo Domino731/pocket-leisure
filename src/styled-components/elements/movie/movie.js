@@ -100,7 +100,12 @@ export const MovieDirector = styled.strong`
   ///////////
   @media ${device.mobileL} {
     margin-top: ${props => props.HasAPoster ? `-155px;` : `40px`};
-    
+  }
+  @media ${device.mobileXL} {
+    margin-top: ${props => props.HasAPoster ? `-403px;` : `40px`};
+  }
+  @media ${device.tablet} {
+    margin-top: ${props => props.HasAPoster ? `-645px;` : `51px`};
   }
   @media ${device.laptop} {
     justify-content: flex-start;
@@ -430,9 +435,22 @@ export const MovieActor = styled.li`
   }
   @media ${device.mobileL}{
     width: 141px;
-    margin-right: 15px;
+    margin-right: 13px;
     h3 {
       width: 141px
+    }
+  }
+  @media ${device.mobileXL}{
+    width: 147px;
+    margin-right: 14px;
+    h3 {
+      width: 147px
+    }
+  }
+  @media ${device.tablet} {
+    width: 192px;
+    h3 {
+      width: 147px
     }
   }
 `
@@ -454,7 +472,16 @@ export const MovieActorPhoto = styled.img`
     height: 211px;
     border-radius: 11px;
     }
-
+    @media ${device.mobileXL}{
+    width: 147px;
+    h3 {
+      width: 147px
+    }
+    @media ${device.tablet} {
+    height: 220px;
+    border-radius: 13px;
+    }
+  }
 `
 export const MovieActorPhotoMissing = styled.div`
   display: flex;
@@ -477,7 +504,11 @@ export const MovieActorPhotoMissing = styled.div`
   @media ${device.mobileL} {
     height: 211px;
     border-radius: 11px;
-    }
+  }
+  @media ${device.tablet} {
+    height: 220px;
+    border-radius: 13px;
+  }
 `
 export const MovieKnowFor = styled.strong`
   color: ${props => props.theme.color.gray};
@@ -522,8 +553,19 @@ export const MovieSimilarSingle = styled.li`
     }
   }
 
+  @media ${device.mobileXL} {
+    width: 33.33%;
+    a{
+      height: 291px;
+      border-radius: 14px;
+    }
+  }
+
+
   @media ${device.tablet} {
-  
+    a{
+      height: 365px;
+    }
   }
 
   @media ${device.laptop} {
@@ -545,7 +587,7 @@ export const MovieSimilarPoster = styled.div`
 `
 export const MovieSimilarMissing = styled.div`
  width: 100%;
- height: 100%;
+ height: 219px;
  box-shadow: 0 0 15px ${props => props.theme.color.missingYellow} inset;
  display: flex;
  justify-content: center;
@@ -564,6 +606,7 @@ export const MovieSimilarMissing = styled.div`
   // media //
   ///////////
   @media ${device.mobileM} {
+    height: 260px;
     box-shadow: 0 0 19px ${props => props.theme.color.missingYellow} inset;
     img {
       width: 120px;
@@ -574,5 +617,21 @@ export const MovieSimilarMissing = styled.div`
     img {
       width: 134px;
     } 
+  }
+  @media ${device.mobileL}{
+    height: 297px;
+  }
+  @media ${device.mobilXL} {
+    box-shadow: 0 0 27px ${props => props.theme.color.missingYellow} inset;
+    img {
+      width: 97px;
+    } 
+  }
+  @media ${device.tablet} {
+    height: 365px;
+    box-shadow: 0 0 33px ${props => props.theme.color.missingYellow} inset;
+    img {
+      width: 124px;
+    }
   }
 `

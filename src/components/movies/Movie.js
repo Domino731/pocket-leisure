@@ -310,20 +310,27 @@ export const Movie = (props) => {
                     <MovieSimilarSingle key={`similarMovies_${el.title}-${num}`}>
                         <Link to={`/movie/${el.id}`} >
                             {
-
+                                 
                                 // not all movies have a poster
-                                // el.poster_path !== null ?
-                                //         <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
-                                //              alt={el.title}/>
-                                //     : <> 
-                                //      <img src={missingPhoto}
-                                //              alt={el.title}/>
-                                //     <i className="fas fa-film"/><h3>{el.title}</h3>
-                                //     </>
+                                el.poster_path !== null ?
+                                        <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
+                                             alt={el.title}/>
+                                    : <> 
+                                     <img src={missingPhoto}
+                                             alt={el.title}/>
+                                    <h3>{el.title}</h3>
+                                    </>
 
 
                                // ot all movies have a poster
-                                el.poster_path !== null ?
+                        
+
+                            }
+                             
+                        </Link>
+
+                          <Link>
+                          {el.poster_path !== null ?
                                     <MovieSimilarMissing>
                                         <img src={missingPhoto}
                                             alt={el.title} />
@@ -333,9 +340,9 @@ export const Movie = (props) => {
                                     :
                                     <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
                                         alt={el.title} />
-
-                            }
-                        </Link>
+                             }           
+                                        </Link>
+                          
                     </MovieSimilarSingle>
                 )
                 }
