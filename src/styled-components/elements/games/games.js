@@ -84,6 +84,7 @@ export const GameSingleContainer = styled.li`
     margin-bottom: 23px;
   }
   @media ${device.laptopM} {
+    width: 20%;
     padding: 0 11px;
     margin-bottom: 29px;
   }
@@ -114,11 +115,11 @@ export const GameSingleImg = styled.img`
     height: 260px;
   }
   @media ${device.laptopM} {
-    height: 384px;
+    height: 336px;
   }
-  @media ${device.laptop} {
+  @media ${device.laptopL} {
     border-radius: 18px;
-    height: 412px;
+    height: 374px;
   }
   @media ${device.desktopS} {
     border-radius: 21px;
@@ -175,7 +176,7 @@ export const GameSingleReleased = styled.span`
   display: block;
   font-size: 1.2em;
   margin-bottom: 0.7em;
-  color: ${props => props.theme.color.gray}
+  color: ${props => props.theme.color.gray};
 `
 export const GameSingleRatingsBar = styled.div`
   display: flex;
