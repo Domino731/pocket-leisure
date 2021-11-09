@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import {device} from "../../general/breakpoints";
+import { device } from "../../general/breakpoints";
 
 export const MovieGenresList = styled.ul`
   width: 100%;
-  height: 1200px;
-  margin-bottom: 80px;
+  height: 714px;
+  margin-bottom: 21px;
   overflow: auto;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -26,9 +26,19 @@ export const MovieGenresList = styled.ul`
   ///////////
   // media //
   ///////////
-  @media ${device.tablet} {
-    height: 1300px;
+  @media ${device.mobileM} {
+    height: 752px;
   }
+  @media ${device.mobileXL} {
+    height: 912px;
+  }
+  @media ${device.tablet} {
+    height: 957px;
+  }
+  @media ${device.tablet} {
+    height: 759px;
+  }
+  
 `
 export const MovieGenreItem = styled.li`
   width: 100%;

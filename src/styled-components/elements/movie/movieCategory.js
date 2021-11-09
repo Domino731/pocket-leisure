@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {device} from "../../general/breakpoints";
+import { device } from "../../general/breakpoints";
 
 export const Movie = styled.div`
   h1 {
@@ -21,16 +21,42 @@ export const MovieElementTitle = styled.h2`
   letter-spacing: 0.063rem;
   margin: 1.563rem 0 0.625rem;
   transition: 0.1s;
-
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.063rem;
+  margin: 8px 0;
+  transition: 0.1s;
+  border-bottom: 1px solid ${props => props.theme.color.gray};
+  @media ${device.mobileL} {
+    margin: 10px 0;
+    font-size: 21px;
+    padding-bottom: 3px;
+    border-bottom: 2px solid ${props => props.theme.color.gray};
+  }
+  @media ${device.tablet} {
+    margin: 12px 0;
+    font-size: 23px;
+  }
+  @media ${device.laptop} {
+    margin: 9px 0;
+    font-size: 18px;
+  }
+  @media ${device.laptopM} {
+    margin: 11px 0;
+    font-size: 19px;
+  }
+  @media ${device.laptopL} {
+    margin: 13px 0;
+    font-size: 22px;
+    padding-bottom: 4px;
+    border-bottom: 3px solid ${props => props.theme.color.gray};
+  }
+  @media ${device.laptopL} {
+    margin: 16px 0;
+    font-size: 22px;
+  }
   i {
     margin-left: 0.875rem;
-  }
-
-  &:hover {
-    cursor: pointer;
-    transition: 0.2s;
-    font-size: 1.063rem;
-    color: ${props => props.theme.color.main}
   }
 
   ///////////
@@ -59,10 +85,13 @@ export const MovieCategoryList = styled.ul`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    padding-bottom: 14px;
+  }
   @media ${device.laptop} {
-    &::-webkit-scrollbar {
-      height: 12px;
-    }
+   overflow: visible;
+   flex-wrap: wrap;
+   padding-bottom: 21px;
   }
   @media ${device.laptopL} {
     &::-webkit-scrollbar {
@@ -71,23 +100,34 @@ export const MovieCategoryList = styled.ul`
   }
 `
 export const MovieCategoryItem = styled.li`
-  width: 128px;
-  margin-right: 23px;
+  width: 137px;
+  margin-right: 18px;
   flex-shrink: 0;
   
   ///////////
   // media //
   ///////////
-  @media ${device.mobileL} {
-    width: 147px;
+  @media ${device.mobileM} {
+    width: 156px;
+    margin-right: 19px;
   }
-
+  @media ${device.mobileL} {
+    width: 172px;
+    margin-right: 20px;
+  }
+  @media ${device.mobileXL} {
+    width: 192px;
+    margin-right: 22px;
+  }
   @media ${device.tablet} {
     width: 240px;
   }
 
   @media ${device.laptop} {
-    width: 255px;
+    width: 25%;
+    margin: 0;
+    margin-top: 10px;
+    padding: 8px;
   }
 
   @media ${device.laptopL} {

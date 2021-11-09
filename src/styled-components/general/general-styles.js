@@ -41,7 +41,7 @@ export const PosterBig = styled.div`
   justify-content: center;
   width: 100%;
   height: 190px;
-  border-radius: ${props => props.theme.border_radius.l};
+  border-radius: 13px;
   overflow: hidden;
 
   &:hover {
@@ -55,16 +55,19 @@ export const PosterBig = styled.div`
   }
 
   @media ${device.mobileM} {
-    height: 192px;
+    height: 228px;
   }
   @media ${device.mobileL} {
-    height: 220px;
+    height: 261px;
+  }
+  @media ${device.mobileXL} {
+    height: 281px;
   }
   @media ${device.tablet} {
     height: 360px;
   }
   @media ${device.laptop} {
-    height: 382px;
+    height: 345px;
   }
   @media ${device.laptopL} {
     height: 457px;
@@ -448,7 +451,7 @@ export const Genre = styled.li`
     border-radius: 11px;
   }
   @media ${device.mobileL} {
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 12px;
   }
   @media ${device.tablet} {
@@ -458,7 +461,7 @@ export const Genre = styled.li`
   @media ${device.laptop} {
     font-size: 20px;
     border-radius: 8px;
-    margin: 7px 5px;
+    margin: 5px 3px;
     transition: 0.3s;
     &:hover {
       letter-spacing: 0.25rem;

@@ -288,6 +288,9 @@ export const GamesGenresList = styled.ul`
   @media ${device.tablet} {
     height: 793px;
   }
+   @media ${device.laptop} {
+    height: 634px;
+  }
   @media ${device.laptopL} {
     height: 826px;
   }
