@@ -128,20 +128,28 @@ export const GameTrailersContainer = styled.div`
 export const GameTrailers = styled(MovieVideos)``
 
 export const GameMediaSwitch = styled(MovieVideosSwitch)`
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileL} {
-    height: 42px;
-  }
+
 `
 
 export const GameScContainer = styled.div`
-  margin-top: 61px;
+  margin-top: 51px;
 
   img {
     width: 100%;
     height: auto;
+
+  }
+   ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    margin-top: 57px;
+  }
+  @media ${device.tablet} {
+    margin-top: 61px;
+  }
+  @media ${device.laptop} {
+    margin-top: 57px;
   }
 `
 export const GameAdditionsContainer = styled.div`
@@ -173,6 +181,11 @@ export const GameAdditions = styled.ul`
    padding-bottom: 17px;
    margin-bottom: 28px;
   }
+  @media ${device.laptop} {
+    flex-wrap: wrap;
+    padding-bottom: 13px;
+   margin-bottom: 22px;
+  }
 `
 
 export const GameAddition = styled.li`
@@ -199,6 +212,9 @@ export const GameAddition = styled.li`
   @media ${device.tablet} {
     height: 169px;
   }
+  @media ${device.laptop} { 
+    height: 183px;
+  }
   }
 
   strong {
@@ -223,6 +239,11 @@ export const GameAddition = styled.li`
     margin-right: 18px;
     width: 184px;
   }
+  @media ${device.laptop} {
+    margin-top: 3px;
+    margin-right: 13px;
+    width: 206px;
+  }
 `
 
 export const GameStoresContainer = styled.div``
@@ -245,7 +266,9 @@ export const GameStore = styled.li`
   @media ${device.tablet} {
     padding: 9px 0;
   }
-
+  @media ${device.laptop} {
+    padding: 6px 0;
+  }
   img {
     width: 1em;
     object-fit: cover;
@@ -326,11 +349,15 @@ export const GameSeriesSingle = styled.li`
   }
   @media ${device.laptop}{
     border-radius: 14px;
+     width: 30%;
+     height: 190px;
   }
   @media ${device.laptopL} {
     border-radius: 18px;
+   
   }
   @media ${device.desktopS} {
+    
     border-radius: 21px;
   }
 `

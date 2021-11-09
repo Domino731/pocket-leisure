@@ -26,7 +26,16 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 20px;
     }
     @media ${device.laptop} {
+      font-size: 14px;
+    }
+    @media ${device.laptopM} {
+      font-size: 15px;
+    }
+    @media ${device.laptopL} {
       font-size: 16px;
+    }
+    @media ${device.desktopS} {
+      font-size: 17px;
     }
   }
 

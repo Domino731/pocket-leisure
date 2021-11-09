@@ -130,16 +130,25 @@ export const MovieGenreList = styled.ul`
   }
 
   a {
-    margin: 4px 6px;
+    margin: 0.2em 0.3em;
     display: block;
     padding: 0.5rem 0.938rem;
     background: ${props => props.theme.color.main};
-    border-radius: ${props => props.theme.border_radius.s};
+    border-radius: 11px;
     box-shadow: 0 0 7px ${props => props.theme.color.main};
     white-space: nowrap;
 
     &:hover {
       cursor: pointer;
+    }
+    @media ${device.mobileL}{
+      border-radius: 15px;
+    }
+    @media ${device.tablet}{
+      border-radius: 18px;
+    }
+    @media ${device.laptop}{
+      border-radius: 11px;
     }
   }
 
@@ -179,12 +188,16 @@ export const RatingIconWrapper = styled.div `
     width: 64px;
     height: 64px;
   }
+  @media ${device.laptop} {
+    width: 50px;
+    height: 50px;
+  }
 `
 export const MovieRating = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 16px auto;
+  margin: 12px auto;
   span {
     display: block;
     width: calc(100% - 62px);
@@ -220,6 +233,9 @@ export const MovieRating = styled.div`
     }
     @media ${device.tablet} {
       height: 43px;
+    }
+    @media ${device.laptop} {
+      height: 36px;
     }
   }
 
@@ -283,7 +299,7 @@ export const MovieVideosSwitch = styled.div`
     font-weight: bold;
     width: 50%;
     flex-grow: 1;
-    height: 35px;
+    padding: 0.5em 0;
     background: ${props => props.theme.color.main};
     border: none;
     outline: none;
@@ -293,9 +309,6 @@ export const MovieVideosSwitch = styled.div`
     ///////////
     // media //
     ///////////
-    @media ${device.mobileL} {
-      height: 42px;
-    }
     @media ${device.mobileXL} {
        border-radius: 80px;
     }
@@ -308,7 +321,7 @@ export const MovieVideosSwitch = styled.div`
     &:hover {
       cursor: pointer;
       transition: 0.2s;
-      font-size: 19px;
+      letter-spacing: 0.063em;
     }
 
     &:first-child {
