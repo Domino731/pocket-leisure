@@ -18,9 +18,25 @@ export const MoviePosterContainerDesktop = styled.div`
   width: 40%;
 `
 export const MovieIntroductionContainer = styled.div`
+  background-color: ${props => props.theme.color.black};
   ///////////
   // media //
   ///////////
+  @media ${device.mobileL} {
+    position: relative;
+    box-shadow: 0 -104px 27px 19px #171721;
+     /* &::after{
+       content: '';
+       display: block;
+       position: absolute;
+       width: 100%;
+       height: 192px;
+       top: -188px;
+       background: rgba(23,23,33,0.5);
+       filter: blur(10px);
+       box-shadow: inset 0 0 2000px rgb(23 23 33 / 90%), 0 0 64px 89px rgb(23 23 33 / 90%)
+     } */
+  }
   @media ${device.laptop} {
     width: 60%;
     padding-left: 20px;
@@ -82,6 +98,10 @@ export const MovieDirector = styled.strong`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileL} {
+    margin-top: ${props => props.HasAPoster ? `-155px;` : `40px`};
+    
+  }
   @media ${device.laptop} {
     justify-content: flex-start;
     margin-top: 0;
@@ -408,6 +428,13 @@ export const MovieActor = styled.li`
       width: 123px
     }
   }
+  @media ${device.mobileL}{
+    width: 141px;
+    margin-right: 15px;
+    h3 {
+      width: 141px
+    }
+  }
 `
 export const MovieActorPhoto = styled.img`
     width: 100%;
@@ -422,7 +449,11 @@ export const MovieActorPhoto = styled.img`
     @media ${device.mobileM} {
     height: 184px;
     border-radius: 9px;
-  }
+    }
+    @media ${device.mobileL} {
+    height: 211px;
+    border-radius: 11px;
+    }
 
 `
 export const MovieActorPhotoMissing = styled.div`
@@ -430,6 +461,8 @@ export const MovieActorPhotoMissing = styled.div`
   justify-content: center;
   align-items: center;
   height: 157px;
+  box-shadow: 0 0 15px ${props => props.theme.color.missingYellow} inset;
+  border-radius: 7px;
   img {
     width: 65%;
   }
@@ -439,7 +472,12 @@ export const MovieActorPhotoMissing = styled.div`
     ///////////
   @media ${device.mobileM} {
     height: 184px;
+    border-radius: 9px;
   }
+  @media ${device.mobileL} {
+    height: 211px;
+    border-radius: 11px;
+    }
 `
 export const MovieKnowFor = styled.strong`
   color: ${props => props.theme.color.gray};
@@ -479,7 +517,9 @@ export const MovieSimilarSingle = styled.li`
   }
 
   @media ${device.mobileL} {
-  
+    a{
+      height: 297px;
+    }
   }
 
   @media ${device.tablet} {
@@ -524,8 +564,15 @@ export const MovieSimilarMissing = styled.div`
   // media //
   ///////////
   @media ${device.mobileM} {
+    box-shadow: 0 0 19px ${props => props.theme.color.missingYellow} inset;
     img {
       width: 120px;
+    } 
+  }
+  @media ${device.mobileM} {
+    box-shadow: 0 0 24px ${props => props.theme.color.missingYellow} inset;
+    img {
+      width: 134px;
     } 
   }
 `

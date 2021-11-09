@@ -170,7 +170,7 @@ export const Movie = (props) => {
             <MovieIntroductionContainer>
                 {/*director*/}
                 {credits.director !== undefined &&
-                    <MovieDirector>{credits.director.name}</MovieDirector>}
+                    <MovieDirector HasAPoster={movie.poster_path}>{credits.director.name}</MovieDirector>}
 
                 {/*title*/}
                 <MovieTitle>{movie.title}</MovieTitle>
