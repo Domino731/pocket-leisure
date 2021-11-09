@@ -91,10 +91,7 @@ export const GameRatingMetacritic = styled(MovieRating)`
 div{
   background-color: ${props => props.theme.color.yellow};
 }
-  img {
-    width: 42px;
-    height: auto;
-  }
+
 
   span {
     &::before {
@@ -215,6 +212,9 @@ export const GameAddition = styled.li`
   @media ${device.laptop} { 
     height: 183px;
   }
+  @media ${device.laptopL} {
+    height: 198px;
+  }
   }
 
   strong {
@@ -244,6 +244,11 @@ export const GameAddition = styled.li`
     margin-right: 13px;
     width: 206px;
   }
+  @media ${device.laptopL} {
+    margin-top: 6px;
+    margin-right: 18px;
+    width: 259px;
+  }
 `
 
 export const GameStoresContainer = styled.div``
@@ -268,6 +273,9 @@ export const GameStore = styled.li`
   }
   @media ${device.laptop} {
     padding: 6px 0;
+  }
+  @media ${device.laptopL} {
+    padding: 8px 0;
   }
   img {
     width: 1em;
@@ -352,12 +360,15 @@ export const GameSeriesSingle = styled.li`
      width: 30%;
      height: 190px;
   }
+  @media ${device.laptopM} {
+    height: 204px;
+  }
   @media ${device.laptopL} {
     border-radius: 18px;
-   
+    height: 232px;
+    width: 23%;
   }
   @media ${device.desktopS} {
-    
     border-radius: 21px;
   }
 `

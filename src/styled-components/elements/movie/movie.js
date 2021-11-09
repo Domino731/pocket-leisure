@@ -150,6 +150,9 @@ export const MovieGenreList = styled.ul`
     @media ${device.laptop}{
       border-radius: 11px;
     }
+    @media ${device.laptopL} {
+      border-radius: 14px;
+    }
   }
 
   ///////////
@@ -192,10 +195,13 @@ export const RatingIconWrapper = styled.div `
     width: 50px;
     height: 50px;
   }
+  @media ${device.laptopL} {
+    width: 56px;
+    height: 56px;
+  }
 `
 export const MovieRating = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   margin: 12px auto;
   span {
@@ -237,6 +243,9 @@ export const MovieRating = styled.div`
     @media ${device.laptop} {
       height: 36px;
     }
+    @media ${device.laptopL} {
+      height: 40px;
+    }
   }
 
 `
@@ -256,12 +265,21 @@ export const MovieTagline = styled.strong`
     margin-top: 0;
   }
 `
-export const MovieDescription = styled.div`
-  margin: 22px 8px;
+export const MovieDescription = styled.p`
+  margin: 18px 8px;
   text-align: justify;
   color: ${props => props.theme.color.gray};
   line-height: 1.375rem;
   letter-spacing: 0.063rem;
+  @media ${device.mobileL} {
+    margin: 22px 8px;
+  }
+  @media ${device.tablet} {
+    margin: 26px 8px;
+  }
+  @media ${device.laptop} {
+    margin: 8px 4px;
+  }
 `
 
 export const MovieItemTitle = styled.h3`
