@@ -557,7 +557,7 @@ export const MovieSimilarSingle = styled.li`
     width: 33.33%;
     a{
       height: 291px;
-      border-radius: 14px;
+      border-radius: 18px;
     }
   }
 
@@ -569,7 +569,11 @@ export const MovieSimilarSingle = styled.li`
   }
 
   @media ${device.laptop} {
- 
+    width: 25%;
+    a{
+      height: 363px;
+      border-radius: 14px;
+    }
   }
 
   @media ${device.laptopL} {
