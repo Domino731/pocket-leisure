@@ -704,3 +704,15 @@ display: flex;
     }
   }
 `
+
+export const CarouselButton = styled.button`
+ background: transparent;
+ border: none;
+ outline: none;
+ i {
+   font-size: 15px;
+   border-radius: 50px;
+   padding: 4px;
+   background-color: #e4eaec;
+ }
+`

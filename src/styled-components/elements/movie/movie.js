@@ -389,7 +389,7 @@ export const MovieVideosSwitch = styled.div`
     }
   }
 `
-export const MovieActors = styled.ul`
+export const MovieActors = styled.div`
   width: 100%;
   display: flex;
   overflow: auto;
@@ -421,7 +421,7 @@ export const MovieActors = styled.ul`
     }
   }
 `
-export const MovieActor = styled.li`
+export const MovieActor = styled.div`
   margin-right: 12px;
   width: 105px;
   h3 {

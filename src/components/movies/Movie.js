@@ -39,6 +39,9 @@ import { NotFound404 } from "../notFound/NotFound404";
 import { RatingIconWrapper } from "../../styled-components/elements/movie/movie";
 import userRating from "../../images/users_rating.svg";
 import missingPhoto from "../../images/missing.svg";
+import Carousel from "react-elastic-carousel";
+import Slider from "react-slick";
+import { CarouselArrow } from "../general/CorouselArrow";
 /**
  * component which renders single movie and details about him
  * @param props.props.match.params.id {string} - id of film that you want to get (comes from url)
@@ -93,6 +96,10 @@ export const Movie = (props) => {
         setVideoNumber(prev => prev - 1)
     }
 
+    /** breakpoints for carousel */
+    const carouselBreakPoints = [
+          {width: 320, itemsToShow: 2 }
+    ]
 
     if (movie === undefined) {
         return <NotFound404 redirectUrl="/movies" />
@@ -276,7 +283,17 @@ export const Movie = (props) => {
         {/* rendering cast*/}
         {credits.cast.length !== 0 && <>
             <MovieItemTitle>Cast</MovieItemTitle>
-            <MovieActors>
+
+             <Carousel 
+             breakPoints={carouselBreakPoints}
+             nextArrow={<button>asdasdasd</button>}
+             renderArrow={(clickHandler, hasPrev, label) =>  {
+                 console.log(clickHandler)
+                 return <CarouselArrow direction={clickHandler.type} clickHandler={clickHandler.onClick}>asd</CarouselArrow>
+             }}
+               
+        
+             >
                 {credits.cast.map((el, num) => (
                     // not all actors have profile photo
                     el.profile_path !== null ?
@@ -294,7 +311,7 @@ export const Movie = (props) => {
                             <MovieKnowFor>{el.character}</MovieKnowFor>
                         </MovieActor>
                 ))}
-            </MovieActors>
+                </Carousel>
         </>}
 
 
