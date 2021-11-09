@@ -245,7 +245,7 @@ export const Game = (props) => {
                 {/*game rating by users*/}
                 {game.rating !== 0 && <GameRating rating={game.rating}>
                     <RatingIconWrapper>
-                        <img src={userRating} title='Users rating' alt="Users rating"/>
+                        <img src={userRating} title='Average users rating' alt="Users rating"/>
                     </RatingIconWrapper>
                     <span/>
                 </GameRating>}

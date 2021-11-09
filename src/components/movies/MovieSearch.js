@@ -4,7 +4,7 @@ import {searchMovieByActor} from "../../api/themoviedb/operations";
 import {MovieGenreSingle as SingleMovie} from "./MovieGenreSingle";
 import {useState} from "react";
 import {Loading} from "../loading/Loading";
-import {TitlePrimary} from "../../styled-components/general/general-styles";
+import {SearchInputContainer, TitlePrimary} from "../../styled-components/general/general-styles";
 import {FormElement} from "../../styled-components/elements/user-form/user-form";
 import {CheckboxRadio, Container} from "../../styled-components/general/general-styles";
 import {MovieCategoryForm} from "../../styled-components/elements/movie/movieCategory";
@@ -95,17 +95,17 @@ export const MovieSearch = () => {
             </CheckboxRadio>
         </MovieCategoryForm>}
 
-        <FormElement>
+        <SearchInputContainer>
             <i className="fas fa-search"/>
             <input type="text" onChange={handleChangeMovies} placeholder="Powered by TheMovieDb Api"/>
-        </FormElement>
+        </SearchInputContainer>
 
         {/*when component download searched movies, set loading screen */}
         {loading ?
             <Loading/>
             :
             <MoviesList>
-                {movies !== null &&
+                {movies &&
                 movies.map((el, num) => <SingleMovie movie={el} key={`movieSearch_${el.id}_${num}`}/>)
                 }
             </MoviesList>

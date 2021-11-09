@@ -130,7 +130,7 @@ export const MovieCategoryItem = styled.li`
     padding: 8px;
   }
   
-  @media ${device.laptopL} {
+  @media ${device.laptopM} {
     width: 20%;
     margin-top: 12px;
     padding: 10px;

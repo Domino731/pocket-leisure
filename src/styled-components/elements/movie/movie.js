@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {device} from "../../general/breakpoints";
+import { device } from "../../general/breakpoints";
 
 
 export const MovieRow = styled.div`
@@ -162,7 +162,7 @@ export const MovieGenreList = styled.ul`
     justify-content: flex-start;
   }
 `
-export const RatingIconWrapper = styled.div `
+export const RatingIconWrapper = styled.div`
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -203,6 +203,7 @@ export const RatingIconWrapper = styled.div `
 export const MovieRating = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   margin: 12px auto;
   span {
     display: block;
@@ -247,7 +248,13 @@ export const MovieRating = styled.div`
       height: 40px;
     }
   }
-
+ 
+   ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    justify-content: flex-start;
+  }
 `
 
 export const MovieTagline = styled.strong`
@@ -362,7 +369,6 @@ export const MovieActors = styled.ul`
   display: flex;
   overflow: auto;
   padding-bottom: 13px;
-  margin-bottom: 42px;
 
   &::-webkit-scrollbar {
     height: 8px;
@@ -388,49 +394,51 @@ export const MovieActors = styled.ul`
   }
 `
 export const MovieActor = styled.li`
-  margin-right: 14px;
-
-  img {
-    width: 105px;
-    height: auto;
-    margin-right: 15px;
-    border-radius: ${props => props.theme.border_radius.m};
-    object-fit: cover;
-
-    ///////////
-    // media //
-    ///////////
-    @media ${device.mobileL} {
-      width: 147px;
-    }
-  }
-
+  margin-right: 12px;
+  width: 105px;
   h3 {
     width: 105px;
-
+}
     ///////////
     // media //
     ///////////
-    @media ${device.mobileL} {
-      width: 147px;
+  @media ${device.mobileM} {
+    width: 123px;
+    h3 {
+      width: 123px
     }
   }
+`
+export const MovieActorPhoto = styled.img`
+    width: 100%;
+    height: 157px;
+    height: auto;
+    border-radius: 7px;
+    object-fit: cover;
+
+     ///////////
+    // media //
+    ///////////
+    @media ${device.mobileM} {
+    height: 184px;
+    border-radius: 9px;
+  }
+
 `
 export const MovieActorPhotoMissing = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 105px;
-  height: 158px;
-  margin-right: 15px;
-  font-size: 4.5rem;
+  height: 157px;
+  img {
+    width: 65%;
+  }
 
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileL} {
-    width: 147px;
-    height: 224px;
+   ///////////
+    // media //
+    ///////////
+  @media ${device.mobileM} {
+    height: 184px;
   }
 `
 export const MovieKnowFor = styled.strong`
@@ -443,41 +451,47 @@ export const MoviesList = styled.ul`
   flex-wrap: wrap;
 `
 export const MovieSimilarSingle = styled.li`
-  width: 140px;
-  height: 210px;
-  margin: 10px;
-  border-radius: ${props => props.theme.border_radius.m};
+   width: 50%;
   overflow: hidden;
   position: relative;
-
+  padding: 7px;
+  a {
+    width: 100%;
+    display: block;
+    border-radius: 13px;
+    overflow: hidden;
+    height: 219px;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+  h3 {
+    text-align: center;
+  }
   ///////////
   // media //
   ///////////
   @media ${device.mobileM} {
-    margin: 7px;
-    width: 173px;
-    height: 259px;
+    a{
+      height: 260px;
+    }
   }
 
   @media ${device.mobileL} {
-    width: 127px;
-    height: 190px;
+  
   }
 
   @media ${device.tablet} {
-    width: 173px;
-    height: 259px;
+  
   }
 
   @media ${device.laptop} {
-    width: 236px;
-    height: 354px;
+ 
   }
 
   @media ${device.laptopL} {
-    margin: 9px;
-    width: 265px;
-    height: 397px;
+  
   }
 `
 export const MovieSimilarPoster = styled.div`
@@ -490,54 +504,28 @@ export const MovieSimilarPoster = styled.div`
   }
 `
 export const MovieSimilarMissing = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: -1;
-  width: 100%;
-  height: 100%;
-  font-size: 42px;
-  position: relative;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: ${props => props.theme.border_radius.m};
-  border: 3px solid ${props => props.theme.color.main};
-
-  &:hover {
-    transition: 0.2s;
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(52, 58, 64, 0.4));
-  }
-;
-
-  h3 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding-top: 19px;
-    text-align: center;
-    z-index: 2;
-    font-size: 1.188rem;
-    transition: 0.2s;
-
-  }
-
-  i {
-    color: ${props => props.theme.color.main};
-    transform: rotate(-30deg);
-  }
+ width: 100%;
+ height: 100%;
+ box-shadow: 0 0 15px ${props => props.theme.color.missingYellow} inset;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ padding: 4px;
+ img {
+   margin: 10px auto 0;
+   width: 86px;
+ }
+ h3 {
+   text-align: center;
+ }
 
   ///////////
   // media //
   ///////////
   @media ${device.mobileM} {
-    font-size: 50px;
-  }
-
-  @media ${device.tablet} {
-    font-size: 100px;
-  }
-
-  @media ${device.laptopL} {
-    font-size: 152px;
+    img {
+      width: 120px;
+    } 
   }
 `

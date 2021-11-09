@@ -57,7 +57,7 @@ export const GameSingleContainer = styled.li`
   list-style-type: none;
   width: 97%;
   margin-bottom: 33px;
-
+  flex-grow: 1;
   ///////////
   // media //
   ///////////

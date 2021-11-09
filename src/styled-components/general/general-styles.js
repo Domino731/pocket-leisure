@@ -72,7 +72,7 @@ export const PosterBig = styled.div`
     height: 345px;
   }
   @media ${device.laptopM} {
-    height: 437px;
+    height: 347px;
   }
   @media ${device.laptopL} {
     border-radius: 18px;
@@ -108,7 +108,7 @@ export const PosterBigMissing = styled.div`
     height: 345px;
   }
   @media ${device.laptopM} {
-    height: 437px;
+    height: 347px;
   }
   @media ${device.laptopL} {
     border-radius: 18px;

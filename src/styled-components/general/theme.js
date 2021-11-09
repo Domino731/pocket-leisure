@@ -6,7 +6,9 @@ export const theme = (mainColor = "#e63946") => ({
         gray: "#707070",
         main: mainColor,
         invalid: "#f9320c",
-        green: "#75D701"
+        green: "#75D701",
+        missingYellow: "#ffb640",
+        missingBlue: '#62ddfc'
     },
     border: {
         s: "2px",
