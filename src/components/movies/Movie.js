@@ -98,7 +98,13 @@ export const Movie = (props) => {
 
     /** breakpoints for carousel */
     const carouselBreakPoints = [
-          {width: 320, itemsToShow: 2 }
+        { width: 438, itemsToShow: 2 },
+        { width: 646, itemsToShow: 3 },
+        { width: 800, itemsToShow: 4 },
+        { width: 965, itemsToShow: 5 },
+        { width: 1121, itemsToShow: 6 },
+        { width: 1283, itemsToShow: 7 },
+        { width: 1528, itemsToShow: 8 },
     ]
 
     if (movie === undefined) {
@@ -287,10 +293,9 @@ export const Movie = (props) => {
              <Carousel 
              breakPoints={carouselBreakPoints}
              nextArrow={<button>asdasdasd</button>}
-             renderArrow={(clickHandler, hasPrev, label) =>  {
-                 console.log(clickHandler)
-                 return <CarouselArrow direction={clickHandler.type} clickHandler={clickHandler.onClick}>asd</CarouselArrow>
-             }}
+             renderArrow={(clickHandler, hasPrev, label) =>  <CarouselArrow direction={clickHandler.type} clickHandler={clickHandler.onClick}>asd</CarouselArrow> }
+            
+            
                
         
              >

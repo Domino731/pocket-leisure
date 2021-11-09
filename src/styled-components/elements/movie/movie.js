@@ -424,44 +424,28 @@ export const MovieActors = styled.div`
 export const MovieActor = styled.div`
   margin-right: 12px;
   width: 105px;
-  h3 {
-    width: 105px;
-}
+
     ///////////
     // media //
     ///////////
   @media ${device.mobileM} {
     width: 123px;
-    h3 {
-      width: 123px
-    }
   }
   @media ${device.mobileL}{
     width: 141px;
     margin-right: 13px;
-    h3 {
-      width: 141px
-    }
   }
   @media ${device.mobileXL}{
     width: 147px;
     margin-right: 14px;
-    h3 {
-      width: 147px
-    }
   }
   @media ${device.tablet} {
     width: 192px;
-    h3 {
-      width: 147px
-    }
+   
   }
   @media ${device.laptop} {
     width: 168px;
     margin-top: 17px;
-    h3 {
-      width: 168px
-    }
   }
 `
 export const MovieActorPhoto = styled.img`

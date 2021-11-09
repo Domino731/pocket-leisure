@@ -706,13 +706,25 @@ display: flex;
 `
 
 export const CarouselButton = styled.button`
- background: transparent;
- border: none;
- outline: none;
- i {
-   font-size: 15px;
-   border-radius: 50px;
-   padding: 4px;
-   background-color: #e4eaec;
- }
+    box-sizing: border-box;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: #e4eaec;
+    color: #333;
+    box-shadow: 0 0 2px 0px #333;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    width: 25px;
+    font-size: 10px;
+    height: 25px;
+    min-width: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    cursor: pointer;
+    outline: none;
 `
