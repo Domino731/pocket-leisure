@@ -129,9 +129,14 @@ export const MovieCategoryItem = styled.li`
     margin-top: 10px;
     padding: 8px;
   }
-
+  
   @media ${device.laptopL} {
-    width: 305px;
+    width: 20%;
+    margin-top: 12px;
+    padding: 10px;
+  }
+  @media ${device.desktopS} {
+    margin-top: 14px;
   }
 `
 export const MovieCategoryForm = styled.form`

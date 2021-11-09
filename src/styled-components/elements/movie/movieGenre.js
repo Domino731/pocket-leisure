@@ -35,10 +35,12 @@ export const MovieGenresList = styled.ul`
   @media ${device.tablet} {
     height: 957px;
   }
-  @media ${device.tablet} {
+  @media ${device.laptop} {
     height: 759px;
   }
-  
+  @media ${device.laptop} {
+    height: 984px;
+  }
 `
 export const MovieGenreItem = styled.li`
   width: 100%;

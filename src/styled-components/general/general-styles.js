@@ -58,6 +58,7 @@ export const PosterBig = styled.div`
     height: 228px;
   }
   @media ${device.mobileL} {
+    border-radius: 18px;
     height: 261px;
   }
   @media ${device.mobileXL} {
@@ -67,10 +68,19 @@ export const PosterBig = styled.div`
     height: 360px;
   }
   @media ${device.laptop} {
+    border-radius: 14px;
     height: 345px;
   }
+  @media ${device.laptopM} {
+    height: 437px;
+  }
   @media ${device.laptopL} {
-    height: 457px;
+    border-radius: 18px;
+    height: 398px;
+  }
+  @media ${device.desktopS} {
+    border-radius: 21px;
+    height: 448px;
   }
 `
 export const PosterBigMissing = styled.div`
@@ -78,8 +88,36 @@ export const PosterBigMissing = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  border-radius: ${props => props.theme.border_radius.l};
+  border-radius: 13px;
   font-size: 4.5rem;
+  @media ${device.mobileM} {
+    height: 228px;
+  }
+  @media ${device.mobileL} {
+    border-radius: 18px;
+    height: 261px;
+  }
+  @media ${device.mobileXL} {
+    height: 281px;
+  }
+  @media ${device.tablet} {
+    height: 360px;
+  }
+  @media ${device.laptop} {
+    border-radius: 14px;
+    height: 345px;
+  }
+  @media ${device.laptopM} {
+    height: 437px;
+  }
+  @media ${device.laptopL} {
+    border-radius: 18px;
+    height: 398px;
+  }
+  @media ${device.desktopS} {
+    border-radius: 21px;
+    height: 448px;
+  }
 
 `
 export const PosterMed = styled.div`
