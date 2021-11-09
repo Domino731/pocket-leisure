@@ -2,7 +2,7 @@
 import {Link} from "react-router-dom";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 //styles
-import {MovieGenreItem, MovieGenreItemDetails, MovieRating} from "../../styled-components/elements/movie/movieGenre";
+import {MovieGenreItem, MovieItemContent, MoviePosterSmall, MovieRating} from "../../styled-components/elements/movie/movieGenre";
 import {
     PosterMed,
     ItemTitleMedium,
@@ -14,31 +14,33 @@ import {
  * @param movie {object} - object with a film which contains his basic data - title, rating, premiere
  */
 export const MovieGenreSingle = ({movie}) => {
+    console.log(movie)
     return <MovieGenreItem>
         <Link to={`/movie/${movie.id}`}>
 
             {/*not all movies have a poster*/}
             {
                 movie.poster_path !== null ?
-                    <PosterMed>
+                    <MoviePosterSmall>
                         <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                              alt={movie.title !== undefined ? movie.title : movie.name} />
-                    </PosterMed>
+                    </MoviePosterSmall>
                     :
-                    <PosterMed><i className="fas fa-image"/></PosterMed>
+                    <MoviePosterSmall><i className="fas fa-image"/></MoviePosterSmall>
             }
         </Link>
 
-        <MovieGenreItemDetails>
+        <MovieItemContent>
 
-            {/*not all movies have title key, certain have name key*/}
+            <div>
+            {/*not all movies have title, certain have name key instead of title*/}
             <ItemTitleMedium>{movie.title !== undefined ? movie.title : movie.name}</ItemTitleMedium>
 
             <ItemPremiereMedium>{getReleaseDate(movie.release_date)}</ItemPremiereMedium>
-
+</div>
             {/*if a film has no rating, dont show it*/}
             {movie.vote_average !== 0 &&
             <MovieRating><i className="fas fa-grin-alt"/><span>{movie.vote_average.toFixed(1)}</span></MovieRating>}
-        </MovieGenreItemDetails>
+        </MovieItemContent>
     </MovieGenreItem>
 };

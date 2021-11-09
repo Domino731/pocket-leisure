@@ -56,38 +56,43 @@ export const MovieGenreItem = styled.li`
 
   &:last-child {
     margin-bottom: 35px;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL}{
+    margin-bottom: 37px;
+  }
   }
 
   ///////////
   // media //
   ///////////
+  @media ${device.mobileL}{
+    margin-bottom: 23px;
+  }
   @media ${device.tablet} {
+    padding: 7px;
+    width: 33.33%;
     flex-direction: column;
-    width: 305px;
-    margin-right: 25px;
-    margin-left: 25px;
-    margin-bottom: 40px;
-    &:first-child {
-      margin-top: 0;
-    }
   }
-  @media ${device.laptop} {
-    width: 301px;
-    margin-right: 16px;
-    margin-left: 16px;
-  }
-  @media ${device.laptopL} {
-    width: 323px;
-  }
-
 `
 
-export const MovieGenreItemDetails = styled.div`
+export const MovieItemContent = styled.div`
+  width: calc(100% - 123px);
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    width: calc(100% - 132px);
+  }
+  @media ${device.mobileL}{
+    width: calc(100% - 176px);
+  }
   @media ${device.tablet} {
-
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
   }
 `
 export const MovieRating = styled.div`
@@ -95,36 +100,70 @@ export const MovieRating = styled.div`
   position: absolute;
   right: 0;
   bottom: 0;
-  border-radius: ${props => props.theme.border_radius.s};
+  border-radius: 0.6em;
   background: ${props => props.theme.color.main};
   padding: 0.625rem 1.25rem;
   font-size: 1rem;
   box-shadow: 0 0 12px ${props => props.theme.color.main};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    border-radius: 15px;
+    min-width: 110px;
+  }
+  @media ${device.tablet} {
+    padding-bottom: 10px;
+    position: static;
+    height: 39px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0;
+    i{
+      margin-right: 0.4em;
+    }
+    }
+`
+export const MoviePosterSmall = styled.div`
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 109px;
+  height: 155px;
+  border-radius: 7px;
+  background: ${props => props.theme.color.black};
+  color: ${props => props.theme.color.main};
+  margin-right: 0.625rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  z-index: 3;
+   img{
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }
 
   ///////////
   // media //
   ///////////
-  @media ${device.tablet} {
-    top: 0;
-    z-index: -1;
-    display: flex;
-    padding: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 360px;
-    padding-left: 34px;
-    span {
-      margin-top: 8px;
-      margin-left: -10px;
-    }
-
-    i {
-      font-size: 34px;
-    }
-  }
-
-  i {
-    margin-right: 0.5rem;
-  }
+   @media ${device.mobileM} {
+    width: 130px;
+    height: 195px;
+    border-radius: 10px;
+   }
+   @media ${device.mobileL} {
+    width: 160px;
+    height: 243px;
+    border-radius: 15px;
+   }
+   @media ${device.tablet} {
+    width: 100%;
+    height: 344px;
+    border-radius: 17px;
+   }
 `
