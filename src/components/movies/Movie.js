@@ -1,53 +1,31 @@
 import { getSingleMovie, getSimilarMovies, getMovieVideos, getMovieCredits } from "../../api/themoviedb/operations";
 import { useEffect, useState } from "react";
-import { getReleaseDate } from "../../functions/getReleaseDate";
-import { Link } from "react-router-dom";
-// styles
 import {
     Container,
     FullWidePoster,
-    ItemTitleSmall,
-    FactsTable
 } from "../../styled-components/general/general-styles";
 import {
-    MovieDirector,
-    MovieTitle,
-    MovieDetail,
-    MovieGenreList,
-    MovieRating,
-    MovieDescription,
-    MovieActors,
-    MovieActor,
-    MovieKnowFor,
-    MovieItemTitle,
-
-    MovieTagline,
-    MovieVideos,
-    MovieVideosSwitch,
-    MovieActorPhotoMissing,
-    MoviesList,
     MoviePosterContainer,
     MovieRow,
-    MovieIntroductionContainer,
-    MovieFactsContainer,
-    MovieMediaContainer,
-    MoviePosterContainerDesktop,
-    MovieFactsContainerDesktop, MovieSimilarSingle, MovieSimilarMissing, MovieSimilarPoster, MovieActorPhoto
 } from "../../styled-components/elements/movie/movie";
 import { Loading } from "../loading/Loading";
 import { NotFound404 } from "../notFound/NotFound404";
-import { RatingIconWrapper } from "../../styled-components/elements/movie/movie";
-import userRating from "../../images/users_rating.svg";
-import missingPhoto from "../../images/missing.svg";
-import Carousel from "react-elastic-carousel";
-import Slider from "react-slick";
-import { CarouselArrow } from "../general/CorouselArrow";
+import { MovieSimilarMovies } from "./MovieSimilarMovies";
+import { MovieCast } from "./MovieCast";
+import { MovieFacts } from "./MovieFacts";
+import { MoviePosterDesktop } from "./MoviePosterDesktop";
+import { MovieIntroduction } from "./MovieIntroduction";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+
 /**
  * component which renders single movie and details about him
- * @param props.props.match.params.id {string} - id of film that you want to get (comes from url)
- * @returns {JSX.Element} - details about movie - trailers, poster, title, similar movies, facts....
  */
-export const Movie = (props) => {
+export const Movie = () => {
+
+    // refenences
+    const { id } = useParams();
+    /** id of movie from url */
+    const movieId = id;
 
     // state with movie data
     const [movie, setMovie] = useState(null);
@@ -61,21 +39,17 @@ export const Movie = (props) => {
     // state with movie videos
     const [videos, setVideos] = useState(null);
 
-    // state with number, when user change this number then the next trailer or the previous one will be shown
-    const [videoNumber, setVideoNumber] = useState(0);
-
     //A state containing the width of the page based on which the elements will be rendered.
-    // For widths below 1024px there is a different layout at the top and for widths above 1024px
+    // For window width below 1024px there is a different layout at the top and for  width above 1024px
     const [windowWidth, setWindowWidth] = useState(0);
 
-    //when component mounted get a movie with this id (from ulr path)
+    // when component mounted fetch data about movie
     useEffect(() => {
-        getSingleMovie(setMovie, props.match.params.id);
-        getSimilarMovies(setSimilarMovies, props.match.params.id);
-        getMovieVideos(setVideos, props.match.params.id);
-        getMovieCredits(setCredits, props.match.params.id);
-    }, [props.match.params]);
-
+        getSingleMovie(setMovie, movieId);
+        getSimilarMovies(setSimilarMovies, movieId);
+        getMovieVideos(setVideos, movieId);
+        getMovieCredits(setCredits, movieId);
+    }, [movieId]);
 
     // set the windowWidth state
     const resizeWindow = () => setWindowWidth(window.innerWidth);
@@ -85,291 +59,40 @@ export const Movie = (props) => {
         return () => window.removeEventListener("resize", resizeWindow);
     }, []);
 
-    //
-    const handleSwitchNextVideo = () => {
-        if (videoNumber < videos.length) {
-            setVideoNumber(prev => prev + 1)
-        }
-    }
-
-    const handleSwitchPrevVideo = () => {
-        setVideoNumber(prev => prev - 1)
-    }
-
-    /** breakpoints for carousel */
-    const carouselBreakPoints = [
-        { width: 438, itemsToShow: 2 },
-        { width: 646, itemsToShow: 3 },
-        { width: 800, itemsToShow: 4 },
-        { width: 965, itemsToShow: 5 },
-        { width: 1121, itemsToShow: 6 },
-        { width: 1283, itemsToShow: 7 },
-        { width: 1528, itemsToShow: 8 },
-    ]
-
+    // if movie doesnt exists then show 404 error page
     if (movie === undefined) {
         return <NotFound404 redirectUrl="/movies" />
     }
+
+    // wait for data
     if (movie === null || credits === null || similarMovies === null || videos === null) {
         return <Loading />
     }
 
     return <Container>
-
+        
         <MovieRow>
-            {/*poster, some movie dont have a poster, then dont render anything*/}
+            {/*poster, certain movies dont have a poster*/}
             {windowWidth < 1024 && <MoviePosterContainer>
                 {movie.poster_path !== null &&
                     <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />}
             </MoviePosterContainer>}
 
+            {/* poster for bigger devies, with table about movie details */}
+            {windowWidth >= 1024 && <MoviePosterDesktop movie={movie} credits={credits} />}
 
-            {windowWidth >= 1024 && <MoviePosterContainerDesktop>
-                {movie.poster_path !== null &&
-                    <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />}
-                <MovieFactsContainerDesktop>
-                    {/*movie details*/}
-                    <FactsTable>
-                        <tbody>
-                            {credits.director !== undefined && <tr>
-                                <td><i className="fas fa-circle" />Director</td>
-                                <td>{credits.director.name}</td>
-                            </tr>}
-                            {movie.status !== null && <tr>
-                                <td><i className="fas fa-circle" />Status</td>
-                                <td>{movie.status}</td>
-                            </tr>}
-
-
-                            {movie.production_countries.length !== 0 && <tr>
-                                <td><i className="fas fa-circle" />Country</td>
-                                <td>{movie.production_countries.map((el, num) => <span
-                                    key={`productionCountries_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
-                            </tr>}
-
-
-                            {movie.runtime !== null && <tr>
-                                <td><i className="fas fa-circle" />Time</td>
-                                <td>{movie.runtime} min</td>
-                            </tr>}
-
-
-                            {/*screening only when there is information about it, some films have no budget(0)*/}
-                            {movie.budget !== 0 &&
-                                <tr>
-                                    <td><i className="fas fa-circle" />Budget</td>
-                                    <td><i className="fas fa-dollar-sign" /> {movie.budget.toLocaleString()}</td>
-                                </tr>
-                            }
-
-                            {movie.production_companies.length !== 0 && <tr>
-                                <td><i className="fas fa-circle" />Production</td>
-                                <td>{movie.production_companies.map((el, num) => <span
-                                    key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
-                            </tr>}
-
-                            {
-                                movie.vote_average !== null && <tr>
-                                    <td><i className="fas fa-circle" />Rating</td>
-                                    <td>{movie.vote_average.toFixed(1)} / 10</td>
-                                </tr>
-                            }
-
-                        </tbody>
-                    </FactsTable>
-                </MovieFactsContainerDesktop>
-            </MoviePosterContainerDesktop>}
-
-            <MovieIntroductionContainer>
-                {/*director*/}
-                {credits.director !== undefined &&
-                    <MovieDirector HasAPoster={movie.poster_path}>{credits.director.name}</MovieDirector>}
-
-                {/*title*/}
-                <MovieTitle>{movie.title}</MovieTitle>
-
-                {/*release date*/}
-                {movie.release_date !== undefined &&
-                    <MovieDetail>{getReleaseDate(movie.release_date)}</MovieDetail>}
-
-
-                {/*genres */}
-                <MovieGenreList>
-                    {movie.genres !== null && typeof movie.genres === "object" && movie.genres.map((el, num) => (
-                        <li key={`movie${num}_${props.match.params.id}_genre_${el.name}`}><Link
-                            to={`/movies-by-genre/${el.id}/${el.name}`}>{el.name}</Link></li>
-                    ))}
-                </MovieGenreList>
-
-                {/*average vote*/}
-                {movie.vote_average !== null &&
-                    <MovieRating rating={movie.vote_average}>
-                        <RatingIconWrapper>
-                            <img src={userRating} title='Average users rating' alt="Users rating" />
-                        </RatingIconWrapper>
-                        <span />
-                    </MovieRating>}
-
-                {/*description*/}
-                {movie.tagline !== null && <MovieTagline>{movie.tagline}</MovieTagline>}
-
-                {movie.overview !== null && <MovieDescription>{movie.overview}</MovieDescription>}
-
-                <MovieMediaContainer>
-                    {/*movie videos -> trailers*/}
-                    {videos.length > 0 && <>
-                        <MovieVideos>
-                            <iframe title={`${movie.title} trailer`}
-                                src={`https://www.youtube.com/embed/${videos[videoNumber].key}`}
-                                frameBorder="0" allowFullScreen />
-                        </MovieVideos>
-                        {/*switch video*/}
-                        <MovieVideosSwitch>
-                            {videoNumber !== 0 && <button onClick={handleSwitchPrevVideo}>Previous</button>}
-                            {videoNumber < videos.length - 1 &&
-                                <button onClick={handleSwitchNextVideo}>Next</button>}
-                        </MovieVideosSwitch>
-                    </>}
-                </MovieMediaContainer>
-            </MovieIntroductionContainer>
-
+            {/* introduction for movie -> title, director, release date... */}
+            <MovieIntroduction movie={movie} credits={credits} videos={videos} />
         </MovieRow>
 
-        {windowWidth < 1024 && <MovieFactsContainer>
-            {/*movie details*/}
-            <FactsTable>
-                <tbody>
-                    {credits.director !== undefined && <tr>
-                        <td><i className="fas fa-circle" />Director</td>
-                        <td>{credits.director.name}</td>
-                    </tr>}
-                    {movie.status !== null && <tr>
-                        <td><i className="fas fa-circle" />Status</td>
-                        <td>{movie.status}</td>
-                    </tr>}
+        {/* only below 1024px - table with movie details */}
+        {windowWidth < 1024 && <MovieFacts credits={credits} movie={movie} />}
 
+        {/* rendering cast */}
+        {credits.cast.length !== 0 && <MovieCast cast={credits.cast} />}
 
-                    {movie.production_countries.length !== 0 && <tr>
-                        <td><i className="fas fa-circle" />Country</td>
-                        <td>{movie.production_countries.map((el, num) => <span
-                            key={`productionCountries_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
-                    </tr>}
-
-
-                    {movie.runtime !== null && <tr>
-                        <td><i className="fas fa-circle" />Time</td>
-                        <td>{movie.runtime} min</td>
-                    </tr>}
-
-
-                    {/*screening only when there is information about it, some films have no budget(0)*/}
-                    {movie.budget !== 0 &&
-                        <tr>
-                            <td><i className="fas fa-circle" />Budget</td>
-                            <td><i className="fas fa-dollar-sign" /> {movie.budget.toLocaleString()}</td>
-                        </tr>
-                    }
-
-                    {movie.production_companies.length !== 0 && <tr>
-                        <td><i className="fas fa-circle" />Production</td>
-                        <td>{movie.production_companies.map((el, num) => <span
-                            key={`productionCompanies_${props.match.params.id}_${num}`}>{el.name}</span>)}</td>
-                    </tr>}
-
-                    {
-                        movie.vote_average !== null && <tr>
-                            <td><i className="fas fa-circle" />Rating</td>
-                            <td>{movie.vote_average.toFixed(1)} / 10</td>
-                        </tr>
-                    }
-                </tbody>
-            </FactsTable>
-        </MovieFactsContainer>}
-
-        {/* rendering cast*/}
-        {credits.cast.length !== 0 && <>
-            <MovieItemTitle>Cast</MovieItemTitle>
-
-             <Carousel 
-             breakPoints={carouselBreakPoints}
-             nextArrow={<button>asdasdasd</button>}
-             renderArrow={(clickHandler, hasPrev, label) =>  <CarouselArrow direction={clickHandler.type} clickHandler={clickHandler.onClick}>asd</CarouselArrow> }
-            
-            
-               
+        {/*similar movies list*/}
+        {similarMovies.length !== 0 && <MovieSimilarMovies movies={similarMovies} />}
         
-             >
-                {credits.cast.map((el, num) => (
-                    // not all actors have profile photo
-                    el.profile_path !== null ?
-                        <MovieActor key={`cast_${props.match.params.id}_${num}`}>
-                            <MovieActorPhoto src={`https://image.tmdb.org/t/p/original${el.profile_path}`} alt={el.name} />
-                            <ItemTitleSmall>{el.name}</ItemTitleSmall>
-                            <MovieKnowFor>{el.character}</MovieKnowFor>
-                        </MovieActor>
-                        :
-                        <MovieActor key={`cast_${props.match.params.id}_${num}`}>
-                            <MovieActorPhotoMissing>
-                                <img src={missingPhoto} title='Actor doeans have his photo' alt='camera' />
-                            </MovieActorPhotoMissing>
-                            <ItemTitleSmall>{el.name}</ItemTitleSmall>
-                            <MovieKnowFor>{el.character}</MovieKnowFor>
-                        </MovieActor>
-                ))}
-                </Carousel>
-        </>}
-
-
-        {/*similar movies*/}
-        {similarMovies.length !== 0 && <>
-
-            <MovieItemTitle>Similar movies</MovieItemTitle>
-            <MoviesList>
-
-                {/*{similarMovies.map((el, num) => <SimilarMovie movie={el}*/}
-                {/*                                              key={`similarMovie_${props.match.params.id}-${num}`}/>)}*/}
-                {similarMovies.map((el, num) =>
-                    <MovieSimilarSingle key={`similarMovies_${el.title}-${num}`}>
-                        <Link to={`/movie/${el.id}`} >
-                            {
-                                 
-                                // not all movies have a poster
-                                el.poster_path !== null ?
-                                        <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
-                                             alt={el.title}/>
-                                    : <> 
-                                     <img src={missingPhoto}
-                                             alt={el.title}/>
-                                    <h3>{el.title}</h3>
-                                    </>
-
-
-                               // ot all movies have a poster
-                        
-
-                            }
-                             
-                        </Link>
-
-                          {/* <Link>
-                          {el.poster_path !== null ?
-                                    <MovieSimilarMissing>
-                                        <img src={missingPhoto}
-                                            alt={el.title} />
-                                        <h3>{el.title}</h3>
-                                    </MovieSimilarMissing>
-
-                                    :
-                                    <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
-                                        alt={el.title} />
-                             }           
-                                        </Link> */}
-                          
-                    </MovieSimilarSingle>
-                )
-                }
-            </MoviesList>
-        </>}
-
     </Container>
 };
