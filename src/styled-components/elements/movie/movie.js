@@ -408,6 +408,9 @@ export const MovieActors = styled.ul`
   // media //
   ///////////
   @media ${device.laptop} {
+    overflow: visible;
+    flex-wrap: wrap;
+    justify-content: space-between;
     &::-webkit-scrollbar {
       height: 12px;
     }
@@ -451,6 +454,13 @@ export const MovieActor = styled.li`
     width: 192px;
     h3 {
       width: 147px
+    }
+  }
+  @media ${device.laptop} {
+    width: 168px;
+    margin-top: 17px;
+    h3 {
+      width: 168px
     }
   }
 `
@@ -509,6 +519,9 @@ export const MovieActorPhotoMissing = styled.div`
     height: 220px;
     border-radius: 13px;
   }
+  @media ${device.laptop} {
+    width: 147px;
+  }
 `
 export const MovieKnowFor = styled.strong`
   color: ${props => props.theme.color.gray};
@@ -560,14 +573,11 @@ export const MovieSimilarSingle = styled.li`
       border-radius: 18px;
     }
   }
-
-
   @media ${device.tablet} {
     a{
       height: 365px;
     }
   }
-
   @media ${device.laptop} {
     width: 25%;
     a{
@@ -575,10 +585,25 @@ export const MovieSimilarSingle = styled.li`
       border-radius: 14px;
     }
   }
-
-  @media ${device.laptopL} {
-  
+  @media ${device.laptopM} {
+    width: 20%;
+    a{
+      height: 363px;
+      border-radius: 14px;
+    }
   }
+  @media ${device.laptopL} {
+    a{
+      height: 411px;
+      border-radius: 18px;
+    }
+    }
+    @media ${device.desktopS} {
+    a{
+      height: 459px;
+      border-radius: 21px;
+    }
+    }
 `
 export const MovieSimilarPoster = styled.div`
   height: 100%;
@@ -632,10 +657,24 @@ export const MovieSimilarMissing = styled.div`
     } 
   }
   @media ${device.tablet} {
-    height: 365px;
+    height: 363px;
     box-shadow: 0 0 33px ${props => props.theme.color.missingYellow} inset;
     img {
       width: 124px;
+    }
+  }
+  @media ${device.laptopL} {
+    height: 411px;
+    box-shadow: 0 0 41px ${props => props.theme.color.missingYellow} inset;
+    img {
+      width: 153px;
+    }
+  }
+  @media ${device.desktopS} {
+    height: 459px;
+    box-shadow: 0 0 48px ${props => props.theme.color.missingYellow} inset;
+    img {
+      width: 153px;
     }
   }
 `

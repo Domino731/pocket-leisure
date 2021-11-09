@@ -329,7 +329,7 @@ export const Movie = (props) => {
                              
                         </Link>
 
-                          <Link>
+                          {/* <Link>
                           {el.poster_path !== null ?
                                     <MovieSimilarMissing>
                                         <img src={missingPhoto}
@@ -341,7 +341,7 @@ export const Movie = (props) => {
                                     <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
                                         alt={el.title} />
                              }           
-                                        </Link>
+                                        </Link> */}
                           
                     </MovieSimilarSingle>
                 )
