@@ -280,6 +280,12 @@ export const MovieDescription = styled.p`
   @media ${device.laptop} {
     margin: 8px 4px;
   }
+  @media ${device.laptopL} {
+    margin: 14px 10px;
+  }
+  @media ${device.desktopS} {
+    margin: 24px 14px;
+  }
 `
 
 export const MovieItemTitle = styled.h3`

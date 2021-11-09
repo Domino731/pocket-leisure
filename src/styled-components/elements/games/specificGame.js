@@ -215,6 +215,9 @@ export const GameAddition = styled.li`
   @media ${device.laptopL} {
     height: 198px;
   }
+  @media ${device.desktopS} {
+    height: 245px;
+  }
   }
 
   strong {
@@ -248,6 +251,11 @@ export const GameAddition = styled.li`
     margin-top: 6px;
     margin-right: 18px;
     width: 259px;
+  }
+  @media ${device.desktopS} {
+    margin-top: 9px;
+    margin-right: 24px;
+    width: 302px;
   }
 `
 
