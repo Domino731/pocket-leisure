@@ -484,18 +484,26 @@ export const OwMedalsDiagram = styled.div`
   width: 100%;
   margin: 0.813rem 0 1.688rem;
   border-bottom: 3px solid ${props => props.theme.color.main};
-
+   
   ///////////
   // media //
   ///////////
   @media ${device.mobileM} {
     margin: 19px 0 5px;
   }
+  @media ${device.tablet}{
+    flex-direction: column;
+    height: 163px;
+    border-bottom: none;
+    border-left:  3px solid ${props => props.theme.color.main};
+  }
   @media ${device.laptop} {
     margin: 14px 0 3px;
+    height: 153px;
   }
   @media ${device.laptopL} {
     margin: 21px 0 4px;
+    height: 168px;
   }
 `
 export const OwMedalBar = styled.div`
@@ -511,8 +519,16 @@ export const OwMedalBar = styled.div`
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: ${props => ((props.medal / props.allMedals) * 100) + "%"};;
+    height: ${props => ((props.medal / props.allMedals) * 100) + "%"};
     background: ${props => props.color};
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.tablet} {
+    height: 100%;
+    width: ${props => ((props.medal / props.allMedals) * 100) + "%"};
+  }
   }
 
   ///////////
@@ -527,15 +543,9 @@ export const OwMedalBar = styled.div`
     height: 164px;
   }
   @media ${device.tablet} {
-    width: 72px;
-  }
-  @media ${device.laptop} {
-    width: 88px;
-    height: 171px;
-  }
-  @media ${device.laptopL} {
-    height: 189px;
-    width: 99px;
+    width: 100%;
+    border-radius: 0  50px 50px 0;
+    height: 25%;
   }
 `
 export const OwLinksContainer = styled.div`
