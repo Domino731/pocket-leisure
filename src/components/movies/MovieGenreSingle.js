@@ -2,13 +2,12 @@
 import {Link} from "react-router-dom";
 import {getReleaseDate} from "../../functions/getReleaseDate";
 //styles
-import {MovieGenreItem, MovieItemContent, MoviePosterSmall, MovieRating} from "../../styled-components/elements/movie/movieGenre";
+import {MovieGenreItem, MovieItemContent, MoviePosterSmall, MoviePosterSmallMissing, MovieRating} from "../../styled-components/elements/movie/movieGenre";
 import {
-    PosterMed,
     ItemTitleMedium,
     ItemPremiereMedium
 } from "../../styled-components/general/general-styles";
-
+import photoMissing from "../../images/missing.svg";
 /**
  * movie poster as link to single movie, title, release date and rating
  * @param movie {object} - object with a film which contains his basic data - title, rating, premiere
@@ -21,12 +20,13 @@ export const MovieGenreSingle = ({movie}) => {
             {/*not all movies have a poster*/}
             {
                 movie.poster_path !== null ?
-                    <MoviePosterSmall>
+                <MoviePosterSmallMissing><img src={photoMissing} title='Missing poster' alt='camera'/></MoviePosterSmallMissing>
+                  
+                    :
+                      <MoviePosterSmall>
                         <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                              alt={movie.title !== undefined ? movie.title : movie.name} />
                     </MoviePosterSmall>
-                    :
-                    <MoviePosterSmall><i className="fas fa-image"/></MoviePosterSmall>
             }
         </Link>
 

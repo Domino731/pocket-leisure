@@ -71,17 +71,23 @@ export const MovieGenreItem = styled.li`
   @media ${device.mobileL}{
     margin-bottom: 16px;
   }
-  @media ${device.tablet} {
+  @media ${device.mobileXL} {
     padding: 7px;
     width: 33.33%;
     flex-direction: column;
   }
-  @media ${device.laptop} {
+  @media ${device.tablet} {
     width: 25%;
     margin-bottom: 4px;
   }
-  @media ${device.laptopM}{
+  @media ${device.laptop}{
     width: 20%;
+  }
+  @media ${device.laptopM}{
+    width: 16.66%;
+  }
+  @media ${device.desktopS} {
+    width: 14.28%;
   }
 `
 
@@ -96,7 +102,7 @@ export const MovieItemContent = styled.div`
   @media ${device.mobileL}{
     width: calc(100% - 176px);
   }
-  @media ${device.tablet} {
+  @media ${device.mobileXL} {
     width: 100%;
     display: flex;
     flex-direction: column-reverse;
@@ -122,35 +128,35 @@ export const MovieRating = styled.div`
     border-radius: 15px;
     min-width: 110px;
   }
-  @media ${device.tablet} {
+  @media ${device.mobileXL} {
     position: static;
-    height: 39px;
-    border-radius: 14px;
+    height: 30px;
+    border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 8px 0;
+    margin: 4px 0;
     i{
       margin-right: 0.4em;
     }
     }
   @media ${device.laptop} {
-    height: 29px;
-    border-radius: 12px;
+    border-radius: 11px;
+    height: 27px;
   } 
   @media ${device.laptopL} {
-    height: 32px;
-    border-radius: 14px;
+    height: 30px;
+    border-radius: 12px;
     margin: 9px 0;
   }
   @media ${device.desktopS} {
     height: 34px;
-    border-radius: 15px;
+    border-radius: 13px;
     margin: 10px 0;
   }
 `
 export const MoviePosterSmall = styled.div`
- display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   width: 109px;
@@ -174,28 +180,74 @@ export const MoviePosterSmall = styled.div`
    @media ${device.mobileM} {
     width: 130px;
     height: 195px;
-    border-radius: 10px;
+    border-radius: 13px;
    }
    @media ${device.mobileL} {
     width: 160px;
     height: 243px;
-    border-radius: 15px;
+    border-radius: 14px;
    }
-   @media ${device.tablet} {
+   @media ${device.mobileXl} {
     width: 100%;
-    height: 344px;
-    border-radius: 17px;
+    height: 286px;
    }
-   @media ${device.laptopM} {
-    height: 356px;
-    border-radius: 16px;
-   }
-   @media ${device.laptopL} {
-    height: 409px;
-    border-radius: 19px;
-   }
-   @media ${device.desktopS} {
-    height: 459px;
+   @media screen and (min-width: 648px){
+    height: 306px;
+  }
+  @media screen and (min-width: 700px){
+    height: 327px;
+  }
+  @media ${device.tablet} {
+    height: 284px;
+  }
+  @media screen and (min-width: 876px){
+    height: 327px;
+  } 
+  @media screen and (min-width: 930px){
+    height: 337px;
+  }
+  @media ${device.laptop} {
+    border-radius: 14px;
+    height: 273px;
+  }
+  @media screen and (min-width: 1070px){
+    height: 289px;
+  }
+  @media screen and (min-width: 1133px){
+    height: 320px;
+  }
+  @media screen and (min-width: 1228px){
+    height: 335px;
+  }
+  @media ${device.laptopM} {
+    height: 307px;
+  }
+  @media screen and (min-width: 1388px){
+    height: 325px;
+  }
+  @media ${device.laptopL} {
+    border-radius: 18px;
+    height: 331px;
+  }
+  @media screen and (min-width: 1500px){
+    height: 341px;
+  }
+  @media screen and (min-width: 1550px){
+    height: 347px;
+  }
+  @media ${device.desktopS} {
     border-radius: 21px;
-   }
+    height: 317px;
+  }
+  
+`
+export const MoviePosterSmallMissing = styled(MoviePosterSmall)`
+box-shadow: 0 0 84px ${props => props.theme.color.missingBlack} inset;
+flex-direction: column;
+img {
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+  align-items: center;
+}
 `

@@ -63,5 +63,6 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: ${props => props.theme.color.white};
     text-decoration: none;
+    display: block;
   }
 `;
