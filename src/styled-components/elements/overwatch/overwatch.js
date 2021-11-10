@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {device} from "../../general/breakpoints";
-import {FormElement} from "../user-form/user-form";
+import { device } from "../../general/breakpoints";
+import { FormElement } from "../user-form/user-form";
 
 export const OwSearchContainer = styled.main`
   display: flex;
@@ -88,6 +88,19 @@ export const OwPlayerBoard = styled.div`
   align-items: center;
   position: relative;
   height: 208px;
+
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileL} {
+    height: 233px;
+  }
+  @media ${device.laptop} {
+    height: 190px;
+  }
+  @media ${device.laptopL} {
+    height: 241px;
+  }
 `
 export const OwIcon = styled.img`
   width: 68px;
@@ -100,9 +113,17 @@ export const OwIcon = styled.img`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileL} {
+    width: 71px;
+    top: 75px;
+  }
+  @media ${device.laptop} {
+    width: 57px;
+    top: 60px;
+  }
   @media ${device.laptopL} {
-    width: 121px;
-    top: 135px;
+    width: 77px;
+    top: 87px;
   }
 `
 export const OwLevelIcon = styled.img`
@@ -114,8 +135,14 @@ export const OwLevelIcon = styled.img`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileL} {
+    width: 222px;
+  }
+  @media ${device.laptop} {
+    width: 177px;
+  }
   @media ${device.laptopL} {
-    width: 354px;
+    width: 248px;
   }
 `
 export const OwPrestigeIcon = styled(OwLevelIcon)`
@@ -127,9 +154,20 @@ export const OwPrestigeIcon = styled(OwLevelIcon)`
   ///////////
   // media //
   ///////////
-  @media ${device.laptopL} {
-    top: 182px;
+  @media ${device.mobileL} {
+    top: 117px;
+    width: 197px;
   }
+  @media ${device.laptop} {
+    top: 92px;
+    width: 155px;
+  }
+  @media ${device.laptopL} {
+    top: 143px;
+    width: 194px;
+  }
+  
+
 `
 export const OwName = styled.h1`
   border-bottom: 3px solid ${props => props.theme.color.main};
@@ -143,8 +181,18 @@ export const OwName = styled.h1`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileL} {
+    font-size: 19px;
+  }
+  @media ${device.tablet} {
+    font-size: 26px;
+  }
+  @media ${device.laptop} {
+    font-size: 21px;
+  }
   @media ${device.laptopL} {
-    margin-top: 67px;
+    font-size: 24px;
+    border-bottom: 4px solid ${props => props.theme.color.main};
   }
 `
 export const OwPrivate = styled.div`
@@ -187,7 +235,8 @@ export const OwStatsSingle = styled.section`
   // media //
   ///////////
   @media ${device.tablet} {
-    width: 90%;
+    padding: 10px;
+    width: 100%;
   }
 `
 export const OwStatsSingleOverall = styled.section`
@@ -262,19 +311,46 @@ table, td, th {
   }
   @media ${device.mobileL} {
     tr {
-      font-size: 19px;
-    height: 37px;
+      font-size: 17px;
+    height: 32px;
     }
   }
   @media ${device.tablet} {
+    tr td {
+      padding: 0 12px;
+    }
+    table, td, th {
+  border: 2px solid white;
+}
+  }
+  @media ${device.laptop} {
+    tr {
+    font-size: 15px;
+    height: 29px;
+    td {
+      padding: 0 8px;
+    }
+    }
 
+    table, td, th {
+  border: 1px solid white;
+}
   }
   @media ${device.laptopL} {
-
+    tr {
+    font-size: 17px;
+    height: 33px;
+    td {
+      padding: 0 11px;
+    }
+    }
+    table, td, th {
+  border: 2px solid white;
+}
   }
 `
 export const OwStatsTitle = styled.h2`
-  background: ${props => props.theme.color.main};
+  background: #343a40;
   padding: 2px;
   margin: 7px auto 2px;
   font-size: 18px;
@@ -285,20 +361,31 @@ export const OwStatsTitle = styled.h2`
   ///////////
   @media ${device.mobileM} {
     padding: 4px;
-    margin: 7px auto 2px;
-    font-size: 27px;
+    margin: 7px auto 11px;
+    font-size: 22px;
     border-radius: 10px;
   }
   @media ${device.mobileL} {
     padding: 5px;
-    margin: 13px auto 2px;
-    font-size: 32px;
+    margin: 13px auto 11px;
+    font-size: 24px;
     border-radius: 14px;
   }
   @media ${device.tablet} {
-    padding: 5px;
+    padding: 4px;
     margin: 17px auto 7px;
-    font-size: 36px;
+    font-size: 24px;
+    border-radius: 12px;
+  }
+  @media ${device.laptop} {
+    margin: 12px auto 7px;
+    font-size: 26px;
+    border-radius: 13px;
+  }
+  @media ${device.laptopL} {
+    padding: 5px;
+    margin: 15px auto 12px;
+    font-size: 32px;
     border-radius: 18px;
   }
 `
@@ -317,20 +404,34 @@ export const OwStatTitle = styled.h3`
   ///////////
   @media ${device.mobileM} {
     padding: 4px;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 14px 14px 0 0;
   }
   @media ${device.mobileL}{
-    margin-top: 35px;
-    font-size: 26px;
-    border-radius: 16px 16px 0 0;
+    margin-top: 27px;
+    font-size: 19px;
+    border-radius: 12px 12px 0 0
   }
   @media ${device.tablet} {
-    margin-top: 41px;
-    font-size: 25px;
-    border-radius: 18px 18px 0 0;
+    margin-top: 30px;
+    font-size: 17px;
+    border-radius: 14px 14px 0 0;
     text-align: left;
     padding-left: 12px;
+  }
+  @media ${device.laptop} {
+    margin-top: 31px;
+    font-size: 17px;
+    border-radius: 13px 13px 0 0;
+    text-align: left;
+    padding-left: 8px;
+  }
+  @media ${device.laptopL} {
+    margin-top: 35px;
+    font-size: 21px;
+    border-radius: 18px 18px 0 0;
+    text-align: left;
+    padding-left: 11px;
   }
 `
 
@@ -349,9 +450,9 @@ export const OwWonGamesBar = styled.div`
     margin-left: -1px;
     height: 100%;
     width: ${props => {
-      const number = ((props.won / props.played) * 100)
-      return number > 0 ? `${number}%` : `0%`
-    }};
+    const number = ((props.won / props.played) * 100)
+    return number > 0 ? `${number}%` : `0%`
+  }};
     transform: skew(17deg, 0deg);
     background: ${props => props.theme.color.green};
   }
@@ -367,11 +468,13 @@ export const OwWonGamesBar = styled.div`
     height: 41px;
     margin-top: 13px;
   }
-  @media ${device.tablet} {
-    width: 322px;
+  @media ${device.laptop} {
+    height: 33px;
+    margin-top: 9px;
   }
   @media ${device.laptopL} {
-    width: 434px;
+    height: 44px;
+    margin-top: 14px;
   }
 `
 
@@ -388,11 +491,11 @@ export const OwMedalsDiagram = styled.div`
   @media ${device.mobileM} {
     margin: 19px 0 5px;
   }
-  @media ${device.tablet} {
-    width: 322px;
+  @media ${device.laptop} {
+    margin: 14px 0 3px;
   }
   @media ${device.laptopL} {
-    width: 434px;
+    margin: 21px 0 4px;
   }
 `
 export const OwMedalBar = styled.div`
@@ -426,15 +529,19 @@ export const OwMedalBar = styled.div`
   @media ${device.tablet} {
     width: 72px;
   }
+  @media ${device.laptop} {
+    width: 88px;
+    height: 171px;
+  }
   @media ${device.laptopL} {
-    height: 155px;
-    width: 90px;
+    height: 189px;
+    width: 99px;
   }
 `
 export const OwLinksContainer = styled.div`
   display: flex;
   flex-direction: column;
-
+  margin-top: 20px;
   ///////////
   // media //
   ///////////
@@ -444,30 +551,31 @@ export const OwLinksContainer = styled.div`
   }
 `
 export const OwLink = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 286px;
-  height: 93px;
-  margin: 12px auto;
-  border: none;
-  border-radius: 18px;
-  background: ${props => props.theme.color.main};;
-  box-shadow: 0 0 14px ${props => props.theme.color.main};;
-  color: ${props => props.theme.color.white};;
-  font-weight: bold;
-  font-size: 2.125rem;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #495057;
   text-align: center;
-
+  margin-bottom: 10px;
   ///////////
   // media //
   ///////////
+  @media ${device.mobileL} {
+    font-size: 26px;
+    border-radius: 9px;
+  }
   @media ${device.tablet} {
     margin: 0;
-    width: 360px;
-    font-size: 40px;
+    width: 49%;
+  }
+  @media ${device.laptop} {
+    font-size: 22px;
+    border-radius: 7px;
+    padding: 7px;
   }
   @media ${device.laptopL} {
-    width: 512px;
+    font-size: 23px;
+    border-radius: 8px;
+    padding: 8px;
   }
 `
