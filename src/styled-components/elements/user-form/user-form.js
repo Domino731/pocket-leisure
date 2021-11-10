@@ -76,7 +76,7 @@ export const FormElement = styled.div`
     padding-left: 25px;
     width: 235px;
     border: none;
-    border-radius: ${props => props.theme.border_radius.l};
+    border-radius: 50px;
     font-weight: bold;
     color: ${props => props.theme.color.black};
     outline: none;

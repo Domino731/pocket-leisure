@@ -52,23 +52,32 @@ export const OwSearchSettings = styled.div`
   }
 
   img {
-    width: 63px;
-    min-height: 42px;
+    width: 48px;
     height: auto;
     object-fit: cover;
     transition: 0.2s;
     border-radius: ${props => props.theme.border_radius.s};
 
+    &:hover {
+      cursor: pointer;
+    }
     ///////////
     // media //
     ///////////
-    @media ${device.tablet} {
-      width: 94px;
-      height: 50px;
+    @media ${device.mobileL} {
+      width: 50px;
     }
-
-    &:hover {
-      cursor: pointer;
+    @media ${device.tablet} {
+      width: 63px;
+    }
+    @media ${device.laptop} {
+      width: 45px;
+    }
+    @media ${device.laptopM} {
+      width: 48px;
+    }
+    @media ${device.laptopL} {
+      width: 51px;
     }
   }
 `

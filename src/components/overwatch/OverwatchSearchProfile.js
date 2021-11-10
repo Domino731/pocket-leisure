@@ -6,11 +6,15 @@ import {
     OwPoweredBy,
     OwSearchSettings
 } from "../../styled-components/elements/overwatch/overwatch";
-import {getRegionImgOw, getPlatformIconOw} from "../../functions/overwatchSearch";
 import {validateOverwatchUser} from "../../api/overwatch/operations";
 import {useHistory} from "react-router";
 import {Loading} from "../loading/Loading";
-
+import desktop from "../../images/gaming.svg";
+import ps from "../../images/playstation.svg";
+import xbox from "../../images/xbox.svg";
+import chinaFlag from "../../images/chinaFlag.svg";
+import europeFlag from "../../images/europeFlag.svg";
+import usaFlag from "../../images/usaFlag.svg";
 /**
  * Component which is responsible for search user, and redirect him to his stats
  * @returns {JSX.Element} - form, by which user can find his battle net profile
@@ -65,6 +69,36 @@ export const OverwatchSearchProfile = () => {
 
     // for redirection
     let history = useHistory();
+
+    const getRegionImgOw = (region) => {
+        switch (region) {
+            case "us":
+                return <img src={usaFlag} title='USA server' alt="United States of America"/>;
+            case "eu":
+                return <img src={europeFlag} title='Europe server' alt="Europe"/>;
+            case "asia":
+                return <img src={chinaFlag} title='Asia flag' alt="asia"/>;
+            default:
+                return null;
+        }
+    }
+    
+    /**
+     * this function return icon, which represented platform on which you have a battleNet account
+     * @param platform {string} - name of platform
+     */
+    const getPlatformIconOw = (platform) => {
+        switch (platform) {
+            case "pc":
+                return <img src={desktop}/>;
+            case "xbl":
+                return  <img src={xbox}/>;
+            case "psn":
+                return <img src={ps}/>;
+            default:
+                return null;
+        }
+    }
 
     // changing data for form
     const handleChangeData = (e) => {
