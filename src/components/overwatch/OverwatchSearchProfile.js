@@ -43,7 +43,7 @@ export const OverwatchSearchProfile = () => {
     const [platform, setPlatform] = useState(platformsArr[platformNumber]);
 
     // incorrect data msg
-    const [incorrect, setIncorrect] = useState({error: ""});
+    const [incorrect, setIncorrect] = useState(false);
 
     // checking flag, changes when user click button then handleSearchUser function will check the user with the given data exists
     const [checkingFlag, setCheckingFlag] = useState(false);
@@ -111,7 +111,7 @@ export const OverwatchSearchProfile = () => {
         }));
 
         // remove error
-        return setIncorrect({error: ""});
+        return setIncorrect(false);
     };
 
     // when search was successful, redirect to statistics page based on user data (username, battleTag, region, platform)
@@ -125,11 +125,10 @@ export const OverwatchSearchProfile = () => {
         // set loading screen
         setCheckingFlag(true);
 
-
         // remove loading screen
         setCheckingFlag(false);
 
-        // check the user battle net account is exist
+        // check the user battle net account is correct
         return validateOverwatchUser(platform, region, data.username, data.battleTag, successful, setIncorrect);
     };
 
@@ -185,10 +184,10 @@ export const OverwatchSearchProfile = () => {
                 </OwSearchSettings>
             </FormElement>
 
-            {/*when user types invalid data*/}
-            <FormInvalid>
-                <strong>{incorrect.error}</strong>
-            </FormInvalid>
+            {/*when user types incorrect data*/}
+            { incorrect && <FormInvalid>
+                <strong>Incorrect data</strong>
+            </FormInvalid>}
             <button onClick={handleSearchUser}>Search</button>
         </Form>}
 

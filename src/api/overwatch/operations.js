@@ -18,10 +18,14 @@ export const validateOverwatchUser = (platform, region, username, battleTag, suc
             }
             //when user enters invalid data, change state and notify him of the error - bad battleTag, nick, region ...
             if (typeof failedCallback === "function") {
-                return failedCallback(data);
+                return failedCallback(true);
             }
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err) 
+            return failedCallback(true);
+           
+        });
 };
 
 /**

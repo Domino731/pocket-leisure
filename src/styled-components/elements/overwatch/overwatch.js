@@ -87,14 +87,14 @@ export const OwPlayerBoard = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 318px;
+  height: 208px;
 `
 export const OwIcon = styled.img`
-  width: 97px;
+  width: 68px;
   height: auto;
   object-fit: cover;
   position: absolute;
-  top: 119px;
+  top: 72px;
   z-index: -1;
 
   ///////////
@@ -106,12 +106,11 @@ export const OwIcon = styled.img`
   }
 `
 export const OwLevelIcon = styled.img`
-  width: 293px;
+  width: 214px;
   height: auto;
   object-fit: cover;
   position: absolute;
-  top: 20px;
-
+  top: 0;
   ///////////
   // media //
   ///////////
@@ -121,8 +120,10 @@ export const OwLevelIcon = styled.img`
 `
 export const OwPrestigeIcon = styled(OwLevelIcon)`
   position: absolute;
-  top: 156px;
-
+  top: 114px;
+    width: 187px;
+  height: auto;
+  object-fit: cover;
   ///////////
   // media //
   ///////////
@@ -131,12 +132,12 @@ export const OwPrestigeIcon = styled(OwLevelIcon)`
   }
 `
 export const OwName = styled.h1`
-  margin-top: 0.438rem;
-  padding-bottom: 0.25rem;
   border-bottom: 3px solid ${props => props.theme.color.main};
   text-align: center;
   font-weight: bold;
-  font-size: 1.938rem;
+  font-size: 17px;
+  padding-bottom: 3px;
+  margin-top: 0.438rem;
   letter-spacing: 0.063rem;
 
   ///////////
@@ -218,35 +219,32 @@ export const OwStatsSingleColumn = styled.div`
 `
 
 export const OwStatsTable = styled.table`
-  tr {
-    display: flex;
-    vertical-align: middle;
-    border-color: inherit;
+width: 100%;
+border-collapse: collapse;
+table-layout:fixed;
+font-size: 10px;
+letter-spacing: 0.063rem;
+table, td, th {
+  border: 1px solid white;
+}
 
+  tr {
+    font-size: 13px;
+    font-weight: 600;
+    height: 20px;
+    border-color: inherit;
     td {
-      display: flex;
-      align-items: center;
-      margin-top: 7px;
+      width:50%; 
+      vertical-align: middle;
+      padding: 0 7px;
     }
 
     td:first-child {
-      display: block;
-      min-width: 150px;
-      vertical-align: top;
       white-space: nowrap;
-      padding: 11px 22px 11px 10px;
-      background: ${props => props.theme.color.main};
-      border-radius: 0 40px 40px 0;
     }
 
-    td:nth-child(2) {
-      min-width: 155px;
-      padding: 11px 22px 11px 40px;
-      border-radius: 0 40px 40px 0;
-      margin-left: -32px;
-      z-index: -1;
-      background: ${props => props.theme.color.white};
-      color: ${props => props.theme.color.black}
+    td:last-child {
+   text-align: right;
     }
   }
 
@@ -254,57 +252,23 @@ export const OwStatsTable = styled.table`
   // media //
   ///////////
   @media ${device.tablet} {
-    tr {
-      td:first-child {
-        width: 177px;
-        padding: 14px 23px 14px 13px;
-      }
 
-      td:nth-child(2) {
-        width: 177px;
-      }
-    }
   }
   @media ${device.laptopL} {
-    tr {
-      td:first-child {
-        width: 233px;
-        padding: 14px 23px 14px 13px;
-      }
 
-      td:nth-child(2) {
-        width: 233px;
-      }
-    }
   }
 `
 export const OwStatsTitle = styled.h2`
-  width: 87%;
-  height: 65px;
-  margin: 27px auto;
   background: ${props => props.theme.color.main};
-  transform: skew(17deg, 0deg);
-
-  span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    transform: skew(-17deg);
-    font-weight: bold;
-    font-size: 2.75rem;
-
-  }
-
+  padding: 2px;
+  margin: 7px auto 2px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-align: center;
   ///////////
   // media //
   ///////////
-  @media ${device.tablet} {
-    span {
-      font-size: 47px;
-    }
-  }
+ 
 `
 export const OwStatTitle = styled.h3`
   margin-top: 27px;
@@ -312,9 +276,10 @@ export const OwStatTitle = styled.h3`
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: 0.063rem;
-  text-decoration: underline;
-  text-decoration-color: ${props => props.theme.color.main};
-
+  background-color: ${props => props.theme.color.main};
+  border-radius: 12px 12px 0 0;
+  padding: 3px 0;
+  font-size: 14px;
   ///////////
   // media //
   ///////////
@@ -325,10 +290,10 @@ export const OwStatTitle = styled.h3`
 `
 
 export const OwWonGamesBar = styled.div`
-  margin-top: 0.813rem;
+  margin-top: 4px;
   position: relative;
   width: 100%;
-  height: 42px;
+  height: 20px;
   border-radius: 50px;
   background: ${props => props.theme.color.white};
   overflow: hidden;
@@ -338,7 +303,10 @@ export const OwWonGamesBar = styled.div`
     display: block;
     margin-left: -1px;
     height: 100%;
-    width: ${props => ((props.won / props.played) * 100) + "%"};
+    width: ${props => {
+      const number = ((props.won / props.played) * 100)
+      return number > 0 ? `${number}%` : `0%`
+    }};
     transform: skew(17deg, 0deg);
     background: ${props => props.theme.color.green};
   }
@@ -362,7 +330,7 @@ export const OwMedalsDiagram = styled.div`
   justify-content: space-between;
   width: 100%;
   margin: 0.813rem 0 1.688rem;
-  border-bottom: 4px solid ${props => props.theme.color.main};
+  border-bottom: 3px solid ${props => props.theme.color.main};
 
   ///////////
   // media //
@@ -375,12 +343,12 @@ export const OwMedalsDiagram = styled.div`
   }
 `
 export const OwMedalBar = styled.div`
-  height: 126px;
+  height: 102px;
   width: 56px;
   background: ${props => props.theme.color.white};
   border-radius: 50px 50px 0 0;
   position: relative;
-
+  overflow: hidden;
   &::after {
     content: "";
     display: block;

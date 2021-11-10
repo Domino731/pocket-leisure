@@ -70,7 +70,7 @@ export const OverwatchStatistics = (props) => {
                 {/*overall*/}
                 <OwStatsSingleOverall>
                     <OwStatsTitle>
-                        <span>Overall</span>
+                        Overall
                     </OwStatsTitle>
                     <OwStatsTable>
                         <tbody>
@@ -98,7 +98,7 @@ export const OverwatchStatistics = (props) => {
                 {/*quick play stats*/}
                 <OwStatsSingle>
                     <OwStatsTitle>
-                        <span>Quick play</span>
+                        Quick play
                     </OwStatsTitle>
                     <OwStatTitle>games</OwStatTitle>
                     <OwStatsTable>
@@ -151,7 +151,7 @@ export const OverwatchStatistics = (props) => {
                 {/*competitive stats*/}
                 <OwStatsSingle>
                     <OwStatsTitle>
-                        <span>Competitive</span>
+                        Competitive
                     </OwStatsTitle>
 
                     <OwStatTitle>games</OwStatTitle>
