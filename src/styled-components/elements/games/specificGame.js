@@ -147,118 +147,78 @@ export const GameScContainer = styled.div`
   }
 `
 export const GameAdditionsContainer = styled.div`
-
-`
-export const GameAdditions = styled.ul`
+a {
   width: 100%;
-  display: flex;
-  overflow: auto;
-  padding-bottom: 12px;
-  margin-bottom: 22px;
-  padding-left: 10px;
-  &::-webkit-scrollbar {
-    height: 8px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.color.main};
-    border-radius: 6px;
-  }
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileL} {
-   padding-bottom: 14px;
-   margin-bottom: 25px;
-  }
-  @media ${device.tablet} {
-   padding-bottom: 17px;
-   margin-bottom: 28px;
-  }
-  @media ${device.laptop} {
-    flex-wrap: wrap;
-    padding-bottom: 13px;
-   margin-bottom: 22px;
-  }
+}
 `
 
-export const GameAddition = styled.li`
-  margin-right: 13px;
-  width: 134px;
+export const GameAddition = styled.div`
+width: 100%;
+  margin-right: 10px;
   transition: 0.2s;
-
+text-align: center;
   h3:hover {
     transition: 0.2s;
     text-decoration: underline;
     text-decoration-color: ${props => props.theme.color.main};;
   }
 
-  img {
-    width: 100%;
-    height: 75px;
-    object-fit: cover;
+`
+export const GameAdditionGraphic = styled.div`
+width: 100%;
+height: 144px;
+border-radius: 7px;
+overflow: hidden;
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
   ///////////
   // media //
-  ///////////
+  /////////// 
+  @media screen and (min-width: 351px) {
+    height: 154px;
+  }
+  @media ${device.mobileM} {
+    height: 171px;
+    border-radius: 9px;
+  }
+  @media ${device.mobileL} {
+    height: 167px;
+    border-radius: 11px;
+  }
+  @media screen and (min-width: 471px) {
+    height: 159px;
+  }
+  @media screen and (min-width: 533px) {
+    height: 177px;
+  }
   @media ${device.mobileXL} {
-    height: 129px;
-  }
-  @media ${device.tablet} {
-    height: 169px;
-  }
-  @media ${device.laptop} { 
-    height: 183px;
-  }
-  @media ${device.laptopL} {
     height: 198px;
   }
-  @media ${device.desktopS} {
-    height: 245px;
-  }
-  }
-
-  strong {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 75px;
-    margin-right: 17px;
-    font-size: 4.5rem;
-    text-decoration: none;
-  }
-
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileXL} {
-    margin-right: 16px;
-    width: 162px;
-  }
   @media ${device.tablet} {
-    margin-right: 18px;
-    width: 184px;
+    border-radius: 13px;
   }
-  @media ${device.laptop} {
-    margin-top: 3px;
-    margin-right: 13px;
-    width: 206px;
+  @media ${device.laptopM} {
+    height: 217px;
   }
   @media ${device.laptopL} {
-    margin-top: 6px;
-    margin-right: 18px;
-    width: 259px;
+    height: 227px;
+    border-radius: 16px;
   }
   @media ${device.desktopS} {
-    margin-top: 9px;
-    margin-right: 24px;
-    width: 302px;
+    border-radius: 18px;
+    height: 252px;
   }
 `
-
-export const GameStoresContainer = styled.div``
+export const GameStoresContainer = styled.div`
+padding: 2px 0;
+`
 
 export const GameStoresList = styled.ul`
+letter-spacing: 0.063rem;
 `
 export const GameStoreItem = styled.li`
   padding: 4px 0;

@@ -22,8 +22,7 @@ import { RatingIconWrapper } from "../../styled-components/elements/movie/movie"
 
 /**
  * Component with introduction section for game
- * @param game - data about game 
- * @returns 
+ * @param game - data about game  
  */
 export const GameIntroduction = ({ game }) => {
 

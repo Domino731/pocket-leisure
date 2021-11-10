@@ -37,7 +37,6 @@ export const MovieCast = ({ cast }) => {
         {/* carousel with cast */}
         <Carousel
             breakPoints={carouselBreakPoints}
-            nextArrow={<button>asdasdasd</button>}
             renderArrow={(clickHandler) => <CarouselArrow direction={clickHandler.type} clickHandler={clickHandler.onClick}>asd</CarouselArrow>}>
 
             {/* rendering cast */}

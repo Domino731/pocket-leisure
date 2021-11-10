@@ -4,6 +4,6 @@ export const CarouselArrow = ({direction, clickHandler}) => {
   // const type = consts.PREV;
 
    return <CarouselButton onClick={clickHandler}>
-       {direction === "PREV" ? <i class="fas fa-arrow-left"/> : <i class="fas fa-arrow-right"/>}
+       {direction === "PREV" ? <i className="fas fa-arrow-left"/> : <i className="fas fa-arrow-right"/>}
        </CarouselButton>
 }
