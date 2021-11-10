@@ -69,6 +69,7 @@ export const MovieElementTitle = styled.h2`
 export const MovieCategoryList = styled.ul`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   overflow: auto;
   overflow-y: hidden;
   padding-bottom: 13px;
@@ -100,43 +101,27 @@ export const MovieCategoryList = styled.ul`
   }
 `
 export const MovieCategoryItem = styled.li`
-  width: 137px;
-  margin-right: 18px;
+  width: 50%;
+  padding: 7px;
   flex-shrink: 0;
   
   ///////////
   // media //
   ///////////
-  @media ${device.mobileM} {
-    width: 156px;
-    margin-right: 19px;
+  @media ${device.mobileL}{
+    width: 33.33%;
   }
-  @media ${device.mobileL} {
-    width: 172px;
-    margin-right: 20px;
-  }
-  @media ${device.mobileXL} {
-    width: 192px;
-    margin-right: 22px;
-  }
-  @media ${device.tablet} {
-    width: 240px;
-  }
-
-  @media ${device.laptop} {
+  @media ${device.tablet}{
     width: 25%;
-    margin: 0;
-    margin-top: 10px;
-    padding: 8px;
   }
-  
-  @media ${device.laptopM} {
+  @media ${device.laptop} {
     width: 20%;
-    margin-top: 12px;
-    padding: 10px;
+  }
+  @media ${device.laptopM} {
+    width: 16.66%;
   }
   @media ${device.desktopS} {
-    margin-top: 14px;
+    width: 14.28%
   }
 `
 export const MovieCategoryForm = styled.form`

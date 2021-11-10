@@ -1,15 +1,14 @@
-import {Link} from "react-router-dom";
-
-import {Genre} from "../../styled-components/general/general-styles";
-import {MovieGenresList} from "../../styled-components/elements/movie/movieGenre";
-import {MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
+import { Link } from "react-router-dom";
+import { Genre } from "../../styled-components/general/general-styles";
+import { MovieGenresList } from "../../styled-components/elements/movie/movieGenre";
+import { MovieElementTitle } from "../../styled-components/elements/movie/movieCategory";
 
 /**
  * component that renders movie genres, and when user click on it,
- * it will redirect to MoviesByGenre component, who will render all movies with that category
+ * it will redirect to MoviesByGenre component, who will render all movies with that genre
  * @param movieGenresData {array}- movie genres
  */
-export const MoviesGenres = ({movieGenresData}) => {
+export const MoviesGenres = ({ movieGenresData }) => {
     return <section>
         <MovieElementTitle>Genres</MovieElementTitle>
 

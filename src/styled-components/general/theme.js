@@ -8,7 +8,8 @@ export const theme = (mainColor = "#e63946") => ({
         invalid: "#f9320c",
         green: "#75D701",
         missingYellow: "#ffb640",
-        missingBlue: '#62ddfc'
+        missingBlue: '#62ddfc',
+        missingBlack: '#0a0a0a'
     },
     border: {
         s: "2px",

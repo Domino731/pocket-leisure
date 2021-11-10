@@ -40,7 +40,7 @@ export const PosterBig = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 190px;
+  height: 215px;
   border-radius: 13px;
   overflow: hidden;
 
@@ -54,71 +54,86 @@ export const PosterBig = styled.div`
     object-fit: cover;
   }
 
+  @media screen and (min-width: 345px){
+    height: 239px;
+  }
   @media ${device.mobileM} {
-    height: 228px;
+    height: 262px;
+  }
+  @media screen and (min-width: 413px){
+    height: 291px;
   }
   @media ${device.mobileL} {
     border-radius: 18px;
+    height: 203px;
+  }
+  @media screen and (min-width: 480px){
+    height: 228px;
+  }
+  @media screen and (min-width: 535px){
+    height: 251px;
+  }
+  @media screen and (min-width: 580px){
     height: 261px;
   }
   @media ${device.mobileXL} {
     height: 281px;
   }
+  @media screen and (min-width: 648px){
+    height: 306px;
+  }
+  @media screen and (min-width: 700px){
+    height: 327px;
+  }
   @media ${device.tablet} {
-    height: 360px;
+    height: 284px;
+  }
+  @media screen and (min-width: 876px){
+    height: 327px;
+  } 
+  @media screen and (min-width: 930px){
+    height: 337px;
   }
   @media ${device.laptop} {
     border-radius: 14px;
-    height: 345px;
+    height: 273px;
+  }
+  @media screen and (min-width: 1070px){
+    height: 289px;
+  }
+  @media screen and (min-width: 1133px){
+    height: 320px;
+  }
+  @media screen and (min-width: 1228px){
+    height: 335px;
   }
   @media ${device.laptopM} {
-    height: 347px;
+    height: 307px;
+  }
+  @media screen and (min-width: 1388px){
+    height: 325px;
   }
   @media ${device.laptopL} {
     border-radius: 18px;
-    height: 398px;
+    height: 331px;
+  }
+  @media screen and (min-width: 1500px){
+    height: 341px;
+  }
+  @media screen and (min-width: 1550px){
+    height: 347px;
   }
   @media ${device.desktopS} {
     border-radius: 21px;
-    height: 448px;
+    height: 317px;
   }
 `
-export const PosterBigMissing = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border-radius: 13px;
-  font-size: 4.5rem;
-  @media ${device.mobileM} {
-    height: 228px;
-  }
-  @media ${device.mobileL} {
-    border-radius: 18px;
-    height: 261px;
-  }
-  @media ${device.mobileXL} {
-    height: 281px;
-  }
-  @media ${device.tablet} {
-    height: 360px;
-  }
-  @media ${device.laptop} {
-    border-radius: 14px;
-    height: 345px;
-  }
-  @media ${device.laptopM} {
-    height: 347px;
-  }
-  @media ${device.laptopL} {
-    border-radius: 18px;
-    height: 398px;
-  }
-  @media ${device.desktopS} {
-    border-radius: 21px;
-    height: 448px;
-  }
-
+export const PosterBigMissing = styled(PosterBig)`
+box-shadow: 0 0 84px ${props => props.theme.color.missingBlack} inset;
+img {
+  width: 50%;
+  height: auto;
+}
 `
 export const PosterMed = styled.div`
   display: flex;
@@ -208,7 +223,7 @@ export const PosterMedMissing = styled.div`
 
 
 `
-export const TitleBar = styled.div`
+export const TitleBar = styled.header`
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -297,7 +312,7 @@ export const TitleBar = styled.div`
 
 export const ItemTitleSmall = styled.h3`
   font-weight: bold;
-  margin: 0.313rem 0 0.625rem;
+  margin: 0.313rem 0 0.425rem;
   letter-spacing: 0.063rem;
   font-size: 0.813rem;
 `
