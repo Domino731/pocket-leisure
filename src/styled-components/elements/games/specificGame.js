@@ -102,11 +102,8 @@ div{
 `
 
 
-export const GameDescription = styled(MovieDescription)`
-`
-export const GameFacts = styled(FactsTable)`
+export const GameDescription = styled(MovieDescription)``
 
-`
 export const GameFactsDesktop = styled(FactsTable)`
   display: none;
   margin-top: 20px;
@@ -122,7 +119,7 @@ export const GameTrailersContainer = styled.div`
 
 `
 
-export const GameTrailers = styled(MovieVideos)``
+export const GameTrailer = styled(MovieVideos)``
 
 export const GameMediaSwitch = styled(MovieVideosSwitch)`
 
@@ -261,9 +258,9 @@ export const GameAddition = styled.li`
 
 export const GameStoresContainer = styled.div``
 
-export const GameStores = styled.ul`
+export const GameStoresList = styled.ul`
 `
-export const GameStore = styled.li`
+export const GameStoreItem = styled.li`
   padding: 4px 0;
   transition: 0.2s;
 
@@ -306,7 +303,7 @@ export const GameSeriesContainer = styled.div`
 
 `
 
-export const GameSeries = styled.ul`
+export const GameSeriesList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   
@@ -318,7 +315,7 @@ export const GameSeries = styled.ul`
     padding: 10px;
   }
 `
-export const GameSeriesSingle = styled.li`
+export const GameSeriesItem = styled.li`
   position: relative;
   width: 95%;
   margin: 0 auto;
