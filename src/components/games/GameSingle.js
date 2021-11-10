@@ -8,7 +8,7 @@ import {
 } from "../../styled-components/elements/games/games";
 import { getReleaseDate } from "../../functions/getReleaseDate";
 import { Link } from "react-router-dom";
-
+import missingPhoto from "../../images/missing.svg";
 /**
  * Box with games - poster, platforms, premiere and ratings
  * @param game {object} - game details with poster path, name, platforms...
@@ -18,8 +18,12 @@ export const GameSingle = ({ game }) => {
 
         {/*link*/}
         <Link to={`/game/${game.id}`}>
-            {game.background_image !== null ? <GameSingleImg src={game.background_image} alt={game.name} /> :
-                <GameMissingImg><i className="fas fa-image" /></GameMissingImg>
+            {game.background_image !== null ? 
+            <GameSingleImg >
+                <img src={game.background_image} alt='Game poster'/>
+            </GameSingleImg>
+            :
+             <GameMissingImg><img src={missingPhoto} alt={game.name}/></GameMissingImg>   
             }
         </Link>
 

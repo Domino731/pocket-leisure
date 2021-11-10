@@ -95,11 +95,19 @@ export const GameSingleContainer = styled.li`
     margin-bottom: 41px;
   }
 `
-export const GameSingleImg = styled.img`
+export const GameSingleImg = styled.div`
   width: 100%;
   height: 183px;
-  object-fit: cover;
   border-radius: 13px;
+  overflow: hidden;
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+   ///////////
+  // media //
+  ///////////
    @media screen and (min-width: 355px){
     height: 262px;
   }
@@ -155,6 +163,16 @@ export const GameSingleImg = styled.img`
     border-radius: 21px;
     height: 359px;
   }
+`
+export const GameMissingImg = styled(GameSingleImg)`
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0 0 84px ${props => props.theme.color.missingBlack} inset;
+img{
+  width: 50%;
+  height: auto;
+}
 `
 export const GameSingleTitle = styled.h3`
   font-weight: bold;
@@ -344,40 +362,6 @@ export const GamesGenresList = styled.ul`
 export const GamesSortForm = styled.form`
   width: 100%;
   overflow: hidden;
-`
-
-export const GameMissingImg = styled.div`
-  width: 100%;
-  height: 183px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: ${props => props.theme.color.main};
-  font-size: 143px;
-
-  ///////////
-  // media //
-  ///////////
-  @media ${device.mobileM} {
-    height: 199px;
-  }
-
-  @media ${device.mobileM} {
-    height: 233px;
-  }
-
-  @media ${device.tablet} {
-    height: 430px;
-    font-size: 210px;
-  }
-
-  @media ${device.laptop} {
-    height: 430px;
-  }
-
-  @media ${device.laptopL} {
-    height: 430px;
-  }
 `
 
 export const GameSingleTitleScale = styled.div`
