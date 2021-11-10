@@ -187,7 +187,7 @@ export const OwStatsSingle = styled.section`
   // media //
   ///////////
   @media ${device.tablet} {
-    width: 45%;
+    width: 90%;
   }
 `
 export const OwStatsSingleOverall = styled.section`
@@ -210,11 +210,14 @@ export const OwStatsColumns = styled.div`
   }
 `
 export const OwStatsSingleColumn = styled.div`
+
   ///////////
   // media //
   ///////////
   @media ${device.tablet} {
-    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `
 
@@ -251,6 +254,18 @@ table, td, th {
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    tr{
+       font-size: 16px;
+    height: 31px;
+    }
+  }
+  @media ${device.mobileL} {
+    tr {
+      font-size: 19px;
+    height: 37px;
+    }
+  }
   @media ${device.tablet} {
 
   }
@@ -268,7 +283,24 @@ export const OwStatsTitle = styled.h2`
   ///////////
   // media //
   ///////////
- 
+  @media ${device.mobileM} {
+    padding: 4px;
+    margin: 7px auto 2px;
+    font-size: 27px;
+    border-radius: 10px;
+  }
+  @media ${device.mobileL} {
+    padding: 5px;
+    margin: 13px auto 2px;
+    font-size: 32px;
+    border-radius: 14px;
+  }
+  @media ${device.tablet} {
+    padding: 5px;
+    margin: 17px auto 7px;
+    font-size: 36px;
+    border-radius: 18px;
+  }
 `
 export const OwStatTitle = styled.h3`
   margin-top: 27px;
@@ -283,9 +315,22 @@ export const OwStatTitle = styled.h3`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    padding: 4px;
+    font-size: 20px;
+    border-radius: 14px 14px 0 0;
+  }
+  @media ${device.mobileL}{
+    margin-top: 35px;
+    font-size: 26px;
+    border-radius: 16px 16px 0 0;
+  }
   @media ${device.tablet} {
-    width: 211px;
+    margin-top: 41px;
+    font-size: 25px;
+    border-radius: 18px 18px 0 0;
     text-align: left;
+    padding-left: 12px;
   }
 `
 
@@ -314,8 +359,13 @@ export const OwWonGamesBar = styled.div`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM}{
+    margin-top: 6px;
+    height: 27px;
+  }
   @media ${device.mobileL} {
-    height: 52px;
+    height: 41px;
+    margin-top: 13px;
   }
   @media ${device.tablet} {
     width: 322px;
@@ -335,6 +385,9 @@ export const OwMedalsDiagram = styled.div`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    margin: 19px 0 5px;
+  }
   @media ${device.tablet} {
     width: 322px;
   }
@@ -362,8 +415,13 @@ export const OwMedalBar = styled.div`
   ///////////
   // media //
   ///////////
+  @media ${device.mobileM} {
+    height: 127px;
+    width: 66px;
+  }
   @media ${device.mobileL} {
-    width: 85px;
+    width: 88px;
+    height: 164px;
   }
   @media ${device.tablet} {
     width: 72px;
