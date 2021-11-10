@@ -58,6 +58,7 @@ export const GameSingleContainer = styled.li`
   width: 97%;
   margin-bottom: 33px;
   flex-grow: 1;
+  padding: 7px;
   ///////////
   // media //
   ///////////
@@ -71,27 +72,26 @@ export const GameSingleContainer = styled.li`
     margin-bottom: 45px;
   }
   @media ${device.mobileXL} {
-    margin-bottom: 51px;
+    margin-bottom: 18px;
+    width: 33.33%;
   }
   @media ${device.tablet} {
-    width: 33.33%;
-    padding: 0 8px;
+    width: 25%;
     margin-bottom: 18px;
   }
   @media ${device.laptop} {
-    width: 25%;
-    padding: 0 9px;
+    width: 20%;
     margin-bottom: 23px;
   }
   @media ${device.laptopM} {
-    width: 20%;
-    padding: 0 11px;
+    width: 16.66%;
     margin-bottom: 29px;
   }
   @media ${device.laptopL} {
     margin-bottom: 32px;
   }
   @media ${device.desktopS} {
+    width: 14.28%;
     margin-bottom: 41px;
   }
 `
@@ -100,30 +100,60 @@ export const GameSingleImg = styled.img`
   height: 183px;
   object-fit: cover;
   border-radius: 13px;
+   @media screen and (min-width: 355px){
+    height: 262px;
+  }
   @media ${device.mobileL} {
     border-radius: 18px;
     height: 262px;
   }
+  @media screen and (min-width: 386px){
+    height: 271px;
+  }
+  @media screen and (min-width: 510px){
+    height: 281px;
+  }
   @media ${device.mobileXL} {
-    height: 341px;
+    height: 254px;
+  }
+  @media screen and (min-width: 651px){
+    height: 271px;
+  }
+  @media screen and (min-width: 710px){
+    height: 278px;
   }
   @media ${device.tablet} {
-    height: 351px;
+    height: 268px;
+  }
+  @media screen and (min-width: 840px){
+    height: 282px;
+  }
+  @media screen and (min-width: 950px){
+    height: 296px;
   }
   @media ${device.laptop} {
     border-radius: 14px;
     height: 260px;
   }
+  @media screen and (min-width: 1150px){
+    height: 275px;
+  }
   @media ${device.laptopM} {
-    height: 336px;
+    height: 252px;
+  }
+  @media screen and (min-width: 1360px){
+    height: 283px;
   }
   @media ${device.laptopL} {
     border-radius: 18px;
-    height: 374px;
+    height: 313px;
+  }
+  @media screen and (min-width: 1500px){
+    height: 323px;
   }
   @media ${device.desktopS} {
     border-radius: 21px;
-    height: 461px;
+    height: 359px;
   }
 `
 export const GameSingleTitle = styled.h3`
@@ -151,20 +181,26 @@ export const GameSinglePlatform = styled.li`
      box-shadow: 0 0 17px ${props => props.theme.color.black} inset;
    }
    @media ${device.mobileXL}{
-     font-size: 14px;
+     font-size: 9px;
    }
    @media ${device.tablet}{
-     font-size: 11px;
+     font-size: 8px;
    }
+   @media screen and (min-width: 840px){
+     font-size: 9px;
+  }
+  @media screen and (min-width: 950px){
+    font-size: 10px;
+  }
    @media ${device.laptop}{
      font-size: 9px;
      box-shadow: 0 0 13px ${props => props.theme.color.black} inset;
    }
    @media ${device.laptopL} {
-   font-size: 11px;
+   font-size: 10px;
    }
    @media ${device.desktopS}{
-    font-size: 12px;
+    font-size: 9px;
     box-shadow: 0 0 15px ${props => props.theme.color.black} inset;
    }
    img {
@@ -197,27 +233,33 @@ export const GameSingleRatingsBar = styled.div`
     padding: 0 3px;
   }
   @media ${device.mobileXL} {
-    font-size: 14px;
-    margin-top: 24px;
+    font-size: 9px;
+    margin-top: 11px;
   }
   @media ${device.tablet} {
-    margin-top: 17px;
+    margin-top: 12px;
+    font-size: 8px;
+  }
+  @media screen and (min-width: 840px){
+    font-size: 9px;
+  }
+  @media screen and (min-width: 950px){
     font-size: 10px;
   }
   @media ${device.laptop} {
-    margin-top: 10px;
-    font-size: 9px;
+    margin-top: 8px;
+    font-size: 8px;
   }
   @media ${device.laptopM} {
-    margin-top: 17px;
-   font-size: 10px;
+    margin-top: 7px;
+    font-size: 9px;
  }
  @media ${device.laptopL} {
-   font-size: 12px;
+   font-size: 10px;
  }
  @media ${device.desktopS}{
-   font-size: 13px;
-   margin-top: 19px
+    font-size: 10px;
+    margin-top: 10px;
  }
 `
 export const GameSingleRating = styled.div`
@@ -346,22 +388,16 @@ font-size: 10px;
  @media ${device.mobileL}{
    font-size: 14px;
  }
- @media ${device.mobileXL}{
-   font-size: 15px;
- }
- @media ${device.tablet} {
-  font-size: 12px;
- }
- @media ${device.laptop} {
-   font-size: 9px;
- }
- @media ${device.laptopM} {
-   font-size: 10px;
- }
- @media ${device.laptopL} {
+ @media ${device.mobileXL} {
    font-size: 12px;
  }
- @media ${device.desktop} {
-   font-size: 14px;
+ @media screen and (min-width: 950px){
+    font-size: 13px;
+  }
+  @media ${device.laptop} {
+   font-size: 12px;
+ }
+ @media ${device.laptopL} {
+   font-size: 13px;
  }
 `
