@@ -4,11 +4,12 @@ import {
     GameAdditionsContainer,
     GameAddition,
     GameAdditionGraphic,
+    GameAdditionMissingGraphic,
 } from "../../styled-components/elements/games/specificGame";
 import { Link } from "react-router-dom";
 import { CarouselArrow } from "../general/CorouselArrow";
 import Carousel from "react-elastic-carousel";
-
+import missingGraphic from "../../images/missing.svg";
 /**
  * Component with carousel for game additions -> dlc, goty...
  * @param additions - available additions for the game
@@ -43,7 +44,12 @@ export const GameAdditions = ({ additions }) => {
                     :
 
                     //dont have poster
-                    <Link to={`/game/${el.id}`}><strong><i className="fas fa-image" /></strong></Link>}
+                    <Link to={`/game/${el.id}`}>
+                        <GameAdditionMissingGraphic>
+                        <img src={missingGraphic} title='Missing game poster' alt="Camera" />
+                        </GameAdditionMissingGraphic>
+                        </Link>}
+
                 <ItemTitleSmall>{el.name}</ItemTitleSmall>
             </GameAddition>)}
 </Carousel>

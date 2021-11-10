@@ -213,6 +213,17 @@ img {
     height: 252px;
   }
 `
+export const GameAdditionMissingGraphic = styled(GameAdditionGraphic)`
+display: flex;
+justify-content: center;
+align-items: center;
+box-shadow: 0 0 127px ${props => props.theme.color.missingBlack} inset;
+img {
+  width: 26%;
+  height: auto;
+  object-fit: cover;
+}
+`
 export const GameStoresContainer = styled.div`
 padding: 2px 0;
 `
@@ -283,6 +294,9 @@ export const GameSeriesItem = styled.li`
   margin-top: 17px;
   border-radius: 13px;
   height: 200px;
+  a{
+    height: 100%;
+  }
   img {
     z-index: -1;
     width: 100%;
@@ -344,9 +358,10 @@ export const GameSeriesMissing = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
-  i {
-    font-size: 75px;
-    color: ${props => props.theme.color.main};
+  box-shadow: 0 0 140px ${props => props.theme.color.missingBlack} inset;
+  img {
+    width: 17%;
+    height: auto;
+    object-fit: cover;
   }
 `

@@ -6,7 +6,7 @@ import {
     GameSeriesMissing,
 } from "../../styled-components/elements/games/specificGame";
 import {Link} from "react-router-dom";
-
+import missingGraphic from "../../images/missing.svg";
 /**
  * Component with list of game series
  * @param gameSeries - data about game series
@@ -25,7 +25,9 @@ export const GameSeries = ({gameSeries}) => {
                         <img src={el.background_image} alt={el.name} />
                         :
                         // dont have
-                        <GameSeriesMissing><i className="fas fa-gamepad" /></GameSeriesMissing>
+                        <GameSeriesMissing>
+                            <img src={missingGraphic} title='Missing game poster' alt="Camera" />
+                        </GameSeriesMissing>
                     }
 
                     <strong>{el.name}</strong>
