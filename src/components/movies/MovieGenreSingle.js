@@ -13,11 +13,12 @@ import photoMissing from "../../images/missing.svg";
  * @param movie {object} - object with a film which contains his basic data - title, rating, premiere
  */
 export const MovieGenreSingle = ({ movie }) => {
-    console.log(movie)
     return <MovieGenreItem>
+
+        {/* link to page with more details about this movie */}
         <Link to={`/movie/${movie.id}`}>
 
-            {/*not all movies have a poster*/}
+            {/*check if movie has a poster*/}
             {
                 movie.poster_path !== null ?
                     <MoviePosterSmall>
@@ -25,21 +26,22 @@ export const MovieGenreSingle = ({ movie }) => {
                             alt={movie.title !== undefined ? movie.title : movie.name} />
                     </MoviePosterSmall>
                     :
-                    <MoviePosterSmallMissing><img src={photoMissing} title='Missing poster' alt='camera' /></MoviePosterSmallMissing>
+                    <MoviePosterSmallMissing><img src={photoMissing} title='Missing movie poster' alt='camera' /></MoviePosterSmallMissing>
             }
         </Link>
 
         <MovieItemContent>
-
             <div>
                 {/*not all movies have title, certain have name key instead of title*/}
                 <ItemTitleMedium>{movie.title !== undefined ? movie.title : movie.name}</ItemTitleMedium>
 
-                <ItemPremiereMedium>{getReleaseDate(movie.release_date)}</ItemPremiereMedium>
+                {/* ReleaseDate */}
+                {movie.release_date && <ItemPremiereMedium>{getReleaseDate(movie.release_date)}</ItemPremiereMedium>}
             </div>
-            {/*if a film has no rating, dont show it*/}
+
+            {/*check if movie has rating*/}
             {movie.vote_average !== 0 &&
-                <MovieRating><i className="fas fa-grin-alt" /><span>{movie.vote_average.toFixed(1)}</span></MovieRating>}
+                <MovieRating title='Users average rating'><i className="fas fa-grin-alt" /><span>{movie.vote_average.toFixed(1)}</span></MovieRating>}
         </MovieItemContent>
     </MovieGenreItem>
 };

@@ -527,10 +527,17 @@ export const MovieSimilarSingle = styled.li`
     border-radius: 13px;
     overflow: hidden;
     height: 219px;
+
   }
   img {
     width: 100%;
     object-fit: cover;
+    transition: 0.3s;
+    &:hover {
+      @media ${device.laptop} {
+        transform: scale(110%);
+      }
+    }
   }
   h3 {
     text-align: center;

@@ -29,7 +29,7 @@ export const validateOverwatchUser = (platform, region, username, battleTag, suc
 };
 
 /**
- * This function is fetching user  general stats
+ * This function is fetching user general stats
  * @param {function} successCallback - saves incoming data
  * @param platform {string} - user platform (psn, xbox, pc)
  * @param region {string} - user region (asia,eu,us)

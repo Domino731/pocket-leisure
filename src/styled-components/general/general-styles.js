@@ -47,12 +47,18 @@ export const PosterBig = styled.div`
 
   &:hover {
     cursor: pointer;
+    img {
+    @media ${device.laptop}{
+           transform: scale(110%);
+       }
+    }
   }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 0.3s;
   }
 
   @media screen and (min-width: 345px){
@@ -438,7 +444,10 @@ export const CheckboxRadio = styled.div`
         width: 55px
       }
       @media ${device.laptop} {
-        width: 42px;
+        width: 36px;
+      }
+      @media ${device.laptopL} {
+        width: 43px;
       }
     }
   }

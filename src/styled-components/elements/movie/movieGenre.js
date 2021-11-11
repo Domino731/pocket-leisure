@@ -172,6 +172,15 @@ export const MoviePosterSmall = styled.div`
      width: 100%;
      height: 100%;
      object-fit: cover;
+     transition: 0.3s;
+   }
+   &:hover {
+     img {
+       @media ${device.laptop} {
+       transform: scale(110%);
+     }
+     }
+     
    }
 
   ///////////

@@ -41,6 +41,7 @@ export const getMoviesGenres = (successCallback) => {
  * @param {string} genreId - id of genre that you want to fetch
  */
 export const getMoviesByParticularGenre = (successCallback, genreId) => {
+    
     // set loading screen
     successCallback(null);
 

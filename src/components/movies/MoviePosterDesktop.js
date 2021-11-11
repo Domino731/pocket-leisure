@@ -47,7 +47,6 @@ export const MoviePosterDesktop = ({ movie, credits }) => {
                         <td>{movie.runtime} min</td>
                     </tr>}
 
-
                     {/* budget */}
                     {movie.budget !== 0 &&
                         <tr>

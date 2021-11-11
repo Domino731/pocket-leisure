@@ -18,8 +18,7 @@ export const MoviesByCategory = ({moviesData}) => {
     // state with movies on the basis of which individual components are rendered
     const [movies, setMovies] = useState(moviesData);
 
-    // state with flag which is used to switch between films and a
-    // form where the user can select other films (e.g. latest)
+    // state with flag which is used to toggle form
     const [flag, setFlag] = useState(false);
 
     // state with string, by this user can fetch movies by another category - popular, now playing, top rated, upcoming
@@ -37,7 +36,7 @@ export const MoviesByCategory = ({moviesData}) => {
         // set selected category
         setCategory(e.target.value);
 
-        // when animation ended(5s) hide form
+        // when animation ends (5s) then hide form
         return setTimeout(() => {
             setFlag(false);
         }, 500);
@@ -52,11 +51,9 @@ export const MoviesByCategory = ({moviesData}) => {
 
         {/*rendering single movies*/}
         <MovieCategoryList>
-            {flag === false && movies.map((el, num) => <MovieCategorySingle movie={el}
-                                                                            key={`movieByCategory${num}`}/>)}
 
             {/*changing category*/}
-            {flag && <MovieCategoryForm>
+             { flag && <MovieCategoryForm>
 
                 {/*popular*/}
                 <CheckboxRadio>
@@ -97,7 +94,10 @@ export const MoviesByCategory = ({moviesData}) => {
                     </label>
                 </CheckboxRadio>
             </MovieCategoryForm>}
-        </MovieCategoryList>
-    </MovieCategory>
 
+            {movies.map((el, num) => <MovieCategorySingle movie={el} key={`movieByCategory${num}`}/>)}
+                                                                        
+        </MovieCategoryList>
+        
+    </MovieCategory>
 };

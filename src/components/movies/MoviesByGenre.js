@@ -7,20 +7,21 @@ import {NotFound404} from "../notFound/NotFound404";
 import {Container, TitlePrimary, GetMoreBtn, CheckboxRadio} from "../../styled-components/general/general-styles";
 import {MovieCategoryForm, MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
 import {MoviesList} from "../../styled-components/elements/movie/movie";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 /**
- * @param props.match.params.genre {string} - id of movie genre, base on that movies will be download (comes from url)
- *  @param props.match.params.name {string} - name of movie genre, used to display title
  * @returns {JSX.Element|null} - movies by genre
  */
 export const MoviesByGenre = (props) => {
 
+    // references
+    const {genre, name} = useParams();
     // state with movies with specific genre, base on this state list with movies will be rendered
     // by MovieGenreSingle component
     const [movies, setMovies] = useState(null);
 
     // state  with a number, the increase of which (handleGetMore)will result in the download of 20 more films
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(2);
 
     // flag which allows the user to toggle the film sorting form
     const [flag, setFlag] = useState(false);
@@ -30,13 +31,13 @@ export const MoviesByGenre = (props) => {
 
     // when component mounted get movies
     useEffect(() => {
-        return getMoviesByParticularGenre(setMovies, props.match.params.genre);
-    }, [props.match.params.genre]);
+        return getMoviesByParticularGenre(setMovies, genre);
+    }, [genre]);
 
     // when page state will change get more movies
     useEffect(() => {
-        return getMoreMovies(setMovies, props.match.params.genre, page);
-    }, [page, props.match.params.genre]);
+        return getMoreMovies(setMovies, genre, page);
+    }, [page]);
 
     // by this function user can fetch more movies, by increasing page state
     const handleGetMore = () =>   setPage(prev => prev + 1);
@@ -69,7 +70,7 @@ export const MoviesByGenre = (props) => {
     return <Container>
 
         {/*name of genre - action, horror, adventure*/}
-        <TitlePrimary>{props.match.params.name}</TitlePrimary>
+        <TitlePrimary>{name}</TitlePrimary>
 
         {/*selected sorting option*/}
         <MovieElementTitle onClick={handleChangeFlag}>{sort} <i className="fas fa-filter"/>
@@ -119,7 +120,7 @@ export const MoviesByGenre = (props) => {
         {/*rendering movies*/}
         <MoviesList>
             {movies.map((el, num) => <MovieGenreSingle movie={el}
-                                                       key={`movieByGenre-${props.match.params.genre}-${num}`}/>)}
+                                                       key={`movieByGenre-${genre}-${num}`}/>)}
         </MoviesList>
 
         {/*when user click on this button, get more movies*/}

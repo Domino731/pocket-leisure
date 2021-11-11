@@ -12,7 +12,10 @@ import photoMissing from "../../images/missing.svg";
  */
 export const MovieCategorySingle = ({ movie }) => {
     return <MovieCategoryItem>
+
+        {/* link to page with details about this movie  */}
         <Link to={`/movie/${movie.id}`}>
+            
             {/* check if movie has a poster */}
             {movie.poster_path !== null ?
                 <PosterBig >
