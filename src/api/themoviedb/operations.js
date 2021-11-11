@@ -1,4 +1,4 @@
-import {url, apiKey} from "./constans";
+import { url, apiKey } from "./constans";
 
 /**
  * Fetch movies by category - pupular, top rated, now playing, upcoming
@@ -29,19 +29,18 @@ export const getMoviesGenres = (successCallback) => {
                 // we must add additional key(gridArea, which is genre name but with no with spaces) to each object
                 // because genres are rendered automatically and are set by grid--template-areas,
                 // so you need to add them after the genres names have spaces
-                const genres = data.genres.map(el => ({...el, gridArea: el.name.replace(/\s+/g, '')}));
+                const genres = data.genres.map(el => ({ ...el, gridArea: el.name.replace(/\s+/g, '') }));
                 return successCallback(genres);
             }
         });
 };
 
 /**
- fetch movies by genre - horror movies, action...
+ fetch data about movies with specifi genre - horror movies, action...
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} genreId - id of genre that you want to fetch
  */
 export const getMoviesByParticularGenre = (successCallback, genreId) => {
-
     // set loading screen
     successCallback(null);
 
@@ -64,7 +63,7 @@ export const getMoviesByParticularGenre = (successCallback, genreId) => {
 };
 
 /**
- * fetch more movies, and add them to state
+ * fetch more movies
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} genreId - id of genre that you want to fetch
  * @param {number} pageNumber - number of page with movies that you want to fetch
@@ -89,7 +88,7 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
 /**
  * fetch data about specific movie - Black Widow, Space Jam...
  * @param {function} successCallback - Function that saves incoming data
- * @param {number} movieId - id of film that you want to get
+ * @param {number} movieId - id of movie that you want to get
  */
 export const getSingleMovie = (successCallback, movieId) => {
 
@@ -97,7 +96,7 @@ export const getSingleMovie = (successCallback, movieId) => {
     successCallback(null);
 
     // get movie details
-     fetch(`${url}/movie/${movieId}?api_key=${apiKey}`)
+    fetch(`${url}/movie/${movieId}?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function") {
@@ -112,6 +111,11 @@ export const getSingleMovie = (successCallback, movieId) => {
         .catch(err => console.log(err));
 };
 
+/**
+ * fetch data about credits for movie
+ * @param {*} successCallback - Function that saves incoming data
+ * @param {*} movieId - id of movie that you want to get
+ */
 export const getMovieCredits = (successCallback, movieId) => {
 
     // set loading screen
@@ -140,19 +144,12 @@ export const getMovieCredits = (successCallback, movieId) => {
         .catch(err => console.log(err));
 };
 
-
-
-
-
-
-
-
 /**
- * fetch videos for movie, only trailers from yt
+ * fetch videos for movie, only trailers from youtube
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of movie that you want to get
  */
-export const getMovieVideos =  (successCallback, movieId) => {
+export const getMovieVideos = (successCallback, movieId) => {
     fetch(`${url}/movie/${movieId}/videos?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
@@ -176,7 +173,7 @@ export const getMovieVideos =  (successCallback, movieId) => {
  * @param {number} movieId -  similar films will be downloaded from this id
  */
 export const getSimilarMovies = (successCallback, movieId) => {
-     fetch(`${url}/movie/${movieId}/similar?api_key=${apiKey}`)
+    fetch(`${url}/movie/${movieId}/similar?api_key=${apiKey}`)
         .then(r => r.json())
         .then(data => {
             if (typeof successCallback === "function") {
@@ -188,6 +185,7 @@ export const getSimilarMovies = (successCallback, movieId) => {
         })
         .catch(err => console.log(err));
 };
+
 /**
  *
  * fetch movies by title
@@ -248,7 +246,6 @@ export const searchMovieByDirector = async (successCallback, setLoadingCallback,
         return setLoadingCallback(false);
     }
 };
-
 
 /**
  *

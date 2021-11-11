@@ -1,8 +1,8 @@
-import {apiKey} from "./constans";
-import {url} from "./constans";
+import { apiKey } from "./constans";
+import { url } from "./constans";
 
 /**
- fetch games list sorted by metecritic grade
+* fetch games list sorted by metecritic rating
  * @param {function} successCallback - Function that saves incoming data
  */
 export const getGames = (successCallback) => {
@@ -17,7 +17,7 @@ export const getGames = (successCallback) => {
 };
 
 /**
- fetch games genres
+ * fetch list with available games genres
  * @param {function} successCallback - Function that saves incoming data
  */
 export const getGamesGenres = (successCallback) => {
@@ -26,10 +26,10 @@ export const getGamesGenres = (successCallback) => {
         .then(data => {
             if (data.error === undefined && typeof successCallback === "function") {
 
-                // we must add additional key(gridArea, which is genre name but with no with spaces) to each object
-                // because species are rendered automatically and are set by grid--template-areas,
+                // add additional key(gridArea, which is genre name but with no with spaces) to each object
+                // because genrces boxes are rendered automatically and are set by grid-template-areas,
                 // so you need to add them after the species names have spaces
-                const genres = data.results.map(el => ({...el, gridArea: el.name.toLowerCase().replace(/\s+/g, '')}));
+                const genres = data.results.map(el => ({ ...el, gridArea: el.name.toLowerCase().replace(/\s+/g, '') }));
                 return successCallback(genres);
             }
         })
@@ -37,7 +37,7 @@ export const getGamesGenres = (successCallback) => {
 };
 
 /**
- fetch games by genre - action, rpg, fps ...
+ fetch games with specific genre - action, rpg, fps ...
  * @param {function} successCallback - Function that saves incoming data
  * @param {string, number} genreId - id of genre that you want to fetch
  */
@@ -121,7 +121,7 @@ export const getSearchedGame = async (successCallback, setLoadingCallback, game)
 }
 
 /**
- fetch specific game data
+ fetch data about specific game 
  * @param {function} successCallback - Function that saves incoming data
  * @param {string} gameId - id of game that you want to get
  */

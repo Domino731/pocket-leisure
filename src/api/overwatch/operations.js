@@ -1,7 +1,7 @@
 import {url} from "./constans";
 
 /**
- * This function checks the user have entered the correct information for your battle net account
+ * This function checks the user have entered the correct information for his battleNet account
  * @param {function} successCallback - redirect user to overwatch statistics
  * @param {function} failedCallback - change the component state and notify the user of invalid data
  * @param platform {string} - user platform (psn, xbox, pc)
@@ -16,7 +16,7 @@ export const validateOverwatchUser = (platform, region, username, battleTag, suc
             if (data.error === undefined && typeof successCallback === "function") {
                 return successCallback();
             }
-            //when user enters invalid data, change state and notify him of the error - bad battleTag, nick, region ...
+            //when user enters incorrect data, change state and notify him of the error - bad battleTag, nick, region ...
             if (typeof failedCallback === "function") {
                 return failedCallback(true);
             }
@@ -29,7 +29,7 @@ export const validateOverwatchUser = (platform, region, username, battleTag, suc
 };
 
 /**
- * This function fetch user  general stats
+ * This function is fetching user  general stats
  * @param {function} successCallback - saves incoming data
  * @param platform {string} - user platform (psn, xbox, pc)
  * @param region {string} - user region (asia,eu,us)
@@ -48,7 +48,7 @@ export const getOverwatchStats = (platform, region, username, battleTag, success
 };
 
 /**
- * This function fetch complete user complete stats for competitive,
+ * This function is fetching  complete user complete stats for competitive,
  * @param {function} successCallback - saves incoming data
  * @param platform {string} - user platform (psn, xbox, pc)
  * @param region {string} - user region (asia,eu,us)
@@ -85,7 +85,7 @@ export const getOverwatchCompetitiveStats = (platform, region, username, battleT
 
 
 /**
- * This function fetch complete user complete stats for competitive,
+ * This function  is fetching  complete user complete stats for competitive,
  * @param {function} successCallback - saves incoming data
  * @param platform {string} - user platform (psn, xbox, pc)
  * @param region {string} - user region (asia,eu,us)
