@@ -7,8 +7,9 @@ import mac from "../images/computer.svg";
 import linux from "../images/linux.svg";
 import nintendo from "../images/console.svg";
 import web from "../images/web.svg";
+
 /**
- * get icon of platform
+ * get icon of game platform
  * @param platform {string}
  * @returns {JSX.Element|null} platform icon
  */

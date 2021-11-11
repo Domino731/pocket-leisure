@@ -7,6 +7,7 @@ const month = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
 
 /**
+ * format date 
  * @param {string}  date necessary to return month name
  * @returns {string} - release date
  */

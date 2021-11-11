@@ -1,11 +1,10 @@
 /**
- * sort games by particular condition
+ * sort games by particular option
  * @param condition {string} condition: Users - Top Rated, Users - Lowest Rated, Metacritic - Top Rated,
  * Metacritic - Lowest-Rated, Alphabetically A - Z, Alphabetically Z - A
  * @param callback {function} - function that saves sorting data
  */
 export const sortGames = (condition, callback) => {
-    console.log(condition)
     if (typeof callback === "function") {
         switch (condition) {
             case "Users - Top Rated":

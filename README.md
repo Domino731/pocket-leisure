@@ -57,7 +57,25 @@ Link: https://ow-api.com/docs/
 * `validateOverwatchUser()` - This function checks the user have entered the correct information for his battleNet account
 * `getOverwatchStats()` - This function is fetching user general stats
 * `getOverwatchCompetitiveStats()` - This function is fetching complete user complete stats for competitive
-* `getOverwatchQuickPlayStats()` - This function  is fetching  complete user complete stats for competitive,
+* `getOverwatchQuickPlayStats()` - This function  is fetching  complete user complete stats for quick play,
+
+## **Available functions**
+* `getGamePlatformIcon()` -  get icon of game platform
+* `getReleaseDate()` - format date 
+* `sortGames()` - sort games by particular option
+* `sortMovies()` - sort movies by particular option
+
+## **Redux structure**
+***State***
+* `mainColor` - main color for app, at default it's red
+***Actions***
+* `changeMainColor` - change `mainColor` state with specific color
+## **Local storage data structure**
+* `mainColor` - app theme color
+
+## **Components**
+***General***
+* `<NotFound/>`
 
 
 

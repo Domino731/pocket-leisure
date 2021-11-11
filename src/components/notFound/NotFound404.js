@@ -34,7 +34,7 @@ export const NotFound404 = ({ redirectUrl }) => {
             clearInterval(x);
             console.log('Unmounted')
         }
-    });
+    },[]);
 
     return <NotFoundContainer>
         <NotFoundTitle>404 Not found</NotFoundTitle>

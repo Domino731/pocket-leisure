@@ -129,11 +129,11 @@ export const NavigationImg = styled.img`
 
 `
 
-export const ColorForm = styled.form`
+export const ColorForm = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 13px;
+  margin-top: 7px;
 
   ///////////
   // media //
@@ -143,17 +143,25 @@ export const ColorForm = styled.form`
     justify-content: space-evenly;
   }
   @media ${device.laptop} {
-    margin-top: 14px;
+    margin-top: 6px;
   }
   @media ${device.laptopM} {
-    margin-top: 16px;
+    margin-top: 12px;
   }
 `
 
 export const ColorFormCheckbox = styled.div`
   position: relative;
   width: 20%;
-  height: 52px;
+  height: 39px;
+  background: ${props => props.backgroundColor};
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    font-size: 0;
+  }
   input {
     appearance: none;
     background: transparent;
@@ -167,76 +175,53 @@ export const ColorFormCheckbox = styled.div`
     &:hover {
       cursor: pointer;
     }
-    &:checked ~ label i {
-    font-size: 39px;
+    &:checked ~ i {
+    font-size: 29px;
   }
   }
  
-  label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: ${props => props.color};
-    border-radius: 10px;
-    font-size: 0;
-    @media ${device.mobileM} {
-      border-radius: 13px;
-    }
-    @media ${device.mobileL} {
-      border-radius: 15px;
-    }
-    @media ${device.tablet} {
-      border-radius: 17px;
-    }
-    @media ${device.laptop} {
-      border-radius: 14px;
-    }
-    @media ${device.laptopL} {
-      border-radius: 17px;
-    }
-  }
-
-
   ///////////
   // media //
   ///////////
   @media ${device.mobileM} {
-    height: 64px;
-    input:checked ~ label i {
-      font-size: 52px;
+    height: 44px;
+    border-radius: 8px;
+    input:checked ~  i {
+      font-size: 32px;
     }
   }
-  @media ${device.mobileM} {
-    height: 68px;
-    input:checked ~ label i {
-      font-size: 56px;
+  @media ${device.mobileL} {
+    height: 46px;
+    input:checked ~ i {
+      font-size: 35px;
     }
   }
   @media ${device.tablet} {
-    height: 78px;
-    input:checked ~ label i {
-      font-size: 71px;
+    height: 56px;
+    border-radius: 11px;
+    input:checked ~  i {
+      font-size: 41px;
     }
   }
 
   @media ${device.laptop} {
-    height: 59px;
-    input:checked ~ label i {
-      font-size: 53px;
+    height: 47px;
+    border-radius: 10px;
+    input:checked ~ i {
+      font-size: 38px;
     }
   }
   @media ${device.laptopM} {
     height: 62px;
-    input:checked ~ label i {
-      font-size: 54px;
+    input:checked ~ i {
+      font-size: 48px;
     }
   }
   @media ${device.laptopL} {
-    height: 74px;
-    input:checked ~ label i {
-      font-size: 68px;
+    height: 66px;
+    border-radius: 13px;
+    input:checked ~ i {
+      font-size: 51px;
     }
   }
 `

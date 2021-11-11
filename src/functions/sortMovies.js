@@ -1,6 +1,6 @@
 /**
- * sort movies by particular condition
- * @param condition {string} condition: Top Rated, Lowest Rated, Alphabetically A - Z, Alphabetically Z - A
+ * sort movies by particular option
+ * @param condition {Top Rated, Lowest Rated, Alphabetically A - Z, Alphabetically Z - A}
  * @param callback {function} - function that saves sorting data
  */
 export const sortMovies = (condition, callback) => {
