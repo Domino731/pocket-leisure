@@ -11,6 +11,21 @@ An app where with library of games, movies and your overwatch statisctics. This 
 * Rawg API - responsible for games library
 * TheMovieDb API - responsible for movies library
 
+## **Routes**
+path - component - description
+* `/` - `<HomePage/>` - home page for application with navigation to available sections
+* `/movies` - `<Movies>` - list with movies sorted by category - popular, top ratet, and with the movies genres
+* `/movies-by-genre/:genre/:name` - `<MoviesByGenre/>` - list with movies with the specific genre
+* `/movie/:id` - `<Movie/>` - content for the specific movie
+* `/movie-search` - `<MovieSearch/>` - search a movie
+* `/overwatch-search-your-profile` - `<OverwatchSearchProfile/>` - section where can search for the specific user stats
+* `/overwatch/stats/:platform/:region/:user/:battleTag` - `<OverwatchStatistics/>` - general overview for the player stats
+* `/overwatch/stats-competitive/:platform/:region/:user/:battleTag` - `<OverwatchStatisticsCompetitive/>` - competitive mode stats
+* `/overwatch/stats-quick-play/:platform/:region/:user/:battleTag` - `<OverwatchStatisticsQuickPlay/>` - quick play mode stats
+* `/games` - `<Games/>` - list with games and with his genres
+* `/games-by-genre/:id/:name` - `<GamesByGenre/>` - list with games with the specific genre
+* `/game-search` - `<GameSearch/>` - search a game
+* `/game/:id` - `<Game/>` - content for a specific game
 ## **TheMovieDb API**
 This API service is providing library with movies 
 
@@ -111,6 +126,10 @@ Link: https://ow-api.com/docs/
  * `<GameSeries/>` - subcomponent for `<Game/>`, including series of the particular game
  * `<GameStores/>` - subcomponent for `<Game/>`, list of stores where user can buy a game
  * `<GameTrailers/>` - subcomponent for `<Game/>`, trailers for the game
+
+
+
+ Copyright © 2021 Dominik Orzechowski
 
 
 
