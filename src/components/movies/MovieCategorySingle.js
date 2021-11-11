@@ -15,14 +15,13 @@ export const MovieCategorySingle = ({ movie }) => {
 
         {/* link to page with details about this movie  */}
         <Link to={`/movie/${movie.id}`}>
-            
             {/* check if movie has a poster */}
             {movie.poster_path !== null ?
                 <PosterBig >
                     <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} />
                 </PosterBig>
                 :
-                <PosterBigMissing><img src={photoMissing} title='Missing poster' alt='camera' /></PosterBigMissing>
+                <PosterBigMissing><img src={photoMissing} title='Missing movie poster' alt='camera' /></PosterBigMissing>
             }
         </Link>
 

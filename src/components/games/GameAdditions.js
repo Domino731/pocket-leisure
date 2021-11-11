@@ -46,7 +46,7 @@ export const GameAdditions = ({ additions }) => {
                     //dont have poster
                     <Link to={`/game/${el.id}`}>
                         <GameAdditionMissingGraphic>
-                        <img src={missingGraphic} title='Missing game poster' alt="Camera" />
+                        <img src={missingGraphic} title='Missing graphic' alt="Camera" />
                         </GameAdditionMissingGraphic>
                         </Link>}
 

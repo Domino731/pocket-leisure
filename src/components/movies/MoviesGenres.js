@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import { Genre } from "../../styled-components/general/general-styles";
+import { Genre, SectionTitle } from "../../styled-components/general/general-styles";
 import { MovieGenresList } from "../../styled-components/elements/movie/movieGenre";
-import { MovieElementTitle } from "../../styled-components/elements/movie/movieCategory";
 
 /**
  * component that renders movie genres, and when user click on it,
@@ -10,7 +9,7 @@ import { MovieElementTitle } from "../../styled-components/elements/movie/movieC
  */
 export const MoviesGenres = ({ movieGenresData }) => {
     return <section>
-        <MovieElementTitle>Genres</MovieElementTitle>
+        <SectionTitle>Genres</SectionTitle>
 
         {/*rendering movie genres*/}
         <MovieGenresList>

@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {sortMovies} from "../../functions/sortMovies";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
-import {Container, TitlePrimary, GetMoreBtn, CheckboxRadio} from "../../styled-components/general/general-styles";
+import {Container, TitlePrimary, GetMoreBtn, CheckboxRadio, ActionButtonWrapper} from "../../styled-components/general/general-styles";
 import {MovieCategoryForm, MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
 import {MoviesList} from "../../styled-components/elements/movie/movie";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -72,10 +72,11 @@ export const MoviesByGenre = (props) => {
         {/*name of genre - action, horror, adventure*/}
         <TitlePrimary>{name}</TitlePrimary>
 
+<ActionButtonWrapper>
+    <button onClick={handleChangeFlag} title='Change sorting'><i className="fas fa-sort"/> {sort} </button>
+</ActionButtonWrapper>
         {/*selected sorting option*/}
-        <MovieElementTitle onClick={handleChangeFlag}>{sort} <i className="fas fa-filter"/>
-        </MovieElementTitle>
-
+     
         {/*change sorting*/}
         {flag && <MovieCategoryForm>
 

@@ -753,3 +753,92 @@ export const CarouselButton = styled.button`
     cursor: pointer;
     outline: none;
 `
+export const ActionButtonWrapper = styled.div`
+border-bottom: 2px solid ${props => props.theme.color.gray};
+margin: 10px 0 8px;
+padding-bottom: 5px;
+ font-size: 17px;
+button {
+  font-size: 1em;
+  background: transparent;
+  border: none;
+  color: ${props => props.theme.color.white};
+  font-weight: bold;
+  transition: 0.2s;
+  i {
+    padding-right: 0.2em;
+  }
+  &:hover {
+
+    cursor: pointer;
+    @media ${device.laptop} {
+      color: ${props => props.theme.color.gray};
+      letter-spacing: 0.063rem;
+    }
+  }
+}
+
+ ///////////
+ // media //
+ ///////////
+ @media ${device.mobileL}{
+  font-size: 18px;
+ }
+ @media ${device.tablet} {
+  margin: 13px 0 10px;
+   font-size: 20px;
+   border-bottom: 3px solid ${props => props.theme.color.gray};
+ }
+ @media ${device.laptop} {
+  margin: 11px 0 8px;
+  border-bottom: 2px solid ${props => props.theme.color.gray};
+  font-size: 16px;
+ }
+ @media ${device.laptopM} {
+  margin: 13px 0 9px;
+  border-bottom: 3px solid ${props => props.theme.color.gray};
+  font-size: 18px;
+ }
+ @media ${device.laptopL} {
+  margin: 16px 0 11px;
+  font-size: 20px;
+ }
+ @media ${device.desktopS} {
+   font-size: 22px;
+   border-bottom: 4px solid ${props => props.theme.color.gray};
+ }
+`
+export const SectionTitle = styled.h3`
+
+border-bottom: 2px solid ${props => props.theme.color.gray};
+margin: 10px 0 8px;
+padding-bottom: 5px;
+ font-size: 17px;
+
+ @media ${device.mobileL}{
+  font-size: 18px;
+ }
+ @media ${device.tablet} {
+  margin: 13px 0 10px;
+   font-size: 20px;
+   border-bottom: 3px solid ${props => props.theme.color.gray};
+ }
+ @media ${device.laptop} {
+  margin: 11px 0 8px;
+  border-bottom: 2px solid ${props => props.theme.color.gray};
+  font-size: 16px;
+ }
+ @media ${device.laptopM} {
+  margin: 13px 0 9px;
+  border-bottom: 3px solid ${props => props.theme.color.gray};
+  font-size: 18px;
+ }
+ @media ${device.laptopL} {
+  margin: 16px 0 11px;
+  font-size: 20px;
+ }
+ @media ${device.desktopS} {
+   font-size: 22px;
+   border-bottom: 4px solid ${props => props.theme.color.gray};
+ }
+`

@@ -27,6 +27,11 @@ export const MovieElementTitle = styled.h2`
   margin: 8px 0;
   transition: 0.1s;
   border-bottom: 1px solid ${props => props.theme.color.gray};
+
+
+  ///////////
+  // media //
+  ///////////
   @media ${device.mobileL} {
     margin: 10px 0;
     font-size: 21px;
@@ -57,13 +62,6 @@ export const MovieElementTitle = styled.h2`
   }
   i {
     margin-left: 0.875rem;
-  }
-
-  ///////////
-  // media //
-  ///////////
-  @media ${device.tablet} {
-    margin-top: 28px;
   }
 `
 export const MovieCategoryList = styled.ul`

@@ -173,6 +173,12 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: 0.3s;
+  &:hover {
+    @media ${device.laptop} {
+      transform: scale(110%);
+    }
+  }
 }
 
   ///////////
@@ -296,12 +302,25 @@ export const GameSeriesItem = styled.li`
   height: 200px;
   a{
     height: 100%;
+      &:hover{
+        img {
+          @media ${device.laptop} {
+        transform: scale(110%);
+    }
+  }  
+    }
   }
   img {
     z-index: -1;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 0.3s;
+    &:hover{
+      @media ${device.laptop} {
+        transform: scale(110%);
+      }
+    }
   }
 
   strong {
@@ -316,6 +335,7 @@ export const GameSeriesItem = styled.li`
     text-align: center;
     font-size: 1.188rem;
     transition: 0.2s;
+
   }
 
   ///////////
@@ -363,5 +383,6 @@ export const GameSeriesMissing = styled.div`
     width: 17%;
     height: auto;
     object-fit: cover;
+    transition: 0.3s;
   }
 `

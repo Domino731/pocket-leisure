@@ -7,7 +7,7 @@ import {
     MovieElementTitle,
     MovieCategoryForm
 } from "../../styled-components/elements/movie/movieCategory";
-import {CheckboxRadio} from "../../styled-components/general/general-styles";
+import {ActionButtonWrapper, CheckboxRadio} from "../../styled-components/general/general-styles";
 
 /**
  * Component with list of movies
@@ -46,8 +46,12 @@ export const MoviesByCategory = ({moviesData}) => {
     return <MovieCategory>
 
         {/*selected category*/}
-        <MovieElementTitle onClick={handleChangeFlag}>{category}<i
-            className="fas fa-filter"/></MovieElementTitle>
+        <ActionButtonWrapper>
+            <button onClick={handleChangeFlag} title='Change movies category'>
+                <i
+            className="fas fa-filter"/>{category}
+             </button>
+        </ActionButtonWrapper>
 
         {/*rendering single movies*/}
         <MovieCategoryList>

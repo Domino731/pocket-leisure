@@ -43,12 +43,12 @@ export const GameSingle = ({ game }) => {
         <GameSingleRatingsBar>
 
             {/*rating by users*/}
-            <GameSingleRating>
+            <GameSingleRating title='Users rating'>
                 <i className="fas fa-star" /> <span>{game.rating.toFixed(1)} / 5</span>
             </GameSingleRating>
 
             {/*rating by metacritic*/}
-            <GameSingleRatingMetacritic>
+            <GameSingleRatingMetacritic title='Metacritic rating'>
                 <img src={metacriticIcon} alt="metacritic" />
                 {game.metacritic !== null ? <span>{game.metacritic}/100</span> :
                     <span>No score</span>

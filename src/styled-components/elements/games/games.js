@@ -104,6 +104,13 @@ export const GameSingleImg = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: 0.3s;
+    &:hover {
+      cursor: pointer;
+      @media ${device.laptop} {
+        transform: scale(110%);
+      }
+    }
   }
    ///////////
   // media //
