@@ -18,33 +18,37 @@ import {
 } from "../../styled-components/elements/overwatch/overwatch";
 import {Link} from "react-router-dom";
 import {Loading} from "../loading/Loading";
+import { Redirect, useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 /**
- * @param props.match.params.platform {string} - platform of user account (come from ulr)
- * @param props.match.params.region {string} - region of user account (come from ulr)
- * @param props.match.params.user {string} - username (come from ulr)
- * @param props.match.params.battleTag {string} - battleTag (come from ulr)
- * @returns {JSX.Element} - general overwatch stats
+ * Component with general overview for player stats
  */
-export const OverwatchStatistics = (props) => {
+export const OverwatchStatistics = () => {
 
+    // references 
+    const {platform, region, user, battleTag} = useParams();
+    
     // state with user statistics
     const [stats, setStats] = useState(null);
 
     // when component mounted get general overwatch stats
     useEffect(() => {
-        return getOverwatchStats(props.match.params.platform,
-            props.match.params.region,
-            props.match.params.user,
-            props.match.params.battleTag,
+        return getOverwatchStats(platform,
+            region,
+            user,
+            battleTag,
             setStats);
-    }, [props.match.params]);
+    }, [platform, region, user, battleTag]);
 
-
+ 
+    // wait for data
     if (stats === null) {
         return <Loading/>
     }
-
+    // if player doesnt exist
+    else if (stats === undefined){
+        return <Redirect to='/overwatch-search-your-profile'/>
+    }
     return <Container>
 
         {/*user portrait*/}
@@ -57,13 +61,13 @@ export const OverwatchStatistics = (props) => {
         {/*username*/}
         <OwName>{stats.name}</OwName>
 
-        {/*if user have private profile (no access to stats)show info about it*/}
+        {/*if user has private profile (no access to stats)show info about it*/}
         {stats.private && <OwPrivate>
             <i className="fas fa-lock"/>
             <strong>Career profile visibility is set to private</strong>
         </OwPrivate>}
 
-        {/*if user dont have private profile return stats*/}
+        {/*if user dont has private profile return stats*/}
         {stats.private !== true && <>
             <OwStatsGeneral>
 
@@ -210,15 +214,15 @@ export const OverwatchStatistics = (props) => {
                 {/*link to competitive stats*/}
                 <OwLink>
                     <Link
-                        to={`/overwatch/stats-competitive/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete
-                        competitive</Link>
+                        to={`/overwatch/stats-competitive/${platform}/${region}/${user}/${battleTag}`}>
+                        Competitive</Link>
                 </OwLink>
 
                 {/*link to quick play stats*/}
                 <OwLink>
                     <Link
-                        to={`/overwatch/stats-quick-play/${props.match.params.platform}/${props.match.params.region}/${props.match.params.user}/${props.match.params.battleTag}`}>Complete
-                        quick play</Link>
+                        to={`/overwatch/stats-quick-play/${platform}/${region}/${user}/${battleTag}`}>
+                        Quick play</Link>
                 </OwLink>
             </OwLinksContainer>
         </>}

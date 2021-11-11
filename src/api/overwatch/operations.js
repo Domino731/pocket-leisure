@@ -1,4 +1,4 @@
-import {url} from "./constans";
+import { url } from "./constans";
 
 /**
  * This function checks the user have entered the correct information for his battleNet account
@@ -22,9 +22,9 @@ export const validateOverwatchUser = (platform, region, username, battleTag, suc
             }
         })
         .catch(err => {
-            console.log(err) 
+            console.log(err)
             return failedCallback(true);
-           
+
         });
 };
 
@@ -40,9 +40,15 @@ export const getOverwatchStats = (platform, region, username, battleTag, success
     fetch(`${url}${platform}/${region}/${username}-${battleTag}/profile`)
         .then(r => r.json())
         .then(data => {
-            if (data.error === undefined && typeof successCallback === "function") {
+
+            // check if player account exist
+            if (data.error === 'Player not found') {
+                successCallback(undefined)
+            }
+            else if (data.error === undefined && typeof successCallback === "function") {
                 return successCallback(data);
             }
+
         })
         .catch(err => console.log(err))
 };
@@ -60,7 +66,12 @@ export const getOverwatchCompetitiveStats = (platform, region, username, battleT
         .then(r => r.json())
         .then(data => {
 
-            // player can have private profile
+            // check if player account exist
+            if (data.error === 'Player not found') {
+                successCallback(undefined)
+            }
+
+            // player may have private profile
             // when he doesnt have private profile set stats to state (successCallback)
             if (data.quickPlayStats.competitiveStats !== null && typeof successCallback === "function") {
 
@@ -73,10 +84,10 @@ export const getOverwatchCompetitiveStats = (platform, region, username, battleT
                 return successCallback(stats);
             }
 
-            // when he have private profile, set the state
+            // when he has private profile, set the state
             else {
 
-                //so you can notify a user that he have a private profile
+                //so you can notify a user that he has a private profile
                 return successCallback("privateProfile");
             }
         })
@@ -92,12 +103,17 @@ export const getOverwatchCompetitiveStats = (platform, region, username, battleT
  * @param username {string} - username
  * @param battleTag {string, number} - user battleTag (12345)
  */
-export const getOverwatchQuickPlayStats = (platform, region, username, battleTag, successCallback) => {
-    fetch(`${url}${platform}/${region}/${username}-${battleTag}/complete`)
+export const getOverwatchQuickPlayStats = async (platform, region, username, battleTag, successCallback) => {
+    await fetch(`${url}${platform}/${region}/${username}-${battleTag}/complete`)
         .then(r => r.json())
         .then(data => {
 
-            // player can have private profile
+            // check if player account exist
+            if (data.error === 'Player not found') {
+                successCallback(undefined)
+            }
+
+            // player may have private profile
             // when he doesnt have private profile set stats to state (successCallback)
             if (data.quickPlayStats.careerStats !== null && typeof successCallback === "function") {
 
@@ -110,9 +126,9 @@ export const getOverwatchQuickPlayStats = (platform, region, username, battleTag
                 return successCallback(stats);
             }
 
-            // when he have private profile, set the state
+            // when he has private profile, set the state
             else {
-                //so you can notify a user that he have a private profile
+                // so you can notify a user that he has a private profile
                 return successCallback("privateProfile");
             }
         })

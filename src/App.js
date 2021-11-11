@@ -20,6 +20,7 @@ import {Game} from "./components/games/Game";
 import {Reset} from "styled-reset";
 import {GlobalStyle} from "./styled-components/general/globalStyle";
 import { NotFound404 } from "./components/notFound/NotFound404";
+import { Loading } from "./components/loading/Loading";
 
 
 function App({mainColor}) {
@@ -43,7 +44,7 @@ function App({mainColor}) {
             <Route path="/games-by-genre/:id/:name" component={GamesByGenre}/>
             <Route path="/game-search" component={GameSearch}/>
             <Route path="/game/:id" component={Game}/>
-            <Route path="/test" component={NotFound404}/>
+            <Route path="/test" component={Loading}/>
         </Router>
     </ThemeProvider>
 }

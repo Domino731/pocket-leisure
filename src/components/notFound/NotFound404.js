@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import error404Graphic from "../../images/error404.svg"
 /**
- * Component which rendered  when a non-existent file was referenced
+ * Component responsible for handling 404 error
  * @param redirectUrl {string} - path to which you want to redirect user, for example: /movies, /games
  * @returns {JSX.Element} - information about error 404, information about redirect
  */

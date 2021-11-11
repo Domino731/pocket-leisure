@@ -75,7 +75,13 @@ Link: https://ow-api.com/docs/
 
 ## **Components**
 ***General***
-* `<NotFound/>`
+* `<NotFound/>`- Component responsible for handling 404 error
+* `<Loading/>` - Loading screen
+***Overwatch section***
+* `<OverwatchSearchProfile/>` - Component which is responsible for searching battleNet user, and redirect him to his stats
+* `<OverwatchStatistics/>` - Component with general overview for player stats
+* `<OverwatchStatisticsCompetitive/>` - Component with full stats for competitive mode
+* `<OverwatchStatisticsQuickPlay/>` - Component with full stats for quick play mode
 
 
 
