@@ -90,11 +90,11 @@ export const OverwatchSearchProfile = () => {
     const getPlatformIconOw = (platform) => {
         switch (platform) {
             case "pc":
-                return <img src={desktop}/>;
+                return <img src={desktop} alt='Desktop'/>;
             case "xbl":
-                return  <img src={xbox}/>;
+                return  <img src={xbox} alt='Xbox Live'/>;
             case "psn":
-                return <img src={ps}/>;
+                return <img src={ps} alt='Playstation network'/>;
             default:
                 return null;
         }

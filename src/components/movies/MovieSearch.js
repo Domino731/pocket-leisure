@@ -5,7 +5,6 @@ import {MovieGenreSingle as SingleMovie} from "./MovieGenreSingle";
 import {useState} from "react";
 import {Loading} from "../loading/Loading";
 import {SearchInputContainer, TitlePrimary} from "../../styled-components/general/general-styles";
-import {FormElement} from "../../styled-components/elements/user-form/user-form";
 import {CheckboxRadio, Container} from "../../styled-components/general/general-styles";
 import {MovieCategoryForm} from "../../styled-components/elements/movie/movieCategory";
 import {MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";

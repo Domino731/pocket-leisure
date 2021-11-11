@@ -87,7 +87,7 @@ export const getMoreMovies = (successCallback, genreId, pageNumber) => {
 };
 
 /**
- * fetch single movie - Black Widow, Space Jam...
+ * fetch data about specific movie - Black Widow, Space Jam...
  * @param {function} successCallback - Function that saves incoming data
  * @param {number} movieId - id of film that you want to get
  */

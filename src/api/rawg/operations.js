@@ -121,9 +121,9 @@ export const getSearchedGame = async (successCallback, setLoadingCallback, game)
 }
 
 /**
- fetch specific game - witcher 3, gta 5, minecraft.....
+ fetch specific game data
  * @param {function} successCallback - Function that saves incoming data
- * @param {string} gameId - name of game that you want to get
+ * @param {string} gameId - id of game that you want to get
  */
 export const getGameDetails = (successCallback, gameId) => {
 
@@ -147,7 +147,7 @@ export const getGameDetails = (successCallback, gameId) => {
 /**
  fetch game trailers, some trailers may have another language than English
  * @param {function} successCallback - Function that saves incoming data
- * @param {string} gameId - name of game that you want to get
+ * @param {string} gameId - id of game that you want to get
  */
 export const getGameTrailers = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}/movies?key=${apiKey}`)
@@ -165,7 +165,7 @@ export const getGameTrailers = (successCallback, gameId) => {
 /**
  fetch game screenshots
  * @param {function} successCallback - Function that saves incoming data
- * @param {string} gameId - name of game that you want to get
+ * @param {string} gameId - id of game that you want to get
  */
 export const getGameScreenshots = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}/screenshots?key=${apiKey}`)
@@ -181,7 +181,7 @@ export const getGameScreenshots = (successCallback, gameId) => {
 /**
  fetch game dlc, GOTY, editions end other
  * @param {function} successCallback - Function that saves incoming data
- * @param {string} gameId - name of game that you want to get
+ * @param {string} gameId - id of game that you want to get
  */
 export const getGameAdditions = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}/additions?key=${apiKey}`)
@@ -199,7 +199,7 @@ export const getGameAdditions = (successCallback, gameId) => {
 /**
  fetch game stores - steam, epic Games, origin .....
  * @param {function} successCallback - Function that saves incoming data
- * @param {string} gameId - name of game that you want to get
+ * @param {string} gameId - id of game that you want to get
  */
 export const getGameStores = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}/stores?key=${apiKey}`)
@@ -214,9 +214,9 @@ export const getGameStores = (successCallback, gameId) => {
 }
 
 /**
- fetch list of games that are part of the same series. Series of gta 5 -> gta:chinatown wars, gta4, gta vice cite :)
+ fetch list of games that are part of the same series. Series of gta 5 -> gta:chinatown wars, gta4, gta vice city :)
  * @param {function} successCallback - Function that saves incoming data
- * @param {string} gameId - name of game that you want to get
+ * @param {string} gameId - id of game that you want to get
  */
 export const getGameSeries = (successCallback, gameId) => {
     fetch(`${url}/games/${gameId}/game-series?key=${apiKey}`)

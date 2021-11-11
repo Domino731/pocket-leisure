@@ -19,12 +19,13 @@ import { GameIntroduction } from "./GameIntroduction";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 // A component that returns details about specific game.
-export const Game = (props) => {
+export const Game = () => {
 
     // references
     const {id} = useParams();
     /** game Id */
     const gameId = id;
+    
     // state with game details
     const [game, setGame] = useState(null);
 

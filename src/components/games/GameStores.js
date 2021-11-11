@@ -28,7 +28,7 @@ export const GameStores = ({ stores }) => {
         <GameStoresList>
             {stores.map((el, num) => <GameStoreItem key={`gameStore_${el.id}_${num}`}>
                 <a href={getGameStoreUrl(num)} target="_blank" rel="noopener noreferrer">
-                    <img src={buyBtn} />
+                    <img src={buyBtn} alt='Cart'/>
                     {el.store.name}
                 </a>
             </GameStoreItem>)}

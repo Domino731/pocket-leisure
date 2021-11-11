@@ -152,7 +152,7 @@ export const ColorForm = styled.form`
 
 export const ColorFormCheckbox = styled.div`
   position: relative;
-  width: 52px;
+  width: 20%;
   height: 52px;
   input {
     appearance: none;
@@ -204,21 +204,18 @@ export const ColorFormCheckbox = styled.div`
   ///////////
   @media ${device.mobileM} {
     height: 64px;
-    width: 64px;
     input:checked ~ label i {
       font-size: 52px;
     }
   }
   @media ${device.mobileM} {
     height: 68px;
-    width: 112px;
     input:checked ~ label i {
       font-size: 56px;
     }
   }
   @media ${device.tablet} {
     height: 78px;
-    width: 158px;
     input:checked ~ label i {
       font-size: 71px;
     }
@@ -226,21 +223,18 @@ export const ColorFormCheckbox = styled.div`
 
   @media ${device.laptop} {
     height: 59px;
-    width: 221px;
     input:checked ~ label i {
       font-size: 53px;
     }
   }
   @media ${device.laptopM} {
     height: 62px;
-    width: 265px;
     input:checked ~ label i {
       font-size: 54px;
     }
   }
   @media ${device.laptopL} {
     height: 74px;
-    width: 291px;
     input:checked ~ label i {
       font-size: 68px;
     }

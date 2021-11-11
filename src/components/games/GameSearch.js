@@ -1,6 +1,5 @@
 import {Container, SearchInputContainer, TitlePrimary} from "../../styled-components/general/general-styles";
 import {useState} from "react";
-import {FormElement} from "../../styled-components/elements/user-form/user-form";
 import {GameSingle} from "./GameSingle";
 import {getSearchedGame} from "../../api/rawg/operations";
 import {GamesList} from "../../styled-components/elements/games/games";

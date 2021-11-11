@@ -2,20 +2,25 @@ import {useEffect, useState} from "react";
 import {getGamesByGenre, getMoreGames} from "../../api/rawg/operations";
 import {CheckboxRadio, Container, GetMoreBtn, SortElementsButton, TitlePrimary} from "../../styled-components/general/general-styles";
 import {GameSingle} from "./GameSingle";
-import {MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
 import {GamesSortForm} from "../../styled-components/elements/games/games";
 import {sortGames} from "../../functions/sortGames";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
 import {GamesList} from "../../styled-components/elements/games/games";
-
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 /**
  *
- * @param props.match.params.id {string} - id of game genre, base on that games will be download (comes from url)
- * @param props.match.params.name {string} - name of game genre (comes from url)
  * @returns {JSX.Element} - list of games of specific genre
  */
-export const GamesByGenre = (props) => {
+export const GamesByGenre = () => {
+
+    // refences
+    const {id, name} = useParams();
+
+    /** genre id */
+    const genreId = id;
+    /** genreName */
+    const genreName = name;
 
     // state with games
     const [games, setGames] = useState(null);
@@ -31,12 +36,12 @@ export const GamesByGenre = (props) => {
 
     // when component mounted get all games with this genre (from url)
     useEffect(() => {
-        return getGamesByGenre(setGames, props.match.params.id);
-    }, [props.match.params]);
+        return getGamesByGenre(setGames, genreId);
+    }, [genreId]);
 
     // when page state will change get more games
     useEffect(() => {
-        return getMoreGames(setGames, props.match.params.id, page);
+        return getMoreGames(setGames, genreId, page);
     }, [page]);
 
     // change flag state -> show or hide sorting form
@@ -69,7 +74,7 @@ export const GamesByGenre = (props) => {
     return <Container>
 
         {/*name of genre*/}
-        <TitlePrimary>{props.match.params.name}</TitlePrimary>
+        <TitlePrimary>{genreName}</TitlePrimary>
 
         {/*selected sorting option*/}
         <SortElementsButton onClick={handleChangeFlag}>{sort} <i className="fas fa-filter"/>
