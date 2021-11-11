@@ -1,25 +1,39 @@
 import styled from "styled-components";
+import { device } from "../../general/breakpoints";
 
-export const NotFoundContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-
-  i {
-    font-size: 203px;
-    color: ${props => props.theme.color.main};
+export const ErrorContainer = styled.div`
+ font-size: 18px;
+  img {
+    display: block;
+    margin: 16px auto 14px;
+    width: 260px;
+    height: auto;
+    object-fit: cover;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1em;
+  }
+  ///////////
+  // media //
+  ///////////
+  @media ${device.mobileM} {
+    font-size: 22px;
+    img {
+      width: 320px;
+    }
+  }
+  @media ${device.tablet} {
+    font-size: 26px;
+    img {
+      width: 340px;
+    }
+  }
+  @media ${device.laptop} {
+    font-size: 28px;
+    img {
+      width: 370px;
+    }
   }
 `
-export const NotFoundTitle = styled.h1`
-  margin-bottom: 12px;
-  font-size: 44px;
-  text-decoration: underline;
-  text-decoration-color: ${props => props.theme.color.main};
-`
 
-export const NotFoundRedirect = styled.span`
-  margin-bottom: 34px;
-`

@@ -1,7 +1,7 @@
-import { NotFoundContainer, NotFoundRedirect, NotFoundTitle } from "../../styled-components/elements/notFound/notFound";
+import { ErrorContainer } from "../../styled-components/elements/notFound/notFound";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
-
+import error404Graphic from "../../images/error404.svg"
 /**
  * Component which rendered  when a non-existent file was referenced
  * @param redirectUrl {string} - path to which you want to redirect user, for example: /movies, /games
@@ -36,9 +36,8 @@ export const NotFound404 = ({ redirectUrl }) => {
         }
     },[]);
 
-    return <NotFoundContainer>
-        <NotFoundTitle>404 Not found</NotFoundTitle>
-        <NotFoundRedirect>You will be redirected after {redirectTime}s </NotFoundRedirect>
-        <i className="fas fa-frown-open" />
-    </NotFoundContainer>
+    return <ErrorContainer>
+         <img src={error404Graphic} title='Page not found' alt='Page not found'/>
+         <h1>You will be redirected after {redirectTime}s</h1>
+    </ErrorContainer>
 };
