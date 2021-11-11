@@ -8,7 +8,9 @@ import { useEffect, useState } from "react";
 import { getMoviesByCategory, getMoviesGenres } from "../../api/themoviedb/operations";
 import { Loading } from "../loading/Loading";
 
-// Main movies page with movies sorted by category and movie genres
+/**
+ * Main movies page with movies sorted by category and movie genres
+ */
 const Movies = () => {
 
     // state with movies genres, base on this state list with movie genres will be rendered in MovieGenres component
@@ -28,6 +30,7 @@ const Movies = () => {
     if (movieGenres === null || movies === null) {
         return <Loading />
     }
+
     return <Container>
         <Movie>
             <TitleBar>
@@ -37,6 +40,7 @@ const Movies = () => {
                 {/* link to page when user can search specific movie */}
                 <Link to="movie-search"><i className="fas fa-search" /> <span>Search</span></Link>
             </TitleBar>
+            
             {/* movies fetched by catagory */}
             <MoviesByCategory moviesData={movies} />
 

@@ -5,7 +5,7 @@ import { MovieElementTitle } from "../../styled-components/elements/movie/movieC
 
 /**
  * component that renders movie genres, and when user click on it,
- * it will redirect to MoviesByGenre component, who will render all movies with that genre
+ * he will be redirected to MoviesByGenre component, who will render all movies with that genre
  * @param movieGenresData {array}- movie genres
  */
 export const MoviesGenres = ({ movieGenresData }) => {

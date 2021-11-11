@@ -10,7 +10,7 @@ import { getReleaseDate } from "../../functions/getReleaseDate";
 import { Link } from "react-router-dom";
 import missingPhoto from "../../images/missing.svg";
 /**
- * Box with games - poster, platforms, premiere and ratings
+ * Box with content for single game - poster, platforms, premiere and ratings
  * @param game {object} - game details with poster path, name, platforms...
  */
 export const GameSingle = ({ game }) => {

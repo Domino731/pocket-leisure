@@ -82,6 +82,36 @@ Link: https://ow-api.com/docs/
 * `<OverwatchStatistics/>` - Component with general overview for player stats
 * `<OverwatchStatisticsCompetitive/>` - Component with full stats for competitive mode
 * `<OverwatchStatisticsQuickPlay/>` - Component with full stats for quick play mode
+***Movies section***
+* `<Movies/>` - main movies component with movies list sorted by category and movie genres
+* `<MoviesByCategory/>` - subcomponent for `<Movies/>` with list of movies
+* `<MoviesGenres/>` - subcomponent for `<Movies/>`, which renders movie genres, and when user click on it,
+ he will be redirected to `<MoviesByGenre/>` component, who will render all movies with that genre
+ * `<MovieCategorySingle/>` - subcomponent for `<MoviesByCategory/>` with  movie title, release date, and  poster as link to single movie page with details
+ * `<MovieSearch/>` - component where user can search movies
+ * `<MoviesByGenre/>` - component with movies with specific genre
+ * `<MovieGenreSingle/>` - subcomponent for `<MovieSearch/>` and `<MoviesByGenre/>`, with movie poster as link to single movie, title, release date and rating
+ * `<Movie/>` - component with content for specific movie
+ * `<MovieCast/>` - subcomponent for `<Movie/>`, with movie cast
+ * `<MovieFacts/>` - subcomponent for `<Movie/>`, with table with movie details - producer, budget, country...
+ * `<MovieIntroduction/>` - subcomponent for `<Movie/>`, with movie introduction
+ * `<MoviePosterDesktop/>` - subcomponent for `<Movie/>`, which is rendering poster and table with movie facts -> director, ratings, time, relased data, budget...
+ ***Games section***
+ * `<Games/>` - component with popular games and list of games genres
+ * `<GamesGenres/>`- subcomponent for `<Games/>`, with list of game genres
+ * `<GamesListMain/>` - subcomponent for `<Games/>`, which is rendering list with popular games
+ * `<GameSingle/>` - subcomponent for `<GameSearch/>`, `<GamesListMain/>` and `<GamesByGenre/>`, which is rendering box with content for single game - poster, platforms, premiere and ratings
+ * `<GameSearch/>` - component where user can search for a specific game
+ * `<GamesByGenre/>` - component which is rendering list of games by particular genre
+ * `<Game/>` - component with content for a specific movie
+ * `<GameAdditions/>` - subcomponent for `<Game/>`, including additions for the game - DLC, GOTY and others
+ * `<GameFacts/>` - subcomponent for `<Game/>`, table with details about game - developer, publisher, budget...
+ * `<GameIntroduction/>` - subcomponent for `<Game/>`, introduction for the game - rating, title, description...
+ * `<GameScreenshots/>` - subcomponent for `<Game/>`, screenshots for the game
+ * `<GameSeries/>` - subcomponent for `<Game/>`, including series of the particular game
+ * `<GameStores/>` - subcomponent for `<Game/>`, list of stores where user can buy a game
+ * `<GameTrailers/>` - subcomponent for `<Game/>`, trailers for the game
+
 
 
 

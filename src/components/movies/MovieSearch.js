@@ -11,7 +11,7 @@ import {MovieElementTitle} from "../../styled-components/elements/movie/movieCat
 import {MoviesList} from "../../styled-components/elements/movie/movie";
 
 /**
- * By this component user can search for any movie that he wants
+ * Component where user can search movies
  * @returns {JSX.Element} - search movies
  */
 export const MovieSearch = () => {

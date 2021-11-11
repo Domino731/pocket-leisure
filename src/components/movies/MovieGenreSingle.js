@@ -1,15 +1,15 @@
 // component which is rendered by map in MoviesByGenre component, displays card with movie
 import { Link } from "react-router-dom";
 import { getReleaseDate } from "../../functions/getReleaseDate";
-//styles
 import { MovieGenreItem, MovieItemContent, MoviePosterSmall, MoviePosterSmallMissing, MovieRating } from "../../styled-components/elements/movie/movieGenre";
 import {
     ItemTitleMedium,
     ItemPremiereMedium
 } from "../../styled-components/general/general-styles";
 import photoMissing from "../../images/missing.svg";
+
 /**
- * movie poster as link to single movie, title, release date and rating
+ * component with movie poster as link to single movie, title, release date and rating
  * @param movie {object} - object with a film which contains his basic data - title, rating, premiere
  */
 export const MovieGenreSingle = ({ movie }) => {

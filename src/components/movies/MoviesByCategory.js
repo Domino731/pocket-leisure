@@ -9,6 +9,10 @@ import {
 } from "../../styled-components/elements/movie/movieCategory";
 import {CheckboxRadio} from "../../styled-components/general/general-styles";
 
+/**
+ * Component with list of movies
+ * @param moviesData - data about movies
+ */
 export const MoviesByCategory = ({moviesData}) => {
 
     // state with movies on the basis of which individual components are rendered

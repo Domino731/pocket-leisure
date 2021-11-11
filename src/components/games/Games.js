@@ -7,6 +7,7 @@ import {GamesListMain} from "./GamesListMain";
 import {Loading} from "../loading/Loading";
 
 /**
+ * component with popular games and list of games genres
  * @returns {JSX.Element} - Main games page with games and genres
  */
 export const Games = () => {

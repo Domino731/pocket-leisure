@@ -2,9 +2,8 @@ import {GamesList} from "../../styled-components/elements/games/games";
 import {GameSingle} from "./GameSingle";
 
 /**
- * List with games which is displayed at main page with games
+ * List with popular games
  * @param games {array} - array with games
- * @returns {JSX.Element} list of popular games
  */
 export const GamesListMain = ({games}) => {
     return <GamesList>

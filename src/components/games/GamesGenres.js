@@ -3,8 +3,8 @@ import {Genre} from "../../styled-components/general/general-styles";
 import {Link} from "react-router-dom";
 
 /**
+ * component with list of game genres
  * @param gamesGenres {array} - array with genres
- * @returns {JSX.Element} - list of game genres
  */
 export const GamesGenres = ({gamesGenres}) => {
     return <section>
