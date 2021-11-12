@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { CarouselArrow } from "../general/CorouselArrow";
 import Carousel from "react-elastic-carousel";
 import missingGraphic from "../../images/missing.svg";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 /**
  * Component with carousel for game additions -> dlc, goty...
  * @param additions - available additions for the game
@@ -37,7 +38,7 @@ export const GameAdditions = ({ additions }) => {
                     // have poster
                     <Link to={`/game/${el.id}`}>
                         <GameAdditionGraphic>
-                            <img src={el.background_image} alt="Game poster" />
+                            <LazyLoadImage  src={el.background_image} alt="Game poster" />
                         </GameAdditionGraphic>
                         
                         </Link>
@@ -46,7 +47,7 @@ export const GameAdditions = ({ additions }) => {
                     //dont have poster
                     <Link to={`/game/${el.id}`}>
                         <GameAdditionMissingGraphic>
-                        <img src={missingGraphic} title='Missing graphic' alt="Camera" />
+                        <LazyLoadImage  src={missingGraphic} title='Missing graphic' alt="Camera" />
                         </GameAdditionMissingGraphic>
                         </Link>}
 

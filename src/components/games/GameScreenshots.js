@@ -3,7 +3,7 @@ import {
     GameScContainer,
     GameMediaSwitch,
 } from "../../styled-components/elements/games/specificGame";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 /**
  * Component with screenshots for game
  * @param screenshots - data about game screenshots
@@ -24,7 +24,7 @@ export const GameScreenshots = ({ screenshots }) => {
      }
 
     return <GameScContainer>
-            <img src={screenshots[scIndex].image} alt={`Game screenshot`} />
+            <LazyLoadImage src={screenshots[scIndex].image} alt={`Game screenshot`} />
             {/*switching between screenshots*/}
             <GameMediaSwitch>
                 {scIndex !== 0 && <button onClick={handleDecreaseScIndex}>Previous</button>}

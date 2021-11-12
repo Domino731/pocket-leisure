@@ -5,12 +5,13 @@ import { MovieCategoryItem } from "../../styled-components/elements/movie/movieC
 import { ItemTitleSmall } from "../../styled-components/general/general-styles";
 import { ItemPremiereSmall } from "../../styled-components/general/general-styles";
 import photoMissing from "../../images/missing.svg";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 /**
  * Component with  movie title, release date, and  poster as link to single movie page with details
  * @param movie {object} - object with data about movie
  */
 export const MovieCategorySingle = ({ movie }) => {
+    console.log(movie)
     return <MovieCategoryItem>
 
         {/* link to page with details about this movie  */}
@@ -18,10 +19,18 @@ export const MovieCategorySingle = ({ movie }) => {
             {/* check if movie has a poster */}
             {movie.poster_path !== null ?
                 <PosterBig >
-                    <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title} />
+                    <LazyLoadImage
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        alt={movie.title} />
+
                 </PosterBig>
                 :
-                <PosterBigMissing><img src={photoMissing} title='Missing movie poster' alt='camera' /></PosterBigMissing>
+                <PosterBigMissing>
+                    <LazyLoadImage
+                        src={photoMissing}
+                        title='Missing movie poster'
+                        alt='camera' />
+                </PosterBigMissing>
             }
         </Link>
 
