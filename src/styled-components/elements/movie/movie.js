@@ -422,7 +422,6 @@ export const MovieActors = styled.div`
   }
 `
 export const MovieActor = styled.div`
-  margin-right: 12px;
   width: 105px;
 
     ///////////
@@ -433,11 +432,9 @@ export const MovieActor = styled.div`
   }
   @media ${device.mobileL}{
     width: 141px;
-    margin-right: 13px;
   }
   @media ${device.mobileXL}{
     width: 147px;
-    margin-right: 14px;
   }
   @media ${device.tablet} {
     width: 192px;
@@ -445,16 +442,19 @@ export const MovieActor = styled.div`
   }
   @media ${device.laptop} {
     width: 168px;
-    margin-top: 17px;
   }
 `
-export const MovieActorPhoto = styled.img`
+export const MovieActorPhotoWrapper = styled.div`
     width: 100%;
     height: 157px;
     height: auto;
     border-radius: 7px;
-    object-fit: cover;
-
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
      ///////////
     // media //
     ///////////
@@ -468,43 +468,20 @@ export const MovieActorPhoto = styled.img`
     }
     @media ${device.mobileXL}{
     width: 147px;
-    h3 {
-      width: 147px
-    }
+  }
     @media ${device.tablet} {
     height: 220px;
     border-radius: 13px;
     }
-  }
+  
 `
-export const MovieActorPhotoMissing = styled.div`
+export const MovieActorPhotoMissing = styled(MovieActorPhotoWrapper)`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 157px;
   box-shadow: 0 0 15px ${props => props.theme.color.missingYellow} inset;
-  border-radius: 7px;
   img {
     width: 65%;
-  }
-
-   ///////////
-    // media //
-    ///////////
-  @media ${device.mobileM} {
-    height: 184px;
-    border-radius: 9px;
-  }
-  @media ${device.mobileL} {
-    height: 211px;
-    border-radius: 11px;
-  }
-  @media ${device.tablet} {
-    height: 220px;
-    border-radius: 13px;
-  }
-  @media ${device.laptop} {
-    width: 147px;
   }
 `
 export const MovieKnowFor = styled.strong`
