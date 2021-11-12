@@ -2,15 +2,23 @@ import { Link } from "react-router-dom";
 import {
     MovieItemTitle,
     MoviesList,
-  MovieSimilarSingle
+  MovieSimilarSingle,
+  MovieSimilarMissing
 } from "../../styled-components/elements/movie/movie";
 import missingPhoto from "../../images/missing.svg";
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 /**
  * Component with list of similar movies
  * @param movies - array with data about similar movies
  */
 export const MovieSimilarMovies = ({ movies }) => {
+
+    const missingPosterStyles = {
+        width: `50%`,
+        margin: `0 auto`,
+        display: `block`,
+        marginBottom: `5px`
+    }
     return <div>
 
         {/* title */}
@@ -24,12 +32,12 @@ export const MovieSimilarMovies = ({ movies }) => {
                         {
                             // check if movie has a poster
                             el.poster_path !== null ?
-                                <img src={`https://image.tmdb.org/t/p/original${el.poster_path}`}
+                                <LazyLoadImage src={`https://image.tmdb.org/t/p/w500${el.poster_path}`}
                                     alt={el.title} />
-                                : <>
-                                    <img src={missingPhoto} alt={el.title} title='Missing movie poster'/>
+                                : <MovieSimilarMissing>
+                                    <LazyLoadImage src={missingPhoto} alt={el.title} title='Missing movie poster' style={missingPosterStyles}/>
                                     <h3>{el.title}</h3>   
-                                </>
+                                </MovieSimilarMissing>
                         }
                     </Link>
                 </MovieSimilarSingle>

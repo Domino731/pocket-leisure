@@ -44,7 +44,7 @@ export const MovieCast = ({ cast }) => {
                 // check if profile photo exist
                 el.profile_path !== null ?
                     <MovieActor key={`cast_${el.credit_id}_${num}`}>
-                        <MovieActorPhoto src={`https://image.tmdb.org/t/p/original${el.profile_path}`} alt={el.name} />
+                        <MovieActorPhoto src={`https://image.tmdb.org/t/p/w500${el.profile_path}`} alt={el.name} />
                         <ItemTitleSmall>{el.name}</ItemTitleSmall>
                         <MovieKnowFor>{el.character}</MovieKnowFor>
                     </MovieActor>

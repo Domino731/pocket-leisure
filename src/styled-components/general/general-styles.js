@@ -243,7 +243,7 @@ export const TitleBar = styled.header`
     width: 36px;
     background: ${props => props.theme.color.main};
     box-shadow: 0 0 14px ${props => props.theme.color.main};
-    border-radius: 50%;
+    border-radius: 60px;
     overflow: hidden;
     transition: 0.4s;
 

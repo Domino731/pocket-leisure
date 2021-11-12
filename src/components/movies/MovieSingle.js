@@ -14,28 +14,29 @@ export const MovieSingle = ({ movie }) => {
      * @param rating - movie rating
      */
     const getRaringColor = (rating) => {
-        if(rating < 1.5){
+        if (rating < 1.5) {
             return `#d00000`;
         }
-        else if (rating < 3){
+        else if (rating < 3) {
             return `#dc2f02`;
         }
-        else if (rating < 4.5){
+        else if (rating < 4.5) {
             return `#ffb703`;
         }
         else if (rating < 6) {
             return `#b7dd16`;
         }
-        else if (rating < 8.5){
+        else if (rating < 8.5) {
             return `#8ce100`;
         }
-        else if (rating <= 10){
+        else if (rating <= 10) {
             return `#50b91e`
         }
     }
     return <MovieSingleContainer>
 
-        <Link>
+        {/* link to page with more details about this movie */}
+        <Link to={`/movie/${movie.id}`}>
             {/* rating box */}
             {movie.vote_average && <MovieSingleRating title='Rating' background={getRaringColor(movie.vote_average.toFixed(1))}>{movie.vote_average.toFixed(1)}</MovieSingleRating>}
             {movie.poster_path !== null ?
@@ -57,6 +58,6 @@ export const MovieSingle = ({ movie }) => {
         <MovieSingleTitle>{movie.title !== undefined ? movie.title : movie.name}</MovieSingleTitle>
 
         {/* check if movie has a release data */}
-        { movie.release_date && <MovieSingleRelase>{getReleaseDate(movie.release_date)}</MovieSingleRelase>}
+        {movie.release_date && <MovieSingleRelase>{getReleaseDate(movie.release_date)}</MovieSingleRelase>}
     </MovieSingleContainer>
 }

@@ -16,7 +16,7 @@ export const MoviePosterDesktop = ({ movie, credits }) => {
     return <MoviePosterContainerDesktop>
         {/* check if movie has a poster */}
         {movie.poster_path !== null &&
-            <FullWidePoster src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />}
+            <FullWidePoster src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />}
         <MovieFactsContainerDesktop>
 
             {/*movie details*/}
