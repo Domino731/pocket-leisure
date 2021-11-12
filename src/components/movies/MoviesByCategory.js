@@ -8,6 +8,7 @@ import {
     MovieCategoryForm
 } from "../../styled-components/elements/movie/movieCategory";
 import {ActionButtonWrapper, CheckboxRadio} from "../../styled-components/general/general-styles";
+import { MovieSingle } from "./MovieSingle";
 
 /**
  * Component with list of movies
@@ -99,7 +100,7 @@ export const MoviesByCategory = ({moviesData}) => {
                 </CheckboxRadio>
             </MovieCategoryForm>}
 
-            {movies.map((el, num) => <MovieCategorySingle movie={el} key={`movieByCategory${num}`}/>)}
+            {movies.map((el, num) => <MovieSingle movie={el} key={`movieByCategory_${num}`}/>)}
                                                                         
         </MovieCategoryList>
         
