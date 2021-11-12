@@ -1,14 +1,13 @@
 import {getMoviesByParticularGenre, getMoreMovies} from "../../api/themoviedb/operations";
-import {MovieGenreSingle} from "./MovieGenreSingle";
 import {useEffect, useState} from "react";
 import {sortMovies} from "../../functions/sortMovies";
 import {Loading} from "../loading/Loading";
 import {NotFound404} from "../notFound/NotFound404";
 import {Container, TitlePrimary, GetMoreBtn, CheckboxRadio, ActionButtonWrapper} from "../../styled-components/general/general-styles";
-import {MovieCategoryForm, MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
+import {MovieCategoryForm} from "../../styled-components/elements/movie/movieCategory";
 import {MoviesList} from "../../styled-components/elements/movie/movie";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-
+import { MovieSingle } from "./MovieSingle";
 /**
  * @returns {JSX.Element|null} - movies by genre
  */
@@ -120,7 +119,7 @@ export const MoviesByGenre = (props) => {
 
         {/*rendering movies*/}
         <MoviesList>
-            {movies.map((el, num) => <MovieGenreSingle movie={el}
+            {movies.map((el, num) => <MovieSingle movie={el}
                                                        key={`movieByGenre-${genre}-${num}`}/>)}
         </MoviesList>
 

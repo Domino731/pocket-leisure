@@ -1,10 +1,8 @@
 import {useState} from "react";
 import {getMoviesByCategory} from "../../api/themoviedb/operations";
-import {MovieCategorySingle} from "./MovieCategorySingle";
 import {
     MovieCategory,
     MovieCategoryList,
-    MovieElementTitle,
     MovieCategoryForm
 } from "../../styled-components/elements/movie/movieCategory";
 import {ActionButtonWrapper, CheckboxRadio} from "../../styled-components/general/general-styles";

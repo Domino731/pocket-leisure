@@ -102,10 +102,9 @@ Link: https://ow-api.com/docs/
 * `<MoviesByCategory/>` - subcomponent for `<Movies/>` with list of movies
 * `<MoviesGenres/>` - subcomponent for `<Movies/>`, which renders movie genres, and when user click on it,
  he will be redirected to `<MoviesByGenre/>` component, who will render all movies with that genre
- * `<MovieCategorySingle/>` - subcomponent for `<MoviesByCategory/>` with  movie title, release date, and  poster as link to single movie page with details
  * `<MovieSearch/>` - component where user can search movies
  * `<MoviesByGenre/>` - component with movies with specific genre
- * `<MovieGenreSingle/>` - subcomponent for `<MovieSearch/>` and `<MoviesByGenre/>`, with movie poster as link to single movie, title, release date and rating
+ * `<MovieSingle/>` - subcomponent for `<MoviesByCategory/>`,`<MovieSearch/>` and `<MoviesByGenre/>`, with movie overview - title, premiere, rating
  * `<Movie/>` - component with content for specific movie
  * `<MovieCast/>` - subcomponent for `<Movie/>`, with movie cast
  * `<MovieFacts/>` - subcomponent for `<Movie/>`, with table with movie details - producer, budget, country...

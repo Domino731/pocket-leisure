@@ -1,7 +1,6 @@
 import {searchMovieByTitle} from "../../api/themoviedb/operations";
 import {searchMovieByDirector} from "../../api/themoviedb/operations";
 import {searchMovieByActor} from "../../api/themoviedb/operations";
-import {MovieGenreSingle as SingleMovie} from "./MovieGenreSingle";
 import {useState} from "react";
 import {Loading} from "../loading/Loading";
 import {SearchInputContainer, TitlePrimary} from "../../styled-components/general/general-styles";
@@ -9,8 +8,9 @@ import {CheckboxRadio, Container} from "../../styled-components/general/general-
 import {MovieCategoryForm} from "../../styled-components/elements/movie/movieCategory";
 import {MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
 import {MoviesList} from "../../styled-components/elements/movie/movie";
-
+import { MovieSingle } from "./MovieSingle";
 /**
+
  * Component where user can search movies
  * @returns {JSX.Element} - search movies
  */
@@ -65,7 +65,6 @@ export const MovieSearch = () => {
 
         {/*change search by*/}
         {flag && true && <MovieCategoryForm>
-
             {/*by movie title*/}
             <CheckboxRadio>
                 <label>Movie title
@@ -105,7 +104,7 @@ export const MovieSearch = () => {
             :
             <MoviesList>
                 {movies &&
-                movies.map((el, num) => <SingleMovie movie={el} key={`movieSearch_${el.id}_${num}`}/>)
+                movies.map((el, num) => <MovieSingle movie={el} key={`movieSearch_${el.id}_${num}`}/>)
                 }
             </MoviesList>
         }

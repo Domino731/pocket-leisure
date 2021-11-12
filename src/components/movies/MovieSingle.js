@@ -4,7 +4,7 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import photoMissing from "../../images/missing.svg";
 import { getReleaseDate } from "../../functions/getReleaseDate";
 /**
- * 
+ * Component with movie overview - title, premiere, rating
  * @param {*} param0 
  */
 export const MovieSingle = ({ movie }) => {
@@ -37,7 +37,7 @@ export const MovieSingle = ({ movie }) => {
 
         <Link>
             {/* rating box */}
-            {movie.vote_average && <MovieSingleRating background={getRaringColor(movie.vote_average.toFixed(1))}>{movie.vote_average.toFixed(1)}</MovieSingleRating>}
+            {movie.vote_average && <MovieSingleRating title='Rating' background={getRaringColor(movie.vote_average.toFixed(1))}>{movie.vote_average.toFixed(1)}</MovieSingleRating>}
             {movie.poster_path !== null ?
                 <MovieSinglePosterWrapper>
                     <LazyLoadImage
