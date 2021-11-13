@@ -16,7 +16,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
  * @param game {object} - game details with poster path, name, platforms...
  */
 export const GameSingle = ({ game }) => {
-    console.log(game)
     return <GameSingleContainer>
 
         {/*link*/}

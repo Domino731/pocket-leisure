@@ -16,9 +16,14 @@ export const GameSearch = () => {
     // flag by which loading screen is set
     const [loading, setLoading] = useState(false);
 
-    // get searched games
+    let searchDelay;
+    /** set games state with searched games */ 
     const handleChangeMovies = (e) => {
-        return getSearchedGame(setGames, setLoading, e.target.value);
+        clearTimeout(searchDelay);
+        // delay
+        searchDelay = setTimeout(()=> {
+            return getSearchedGame(setGames, setLoading, e.target.value);
+        }, 500)
     }
 
     return <Container>

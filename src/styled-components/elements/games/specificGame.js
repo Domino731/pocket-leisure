@@ -57,7 +57,7 @@ export const GamePosterContainerDesktop = styled.div`
   ///////////
   @media ${device.laptopL} {
     img {
-      height: 703px;
+      height: 620px;
     }
   }
 `

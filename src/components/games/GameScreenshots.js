@@ -13,10 +13,10 @@ export const GameScreenshots = ({ screenshots }) => {
        // state, which change, shows another screenshot
        const [scIndex, setScIndex] = useState(0);
 
-     //  decrease scIndex state -> switch to previous screenshot
+     /** decrease scIndex state -> switch to previous screenshot */
      const handleDecreaseScIndex = () => setScIndex(prev => prev - 1);
 
-     // increase scIndex state -> switch to next screenshot
+     /** increase scIndex state -> switch to next screenshot */
      const handleIncreaseScIndex = () => {
          if (scIndex < screenshots.length) {
              return setScIndex(prev => prev + 1);
@@ -24,7 +24,9 @@ export const GameScreenshots = ({ screenshots }) => {
      }
 
     return <GameScContainer>
+            {/* current screenshot */}
             <LazyLoadImage src={screenshots[scIndex].image} alt={`Game screenshot`} />
+            
             {/*switching between screenshots*/}
             <GameMediaSwitch>
                 {scIndex !== 0 && <button onClick={handleDecreaseScIndex}>Previous</button>}

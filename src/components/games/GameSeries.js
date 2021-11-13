@@ -14,7 +14,6 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
  * @param gameSeries - data about game series
  */
 export const GameSeries = ({gameSeries}) => {
-    console.log(gameSeries)
     return <GameSeriesContainer>
         <GameItemTitle>Game series</GameItemTitle>
         <GameSeriesList>
