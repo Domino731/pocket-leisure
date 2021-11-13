@@ -152,6 +152,9 @@ img {
 `
 export const MovieSinglePosterMissing = styled(MovieSinglePosterWrapper)`
 box-shadow: 0 0 15px ${props => props.theme.color.missingYellow} inset;
+display: flex;
+justify-content: center;
+align-items: center;
 img {
     width: 50%;
     height: auto;

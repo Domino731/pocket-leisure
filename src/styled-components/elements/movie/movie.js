@@ -15,7 +15,13 @@ export const MoviePosterContainer = styled.div`
 
 `
 export const MoviePosterContainerDesktop = styled.div`
-  width: 40%;
+  width: 35%;
+  @media screen and (min-width: 1291px){
+    width: 30%;
+  }
+  @media screen and (min-width: 1551px){
+    width: 29%;
+  }
 `
 export const MovieIntroductionContainer = styled.div`
   background-color: ${props => props.theme.color.black};
@@ -25,22 +31,11 @@ export const MovieIntroductionContainer = styled.div`
   @media ${device.mobileL} {
     position: relative;
     box-shadow: 0 -104px 27px 19px #171721;
-     /* &::after{
-       content: '';
-       display: block;
-       position: absolute;
-       width: 100%;
-       height: 192px;
-       top: -188px;
-       background: rgba(23,23,33,0.5);
-       filter: blur(10px);
-       box-shadow: inset 0 0 2000px rgb(23 23 33 / 90%), 0 0 64px 89px rgb(23 23 33 / 90%)
-     } */
   }
   @media ${device.laptop} {
     width: 60%;
     padding-left: 20px;
-
+      box-shadow: none;
     ///////////
     // media //
     ///////////
@@ -109,6 +104,7 @@ export const MovieDirector = styled.strong`
   }
   @media ${device.laptop} {
     justify-content: flex-start;
+    box-shadow: none;
     margin-top: 0;
   }
 `
@@ -482,6 +478,8 @@ export const MovieActorPhotoMissing = styled(MovieActorPhotoWrapper)`
   box-shadow: 0 0 15px ${props => props.theme.color.missingYellow} inset;
   img {
     width: 65%;
+    height: auto;
+    object-fit: cover;
   }
 `
 export const MovieKnowFor = styled.strong`

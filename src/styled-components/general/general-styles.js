@@ -464,7 +464,9 @@ export const CheckboxRadio = styled.div`
     left: 0;
     z-index: 3;
     border: none;
-
+    &:hover{
+       cursor: pointer;
+    }
   }
 `
 export const TitlePrimary = styled.h1`

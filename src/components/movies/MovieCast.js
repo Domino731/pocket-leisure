@@ -55,7 +55,7 @@ export const MovieCast = ({ cast }) => {
                     :
                     <MovieActor key={`cast_${num}`}>
                         <MovieActorPhotoMissing>
-                            <LazyLoadImage src={missingPhoto} title='Actor doeans have his photo' alt='camera' />
+                            <LazyLoadImage src={missingPhoto} title='Missing photo' alt='camera' />
                         </MovieActorPhotoMissing>
                         <ItemTitleSmall>{el.name}</ItemTitleSmall>
                         <MovieKnowFor>{el.character}</MovieKnowFor>

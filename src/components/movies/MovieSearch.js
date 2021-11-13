@@ -3,7 +3,7 @@ import {searchMovieByDirector} from "../../api/themoviedb/operations";
 import {searchMovieByActor} from "../../api/themoviedb/operations";
 import {useState} from "react";
 import {Loading} from "../loading/Loading";
-import {SearchInputContainer, TitlePrimary} from "../../styled-components/general/general-styles";
+import {ActionButtonWrapper, SearchInputContainer, TitlePrimary} from "../../styled-components/general/general-styles";
 import {CheckboxRadio, Container} from "../../styled-components/general/general-styles";
 import {MovieCategoryForm} from "../../styled-components/elements/movie/movieCategory";
 import {MovieElementTitle} from "../../styled-components/elements/movie/movieCategory";
@@ -27,29 +27,33 @@ export const MovieSearch = () => {
     // flag which allows the user to toggle the sorting options
     const [flag, setFlag] = useState(false);
 
-    // search movie by
+    let searchDelay;
+    /* search movie by title, director or actor */
     const handleChangeMovies = (e) => {
+        clearTimeout(searchDelay);
+
+        // search movie with delay - 0.5s
         switch (searchBy) {
             case "Movie name":
-                return searchMovieByTitle(setMovies, setLoading, e.target.value);
+                return searchDelay = setTimeout(()=> searchMovieByTitle(setMovies, setLoading, e.target.value) , 500);         
             case "Director":
-                return searchMovieByDirector(setMovies, setLoading, e.target.value);
+                return searchDelay = setTimeout(()=> searchMovieByDirector(setMovies, setLoading, e.target.value) , 500);
             case "Actor":
-                return searchMovieByActor(setMovies, setLoading, e.target.value);
+                return searchDelay = setTimeout(()=> searchMovieByActor(setMovies, setLoading, e.target.value) , 500);
             default:
-                return searchMovieByTitle(setMovies, setLoading, e.target.value);
+                return searchDelay = setTimeout(()=> searchMovieByTitle(setMovies, setLoading, e.target.value) , 500);
         }
     }
 
-    // change flag state -> show sorting options
+    /** change flag state -> show sorting options */
     const handleChangeFlag = () => setFlag(!flag);
 
 
-    // change searching type
+    /**change searching type */ 
     const handleChangeSearchBy = (e) => {
         setSearchBy(e.target.value);
 
-        // when animation ended(0.5s) hide form
+        // when animation ends (0.5s) then hide form
         return setTimeout(() => {
             setFlag(false)
         }, 500);
@@ -60,8 +64,10 @@ export const MovieSearch = () => {
         <TitlePrimary>Search</TitlePrimary>
 
         {/*search by option*/}
-        <MovieElementTitle onClick={handleChangeFlag}>Search by {searchBy}<i
-            className="fas fa-search"/></MovieElementTitle>
+        <ActionButtonWrapper>
+            <button onClick={handleChangeFlag} title='Change search options'><i
+            className="fas fa-search"/> Search by {searchBy}</button>
+        </ActionButtonWrapper>
 
         {/*change search by*/}
         {flag && true && <MovieCategoryForm>
@@ -88,7 +94,7 @@ export const MovieSearch = () => {
                 <label>Director
                     <input type="radio" value="Director" checked={searchBy === "Director"}
                            onChange={handleChangeSearchBy} name="searchMovieByDirector"/>
-                    <spam/>
+                    <span/>
                 </label>
             </CheckboxRadio>
         </MovieCategoryForm>}

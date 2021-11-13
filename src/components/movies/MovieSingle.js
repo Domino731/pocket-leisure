@@ -38,7 +38,7 @@ export const MovieSingle = ({ movie }) => {
         {/* link to page with more details about this movie */}
         <Link to={`/movie/${movie.id}`}>
             {/* rating box */}
-            {movie.vote_average && <MovieSingleRating title='Rating' background={getRaringColor(movie.vote_average.toFixed(1))}>{movie.vote_average.toFixed(1)}</MovieSingleRating>}
+            {movie.vote_average ? <MovieSingleRating title='Rating' background={getRaringColor(movie.vote_average.toFixed(1))}>{movie.vote_average.toFixed(1)}</MovieSingleRating> : null}
             {movie.poster_path !== null ?
                 <MovieSinglePosterWrapper>
                     <LazyLoadImage
@@ -46,7 +46,7 @@ export const MovieSingle = ({ movie }) => {
                         alt={movie.title} />
                 </MovieSinglePosterWrapper>
                 :
-                <MovieSinglePosterMissing>
+                <MovieSinglePosterMissing title='Missing movie poster'>
                     <LazyLoadImage
                         src={photoMissing}
                         alt={movie.title} />
