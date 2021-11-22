@@ -1,5 +1,5 @@
 # Pocket leisure
-An app where with library of games, movies and your overwatch statisctics. This project has also capability to choose one of 4 color themes 
+An app with library of games, movies and your overwatch statisctics. This project has also capability to choose one of 4 color themes 
 ## **Technology**
 * React create app
 * React - function components
