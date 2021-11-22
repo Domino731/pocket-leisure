@@ -245,7 +245,6 @@ position: relative;
       position: absolute;
       left: -6px;
       height: 100%;
-      ${props => console.log(props.rating)}
       width: ${props => (props.rating  + 3 + "%")};
       background: ${props => getRatingColor(props.rating)};
       transform: skew(17deg, 0deg);

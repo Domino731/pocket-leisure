@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { device } from "../../general/breakpoints";
+import { getRatingColor } from "../../../functions/getRatingColor";
 
 export const GamesElementTitle = styled.h2`
   display: flex;
@@ -294,10 +295,9 @@ export const GameSingleRating = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-   
   border-radius: 0.6em;
-  box-shadow: 0 0 12px ${props => props.theme.color.yellow};;
-  background: ${props => props.theme.color.yellow};
+  box-shadow: 0 0 12px ${props => getRatingColor(props.rating)};;
+  background: ${props => getRatingColor(props.rating)};
   span {
     display: block;
     margin-left: 0.7em;

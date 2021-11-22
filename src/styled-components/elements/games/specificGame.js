@@ -120,7 +120,13 @@ export const GameFactsDesktop = styled(FactsTable)`
 `
 
 export const GameTrailersContainer = styled.div`
-
+ ///////////
+  // media //
+  ///////////
+  @media ${device.laptop} {
+    width: 81%;
+    margin: 0 auto;
+  }
 `
 
 export const GameTrailer = styled(MovieVideos)``
@@ -147,7 +153,9 @@ export const GameScContainer = styled.div`
     margin-top: 61px;
   }
   @media ${device.laptop} {
+    margin: 0 auto;
     margin-top: 57px;
+    width: 81%;
   }
 `
 export const GameAdditionsContainer = styled.div`

@@ -16,6 +16,7 @@ import {
 } from "../../styled-components/elements/movie/movie";
 import { RatingIconWrapper } from "../../styled-components/elements/movie/movie";
 import userRating from "../../images/users_rating.svg";
+import { RatingText } from "../../styled-components/general/general-styles";
 
 /**
  * Component with introduction for movie -> director, relased data, title, trailer
@@ -65,11 +66,12 @@ export const MovieIntroduction = ({ credits, movie, videos }) => {
 
         {/*average vote*/}
         {movie.vote_average !== null &&
-            <MovieRating rating={movie.vote_average}>
+            <MovieRating rating={movie.vote_average * 10} title='Avarage rating'>
                 <RatingIconWrapper>
                     <img src={userRating} title='Average users rating' alt="Users rating" />
                 </RatingIconWrapper>
                 <span />
+                <RatingText>{movie.vote_average}</RatingText>
             </MovieRating>}
 
         {/*description*/}

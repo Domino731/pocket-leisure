@@ -7,34 +7,6 @@ export const Container = styled.main`
   padding-bottom: 17px;
   max-width: 1600px;
   padding: 0 10px;
-  ///////////
-  // media //
-  ///////////
-  /* @media ${device.mobileM} {
-    width: 370px;
-  }
-
-  @media ${device.mobileL} {
-    width: 410px;
-  }
-  @media ${device.mobileXL}{
-    width: 590px;
-  }
-  @media ${device.tablet} {
-    width: 750px;
-  }
-  @media ${device.laptop} {
-    width: 1000px;
-  }
-  @media ${device.laptopM} {
-    width: 1250px;
-  }
-  @media ${device.laptopL} {
-    width: 1430px;
-  }
-  @media ${device.desktopS} {
-    width: 1590px;
-  } */
 `
 export const PosterBig = styled.div`
   display: flex;

@@ -136,7 +136,7 @@ export const GameIntroduction = ({ game }) => {
             </GameGenreList>
 
             {/*game rating by users*/}
-            {game.rating !== 0 && <GameRating rating={(game.rating * 2) * 10}  title='Average users rating'>
+            {game.rating !== 0 && <GameRating rating={(game.rating * 20)}  title='Average users rating'>
                 <RatingIconWrapper>
                     <img src={userRating} alt="Users rating" />
                 </RatingIconWrapper>

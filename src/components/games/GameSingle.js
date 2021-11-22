@@ -45,7 +45,7 @@ export const GameSingle = ({ game }) => {
         <GameSingleRatingsBar>
 
             {/*rating by users*/}
-            <GameSingleRating title='Users rating'>
+            <GameSingleRating title='Users rating' rating={game.rating.toFixed(1) * 20}>
                 <i className="fas fa-star" /> <span>{game.rating.toFixed(1)}/5</span>
             </GameSingleRating>
 

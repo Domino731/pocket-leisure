@@ -1,5 +1,5 @@
 # Pocket leisure
-An app with library of games, movies and your overwatch statisctics. This project has also capability to choose one of 4 color themes 
+An app with library of games, movies and your overwatch statisctics. This project has also capability to choose one of 4 color themes. Available at https://ecstatic-shockley-450960.netlify.app/
 ## **Technology**
 * React create app
 * React - function components
@@ -79,7 +79,7 @@ Link: https://ow-api.com/docs/
 * `getReleaseDate()` - format date 
 * `sortGames()` - sort games by particular option
 * `sortMovies()` - sort movies by particular option
-
+* `getRatingColor()` - get color which is depends on rating score
 ## **Redux structure**
 ***State***
 * `mainColor` - main color for app, at default it's red

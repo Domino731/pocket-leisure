@@ -18,7 +18,7 @@ import { GameFacts } from "./GameFacts";
 import { GameIntroduction } from "./GameIntroduction";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
-// A component that returns details about specific game.
+// A component that returns  card with details about specific game.
 export const Game = () => {
 
     // references
