@@ -1,8 +1,6 @@
 import { ErrorContainer } from "../../styled-components/elements/notFound/notFound";
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router";
 import error404Graphic from "../../images/error404.svg"
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 /**
  * Component responsible for handling 404 error
@@ -18,25 +16,24 @@ export const NotFound404 = ({ redirectUrl }) => {
     useEffect(() => {
         // do a countdown
         const interval = setInterval(() => {
-            console.log(1)
             setRedirectTime(prev => prev - 1)
         }, 1000)
 
         // redirect after 5s
         const timeout = setTimeout(() => {
+            window.location = redirectUrl;
             clearInterval(interval);
         }, 5000);
 
         return () => {
             clearTimeout(timeout);
             clearInterval(interval);
-            console.log('Unmounted')
+            console.log('Unmounted');
         }
     },[]);
 
     return <ErrorContainer>
          <img src={error404Graphic} title='Page not found' alt='Page not found'/>
          <h1>You will be redirected after {redirectTime}s</h1>
-         {redirectTime === 0 && <Redirect to={redirectUrl}/>}
     </ErrorContainer>
 };

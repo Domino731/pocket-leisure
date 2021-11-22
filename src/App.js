@@ -22,7 +22,7 @@ import {GlobalStyle} from "./styled-components/general/globalStyle";
 import { Loading } from "./components/loading/Loading";
 import { NotFound404 } from "./components/notFound/NotFound404";
 
-const NotFound  = () => <NotFound404 redirectUrl='/' />
+
 function App({mainColor}) {
     return <ThemeProvider theme={theme(mainColor)}>
         <Reset/>
@@ -43,7 +43,7 @@ function App({mainColor}) {
             <Route path="/game-search" component={GameSearch}/>
             <Route path="/game/:id" component={Game}/>
             <Route path="/test" component={Loading}/>
-            <Route component={NotFound}/>
+            <Route component={() => <NotFound404 redirectUrl='/' />}/>
             </Switch>
         </Router>
     </ThemeProvider>

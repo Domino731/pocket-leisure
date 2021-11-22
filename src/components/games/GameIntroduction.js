@@ -1,7 +1,7 @@
 import metacriticIcon from "../../images/768px-Metacritic.svg.png"
-import userRating from "../../images/users_rating.svg";
+import userRating from "../../images/gamer.svg";
 import { useEffect, useState } from "react";
-import { FullWidePoster } from "../../styled-components/general/general-styles";
+import { FullWidePoster, RatingText } from "../../styled-components/general/general-styles";
 import {
     GameGenreList,
     GamePremiere,
@@ -25,6 +25,7 @@ import { RatingIconWrapper } from "../../styled-components/elements/movie/movie"
  * @param game - data about game  
  */
 export const GameIntroduction = ({ game }) => {
+
 
     //A state containing the width of the page based on which the elements will be rendered.
     // For widths below 1024px there is a different layout at the top and for widths above 1024px
@@ -135,20 +136,22 @@ export const GameIntroduction = ({ game }) => {
             </GameGenreList>
 
             {/*game rating by users*/}
-            {game.rating !== 0 && <GameRating rating={game.rating}>
+            {game.rating !== 0 && <GameRating rating={(game.rating * 2) * 10}  title='Average users rating'>
                 <RatingIconWrapper>
-                    <img src={userRating} title='Average users rating' alt="Users rating" />
+                    <img src={userRating} alt="Users rating" />
                 </RatingIconWrapper>
                 <span />
+                <RatingText>{game.rating.toFixed(1)}/5</RatingText>
             </GameRating>}
 
             {/*game rating by metacritic*/}
             {game.metacritic !== null &&
-                <GameRatingMetacritic rating={game.metacritic}>
+                <GameRatingMetacritic rating={game.metacritic} title='Metacritic rating'>
                     <RatingIconWrapper>
-                        <img src={metacriticIcon} title='Metacritic rating' alt="Metacritic rating" />
+                        <img src={metacriticIcon} alt="Metacritic rating" />
                     </RatingIconWrapper>
                     <span />
+                    <RatingText>{game.metacritic}/100</RatingText>
                 </GameRatingMetacritic>}
 
             {/*description*/}

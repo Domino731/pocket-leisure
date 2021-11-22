@@ -844,3 +844,23 @@ padding-bottom: 5px;
    border-bottom: 4px solid ${props => props.theme.color.gray};
  }
 `
+export const RatingText = styled.strong`
+display: block;
+position: absolute;
+margin: 0 auto;
+font-weight: bold;
+font-size: 22px;
+-webkit-text-stroke: 0.05em black;
+text-shadow: 2px 1px black;
+letter-spacing: 0.125rem;
+@media ${device.mobileM}{
+  font-size: 24px;
+}
+@media ${device.laptopM}{
+  font-size: 25px;
+}
+@media ${device.laptopS}{
+  width: 100%;
+  text-align: center;
+}
+`

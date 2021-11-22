@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { getRatingColor } from "../../../functions/getRatingColor";
 import { device } from "../../general/breakpoints";
 
 
@@ -194,7 +195,7 @@ export const RatingIconWrapper = styled.div`
   justify-content: center;
   align-items: center;
   img {
-    width: 100%;
+    width: 93%;
   }
 
   ///////////
@@ -221,14 +222,16 @@ export const RatingIconWrapper = styled.div`
     height: 56px;
   }
 `
+
 export const MovieRating = styled.div`
+position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 12px auto;
   span {
     display: block;
-    width: calc(100% - 62px);
+    width: calc(100% - 50px);
     height: 35px;
     background: ${props => props.theme.color.white};
     margin-left: -9px;
@@ -242,8 +245,9 @@ export const MovieRating = styled.div`
       position: absolute;
       left: -6px;
       height: 100%;
-      width: ${props => ((props.rating * 10) + "%")};
-      background: ${props => props.theme.color.main};
+      ${props => console.log(props.rating)}
+      width: ${props => (props.rating  + 3 + "%")};
+      background: ${props => getRatingColor(props.rating)};
       transform: skew(17deg, 0deg);
     }
 
@@ -253,10 +257,12 @@ export const MovieRating = styled.div`
     @media ${device.mobileM} { 
       height: 37px;
       margin-left: -7px;
+      width: calc(100% - 55px);
     }
     @media ${device.mobileL} { 
       height: 39px;
       margin-left: -13px;
+      width: calc(100% - 59px);
       border-radius: 0 30px 30px 0;
     }
     @media ${device.tablet} {
@@ -264,9 +270,13 @@ export const MovieRating = styled.div`
     }
     @media ${device.laptop} {
       height: 36px;
+      width: calc(100% - 50px);
     }
     @media ${device.laptopL} {
       height: 40px;
+    }
+    @media ${device.laptopL} {
+      width: calc(100% - 55px);
     }
   }
  

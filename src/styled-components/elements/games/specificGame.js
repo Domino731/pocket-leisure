@@ -10,6 +10,7 @@ import {
   MovieVideos, MovieVideosSwitch
 } from "../movie/movie";
 import { FactsTable } from "../../general/general-styles";
+import { getRatingColor } from "../../../functions/getRatingColor";
 
 export const GameRow = styled.div`
   ///////////
@@ -81,7 +82,7 @@ export const GameGenreList = styled(MovieGenreList)`
 export const GameRating = styled(MovieRating)`
   div {
     &::before {
-      width: ${props => (2 * (props.rating * 10) + "%")};
+      width: ${props => (2 * (props.rating * 10) + 2 + "%")};
     }
   }
 
@@ -95,8 +96,11 @@ div{
 
   span {
     &::before {
-      width: ${props => ((props.rating) + "%")};
-      background: ${props => props.theme.color.yellow};
+      width: ${props => ((props.rating + 3) + "%")};
+      background: ${props => getRatingColor(props.rating)};
+       
+      
+      
     }
   }
 `
@@ -264,12 +268,6 @@ export const GameStoreItem = styled.li`
     object-fit: cover;
     margin: 0 0.4em;
   }
-  &:hover {
-    transition: 0.2s;
-    text-decoration: underline;
-    text-decoration-color: ${props => props.theme.color.main};;
-  }
-
   i {
     margin-right: 7px;
     color: ${props => props.theme.color.main}
